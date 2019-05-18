@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Cody</string>
+    <string name="welcometext">Good day, what\'s the dress code today?</string>
+    <string name="dresscode">Dress Code</string>
+    <string name="luckytext">I\'m feeling lucky</string>
+    <string name="emptyinput">Nothing selected!</string>
+    <string name="title_activity_customise">CustomiseActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">Customise</string>
+    <string name="tab_text_2">Favourites</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_nav">NavActivity</string>
+</resources>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" class="application-layout forum-posts-show forum-posts-controller show-action has-topic visitor chrome webkit windows" id="layout" data-featurette="application-layout"  >
+  <head>
+    <title>onClickListener problem. | Treehouse Community</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"d98036d1cc","applicationID":"1824378","transactionName":"cQ5eRRQNCQ8BFhZeWEAUXW4WDRYXF0tKUFhF","queueTime":0,"applicationTime":137,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwIBVldWGwIIVlVRAAk="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="google-site-verification" content="4Ga-viQvIZUFNQXu323xpp_24RDlLooxwlpnXhinjPA" />
+    <meta name="msvalidate.01" content="F0716E70B7DD3B8C892B48891CA4B541" />
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="UQ1Qao15bPinICvnFDzrIyVPPDS0FDeE82ESLJUs3eIeWGibpRNu/eOAXgSCvf4fuiFEA5KN8VkKn9peHsQfXw==" />
+
+      <meta name="description" content="Participate in discussions with other Treehouse members and learn." />
+      <meta name="image" content="http://teamtreehouse.com/images/logo.png" />
+      <meta name="twitter:site" content="@treehouse" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:description" content="Participate in discussions with other Treehouse members and learn." />
+      <meta name="twitter:image" content="https://static.teamtreehouse.com/assets/marketing/opengraph/logo_twitter-cd0ecb90408499f45a2191805f54362981da5a69ddcfaa6ec93556d64e289036.png" />
+
+      <meta property="fb:app_id" content="1447543992198627" />
+      <meta property="og:site_name" content="Treehouse" />
+      <meta property="og:description" content="Participate in discussions with other Treehouse members and learn." />
+      <meta property="og:image" content="https://static.teamtreehouse.com/assets/marketing/opengraph/logo_facebook-5a7642409483233360d948ca4dd6840de0a6083475af4b047d452b77b00ca68a.png" />
+
+    <script src="https://static.teamtreehouse.com/assets/head_vendor-c7c446e89edd8174e363176292fa44a6c8eb557bcb1ddd0b9d575ed833114955.js"></script>
+    <script>
+  window.bugsnagClient = bugsnag({
+    apiKey: "8251a8eb6422d59eaf410e7c1b1c7b38",
+    releaseStage: "production"
+  });
+</script>
+
+      <script src="https://cdn.cookielaw.org/consent/39d1ae64-085b-42e6-a239-a988d6530b80.js" type="text/javascript" charset="UTF-8"></script>
+
+<script type="text/javascript">
+function OptanonWrapper() { window.dataLayer.push({ event: "OneTrustGroupsUpdated" }) }
+</script>
+
+    <script>
+//<![CDATA[
+window.appData = '{\"controller_name\":\"forum_posts\",\"action_name\":\"show\",\"app_version\":\"bafe1709a8b6b5de02028d45c35d2ea6301ef076\"}'
+//]]>
+</script>
+
+
+    <link rel="stylesheet" media="screen" href="https://static.teamtreehouse.com/assets/vendor-415e22be9bd0a8f2d2015281099e4006db085cf560e677362b3331ef6ea3b598.css" />
+<link rel="stylesheet" media="screen" href="https://static.teamtreehouse.com/assets/application-2f0c35b7319d6634e0a6d2af295c9f2df5a1f77af05e2c343a65a7e9f13e0369.css" />
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7055252/762022/css/fonts.css" />
+    
+
+    <style media="print">
+      header, footer, .graph, .nav, svg {
+        display: none
+      }
+    </style>
+
+    <link rel="shortcut icon" href="/assets/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://static.teamtreehouse.com/assets/apple-touch-icon-60x60-precomposed-05be36fef4d37c9642a8923eb00325c9d680150d26954e868ddded6b7976a032.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://static.teamtreehouse.com/assets/apple-touch-icon-76x76-precomposed-7283cd247847d1f21be0e79c52e3524c89adabf69cfc331046319f4ab19be058.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://static.teamtreehouse.com/assets/apple-touch-icon-120x120-precomposed-dda60d87f49aa928ff86379bb50d9514d4b5f19502ff562b453e3d254730f682.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://static.teamtreehouse.com/assets/apple-touch-icon-152x152-precomposed-1f486d33d1fe181adce0689d370d7dab9e777fab99b244e15b8c785239410674.png" />
+
+    
+
+    
+
+    <script type="text/plain" class="optanon-category-2">
+(function() {
+  var s = document.createElement('script'),
+  e = document.getElementsByTagName('script')[0];
+  s.src = '//d3cxv97fi8q177.cloudfront.net/foundation-A187849-72ad-44c6-83bc-3d4f458b85e71.min.js';s.type = 'text/javascript';s.async = true;s.id="irfOuterTag";
+  e.parentNode.insertBefore(s, e);
+
+})();
+</script>
+<noscript><img src="//tl.r7ls.net/unscripted/187849" width="1" height="1"></noscript>
+
+
+    <script type="text/javascript">
+  window._elqQ = [];
+  function _elqInitialize() {
+    if(!window._elqInitialized) {
+      window._elqInitialized = true;
+      _elqQ.push(['elqSetSiteId', '1855842777']);
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = '//img04.en25.com/i/elqCfg.min.js';
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    }
+  };
+</script>
+<script type="text/plain" class="optanon-category-2">
+  _elqInitialize();
+</script>
+<script type="text/plain" class="optanon-category-4">
+  _elqInitialize();
+  _elqQ.push(['elqTrackPageView']);
+</script>
+
+  </head>
+  <body  class="windows chrome webkit ">
+    <!-- Data Layer -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({"loggedIn":false,"visitorId":7051945702,"userId":null});
+</script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PZ55S7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PZ55S7');</script>
+<!-- End Google Tag Manager -->
+
+
+
+  <header class="header" role="banner" data-header>
+    <nav class="header-nav container" role="navigation" data-nav>
+      <button class="hamburger-button hamburger-button-inverse" aria-label="Navigation Menu" data-hamburger-button>
+  <span class="hamburger"></span>
+</button>
+
+      <ul class="header-nav-list ">
+        <li class="header-nav-item  header-nav-item-primary header-nav-item-logo ">
+          <h6 class="header-nav-item-logo-container">
+            <a class="header-nav-link header-nav-item-logo-link" aria_label="Treehouse Home" data-analytics-link="Treehouse Logo" data-analytics-event="application nav link" data-analytics-path="/" data-analytics-action="clicked" href="/">
+              <svg class="logo-icon header-nav-item-logo-icon" alt="Treehouse" preserveAspectRatio="xMinYMin meet" viewBox="0 0 30 32"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#logo-icon"></use></svg>
+              <span class="header-nav-item-logo-text header-nav-item-primary">Home</span>
+</a>          </h6>
+</li>
+          <li class="header-nav-item  header-nav-item-sign-up ">
+            <a class="header-nav-link " data-analytics-event="application nav link" data-analytics-link="Free Trial" data-analytics-path="/subscribe/plans?trial=yes" data-analytics-action="clicked" href="/subscribe/plans?trial=yes">Free Trial</a>
+</li>
+          <li class="header-nav-item header-nav-item-mobile header-nav-item-sign-in ">
+            <a class="header-nav-link " data-analytics-event="application nav link" data-analytics-link="Sign In" data-analytics-path="/signin?return_to=%2Fcommunity%2Fonclicklistener-problem" data-analytics-action="clicked" href="/signin?return_to=%2Fcommunity%2Fonclicklistener-problem">Sign In</a>
+</li>
+          <li class="header-nav-item header-nav-item-tablet header-nav-item-primary header-nav-item-techdegrees ">
+            <a class="header-nav-link " data-analytics-event="application nav link" data-analytics-link="Techdegree" data-analytics-path="/techdegree" data-analytics-action="clicked" href="/techdegree">Techdegree</a>
+</li>
+        <li class="header-nav-item header-nav-item-tablet header-nav-item-primary header-nav-item-tracks ">
+          <a class="header-nav-link nav-item-tracks" data-analytics-event="application nav link" data-analytics-link="Tracks" data-analytics-path="/tracks" data-analytics-action="clicked" href="/tracks">Tracks</a>
+</li>
+        <li class="header-nav-item header-nav-item-tablet header-nav-item-primary header-nav-item-library ">
+          <a class="header-nav-link nav-item-library" data-analytics-event="application nav link" data-analytics-link="Library" data-analytics-path="/library" data-analytics-action="clicked" href="/library">Library</a>
+</li>
+        <li class="header-nav-item header-nav-item-tablet nav-item-community header-nav-item-primary header-nav-item-community header-nav-item-current">
+          <a class="header-nav-link nav-item-community" data-analytics-event="application nav link" data-analytics-link="Community" data-analytics-path="/community" data-analytics-action="clicked" href="/community">Community</a>
+</li>
+        <li class="header-nav-item header-nav-item-tablet header-nav-item-primary header-nav-item-support ">
+          <a class="header-nav-link " data-analytics-event="application nav link" data-analytics-link="Support" data-analytics-path="/support" data-analytics-action="clicked" href="/support">Support</a>
+</li>
+      </ul>
+      
+    </nav>
+  </header>
+
+  <main class="content topic-mobile" role="main" data-content="">
+      <div class="container ">
+        
+        
+        
+
+        
+          
+<div class="mixed-box">
+  <div id="forum-post-meta" class="box-header secondary has-topic-border-color add-mobile-border-color">
+    <ul id="forum-post-actions">
+    </ul>
+    <p id="forum-post-breadcrumb">
+      <a id="forum-post-breadcrumb-topic" class="has-topic-color add-mobile-color has-topic-color-on-hover add-mobile-color-darker-on-hover" href="/community/topic:android">Android</a>
+      
+      
+      
+    </p>
+  </div>
+
+  <div id="forum-post-content" class="box-content">
+    
+    <div id="forum-post-question-container" class="discussion-question-container">
+	<div class="discussion-question">
+
+
+	  <div id="show-post-216952">
+    <div id="avatar-fb717f" class="discussion-question-avatar avatar-white-bg avatar avatar-medium avatar-link user-tooltip-link" data-featurette="avatar" data-user-tooltip-link="">
+    
+    <div class="points-donut chart avatar-points" data-animate-points="true" data-initialize-later="true" data-featurette="points-chart" data-width="48" data-height="48" data-donut-width="9px" data-points="{&quot;front-end&quot;:624,&quot;design&quot;:0,&quot;back-end&quot;:0,&quot;mobile&quot;:1177,&quot;fundamentals&quot;:0,&quot;data&quot;:0,&quot;experimental&quot;:0}" data-points-total="2011" data-padding="1"></div>
+    <div class="avatar-container">
+      <img alt="Divyansh Upreti" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/1046672/micro_10264969_778174952207475_7179371144207186062_n.jpg" />
+    </div>
+    
+    
+      <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div>
+</div>
+  <div class="discussion-byline ">Posted <a class="discussion-byline-time" href="/community/onclicklistener-problem"><time datetime="2014-07-06T14:42:00Z" data-local="time-ago">July  6, 2014  2:42pm</time></a> by <span class="discussion-author user-tooltip-link">Divyansh Upreti  <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div></span></div>
+
+  <h1>onClickListener problem.</h1>
+
+  <div class="question markdown-zone">
+    <p>Hi guys, i am always scared by this code which is used very often... can someone explain this completely in a nice way to me... </p>
+
+<p>What are the parameters of the method and then there is a method within a method... its all confusing...</p>
+
+<div class="highlight highlight-java"><pre><span></span><span id="line-1"><span class="n">mGetAnswerButton</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="k">new</span> <span class="n">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+</span><span id="line-2">
+</span><span id="line-3">            <span class="nd">@Override</span>
+</span><span id="line-4">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">arg0</span><span class="o">)</span> <span class="o">{</span>
+</span><span id="line-5">                <span class="c1">// TODO Auto-generated method stub</span>
+</span><span id="line-6">
+</span><span id="line-7">            <span class="o">}</span>
+</span><span id="line-8">        <span class="o">});</span>
+</span></pre></div>
+  </div>
+</div>
+
+
+
+		
+	</div>
+</div>
+
+
+
+      <div id="forum-post-answers-container">
+
+          <div class="secondary-heading answer-count">
+            <h2>1 Answer</h2>
+          </div>
+
+        <div class="discussion-answer"
+     data-featurette="forum-voting"
+     data-answer-id="582592"
+     data-cancel-vote-url="/community/216952/forum_answers/582592/vote/cancel">
+
+  <div id="answer-582592" class="discussion-highlight discussion-answer-best">
+
+    <div id="show-answer-582592" >
+
+    <a id="avatar-b265bd" class="avatar-staff avatar-moderator avatar-white-bg avatar-light-green-bg discussion-answer-avatar avatar avatar-medium avatar-link user-tooltip-link" href="/justinhhorner" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-featurette="avatar" data-user-tooltip-link="">
+    
+    
+    <div class="avatar-container">
+      <img alt="Justin Horner" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/95683/micro_avatar_04.png" />
+    </div>
+    
+    <div class="avatar-label"><span class="discussion-author-label">STAFF</span></div>
+      <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div>
+</a>
+  <div class="discussion-byline "><a class="discussion-author user-tooltip-link" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-user-tooltip-link="" href="/justinhhorner">Justin Horner  <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div></a> <span class="discussion-byline-time"><time datetime="2014-07-06T15:49:12Z" data-local="time-ago">July  6, 2014  3:49pm</time></span></div>
+
+  <div class="discussion-answer-text">
+    <div class="markdown-zone">
+      <p>Hello Divyansh,</p>
+
+<p>I'll certainly do my best to explain what's going on.  </p>
+
+<p>Firstly, the button needs a callback, some code to call when the button gets clicked. The way we set that callback is with the setOnClickListener.</p>
+
+<p>Looking at the documentation for setOnClickListener, we can see that it takes an implementer View.OnClickListener as a parameter.</p>
+
+<p>[Documentation - setOnClickListener](<a href="http://developer.android.com/reference/android/view/View.html#setOnClickListener(android.view.View.OnClickListener)">http://developer.android.com/reference/android/view/View.html#setOnClickListener(android.view.View.OnClickListener)</a></p>
+
+<p>So what is View.OnClickListener? From the documentation it an Interface definition for a callback to be invoked when a view is clicked.</p>
+
+<p><a href="http://developer.android.com/reference/android/view/View.OnClickListener.html">Documentation - View.OnClickListener</a></p>
+
+<p>So we know we need to pass an instance of an object that implements the View.OnClickListener interface. If the class you're working in doesn't implement View.OnClickListener than the common way to accomplish this is to create an anonymous inner class. </p>
+
+<p>Now here is where the magic happens. Let's look at the button click example again.</p>
+
+<div class="highlight highlight-html"><pre><span></span><span id="line-1">mGetAnswerButton.setOnClickListener(new View.OnClickListener() {
+</span><span id="line-2">        @Override
+</span><span id="line-3">        public void onClick(View arg0) {
+</span><span id="line-4">            // TODO Auto-generated method stub
+</span><span id="line-5">
+</span><span id="line-6">        }
+</span><span id="line-7">    });
+</span></pre></div>
+
+<p>Here's the breakdown of what's happening here. By creating a new View.OnClickListener() and defining the code block, you are essentially creating an anonymous inner class that implements View.OnClickListener.</p>
+
+<p>This is the same net result of creating a new Java class that implements View.OnClickListener, creating an instance of it and passing it to the setOnClickListener method.</p>
+
+<p>I hope this helps.  If you still have questions I'll do my best to explain further.</p>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<div class="discussion-comments-container ">
+  <div class="discussion-answer-comments">
+    <div class="comment" id="comment-262902">
+  <div class="discussion-comment" id="show-comment-262902">
+    <div id="avatar-6a9128" class="discussion-comment-avatar avatar-white-bg avatar avatar-x-small avatar-link user-tooltip-link" data-featurette="avatar" data-user-tooltip-link="">
+    
+    <div class="points-donut chart avatar-points" data-animate-points="true" data-initialize-later="true" data-featurette="points-chart" data-width="30" data-height="30" data-donut-width="9px" data-points="{&quot;front-end&quot;:624,&quot;design&quot;:0,&quot;back-end&quot;:0,&quot;mobile&quot;:1177,&quot;fundamentals&quot;:0,&quot;data&quot;:0,&quot;experimental&quot;:0}" data-points-total="2011" data-padding="2"></div>
+    <div class="avatar-container">
+      <img alt="Divyansh Upreti" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/1046672/micro_10264969_778174952207475_7179371144207186062_n.jpg" />
+    </div>
+    
+    
+      <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div>
+</div>
+  <div class="discussion-byline "><span class="discussion-author user-tooltip-link">Divyansh Upreti  <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div></span> <span class="discussion-byline-time"><time datetime="2014-07-07T04:23:49Z" data-local="time-ago">July  7, 2014  4:23am</time></span></div>
+
+  <div class="discussion-comment-text">
+    <div class="markdown-zone">
+      <p>Thanks for answering Justin! I have got some doubts...</p>
+
+<ol>
+<li><p>the button 'mGetAnswerButton' is itself a view... and we are calling setOnClickListener on it, then why does it need a new View as a parameter? is this just a convention?</p></li>
+<li><p>if i don't create the 'anonymous inner class' and rather create it separately in my code, override the onClick method and then call its instance as my parameter in my setOnClickListener method instead, it should work... isn't it? it's just that the above code looks too ugly to look at.</p></li>
+</ol>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="comment" id="comment-263122">
+  <div class="discussion-comment" id="show-comment-263122">
+    <a id="avatar-6fe1f7" class="avatar-staff avatar-moderator discussion-comment-avatar avatar-white-bg avatar avatar-x-small avatar-link user-tooltip-link" href="/justinhhorner" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-featurette="avatar" data-user-tooltip-link="">
+    
+    
+    <div class="avatar-container">
+      <img alt="Justin Horner" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/95683/micro_avatar_04.png" />
+    </div>
+    
+    
+      <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div>
+</a>
+  <div class="discussion-byline "><a class="discussion-author user-tooltip-link" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-user-tooltip-link="" href="/justinhhorner">Justin Horner  <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div></a> <span class="discussion-byline-time"><time datetime="2014-07-07T12:36:57Z" data-local="time-ago">July  7, 2014 12:36pm</time></span></div>
+
+  <div class="discussion-comment-text">
+    <div class="markdown-zone">
+      <p>You're welcome! About the other questions...</p>
+
+<ol>
+<li><p>Remember that setOnClickListener does not necessarily take a view as a parameter. it takes a class that implements the View.OnClickListener interface. This class being passed in implements the interface which means when the button is clicked, the framework can trust that an onClick method exists on the object is passed to it as the callback.</p></li>
+<li><p>Yes, in fact there are several approaches to setting button click listeners.  Check out the <a href="http://developer.android.com/reference/android/widget/Button.html">documentation</a> for Button. In the class overview, second example you'll see you can also define them in xml and simply have a matching method in your activity that has a View as a parameter.  The view parameter is simply a way to get the sender, or the button clicked, to the callback.</p></li>
+</ol>
+
+<p>Another approach would be to make your Activity class implement View.OnClickListener and use a switch on the view id to find which button was clicked like this.</p>
+
+<div class="highlight highlight-html"><pre><span></span><span id="line-1">  public class MainActivity extends Activity implements View.OnClickListener {
+</span><span id="line-2">
+</span><span id="line-3">    @Override
+</span><span id="line-4">    protected void onCreate(Bundle savedInstanceState) 
+</span><span id="line-5">        {
+</span><span id="line-6">        super.onCreate(savedInstanceState);
+</span><span id="line-7">        setContentView(R.layout.activity_main);
+</span><span id="line-8">
+</span><span id="line-9">        ((Button)findViewById(R.id.buttonA)).setOnClickListener(this);
+</span><span id="line-10">        ((Button)findViewById(R.id.buttonB)).setOnClickListener(this);
+</span><span id="line-11">    } 
+</span><span id="line-12">
+</span><span id="line-13">    @Override
+</span><span id="line-14">    public void onClick(View v) 
+</span><span id="line-15">        {
+</span><span id="line-16">                switch (v.getId()) { 
+</span><span id="line-17">                {
+</span><span id="line-18">            case R.id.buttonA:
+</span><span id="line-19">                // TODO: Work here for button A
+</span><span id="line-20">                break;
+</span><span id="line-21">            case R.id.buttonB:
+</span><span id="line-22">                // TODO: Work here for button B
+</span><span id="line-23">                break;
+</span><span id="line-24">            default:
+</span><span id="line-25">                break;
+</span><span id="line-26">            }   
+</span><span id="line-27">    }
+</span><span id="line-28">  }
+</span></pre></div>
+
+<p>So you can see in this example when calling setOnClickListener we're passing 'this' as the View.OnClickListener because our Activity class implements the View.OnClickListener interface.</p>
+
+<p>I hope this helps.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="comment" id="comment-267892">
+  <div class="discussion-comment" id="show-comment-267892">
+    <div id="avatar-6a9128" class="discussion-comment-avatar avatar-white-bg avatar avatar-x-small avatar-link user-tooltip-link" data-featurette="avatar" data-user-tooltip-link="">
+    
+    <div class="points-donut chart avatar-points" data-animate-points="true" data-initialize-later="true" data-featurette="points-chart" data-width="30" data-height="30" data-donut-width="9px" data-points="{&quot;front-end&quot;:624,&quot;design&quot;:0,&quot;back-end&quot;:0,&quot;mobile&quot;:1177,&quot;fundamentals&quot;:0,&quot;data&quot;:0,&quot;experimental&quot;:0}" data-points-total="2011" data-padding="2"></div>
+    <div class="avatar-container">
+      <img alt="Divyansh Upreti" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/1046672/micro_10264969_778174952207475_7179371144207186062_n.jpg" />
+    </div>
+    
+    
+      <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div>
+</div>
+  <div class="discussion-byline "><span class="discussion-author user-tooltip-link">Divyansh Upreti  <div class="user-tooltip tooltip tooltip-top ">
+    <h6 class="user-tooltip-name">Divyansh Upreti</h6>
+
+
+
+      <span class="user-tooltip-points-total">
+        2,011 Points
+      </span>
+</div></span> <span class="discussion-byline-time"><time datetime="2014-07-09T16:19:23Z" data-local="time-ago">July  9, 2014  4:19pm</time></span></div>
+
+  <div class="discussion-comment-text">
+    <div class="markdown-zone">
+      <p>Thanks Justin!</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="comment" id="comment-268352">
+  <div class="discussion-comment" id="show-comment-268352">
+    <a id="avatar-6fe1f7" class="avatar-staff avatar-moderator discussion-comment-avatar avatar-white-bg avatar avatar-x-small avatar-link user-tooltip-link" href="/justinhhorner" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-featurette="avatar" data-user-tooltip-link="">
+    
+    
+    <div class="avatar-container">
+      <img alt="Justin Horner" class="avatar-image" src="https://uploads.teamtreehouse.com/production/profile-photos/95683/micro_avatar_04.png" />
+    </div>
+    
+    
+      <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div>
+</a>
+  <div class="discussion-byline "><a class="discussion-author user-tooltip-link" data-behavior="mini-profile-trigger" data-profile-name="justinhhorner" data-user-tooltip-link="" href="/justinhhorner">Justin Horner  <div class="user-tooltip tooltip tooltip-top user-tooltip-staff user-tooltip-moderator">
+    <h6 class="user-tooltip-name">Justin Horner</h6>
+
+
+      <span class="user-tooltip-type">
+        Treehouse Guest Teacher
+      </span>
+
+</div></a> <span class="discussion-byline-time"><time datetime="2014-07-09T18:05:25Z" data-local="time-ago">July  9, 2014  6:05pm</time></span></div>
+
+  <div class="discussion-comment-text">
+    <div class="markdown-zone">
+      <p>You're welcome!</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+  </div>
+</div>
+
+      </div>
+
+      
+
+      <div id="forum-post-answer" class="">
+        
+      </div>
+  </div>
+    <div id="community-disclaimer" class="box-footer secondary">
+    <svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="info-24-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#info-24-icon"></use></svg>
+    <p>
+      Posting to the forum is only allowed for members with active accounts.<br />
+        Please <a href="/signin?return_to=%2Fcommunity%2Fonclicklistener-problem">sign in</a> or <a href="/subscribe/plans">sign up</a> to post.
+    </p>
+  </div>
+
+</div>
+
+</div></main>
+  <footer class="footer" role="contentinfo">
+  <div class="container ">
+      <dl class="footer-meta-list footer-meta-list-treehouse">
+        <dt class="footer-meta-title"><a class="footer-meta-treehouse-icon-link" href="/"><svg class="treehouse-icon footer-meta-treehouse-icon" preserveAspectRatio="xMinYMin meet" viewBox="0 0 139 32"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#treehouse-icon"></use></svg></a></dt>
+        <dd class="footer-meta-item">Our mission is to bring <a class="footer-meta-treehouse-link" href="/">affordable technology education</a> to people everywhere in order to help them achieve their dreams and change the world.</dd>
+      </dl>
+      <dl class="footer-meta-list">
+        <dt class="footer-meta-title">Our Company</dt>
+        <dd class="footer-meta-item"><a rel="nofollow" class="footer-meta-link" href="/about">About Us</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/support">Contact Us</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/community">Community</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/stories">Treehouse Stories</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/perks">Student Perks</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="http://blog.teamtreehouse.com/">Treehouse Blog</a></dd>
+        <dd class="footer-meta-item"><a rel="nofollow" class="footer-meta-link" href="https://teamtreehouse.com/affiliate-program">Affiliate Program</a></dd>
+        <dd class="footer-meta-item"><a rel="nofollow" class="footer-meta-link" href="/careers">Careers</a></dd>
+      </dl>
+      <dl class="footer-meta-list">
+        <dt class="footer-meta-title">Topics</dt>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:html">HTML</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:css">CSS</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:design">Design</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:javascript">JavaScript</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:ruby">Ruby</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:php">PHP</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:wordpress">WordPress</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:ios">iOS</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:android">Android</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:development-tools">Development Tools</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/library/topic:business">Business</a></dd>
+      </dl>
+      <dl class="footer-meta-list">
+        <dt class="footer-meta-title">Tracks</dt>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/web-design">Web Design</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/web-development">Web Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/rails-development">Rails Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/php-development">PHP Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/ios-development">iOS Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/android-development">Android Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/wordpress-development">WordPress Development</a></dd>
+        <dd class="footer-meta-item"><a class="footer-meta-link" href="/tracks/starting-a-business">Starting a Business</a></dd>
+      </dl>
+    <ul class="footer-list">
+        <li class="footer-item footer-social-item">
+          <a title="Twitter" class="footer-social-link" target="_blank" href="http://twitter.com/treehouse"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="twitter-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#twitter-icon"></use></svg></a>
+        </li>
+        <li class="footer-item footer-social-item">
+          <a title="Youtube" class="footer-social-link" target="_blank" href="http://youtube.com/user/gotreehouse"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="youtube-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#youtube-icon"></use></svg></a>
+        </li>
+        <li class="footer-item footer-social-item">
+          <a title="Facebook" class="footer-social-link" target="_blank" href="http://facebook.com/teamtreehouse"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="facebook-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#facebook-icon"></use></svg></a>
+        </li>
+        <li class="footer-item footer-social-item">
+          <a title="LinkedIn" class="footer-social-link" target="_blank" href="http://linkedin.com/company/treehouse-island-inc-"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="linked-in-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#linked-in-icon"></use></svg></a>
+        </li>
+        <li class="footer-item footer-social-item">
+          <a title="Instagram" class="footer-social-link" target="_blank" href="http://instagram.com/teamtreehouse"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 24 24" class="instagram-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#instagram-icon"></use></svg></a>
+        </li>
+      <li class="footer-item footer-item-text footer-item-blog"><a class="footer-item-text-link" href="http://blog.teamtreehouse.com/">Treehouse Blog</a></li>
+      <li class="footer-item footer-item-text"><a target="_blank" class="footer-item-text-link" href="https://shop.teamtreehouse.com">Shop Treehouse</a></li>
+      <li class="footer-item footer-item-text"><a class="footer-item-text-link" href="/about">About Treehouse</a></li>
+      <li class="footer-item footer-item-text"><a rel="nofollow" class="footer-item-text-link" href="/privacy">Privacy Policy</a></li>
+      <li class="footer-item footer-item-text"><a rel="nofollow" class="footer-item-text-link" href="/terms">Terms &amp; Conditions</a></li>
+      <li class="footer-item footer-item-copyright">&copy; 2018 Treehouse Island, Inc.</li>
+    </ul>
+</div></footer>
+
+
+  
+ <!-- yields content from within treehouse-tour paths. Find helper in application.helper -->
+
+  <div id="login-modal" class="modal" data-featurette="modal" style="; display: none;">
+    <div  class="grid-container login-modal" >
+      <div  class="grid-50 grid-parent centered" >
+        <section class="contained">
+          <button class="button  modal-close x-small square secondary" data-modal-close="close"><svg preserveAspectRatio="xMinYMin meet" viewBox="0 0 12 12" class="close-icon"><use xlink:href="/assets/icons-7da5f4b10bc24925de2f814b253834ff806c524036528ff0a3a98b4218164112.svg#close-icon"></use></svg></button>
+           <div class="grid-100 secondary-heading">
+            <h1>Sign in</h1>
+          </div>
+          <form class="new_user_session" id="new_user_session" action="https://teamtreehouse.com/person_session?secure=true" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="RxMrCtdjWQLdD/gtWRBRVAbf2wXojB7cy4UKBkboXBAIRhP7/wlbB5mvjc7PkURombGjMs4V2AEye8J0zQCerQ==" />
+          <input type="hidden" name="return_to" id="return_to" value="/community/onclicklistener-problem" class="input-hidden" />
+          <fieldset>
+            <div class="form-item">
+            <label for="user_session_email">Email Address</label>
+            <input autofocus="autofocus" autocomplete="email" class="form-text-input input-text input-text" type="email" name="user_session[email]" id="user_session_email" />
+</div>          </fieldset>
+          <fieldset>
+            <div class="form-item">
+            <label for="user_session_password">Password</label>
+            <input autocomplete="current-password" class="form-text-input input-text input-text" type="password" name="user_session[password]" id="user_session_password" />
+</div>          </fieldset>
+          <p class="forgot-password"><a href="/password_resets"><span class="icon icon-help-mini"></span>I forgot my password</a></p>
+          <button type="submit" class="button primary">Sign in</button>
+</form>        </section>
+      </div>
+    </div>
+</div>
+
+
+<div id="mini-profile-container"></div>
+<div id="tarp" class="modal-tarp" style="display: none;" data-featurette="tarp"></div>
+
+
+
+    
+    <script src="https://static.teamtreehouse.com/assets/application_vendor-26c68c65a233bd429282200d11b281e7e697c34eecd2668409feab5af2c8982a.js"></script>
+    
+    <script src="https://static.teamtreehouse.com/assets/application-243b8311f087234192870484c2578c31a8d8671054cc2ba1620cf592a498e8f4.js"></script>
+    
+    
+    <!-- Segment.io Analytics -->
+<script type="text/plain" class="optanon-category-2">
+  !function(){
+    var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    analytics.load("DMUKccVYvuuUIVSJlokCJe0YQyGm9qVb");
+
+    analytics.ready(function(){
+      window.analytics.segmentDebug = window.analytics.debug;
+      window.analytics.debug = function(state) {
+        if (state == null) { state = true; }
+        $.cookie("_treehouse_analytics_debug", state);
+        return state;
+      };
+    })
+
+    window.recordedAnalytics = []
+    function recordAnalyticsCall(callType, event, properties, options) {
+      if ($.cookie("_treehouse_analytics_debug") == "true") {
+        window.recordedAnalytics.push([callType, event, properties, options])
+        console.debug("Analytics: ", callType, ("'" + event + "'"), properties, options);
+      }
+    }
+    analytics.on('alias', function(e, p, o) { recordAnalyticsCall('alias', e, p, o)});
+    analytics.on('identify', function(e, p, o) { recordAnalyticsCall('identify', e, p, o)});
+    analytics.on('group', function(e, p, o) { recordAnalyticsCall('group', e, p, o)});
+    analytics.on('track', function(e, p, o) { recordAnalyticsCall('track', e, p, o)});
+    analytics.on('page', function(e, p, o) { recordAnalyticsCall('page', e, p, o)});
+
+    var session_id = "c0d65f55-2fad-43c2-97b8-42c57c8e965a";
+    var request_id = "3AB63597-E958-AC120A2A-01BB-5C0A5F80-9829CC-4A73";
+    var visitor_id = $.cookie("vid");
+    var user_id = "";
+    var organization_id = "";
+    var composite_identity = "YzBkNjVmNTUtMmZhZC00M2MyLTk3YjgtNDJjNTdjOGU5NjVhNzA1MTk0NTcwMg==";
+
+    function trackIdentity() {
+        window.analytics.identify({
+          visitor_id: visitor_id,
+          session_id: session_id
+        }, {
+          anonymousId: session_id,
+          Intercom : {
+            user_hash : "7b9617562bb43d21dec8e1a49b7438320652068934cc632c509de7a9796e4853"
+          }
+        });
+
+    }
+
+    function trackPage() {
+      window.analytics.page({
+        visitor_id: visitor_id,
+        session_id: session_id,
+        request_id: request_id
+      }, {
+        anonymousId: session_id
+      });
+    }
+
+    if ($.cookie("_analytics_composite_identity") != composite_identity) {
+      analytics.reset();
+    }
+    $.cookie("_analytics_composite_identity", composite_identity);
+
+    trackIdentity();
+    trackPage();
+
+    $(document).on("pjax:success", function(event, body, status, xhr, options) {
+      request_id = xhr.getResponseHeader("X-Request-Id");
+      trackPage();
+    });
+  }}();
+
+</script>
+
+  </body>
+</html>
+

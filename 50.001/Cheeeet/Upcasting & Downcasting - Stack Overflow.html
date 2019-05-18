@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+
+
+    <html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
+
+    <head>
+
+        <title>java - What is the difference between up-casting and down-casting with respect to class variable - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content= "website" />
+        <meta property="og:url" content="https://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class"/>
+        <meta property="og:site_name" content="Stack Overflow" />
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:domain" content="stackoverflow.com"/>
+        <meta name="twitter:title" property="og:title" itemprop="title name" content="What is the difference between up-casting and down-casting with respect to class variable" />
+        <meta name="twitter:description" property="og:description" itemprop="description" content="What is the difference between up-casting and down-casting with respect to class variable?
+
+For example in the following program class Animal contains only one method but Dog class              con..." />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.sstatic.net/Js/stub.en.js?v=4f2ba8439194"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=89b4ac8b4f10">
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary-unified.css?v=28564b21dbe9">
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;What is the difference between up-casting and down-casting with respect to class variable&#39;" href="/feeds/question/23414090">
+            <script>StackExchange.using("gps", function () {
+                    StackExchange.gps.track("question.visit", {
+                        answers: 10,
+                        referrer: 0
+                    });
+                });
+            </script>
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:23414090});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '23414090');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+                <script>
+        StackExchange.init({"locale":"en","serverTime":1540696910,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"a06d43983f02eaa2264520441be31017aafc81bd58d4e118e8b00f5fe71ee942","tid":"05645d2b-80e4-9934-d892-074cb9ac3833","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"0f0fc5e90a6d"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true,"stacksValidation":true},"userMessaging":{"showNewFeatureNotice":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"52e62fd2731f","js/moderator.en.js":"c48addfbc3c8","js/full-anon.en.js":"52e6cbeb677f","js/full.en.js":"b5370f1cc8b8","js/wmd.en.js":"e983b67ef6cf","js/mobile.en.js":"13ddd7009887","js/help.en.js":"118cb359bcc6","js/tageditor.en.js":"3360d0464231","js/tageditornew.en.js":"092b35e5bfab","js/inline-tag-editing.en.js":"97b4a0d9f86f","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"06c83ad0c75f","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"a7f74348b7ce","js/explore-qlist.en.js":"13036a5f10ad","js/events.en.js":"212b93cf5f43","js/keyboard-shortcuts.en.js":"f1a9f51b3bc8","js/external-editor.en.js":"f4081c8b0be5","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"bd162c747cb5","js/external-editor.en.js":"f4081c8b0be5","js/snippet-javascript.en.js":"ab76fd99422a","js/snippet-javascript-codemirror.en.js":"1d3870c0446d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+        <body class="question-page unified-theme new-topbar">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed top-bar__network">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                                <a href="https://stackoverflow.com" class="-logo js-gps-track"
+                        data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <form id="search" action=/search method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="f-input js-search-field " />
+                        <button type="submit" aria-label="Search..." class="s-btn s-btn__primary btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon mx0 iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></a></li>
+            <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"/></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"/></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"/></svg>
+    </a></li>
+
+    <li class="-item">
+        <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 174 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"/></svg>
+        </a>
+    </li>
+
+            <li class="-ctas">
+                        <a href="https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f23414090%2fwhat-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" class="login-link s-btn btn-topbar-clear py8" rel="nofollow">Log In</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8 btn-topbar-primary" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign Up</a>
+
+            </li>
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com"
+       class="current-site-link site-link js-gps-track grid gs8 gsx"
+       data-id="1"
+       data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:14 })"
+>help</a>
+                    <a href="https://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+            </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="552"
+       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:10 })"
+>Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f23414090%2fwhat-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:11 })"
+>log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+    <div id="js-gdpr-consent-banner" class="p16 bg-black-700 ff-sans fc-white ps-fixed b0 l0 r0 z-banner" role="banner" aria-hidden="false">
+        <div class="wmx8 mx-auto grid jc-center" role="alertdialog" aria-describedby="notice-message">
+            <div class="grid--cell mr12" aria-label="notice-message">
+                <p class="mb0 lh-lg">
+                    By using our site, you acknowledge that you have read and understand our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a>, <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a>, and our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/terms-of-service/public">Terms of Service</a>.
+                </p>
+            </div>
+            <a class="grid--cell fc-white js-notice-close" aria-label="notice-dismiss">
+                <svg aria-hidden="true" class="svg-icon m0 iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+    
+
+
+
+
+
+
+
+
+<div class="old-hero hero-container _fixed js-dismissable-hero" data-campaign-name="stk">
+    <div class="-container grid jc-sp-between ai-center md:fd-column md:pr32">
+        <div class="fl1 mr16 md:mb24">
+            <p class="-title"><strong>Join Stack Overflow</strong> to learn, share knowledge, and build your career.</p>
+        </div>
+
+        <div class="s-signup _hero fl1">
+            <div id="openid-buttons" class="-social ws-nowrap">
+                <a class="btn-outlined -white _medium _block" href="/users/signup?ssrc=hero&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f23414090%2fwhat-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Question Hero&quot;,null,null]">
+                        <span class="sm:d-none">Email Sign Up</span>
+                        <span class="d-none sm:d-inline">Sign Up</span>
+                    
+                </a>
+                <span class="-or sm:d-none">or sign in with</span>
+                    <div class="major-provider btn _block _medium sm:d-none _google" data-provider='google' data-oauthserver='https://accounts.google.com/o/oauth2/auth' data-oauthversion='2.0'
+                         data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Google&quot;,&quot;Question Hero&quot;,null,null]">
+<svg aria-hidden="true" class="svg-icon native iconGoogle" width="18" height="18" viewBox="0 0 18 18"><g><path d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z" fill="#4285F4"/><path d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17z" fill="#34A853"/><path d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07z" fill="#FBBC05"/><path d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3z" fill="#EA4335"/></g></svg>                                                Google
+                    </div>
+                    <div class="major-provider btn _block _medium sm:d-none _facebook" data-provider='facebook' data-oauthserver='https://www.facebook.com/v2.0/dialog/oauth' data-oauthversion='2.0'
+                         data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Facebook&quot;,&quot;Question Hero&quot;,null,null]">
+                        <svg aria-hidden="true" class="svg-icon iconFacebook" width="18" height="18" viewBox="0 0 18 18"><path d="M1.88 1C1.4 1 1 1.4 1 1.88v14.24c0 .48.4.88.88.88h7.67v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h4.08c.48 0 .88-.4.88-.88V1.88c0-.48-.4-.88-.88-.88H1.88z" fill="#3C5A96"/></svg>                        Facebook
+                    </div>
+                                    <a href="#" class="js-dismiss -dismiss md:ps-absolute" title="dismiss"><svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg></a>
+            </div>
+
+            <form id="login-form" action="/users/signup?ssrc=hero&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f23414090%2fwhat-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" method="POST">
+
+                <input type="hidden" name="fkey" value="a06d43983f02eaa2264520441be31017aafc81bd58d4e118e8b00f5fe71ee942">
+
+                <input type="hidden" name="ssrc" value="" />
+
+                <input type="hidden" id="oauth_version" name="oauth_version" />
+                <input type="hidden" id="oauth_server" name="oauth_server" />
+
+                <div id="se-login-fields">
+                    <input type="hidden" name="legalLinksShown" value="0" />
+                </div>
+            </form>
+            <script>
+                StackExchange.ready(function () {
+                    StackExchange.InlineAuth.init();
+                })
+            </script>
+        </div>
+    </div>
+</div><script>
+    StackExchange.ready(function () {
+        StackExchange.Hero.init("stk", "a");
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+
+        $('.js-cta-button').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+
+        // TODO: we should review the class names and whatnot in use here. Older heroes use id selectors, the newer
+        // sticky question hero on SO has a .js-dismiss class instead, but it's apparently not used anywhere... 
+        // It's not great. Ideally we'd have a set of classes in the partials above that would correspond to 
+        // the behaviours we want here in a more clear way. 
+
+        // sticky question-page hero at the bottom of the page on SO
+        $('.js-dismiss').on('click', function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+            });
+            StackExchange.Hero.dismiss();
+            $(".js-dismissable-hero").fadeOut("fast");
+        });
+    });
+</script>
+    <div class="container  ">
+                
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+        <nav role="navigation">
+            <ol class="nav-links">
+                <li>    <li>
+        <a
+            href="/"
+            class="pl8 js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+</li>
+                <li>
+                    <ol class="nav-links">
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                            <li class=" youarehere">
+        <a id="nav-questions"
+            href="/questions"
+            class="pl8 js-gps-track nav-links--link -link__with-icon"
+            
+            data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z"/></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags"
+            href="/tags"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users"
+            href="/users"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs"
+            href="/jobs?med=site-ui&amp;ref=jobs-tab"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                            </ol>
+                </li>
+                    <li>
+                        <ol class="nav-links">
+                                <li class="p6">
+                                    <div class="ba bc-black-2 bar-sm p16 grid fd-column ps-relative overflow-hidden">
+                                        <strong class="grid--cell">Teams</strong>
+                                        <span class="grid--cell mt2 fs-caption fc-medium">Q&amp;A for work </span>
+                                        <a href="https://stackoverflow.com/teams"
+                                            class="js-gps-track s-btn s-btn__outlined ta-center grid--cell mt12"
+                                            data-gps-track="teams.create.left-sidenav.click"
+                                            data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]">
+                                            Learn More
+                                        </a>
+
+                                        <div class="ps-absolute t4 rn6">
+                                            <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF" /><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10" /><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff" /><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10" /><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935" /><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10" /><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10" /></svg>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ol>
+                    </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+    
+    
+
+<style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}</style>
+        <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1"><a href="/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class" class="question-hyperlink">What is the difference between up-casting and down-casting with respect to class variable</a></h1>
+
+            
+
+
+
+<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
+            <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary" >Ask Question</a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="23414090"  id="question">
+
+    
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="23414090">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">92</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>65</b></div>
+
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    <div class="post-text" itemprop="text">
+
+<p>What is the difference between up-casting and down-casting with respect to class variable?</p>
+
+<p>For example in the following program class Animal contains only one method but Dog class              contains two methods, then how we cast the Dog variable to the Animal Variable.</p>
+
+<p>If casting is done then how can we call the Dog's another method with Animal's variable.</p>
+
+<pre><code>class Animal 
+{ 
+    public void callme()
+    {
+        System.out.println("In callme of Animal");
+    }
+}
+
+
+class Dog extends Animal 
+{ 
+    public void callme()
+    {
+        System.out.println("In callme of Dog");
+    }
+
+    public void callme2()
+    {
+        System.out.println("In callme2 of Dog");
+    }
+}
+
+public class UseAnimlas 
+{
+    public static void main (String [] args) 
+    {
+        Dog d = new Dog();      
+        Animal a = (Animal)d;
+        d.callme();
+        a.callme();
+        ((Dog) a).callme2();
+    }
+}
+</code></pre>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="/questions/tagged/casting" class="post-tag" title="show questions tagged &#39;casting&#39;" rel="tag">casting</a> <a href="/questions/tagged/class-variables" class="post-tag" title="show questions tagged &#39;class-variables&#39;" rel="tag">class-variables</a> <a href="/questions/tagged/downcasting" class="post-tag" title="show questions tagged &#39;downcasting&#39;" rel="tag">downcasting</a> <a href="/questions/tagged/upcasting" class="post-tag" title="show questions tagged &#39;upcasting&#39;" rel="tag">upcasting</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/q/23414090" title="short permalink to this question" class="short-link" id="link-post-23414090">share</a><span class="lsep">|</span><a href="/posts/23414090/edit" class="suggest-edit-post" title="">improve this question</a></div>
+            </div>
+
+                <div class="post-signature grid--cell">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/23414090/revisions" title="show all edits to this post">edited <span title="2016-12-18 16:21:50Z" class="relativetime">Dec 18 '16 at 16:21</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/68587/john-kugelman"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/7d9fd158e03cbde94f7e0b33b78222af?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/68587/john-kugelman">John Kugelman</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 235,139" dir="ltr">235k</span><span title="51 gold badges"><span class="badge1"></span><span class="badgecount">51</span></span><span title="392 silver badges"><span class="badge2"></span><span class="badgecount">392</span></span><span title="445 bronze badges"><span class="badge3"></span><span class="badgecount">445</span></span>
+        </div>
+    </div>
+</div>                </div>
+            <div class="post-signature owner grid--cell">
+<div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2014-05-01 18:30:47Z" class="relativetime">May 1 '14 at 18:30</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/3316746/dhivakar"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/cQHil.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/3316746/dhivakar">Dhivakar</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">655</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+    <div class="post-layout--right">
+	    <div id="comments-23414090" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-35879957" class="comment js-comment " data-comment-id="35879957">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">A <code>Dog</code> is an <code>Animal</code>. Most of the times upcasting is unnecessary unless you want to use a certain overloaded method. <code>callme</code> exists in both <code>Animal</code> and <code>Dog</code>. <code>callme2</code> only exists in <code>Dog</code>, which you cast <code>a</code> to <code>Dog</code> to make it work.</span>
+                    &ndash;&nbsp;<a href="/users/2591612/brian"
+                       title="2,377 reputation"
+                       class="comment-user">Brian</a>
+                <span class="comment-date" dir="ltr"><span title="2014-05-01 19:09:43Z" class="relativetime-clean">May 1 '14 at 19:09</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-47943978" class="comment js-comment " data-comment-id="47943978">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">What is the output of your code?</span>
+                    &ndash;&nbsp;<a href="/users/2021812/malwinder-singh"
+                       title="2,305 reputation"
+                       class="comment-user">Malwinder Singh</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-28 05:25:10Z" class="relativetime-clean">Apr 28 '15 at 5:25</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-57199124" class="comment js-comment " data-comment-id="57199124">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">The interesting thing is, that d.callme returns &#39;In callme of Dog&#39; although d was casted to animal!!</span>
+                    &ndash;&nbsp;<a href="/users/2560836/chris311"
+                       title="1,153 reputation"
+                       class="comment-user">Chris311</a>
+                <span class="comment-date" dir="ltr"><span title="2016-01-11 16:40:57Z" class="relativetime-clean">Jan 11 '16 at 16:40</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-57260449" class="comment js-comment " data-comment-id="57260449">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">@Chris311 both &#39;d&#39; and &#39;a&#39; point to the same object ... which is a Dog, but &#39;a&#39;  has access to only Dog specific methods when it is downcast at runtime. Infact : Animal a = (Animal)d; is unnecessary, you only need Animal a = d; as you&#39;re upcasting.</span>
+                    &ndash;&nbsp;<a href="/users/4252352/mark-keen"
+                       title="4,529 reputation"
+                       class="comment-user">Mark Keen</a>
+                <span class="comment-date" dir="ltr"><span title="2016-01-13 02:18:20Z" class="relativetime-clean">Jan 13 '16 at 2:18</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-23414090" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>        </div>
+</div>
+
+
+<div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar"></div>
+        <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="10">
+                                10 Answers
+                                <span style="display:none;" itemprop="answerCount">10</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="23414798"></a>
+<div id="answer-23414798" class="answer accepted-answer" data-answerid="23414798"   itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="23414798">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">147</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Upcasting is casting to a supertype, while downcasting is casting to a subtype. Upcasting is always allowed, but downcasting involves a type check and can throw a <code>ClassCastException</code>.</p>
+
+<p>In your case, a cast from from <code>Dog</code> to an <code>Animal</code> is an upcast, because a <code>Dog</code> is-a <code>Animal</code>. In general, you can upcast whenever there is an is-a relationship between two classes.</p>
+
+<p>Downcasting would be something like this:</p>
+
+<pre><code>Animal animal = new Dog();
+Dog castedDog = (Dog) animal;
+</code></pre>
+
+<p>Basically what you're doing is telling the compiler that you know what the runtime type of the object <i>really</i> is. The compiler will allow the conversion, but will still insert a runtime sanity check to make sure that the conversion makes sense. In this case, the cast is possible because at runtime <code>animal</code> is actually a <code>Dog</code> even though the static type of <code>animal</code> is <code>Animal</code>.</p>
+
+<p>However, if you were to do this:</p>
+
+<pre><code>Animal animal = new Animal();
+Dog notADog = (Dog) animal;
+</code></pre>
+
+<p>You'd get a <code>ClassCastException</code>. The reason why is because <code>animal</code>'s runtime type is <code>Animal</code>, and so when you tell the runtime to perform the cast it sees that <code>animal</code> isn't really a <code>Dog</code> and so throws a <code>ClassCastException</code>.</p>
+
+<p>To call a superclass's method you can do <code>super.method()</code> or by performing the upcast.</p>
+
+<p>To call a subclass's method you have to do a downcast. As shown above, you normally risk a <code>ClassCastException</code> by doing this; however, you can use the <code>instanceof</code> operator to check the runtime type of the object before performing the cast, which allows you to prevent <code>ClassCastException</code>s:</p>
+
+<pre><code>Animal animal = getAnimal(); // Maybe a Dog? Maybe a Cat? Maybe an Animal?
+if (animal instanceof Dog) {
+    // Guaranteed to succeed, barring classloader shenanigans
+    Dog castedDog = (Dog) animal;
+}
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/23414798" title="short permalink to this answer" class="short-link" id="link-post-23414798">share</a><span class="lsep">|</span><a href="/posts/23414798/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/23414798/revisions" title="show all edits to this post">edited <span title="2017-05-03 00:32:01Z" class="relativetime">May 3 '17 at 0:32</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-05-01 19:12:42Z" class="relativetime">May 1 '14 at 19:12</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/3580294/awksp"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/GODPL.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/3580294/awksp">awksp</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">9,468</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="30 silver badges"><span class="badge2"></span><span class="badgecount">30</span></span><span title="42 bronze badges"><span class="badge3"></span><span class="badgecount">42</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-23414798" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-47943794" class="comment js-comment " data-comment-id="47943794">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Does proper downcasting ensures no <code>ClassCastException</code> or not? Like in the first case?</span>
+                    &ndash;&nbsp;<a href="/users/2021812/malwinder-singh"
+                       title="2,305 reputation"
+                       class="comment-user">Malwinder Singh</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-28 05:16:27Z" class="relativetime-clean">Apr 28 '15 at 5:16</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-48023960" class="comment js-comment " data-comment-id="48023960">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">@M.S. What do you mean by &quot;proper&quot;?</span>
+                    &ndash;&nbsp;<a href="/users/3580294/awksp"
+                       title="9,468 reputation"
+                       class="comment-user">awksp</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-29 18:21:05Z" class="relativetime-clean">Apr 29 '15 at 18:21</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-65482250" class="comment js-comment " data-comment-id="65482250">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">instanceOf operator can be used to check whether class can be cast or not to reduce the risk of ClassCastException.</span>
+                    &ndash;&nbsp;<a href="/users/3128652/vaibhav-jain"
+                       title="627 reputation"
+                       class="comment-user">Vaibhav Jain</a>
+                <span class="comment-date" dir="ltr"><span title="2016-08-21 17:28:23Z" class="relativetime-clean">Aug 21 '16 at 17:28</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-68514889" class="comment js-comment " data-comment-id="68514889">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">@awksp This is an excellent and articulate answer. Pretty much sums up everything I need to know about Casting.</span>
+                    &ndash;&nbsp;<a href="/users/3393720/gautham-honnavara"
+                       title="188 reputation"
+                       class="comment-user">Gautham Honnavara</a>
+                <span class="comment-date" dir="ltr"><span title="2016-11-16 20:14:40Z" class="relativetime-clean">Nov 16 '16 at 20:14</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-78127284" class="comment js-comment " data-comment-id="78127284">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">surely you haven&#39;t made classes where animal is an instance of dog have you?  so why are you even checking for it?</span>
+                    &ndash;&nbsp;<a href="/users/385907/barlop"
+                       title="4,226 reputation"
+                       class="comment-user">barlop</a>
+                <span class="comment-date" dir="ltr"><span title="2017-08-09 07:26:42Z" class="relativetime-clean">Aug 9 '17 at 7:26</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-23414798" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div>
+  
+<a name="34917315"></a>
+<div id="answer-34917315" class="answer" data-answerid="34917315"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="34917315">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">42</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Down-casting and up-casting was as follows:<br>
+<a href="https://i.stack.imgur.com/Lkn0S.png" rel="noreferrer"><img src="https://i.stack.imgur.com/Lkn0S.png" alt="enter image description here"></a></p>
+
+<p><strong>Upcasting</strong>: When we want to cast a Sub class to Super class, we use Upcasting(or widening). It happens automatically, no need to do anything explicitly.  </p>
+
+<p><strong>Downcasting</strong> : When we want to cast a Super class to Sub class, we use
+Downcasting(or narrowing), and Downcasting is not directly possible in Java, explicitly we have to do.  </p>
+
+<pre><code>Dog d = new Dog();
+Animal a = (Animal) d; //Explicitly you have done upcasting. Actually no need, we can directly type cast like Animal a = d; compiler now treat Dog as Animal but still it is Dog even after upcasting
+d.callme();
+a.callme(); // It calls Dog's method even though we use Animal reference.
+((Dog) a).callme2(); // Downcasting: Compiler does know Animal it is, In order to use Dog methods, we have to do typecast explicitly.
+// Internally if it is not a Dog object it throws ClassCastException
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/34917315" title="short permalink to this answer" class="short-link" id="link-post-34917315">share</a><span class="lsep">|</span><a href="/posts/34917315/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/34917315/revisions" title="show all edits to this post">edited <span title="2018-06-09 01:04:32Z" class="relativetime">Jun 9 at 1:04</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-01-21 07:02:54Z" class="relativetime">Jan 21 '16 at 7:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1697099/premraj"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/gerXo.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1697099/premraj">Premraj</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 26,759" dir="ltr">26.8k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="140 silver badges"><span class="badge2"></span><span class="badgecount">140</span></span><span title="112 bronze badges"><span class="badge3"></span><span class="badgecount">112</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-34917315" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-76836080" class="comment js-comment " data-comment-id="76836080">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">So, there is no such a way of doing upcasting to call the method&#39;s parent?</span>
+                    &ndash;&nbsp;<a href="/users/5097395/karlihnos"
+                       title="77 reputation"
+                       class="comment-user">karlihnos</a>
+                <span class="comment-date" dir="ltr"><span title="2017-07-05 15:19:38Z" class="relativetime-clean">Jul 5 '17 at 15:19</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-34917315" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="32813618"></a>
+<div id="answer-32813618" class="answer" data-answerid="32813618"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="32813618">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">25</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Upcasting and downcasting are important part of Java, which allow us to build complicated programs using simple syntax, and gives us great advantages, like Polymorphism or grouping different objects. <strong><em>Java permits an object of a subclass type to be treated as an object of any superclass type. This is called upcasting. Upcasting is done automatically, while downcasting must be manually done by the programmer</em></strong>, and i'm going to give my best to explain why is that so.</p>
+
+<p>Upcasting and downcasting are NOT like casting primitives from one to other, and i believe that's what causes a lot of confusion, when programmer starts to learn casting objects.</p>
+
+<p><strong><em>Polymorphism: All methods in java are virtual by default. That means that any method can be overridden when used in inheritance, unless that method is declared as final or static</em></strong>.</p>
+
+<p>You can see the example below how <code>getType();</code> works according to the object(Dog,Pet,Police Dog) type.</p>
+
+<p>Assume you have three dogs </p>
+
+<ol>
+<li>Dog - This is the super Class.</li>
+<li>Pet Dog    - Pet Dog extends Dog.</li>
+<li><p>Police Dog - Police Dog extends Pet Dog.    </p>
+
+<pre><code>public class Dog{ 
+   public String getType () {
+      System.out.println("NormalDog");
+      return "NormalDog";
+   }
+ }
+
+/**
+ * Pet Dog has an extra method dogName()
+ */   
+public class PetDog extends Dog{ 
+   public String getType () {
+      System.out.println("PetDog");
+      return "PetDog";
+   }
+   public String dogName () {
+      System.out.println("I don't have Name !!");
+      return "NO Name";
+   }
+ }
+
+/**
+ * Police Dog has an extra method secretId()
+ */
+public class PoliceDog extends PetDog{
+
+ public String secretId() {
+    System.out.println("ID");
+    return "ID";
+ }
+
+ public String getType () {
+     System.out.println("I am a Police Dog");
+     return "Police Dog";
+ }
+}
+</code></pre></li>
+</ol>
+
+<p>Polymorphism : All methods in java are virtual by default. That means that any method can be overridden when used in inheritance, unless that method is declared as final or static.(Explanation Belongs to Virtual Tables Concept)</p>
+
+<blockquote>
+  <p>Virtual Table / Dispatch Table : An object's dispatch table will contain the addresses of the object's dynamically bound methods. Method calls are performed by fetching the method's address from the object's dispatch table. The dispatch table is the same for all objects belonging to the same class, and is therefore typically shared between them.</p>
+</blockquote>
+
+<pre><code>public static void main (String[] args) {
+      /**
+       * Creating the different objects with super class Reference
+       */
+     Dog obj1 = new Dog();
+`         /**
+           *  Object of Pet Dog is created with Dog Reference since                
+           *  Upcasting is done automatically for us we don't have to worry about it 
+           *  
+           */
+     Dog obj2 = new PetDog();
+`         /**
+           *  Object of Police Dog is created with Dog Reference since                
+           *  Upcasting is done automatically for us we don't have to worry       
+           *  about it here even though we are extending PoliceDog with PetDog 
+           *  since PetDog is extending Dog Java automatically upcast for us 
+           */
+      Dog obj3 = new PoliceDog();
+}
+
+
+
+ obj1.getType();
+</code></pre>
+
+<p>Prints <code>Normal Dog</code> </p>
+
+<pre><code>  obj2.getType();
+</code></pre>
+
+<p>Prints <code>Pet Dog</code></p>
+
+<pre><code> obj3.getType();
+</code></pre>
+
+<p>Prints <code>Police Dog</code></p>
+
+<p><strong>Downcasting need to be done by the programmer manually</strong> </p>
+
+<p>When you try to invoke the <code>secretID();</code> method on <code>obj3</code> which is <code>PoliceDog object</code> but referenced to <code>Dog</code> which is a super class in the hierarchy it throws error since <code>obj3</code> don't have access to <code>secretId()</code> method.<strong><em>In order to invoke that method you need to Downcast that obj3 manually to</em></strong> <code>PoliceDog</code></p>
+
+<pre><code>  ( (PoliceDog)obj3).secretID();
+</code></pre>
+
+<p>which prints <code>ID</code></p>
+
+<p>In the similar way to invoke the <code>dogName();</code>method in <code>PetDog</code> class you need to downcast <code>obj2</code> to <code>PetDog</code> since obj2 is referenced to <code>Dog</code> and don't have access to <code>dogName();</code> method</p>
+
+<pre><code>  ( (PetDog)obj2).dogName();
+</code></pre>
+
+<p>Why is that so, that upcasting is automatical, but downcasting must be manual? Well, you see, upcasting can never fail. 
+But if you have a group of different Dogs and want to downcast them all to a to their types, then there's a chance, that some of these Dogs are actually of different types i.e., <code>PetDog</code>, <code>PoliceDog</code>, and process fails, by throwing <code>ClassCastException</code>.</p>
+
+<p>This is the reason you need to <strong><em>downcast your objects manually</em></strong> if you have referenced your objects to the super class type.</p>
+
+<blockquote>
+  <p>Note: Here by referencing means you are not changing the memory address of your ojects when you downcast it it still remains same you are just grouping them to particular type in this case <code>Dog</code></p>
+</blockquote>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/32813618" title="short permalink to this answer" class="short-link" id="link-post-32813618">share</a><span class="lsep">|</span><a href="/posts/32813618/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/32813618/revisions" title="show all edits to this post">edited <span title="2015-09-28 00:40:14Z" class="relativetime">Sep 28 '15 at 0:40</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-09-27 22:46:08Z" class="relativetime">Sep 27 '15 at 22:46</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2884927/nagarjuna-yelisetty"><div class="gravatar-wrapper-32"><img src="https://graph.facebook.com/100001574252074/picture?type=large" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2884927/nagarjuna-yelisetty">Nagarjuna Yelisetty</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">279</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-32813618" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="4"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-53464328" class="comment js-comment " data-comment-id="53464328">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">&#39;Polymorphism uses automatic downcast during method calls.&#39; No it doesn&#39;t. The mechanism used isn&#39;t specified, but the most usual mechanism -a vtable - does no such thing. Look in the object code. No downcast.</span>
+                    &ndash;&nbsp;<a href="/users/207421/user207421"
+                       title="257,015 reputation"
+                       class="comment-user">user207421</a>
+                <span class="comment-date" dir="ltr"><span title="2015-09-27 23:32:54Z" class="relativetime-clean">Sep 27 '15 at 23:32</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-53464440" class="comment js-comment " data-comment-id="53464440">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Why not? This is what happens right  can you give a example where it will not work ?</span>
+                    &ndash;&nbsp;<a href="/users/2884927/nagarjuna-yelisetty"
+                       title="279 reputation"
+                       class="comment-user">Nagarjuna Yelisetty</a>
+                <span class="comment-date" dir="ltr"><span title="2015-09-27 23:44:04Z" class="relativetime-clean">Sep 27 '15 at 23:44</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-53464523" class="comment js-comment " data-comment-id="53464523">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Why not? This is what happens right .. can you give a example where the statement &#39;Polymorphism uses automatic downcast during method calls.&#39; will fail or will not hold true ?</span>
+                    &ndash;&nbsp;<a href="/users/2884927/nagarjuna-yelisetty"
+                       title="279 reputation"
+                       class="comment-user">Nagarjuna Yelisetty</a>
+                <span class="comment-date" dir="ltr"><span title="2015-09-27 23:50:12Z" class="relativetime-clean">Sep 27 '15 at 23:50</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-53464718" class="comment js-comment " data-comment-id="53464718">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">&#39;As per my knowledge my statements are true and it holds in every case&#39; is not a proof. It is a mere assertion. I am asking <i>you</i> to prove <i>your</i> statements. You&#39;re not doing so. In effect you&#39;re only repeating yourself. And I have already provided several refutations. I&#39;ve also provided a decision procedure. If you can find a downcast in the object code for a method call, you&#39;re right and I&#39;m wrong. This is how science is done. Do it. And claiming that I am &#39;boldly depending on the documentation&#39; is a blatant misrepresentation. Don&#39;t do that.</span>
+                    &ndash;&nbsp;<a href="/users/207421/user207421"
+                       title="257,015 reputation"
+                       class="comment-user">user207421</a>
+                <span class="comment-date" dir="ltr"><span title="2015-09-28 00:10:18Z" class="relativetime-clean">Sep 28 '15 at 0:10</span></span>
+                        <span title="this comment was edited 4 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-53464745" class="comment js-comment " data-comment-id="53464745">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Editing the answer !!</span>
+                    &ndash;&nbsp;<a href="/users/2884927/nagarjuna-yelisetty"
+                       title="279 reputation"
+                       class="comment-user">Nagarjuna Yelisetty</a>
+                <span class="comment-date" dir="ltr"><span title="2015-09-28 00:12:48Z" class="relativetime-clean">Sep 28 '15 at 0:12</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-32813618" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>4</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="33623521"></a>
+<div id="answer-33623521" class="answer" data-answerid="33623521"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="33623521">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">12</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>I know this question asked quite long time ago but for the new users of this question.
+Please read this article where contains complete description on upcasting, downcasting and use of  <strong>instanceof</strong> operator </p>
+
+<ul>
+<li><p>There's no need to upcast manually, it happens on its own:</p>
+
+<p><code>Mammal m = (Mammal)new Cat();</code> equals to <code>Mammal m = new Cat();</code></p></li>
+<li><p>But downcasting must always be done manually:</p>
+
+<pre><code>Cat c1 = new Cat();      
+Animal a = c1;      //automatic upcasting to Animal
+Cat c2 = (Cat) a;    //manual downcasting back to a Cat
+</code></pre></li>
+</ul>
+
+<p>Why is that so, that upcasting is automatical, but downcasting must be manual? Well, you see, upcasting can never fail. But if you have a group of different Animals and want to downcast them all to a Cat, then there's a chance, that some of these Animals are actually Dogs, and process fails, by throwing ClassCastException.
+This is where is should introduce an useful feature called <strong>"instanceof"</strong>, which tests if an object is instance of some Class.</p>
+
+<pre><code> Cat c1 = new Cat();         
+    Animal a = c1;       //upcasting to Animal
+    if(a instanceof Cat){ // testing if the Animal is a Cat
+        System.out.println("It's a Cat! Now i can safely downcast it to a Cat, without a fear of failure.");        
+        Cat c2 = (Cat)a;
+    }
+</code></pre>
+
+<p>For more information please read <a href="http://www.cs.utexas.edu/~cannata/cs345/Class%20Notes/14%20Java%20Upcasting%20Downcasting.htm" rel="noreferrer">this article</a> </p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/33623521" title="short permalink to this answer" class="short-link" id="link-post-33623521">share</a><span class="lsep">|</span><a href="/posts/33623521/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/33623521/revisions" title="show all edits to this post">edited <span title="2016-06-25 15:45:08Z" class="relativetime">Jun 25 '16 at 15:45</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2786733/andrejs"><div class="gravatar-wrapper-32"><img src="https://graph.facebook.com/1183370386/picture?type=large" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2786733/andrejs">Andrejs</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,004</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="26 silver badges"><span class="badge2"></span><span class="badgecount">26</span></span><span title="35 bronze badges"><span class="badge3"></span><span class="badgecount">35</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-11-10 05:30:50Z" class="relativetime">Nov 10 '15 at 5:30</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1528623/nadeesha-thilakarathne"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/kMTTU.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1528623/nadeesha-thilakarathne">Nadeesha Thilakarathne</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">408</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-33623521" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-69897806" class="comment js-comment " data-comment-id="69897806">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">good point : Mammal m = (Mammal)new Cat(); equals to Mammal m = new Cat();</span>
+                    &ndash;&nbsp;<a href="/users/3632002/catbuilts"
+                       title="746 reputation"
+                       class="comment-user">Catbuilts</a>
+                <span class="comment-date" dir="ltr"><span title="2016-12-27 15:44:52Z" class="relativetime-clean">Dec 27 '16 at 15:44</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-33623521" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="25935354"></a>
+<div id="answer-25935354" class="answer" data-answerid="25935354"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="25935354">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Better try this method for upcasting, it's easy to understand:</p>
+
+<pre><code>/* upcasting problem */
+class Animal
+{ 
+    public void callme()
+    {
+        System.out.println("In callme of Animal");
+    }
+}
+
+class Dog extends Animal 
+{ 
+    public void callme()
+    {
+        System.out.println("In callme of Dog");
+    }
+
+    public void callme2()
+    {
+        System.out.println("In callme2 of Dog");
+    }
+}
+
+public class Useanimlas 
+{
+    public static void main (String [] args) 
+    {
+        Animal animal = new Animal ();
+        Dog dog = new Dog();
+        Animal ref;
+        ref = animal;
+        ref.callme();
+        ref = dog;
+        ref.callme();
+    }
+}
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/25935354" title="short permalink to this answer" class="short-link" id="link-post-25935354">share</a><span class="lsep">|</span><a href="/posts/25935354/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/25935354/revisions" title="show all edits to this post">edited <span title="2014-09-19 14:10:08Z" class="relativetime">Sep 19 '14 at 14:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/436282/andrew-arnold"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/d5cb9fd373db6ffa619fe4d5b9bc0f31?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/436282/andrew-arnold">Andrew Arnold</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,562</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="34 silver badges"><span class="badge2"></span><span class="badgecount">34</span></span><span title="52 bronze badges"><span class="badge3"></span><span class="badgecount">52</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-09-19 13:40:00Z" class="relativetime">Sep 19 '14 at 13:40</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4058596/uwais"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/54c84d2f7f88c3bbd6f2792e27bf795d?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/4058596/uwais">UWAIS</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">61</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-25935354" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-25935354" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="39203649"></a>
+<div id="answer-39203649" class="answer" data-answerid="39203649"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="39203649">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Maybe this table helps.
+Calling the <code>callme()</code> method of class <code>Parent</code> or class <code>Child</code>.
+As a principle:</p>
+
+<blockquote>
+  <p>UPCASTING --> Hiding</p>
+  
+  <p>DOWNCASTING --> Revealing</p>
+</blockquote>
+
+<p><img src="https://i.stack.imgur.com/BwnWF.jpg" alt="enter image description here"></p>
+
+<p><img src="https://i.stack.imgur.com/jbEYr.jpg" alt="enter image description here"></p>
+
+<p><img src="https://i.stack.imgur.com/qokUb.jpg" alt="enter image description here"></p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/39203649" title="short permalink to this answer" class="short-link" id="link-post-39203649">share</a><span class="lsep">|</span><a href="/posts/39203649/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/39203649/revisions" title="show all edits to this post">edited <span title="2018-01-08 16:54:30Z" class="relativetime">Jan 8 at 16:54</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/996081/cubrr"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/46965298efe886411498c4e1ae74f285?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/996081/cubrr">cubrr</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,789</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="39 bronze badges"><span class="badge3"></span><span class="badgecount">39</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-08-29 10:08:24Z" class="relativetime">Aug 29 '16 at 10:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2411604/alexis"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/fc875c04b2e6c695ca1fdca30d723109?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2411604/alexis">Alexis</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">131</span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-39203649" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-39203649" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="31871234"></a>
+<div id="answer-31871234" class="answer" data-answerid="31871234"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="31871234">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Parent: Car<br>
+Child: Figo<br>
+Car c1 = new Figo();</p>
+
+<p>=====<br>
+Upcasting:-<br>
+Method: Object c1 will refer to Methods of Class (Figo - Method must be overridden) because class "Figo" is specified with "new".<br>
+Instance Variable: Object c1 will refer to instance variable of Declaration Class ("Car").  </p>
+
+<p>When Declaration class is parent and object is created of child then implicit casting happens which is "Upcasting".    </p>
+
+<p>======<br>
+Downcasting:-<br>
+Figo f1 = (Figo) c1; //<br>
+Method: Object f1 will refer to Method of Class (figo) as initial object c1 is created with class "Figo".  but once down casting is done, methods which are only present in class "Figo" can also be referred by variable f1.<br>
+Instance Variable: Object f1 will not refer to instance variable of Declaration class of object c1 (declaration class for c1 is CAR) but with down casting it will refer to instance variables of class Figo.    </p>
+
+<p>======<br>
+Use: When Object is of Child Class and declaration class is Parent and Child class wants to access Instance variable of it's own class and not of parent class then it can be done with "Downcasting".  </p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/31871234" title="short permalink to this answer" class="short-link" id="link-post-31871234">share</a><span class="lsep">|</span><a href="/posts/31871234/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/31871234/revisions" title="show all edits to this post">edited <span title="2015-08-07 08:03:16Z" class="relativetime">Aug 7 '15 at 8:03</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-08-07 06:40:46Z" class="relativetime">Aug 7 '15 at 6:40</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1417425/amit-shah"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/c4cdb73298a0445170a67e223bb41c1b?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1417425/amit-shah">amit shah</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">24</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-31871234" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-31871234" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="23415026"></a>
+<div id="answer-23415026" class="answer" data-answerid="23415026"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="23415026">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>upcasting means casting the object to a supertype, while downcasting means casting to a subtype.</p>
+
+<p>In java, upcasting is not necessary as it's done automatically. And it's usually referred as implicit casting. You can specify it to make it clear to others.</p>
+
+<p>Thus, writing</p>
+
+<pre><code>Animal a = (Animal)d;
+</code></pre>
+
+<p>or</p>
+
+<pre><code>Animal a = d;
+</code></pre>
+
+<p>leads to exactly the same point and in both cases will be executed the <code>callme()</code> from <code>Dog</code>.</p>
+
+<p>Downcasting is instead necessary because you defined <code>a</code> as object of Animal. Currently you know it's a <code>Dog</code>, but java has no guarantees it's. Actually at runtime it could be different and java will throw a <code>ClassCastException</code>, would that happen. Of course it's not the case of your very sample example. If you wouldn't cast <code>a</code> to <code>Animal</code>, java couldn't even compile the application because <code>Animal</code> doesn't have method <code>callme2()</code>.</p>
+
+<p>In your example you cannot reach the code of <code>callme()</code> of <code>Animal</code> from <code>UseAnimlas</code> (because <code>Dog</code> overwrite it) unless the method would be as follow:</p>
+
+<pre><code>class Dog extends Animal 
+{ 
+    public void callme()
+    {
+        super.callme();
+        System.out.println("In callme of Dog");
+    }
+    ... 
+} 
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/23415026" title="short permalink to this answer" class="short-link" id="link-post-23415026">share</a><span class="lsep">|</span><a href="/posts/23415026/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-05-01 19:26:20Z" class="relativetime">May 1 '14 at 19:26</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/946550/david"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/b95Y3.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/946550/david">David</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,302</span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="29 bronze badges"><span class="badge3"></span><span class="badgecount">29</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-23415026" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-23415026" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="52682421"></a>
+<div id="answer-52682421" class="answer" data-answerid="52682421"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="52682421">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>1.- Upcasting.</p>
+
+<p>Doing an upcasting, <strong>you define a tag of some type, that points to an object of a subtype</strong> (Type and subtype may be called class and subclass, if you feel more comfortable...).</p>
+
+<pre><code>Animal animalCat = new Cat();
+</code></pre>
+
+<p>What means that such tag, animalCat, will have the functionality (the methods) of type Animal only, because we've declared it as type Animal, not as type Cat.</p>
+
+<p>We are allowed to do that in a "natural/implicit/automatic" way, at compile-time or at a run-time, mainly because Cat inherits some of its functionality from Animal; for example, move(). (At least, cat is an animal, isn't it?)</p>
+
+<p>2.- Downcasting.</p>
+
+<p>But, what would happen if we need to get the functionality of Cat, from our type Animal tag?.</p>
+
+<p>As we have created the animalCat tag pointing to a Cat object, we need a way to call the Cat object methods, from our animalCat tag in a some smart pretty way.</p>
+
+<p>Such procedure is what we call Downcasting, and we can do it only at the run-time.</p>
+
+<p>Time for some code:</p>
+
+<pre><code>public class Animal {
+    public String move() {
+        return "Going to somewhere";
+    }
+}
+
+public class Cat extends Animal{
+    public String makeNoise() {
+        return "Meow!";
+    }   
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+    //1.- Upcasting 
+    //  __Type_____tag________object
+        Animal animalCat = new Cat();
+    //Some animal movement
+        System.out.println(animalCat.move());
+        //prints "Going to somewhere"
+
+    //2.- Downcasting   
+    //Now you wanna make some Animal noise.
+        //First of all: type Animal hasn't any makeNoise() functionality.
+        //But Cat can do it!. I wanna be an Animal Cat now!!
+
+        //___________________Downcast__tag_____ Cat's method
+        String animalNoise = ( (Cat) animalCat ).makeNoise();
+
+        System.out.println(animalNoise);
+        //Prints "Meow!", as cats usually done.
+
+    //3.- An Animal may be a Cat, but a Dog or a Rhinoceros too.
+        //All of them have their own noises and own functionalities.
+        //Uncomment below and read the error in the console:
+
+    //  __Type_____tag________object
+        //Cat catAnimal = new Animal();
+
+    }
+
+}
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/52682421" title="short permalink to this answer" class="short-link" id="link-post-52682421">share</a><span class="lsep">|</span><a href="/posts/52682421/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2018-10-06 19:02:06Z" class="relativetime">Oct 6 at 19:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2373421/lemmy-caution"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/bfec2190ded847e61cda47d091c13fd0?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2373421/lemmy-caution">Lemmy_Caution</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">31</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-52682421" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-52682421" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="35547692"></a>
+<div id="answer-35547692" class="answer" data-answerid="35547692"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="35547692">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>We can create object to Downcasting. In this type also. : calling the base class methods </p>
+
+<pre><code>Animal a=new Dog();
+a.callme();
+((Dog)a).callme2();
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/35547692" title="short permalink to this answer" class="short-link" id="link-post-35547692">share</a><span class="lsep">|</span><a href="/posts/35547692/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/35547692/revisions" title="show all edits to this post">edited <span title="2016-02-22 08:06:42Z" class="relativetime">Feb 22 '16 at 8:06</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5817888/j%c3%a9r%c3%a9mie-b"><div class="gravatar-wrapper-32"><img src="https://lh3.googleusercontent.com/-caQ1VdKoE_I/AAAAAAAAAAI/AAAAAAAAFHE/etCbxnBDu7k/photo.jpg?sz=32" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/5817888/j%c3%a9r%c3%a9mie-b">J&#233;r&#233;mie B</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,513</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="33 bronze badges"><span class="badge3"></span><span class="badgecount">33</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-02-22 07:09:43Z" class="relativetime">Feb 22 '16 at 7:09</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5961549/rakesh"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/07158f12b91a15ae9b6c7dbcfa38331b?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/5961549/rakesh">Rakesh</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1</span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-35547692" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-35547692" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                    <div class="question-status">
+        <h2>                    <b>protected</b> by <a href="/users/-1/community">Community</a><span class="mod-flair" title="moderator">&#9830;</span> <span dir="ltr"><span title="2016-08-28 22:11:31Z" class="relativetime">Aug 28 '16 at 22:11</span></span>
+</h2>
+        <p>
+Thank you for your interest in this question. 
+Because it has attracted low-quality or spam answers that had to be removed, posting an answer now requires 10 <a href="/help/whats-reputation">reputation</a> on this site (the <a href="/help/privileges/new-user">association bonus does not count</a>).
+<br /><br />
+Would you like to answer one of these <a href="/unanswered?fromProtectedNotice=true">unanswered questions</a> instead?</p>
+    </div>
+
+
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you&#39;re looking for?                            Browse other questions tagged <a href="/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;" rel="tag">java</a> <a href="/questions/tagged/casting" class="post-tag" title="show questions tagged &#39;casting&#39;" rel="tag">casting</a> <a href="/questions/tagged/class-variables" class="post-tag" title="show questions tagged &#39;class-variables&#39;" rel="tag">class-variables</a> <a href="/questions/tagged/downcasting" class="post-tag" title="show questions tagged &#39;downcasting&#39;" rel="tag">downcasting</a> <a href="/questions/tagged/upcasting" class="post-tag" title="show questions tagged &#39;upcasting&#39;" rel="tag">upcasting</a>  or <a href="/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2014-05-01 18:30:47Z"><b>4 years, 6 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>202,195 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2018-10-06 19:02:06Z">21 days ago</a></b></p>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            
+            
+<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
+            <div id="hireme"></div>
+<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=1db48f495ba1","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='AsH6dYCEPNYIAAAAAEpFZQECAAAAAgAAAAA0AAAAfGphdmF8Y2FzdGluZ3xjbGFzcy12YXJpYWJsZXN8ZG93bmNhc3Rpbmd8dXBjYXN0aW5nfAA5O3cEzJWeMlWh'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['false'],'so-tag':['java','casting','class-variables','downcasting','upcasting']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="/q/36974337" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/36974337/java-inheritance-impossible-to-convert-a-parent-object-into-a-child-object?noredirect=1" class="question-hyperlink">Java Inheritance - Impossible to Convert a Parent object into a Child object?</a>
+</div>
+<div class="spacer">
+	<a href="/q/43162419" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">-3</div>
+	</a>
+	<a href="/questions/43162419/java-downcasting-of-extending-class?noredirect=1" class="question-hyperlink">Java Downcasting of extending class</a>
+</div>
+<div class="spacer">
+	<a href="/q/43232005" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/43232005/java-downcast-objects-invoking-sub-method?noredirect=1" class="question-hyperlink">Java downcast objects invoking sub method</a>
+</div>
+<div class="spacer">
+	<a href="/q/29494800" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">42</div>
+	</a>
+	<a href="/questions/29494800/do-not-understand-the-source-code-of-arrays-copyof?noredirect=1" class="question-hyperlink">Do not understand the source code of Arrays.copyOf</a>
+</div>
+<div class="spacer">
+	<a href="/q/36449889" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="/questions/36449889/java-lang-long-cannot-be-cast-to-java-math-biginteger?noredirect=1" class="question-hyperlink">java.lang.Long cannot be cast to java.math.BigInteger</a>
+</div>
+<div class="spacer">
+	<a href="/q/34281611" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="/questions/34281611/why-is-upcasting-a-class-not-changing-overridden-methods?noredirect=1" class="question-hyperlink">Why is upcasting a Class not changing overridden methods?</a>
+</div>
+<div class="spacer">
+	<a href="/q/44140942" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/44140942/java-collision-detection-between-different-classes?noredirect=1" class="question-hyperlink">Java Collision detection between different classes</a>
+</div>
+<div class="spacer">
+	<a href="/q/30573976" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="/questions/30573976/why-bark-method-can-not-be-called?noredirect=1" class="question-hyperlink">Why bark method can not be called</a>
+</div>
+<div class="spacer">
+	<a href="/q/32129179" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/32129179/a-code-i-dont-understand-about-switching-scenes-in-javafx-and-scenebuilder?noredirect=1" class="question-hyperlink">A code I don&#39;t understand about switching scenes in JavaFX and SceneBuilder</a>
+</div>
+<div class="spacer">
+	<a href="/q/44341995" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">-1</div>
+	</a>
+	<a href="/questions/44341995/why-type-casting-is-required-while-using-itrerator-object-in-the-while-loop?noredirect=1" class="question-hyperlink">Why type casting is required while using itrerator object in the while loop?</a>
+</div>					<div class="spacer more">
+				<a href="/questions/linked/23414090">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer"><a href="/q/40471" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">3215</div></a><a href="/questions/40471/differences-between-hashmap-and-hashtable" class="question-hyperlink">Differences between HashMap and Hashtable?</a></div><div class="spacer"><a href="/q/68645" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1567</div></a><a href="/questions/68645/are-static-class-variables-possible" class="question-hyperlink">Are static class variables possible?</a></div><div class="spacer"><a href="/q/215497" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2623</div></a><a href="/questions/215497/what-is-the-difference-between-public-protected-package-private-and-private-in" class="question-hyperlink">What is the difference between public, protected, package-private and private in Java?</a></div><div class="spacer"><a href="/q/355089" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1363</div></a><a href="/questions/355089/difference-between-stringbuilder-and-stringbuffer" class="question-hyperlink">Difference between StringBuilder and StringBuffer</a></div><div class="spacer"><a href="/q/1036754" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1060</div></a><a href="/questions/1036754/difference-between-wait-and-sleep" class="question-hyperlink">Difference between wait() and sleep()</a></div><div class="spacer"><a href="/q/1906445" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">705</div></a><a href="/questions/1906445/what-is-the-difference-between-jdk-and-jre" class="question-hyperlink">What is the difference between JDK and JRE?</a></div><div class="spacer"><a href="/q/4934913" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">81</div></a><a href="/questions/4934913/are-static-variables-shared-between-threads" class="question-hyperlink">Are static variables shared between threads?</a></div><div class="spacer"><a href="/q/6827752" title="Vote score (upvotes - downvotes)"><div class="answer-votes extra-large">1617</div></a><a href="/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in" class="question-hyperlink">What&#39;s the difference between @Component, @Repository &amp; @Service annotations in Spring?</a></div><div class="spacer"><a href="/q/18777989" title="Vote score (upvotes - downvotes)"><div class="answer-votes large">396</div></a><a href="/questions/18777989/how-should-i-have-explained-the-difference-between-an-interface-and-an-abstract" class="question-hyperlink">How should I have explained the difference between an Interface and an Abstract class?</a></div><div class="spacer"><a href="/q/23445843" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="/questions/23445843/what-is-the-difference-between-the-up-casting-and-down-casting" class="question-hyperlink">What is the difference between the up-casting and down-casting?</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot"
+           class="js-gps-track s-link s-link__inherit" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/52979555/can-mathematical-operators-be-used-to-convert-a-non-zero-number-to" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can mathematical operators *, /, +, -, ^ be used to convert a non-zero number to 1?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/196249/how-do-services-with-high-uptime-apply-patches-without-rebooting" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do services with high uptime apply patches without rebooting?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="https://stackoverflow.com/questions/53015922/different-object-size-of-true-and-false-in-python-3" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Different object size of True and False in Python 3
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="https://money.stackexchange.com/questions/101484/what-does-it-take-to-get-a-0-credit-score" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does it take to get a 0 credit score
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="https://unix.stackexchange.com/questions/477998/why-does-sort-say-that-%c9%9b-e" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does sort say that ɛ = e?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="https://movies.stackexchange.com/questions/93433/how-could-groot-raise-the-axe-of-thor-when-even-hulk-failed" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How could Groot raise the axe of Thor when even Hulk failed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="https://gamedev.stackexchange.com/questions/164871/as-a-client-trying-to-get-a-coder-programmer-to-develop-my-ideas-into-a-functio" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    As a client, trying to get a coder/programmer to develop my ideas into a functioning program, what should I be providing to my developer(s)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/39639/are-reactive-protagonists-inherently-a-bad-thing" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are reactive protagonists inherently a bad thing?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="https://outdoors.stackexchange.com/questions/20826/how-to-avoid-getting-wet-when-exiting-a-canoe-onto-shore" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to avoid getting wet when exiting a canoe onto shore?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/134458/can-i-cast-hallow-on-a-ship" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I cast Hallow on a ship?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-linguistics" title="Linguistics Stack Exchange"></div><a href="https://linguistics.stackexchange.com/questions/29526/are-peoples-names-considered-morphemes-of-a-language" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:312 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are people&#39;s names considered morphemes of a language?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/196350/why-do-companies-not-give-root-access-to-employees-on-their-desktop-machines" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do companies not give root access to employees on their desktop machines?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/128453/can-there-be-a-theocracy-that-also-practices-religious-tolerance" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can there be a theocracy that also practices religious tolerance?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/197465/if-being-unseated-by-a-bludger-is-a-common-occurrence-why-did-everyone-freak" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If being &quot;unseated&quot; by a bludger is a common occurrence, why did everyone freak out about Harry falling off of his broom?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="https://crypto.stackexchange.com/questions/63339/how-do-hashes-really-ensure-uniqueness" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do hashes really ensure uniqueness?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/48862/why-did-the-confederacy-think-they-could-win-the-american-civil-war" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did the Confederacy think they could win the American Civil War?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/128639/how-can-a-sapient-species-build-an-advanced-civilization-while-remaining-on-one" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can a sapient species build an advanced civilization, while remaining on one continent?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/470406/another-twin-or-the-other-twin" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    another twin or the other twin?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/437186/how-do-fields-co-exist-physically" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do fields co-exist physically?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="https://space.stackexchange.com/questions/31651/how-does-spacex-plan-to-make-money-with-starlink-broadband" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does SpaceX plan to make money with StarLink Broadband?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/313961/publishing-a-simple-paper-as-an-undergraduate" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Publishing a Simple Paper as an Undergraduate
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="https://cs.stackexchange.com/questions/99180/why-does-raid-5-require-an-additional-disk-for-parity-blocks" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does RAID-5 require an additional disk for parity blocks?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/34753/why-did-sweden-issue-the-if-crisis-or-war-comes-pamphlet" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did Sweden issue the &#39;if crisis or war comes&#39; pamphlet?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-judaism" title="Mi Yodeya"></div><a href="https://judaism.stackexchange.com/questions/96444/what-is-the-modern-jewish-interpretation-of-exodus-1211" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:248 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the modern Jewish interpretation of Exodus 12:11?
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+
+<div id="feed-link">
+    <a href="/feeds/question/23414090" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/23414090/ivc/64c5');});</script>
+<noscript><div><img src="/posts/23414090/ivc/64c5" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang">lang-java</div></div>
+
+
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    
+                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"/><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"/></g></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li class="-item"><a href="/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" 
+                                                 data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"
+                                                 data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Engagement</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"/></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Portugu&#234;s</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programadores y profesionales de la inform&#225;tica">Stack Overflow en espa&#241;ol</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (30)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 2, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo &#169; 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2018.10.26.31971</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+            <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno">
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+
+
+                    StackExchange.ga.setDimension('dimension2', '|java|casting|class-variables|downcasting|upcasting|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    </body>
+    </html>

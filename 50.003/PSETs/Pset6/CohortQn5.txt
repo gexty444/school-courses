@@ -1,0 +1,13 @@
+By changing the thread pool size, we get the following results:
+
+Thread Pool Size 		Time
+8						5695
+30						4683
+33						4642
+34						4644
+35						4647
+37						4818
+40						4792
+50 						4845
+
+From our results, the optimal thread pool size seems to be 33. 

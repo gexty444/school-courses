@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Adventure</string>
+
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="text_login">Login</string>
+    <string name="hint_username">Username</string>
+    <string name="text_register">Register</string>
+    <string name="text_back_to_login">Back to Login</string>
+    <string name="hint_Name">Name</string>
+    <string name="text_enter">Enter</string>
+    <string name="log_welcome">Good to see you,</string>
+    <string name="home_bus">Bus No.</string>
+    <string name="home_time">0 mins</string>
+    <string name="home_refresh">Refresh</string>
+    <string name="home_busstop1">Kg Bahru Rd (14239)</string>
+    <string name="home_busstop2">Blk 109 (14381)</string>
+
+
+</resources>

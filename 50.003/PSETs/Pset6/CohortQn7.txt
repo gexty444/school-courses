@@ -1,0 +1,24 @@
+Using the formula, we get:
+
+N	F			Speedup
+10	10%			5.263
+100	10%			9.174
+∞	10%			10.00
+10	25%			3.077
+100	25%			3.883
+∞	25%			4.000
+
+Running PerformanceExperiment.java, we get
+
+N				Time Spent(ms)	Speedup
+1				51463			0
+2				28903			1.781
+3				23195			2.219
+4				20588			2.500
+5				20249			2.542
+10				20321			2.533
+15				19892			2.588
+20				19262			2.672
+
+Using N=20, Speedup = 2.672, 
+we get F to be approximately 34.132%.

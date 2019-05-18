@@ -1,0 +1,33 @@
+package com.example.javatest;
+
+import java.util.Vector;
+
+public class FirstExampleFixed {
+
+    // synchronise with the input list
+    // so that even when multiple threads call the methods,
+    // the list is synchronised across all the threads.
+
+    public static Object getLast(Vector list) {
+        synchronized (list) {
+            int lastIndex = list.size() - 1;
+            return list.get(lastIndex);
+        }
+    }
+
+    public static void deleteLast(Vector list) {
+        synchronized (list){
+            int lastIndex = list.size() - 1;
+            list.remove(lastIndex);
+        }
+    }
+
+    public static boolean contains(Vector list, Object obj) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(obj)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Google Webmaster -->
+        <meta name="google-site-verification" content="lBEE-F7eDVmkmC7COXYFAqseG6mam05S4NyoNBltc8k" />
+	<!-- Bing Webmaster -->
+        <meta name="msvalidate.01" content="F24A74A83D5BF056352997AEAFA498F5" />
+	
+			<link rel="shortcut icon" href="http://www.androidtutorialshub.com/wp-content/uploads/2016/01/androidtut.png" type="image/x-icon"/>
+		<link rel="stylesheet" type="text/css" href="">
+
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://www.androidtutorialshub.com/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://www.androidtutorialshub.com/wp-content/themes/prolog/js/html5.js"></script>
+	<![endif]-->
+
+	
+<!-- This site is optimized with the Yoast SEO plugin v9.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Android RecyclerView Tutorial - Android Tutorials Hub</title>
+<link rel="canonical" href="http://www.androidtutorialshub.com/android-recyclerview-tutorial/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Android RecyclerView Tutorial - Android Tutorials Hub" />
+<meta property="og:description" content="The new support library in Android L introduced two new UI widgets: RecyclerView and CardView. The RecyclerView is a more advanced and more flexible version of the ListView. This new component is a big step because the ListView is one of the most used UI widgets. The CardView widget, on the other hand, is a&nbsp;Continue Reading..." />
+<meta property="og:url" content="http://www.androidtutorialshub.com/android-recyclerview-tutorial/" />
+<meta property="og:site_name" content="Android Tutorials Hub" />
+<meta property="article:publisher" content="https://www.facebook.com/androidtutorialshub" />
+<meta property="article:tag" content="recyclerview" />
+<meta property="article:section" content="Android Tutorials" />
+<meta property="article:published_time" content="2016-02-13T18:26:42+00:00" />
+<meta property="article:modified_time" content="2017-05-01T16:11:32+00:00" />
+<meta property="og:updated_time" content="2017-05-01T16:11:32+00:00" />
+<meta property="og:image" content="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/banner_recycler-2.png" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="500" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="The new support library in Android L introduced two new UI widgets: RecyclerView and CardView. The RecyclerView is a more advanced and more flexible version of the ListView. This new component is a big step because the ListView is one of the most used UI widgets. The CardView widget, on the other hand, is a&nbsp;Continue Reading..." />
+<meta name="twitter:title" content="Android RecyclerView Tutorial - Android Tutorials Hub" />
+<meta name="twitter:image" content="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/banner_recycler-2.png" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Android Tutorials Hub &raquo; Feed" href="http://www.androidtutorialshub.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Android Tutorials Hub &raquo; Comments Feed" href="http://www.androidtutorialshub.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Android Tutorials Hub &raquo; Android RecyclerView Tutorial Comments Feed" href="http://www.androidtutorialshub.com/android-recyclerview-tutorial/feed/" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.3.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+	var mi_version         = '7.3.0';
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-94040559-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+	
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-94040559-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('set', 'anonymizeIp', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.androidtutorialshub.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='crayon-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-github-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/crayon-syntax-highlighter/themes/github/github.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.5' type='text/css' media='all' />
+<link rel='stylesheet' id='csbwf_sidebar_style-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/custom-share-buttons-with-floating-sidebar/css/csbwfs.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='es-widget-css-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/email-subscribers/widget/es-widget.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+<link rel='stylesheet' id='thm-style-css'  href='http://www.androidtutorialshub.com/wp-content/themes/prolog/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='http://www.androidtutorialshub.com/wp-content/themes/prolog/css/font-awesome.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='quick-style-css'  href='http://www.androidtutorialshub.com/wp-content/themes/prolog/quick-style.php?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='themeum-preset-css'  href='http://www.androidtutorialshub.com/wp-content/themes/prolog/css/presets/preset1.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='__EPYT__style-css'  href='http://www.androidtutorialshub.com/wp-content/plugins/youtube-embed-plus/styles/ytprefs.min.css?ver=12.2' type='text/css' media='all' />
+<style id='__EPYT__style-inline-css' type='text/css'>
+
+                .epyt-gallery-thumb {
+                        width: 33.333%;
+                }
+                
+</style>
+<link rel='stylesheet' id='redux-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Roboto%3A100%2C300%2C400%2C500%2C700%2C900%2C100italic%2C300italic%2C400italic%2C500italic%2C700italic%2C900italic&#038;ver=1529164351' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.androidtutorialshub.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"doc,exe,js,pdf,ppt,tgz,zip,xls","inbound_paths":"","home_url":"http:\/\/www.androidtutorialshub.com","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=7.3.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _EPYT_ = {"ajaxurl":"http:\/\/www.androidtutorialshub.com\/wp-admin\/admin-ajax.php","security":"74c9f4fc4e","gallery_scrolloffset":"20","eppathtoscripts":"http:\/\/www.androidtutorialshub.com\/wp-content\/plugins\/youtube-embed-plus\/scripts\/","epresponsiveselector":"[\"iframe[src*='youtube.com']\",\"iframe[src*='youtube-nocookie.com']\",\"iframe[data-ep-src*='youtube.com']\",\"iframe[data-ep-src*='youtube-nocookie.com']\",\"iframe[data-ep-gallerysrc*='youtube.com']\"]","epdovol":"1","version":"12.2","evselector":"iframe.__youtube_prefs__[src], iframe[src*=\"youtube.com\/embed\/\"], iframe[src*=\"youtube-nocookie.com\/embed\/\"]","ajax_compat":"","ytapi_load":"light","stopMobileBuffer":"1","vi_active":"","vi_js_posttypes":[]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=12.2'></script>
+<link rel='https://api.w.org/' href='http://www.androidtutorialshub.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.androidtutorialshub.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.androidtutorialshub.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='http://www.androidtutorialshub.com/?p=264' />
+<link rel="alternate" type="application/json+oembed" href="http://www.androidtutorialshub.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.androidtutorialshub.com%2Fandroid-recyclerview-tutorial%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.androidtutorialshub.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.androidtutorialshub.com%2Fandroid-recyclerview-tutorial%2F&#038;format=xml" />
+<style type="text/css" title="dynamic-css" class="options-output">body, p{font-family:Roboto;font-weight:400;font-style:normal;color:#1a1a1a;font-size:18px;}h1, h2, h3, h4, h5, h6{font-family:Roboto;font-weight:700;font-style:normal;color:#1a1a1a;}#navigation .navbar-nav > li > a, .navbar-main .dropdown-menu > li > a{font-family:Roboto;font-weight:400;font-style:normal;color:#777777;font-size:15px;}</style></head>
+
+<body class="post-template-default single single-post postid-264 single-format-standard">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header header" role="banner">
+			<div class="container">
+				<div id="navigation" class="navbar navbar-default">
+                    <div class="row">
+                        <div class="col-sm-3">
+        					<div class="navbar-header">
+        						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        							<span class="icon-bar"></span>
+        							<span class="icon-bar"></span>
+        							<span class="icon-bar"></span>
+        						</button>
+        	                    <a class="navbar-brand" href="http://www.androidtutorialshub.com">
+        	                    	<h1 class="logo-wrapper">
+        		                    	        												<img class="enter-logo" src="http://www.androidtutorialshub.com/wp-content/uploads/2016/01/logotut.png" title="">
+        											        		                    </h1>
+        		                </a>
+        					</div>
+                        </div>
+
+                        <div id="main-menu" class="col-sm-9">
+                            <div class="hidden-xs">
+                                <ul id="menu-menu" class="nav navbar-nav navbar-main"><li id="menu-item-563" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-563"><a title="Home" href="http://www.androidtutorialshub.com/">Home</a></li>
+<li id="menu-item-545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a title="Tips" href="http://www.androidtutorialshub.com/tips/">Tips</a></li>
+<li id="menu-item-223" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a title="About" href="http://www.androidtutorialshub.com/about/">About</a></li>
+<li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a title="Hire Me" href="http://www.androidtutorialshub.com/hire-me/">Hire Me</a></li>
+</ul>                            </div>
+                        </div><!--/#main-menu-->
+
+                        <div id="mobile-menu" class="visible-xs">
+                            <div class="collapse navbar-collapse">
+                                <ul id="menu-menu-1" class="nav navbar-nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-563"><a title="Home" href="http://www.androidtutorialshub.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a title="Tips" href="http://www.androidtutorialshub.com/tips/">Tips</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-223"><a title="About" href="http://www.androidtutorialshub.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a title="Hire Me" href="http://www.androidtutorialshub.com/hire-me/">Hire Me</a></li>
+</ul>                            </div>
+                        </div><!--/.#mobile-menu-->
+
+                    </div><!--/.row--> 
+<div class="row">
+<!-- ad -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- android-vasanlalit_main_Blog1_300x250_as -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:100%;height:100px"
+     data-ad-client="ca-pub-6699407663466810"
+     data-ad-slot="2512822485"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+	
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+<!-- ad -->
+</div>
+				</div><!--/.container--> 
+			</div>
+		</header><!--/#header-->
+    <section id="main" class="container">
+        <div class="row">
+            <div id="content" class="site-content col-md-8" role="main">
+
+                
+                    
+                        <article id="post-264" class="post-264 post type-post status-publish format-standard has-post-thumbnail hentry category-android-tutorials tag-recyclerview">
+    <header class="entry-header">
+
+            <div class="entry-thumbnail">
+            <img width="770" height="340" src="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/banner_recycler-2-770x340.png" class="img-responsive wp-post-image" alt="" />        </div>
+    
+    </header> <!--/.entry-header -->
+
+    <div class="clearfix post-content media">
+        <div class="pull-left">
+            <h4 class="post-format">
+                <i class="fa fa-thumb-tack"></i>
+            </h4>
+
+        </div>
+    
+
+    <div class="media-body">
+        <h2 class="entry-title">
+            <a href="http://www.androidtutorialshub.com/android-recyclerview-tutorial/" rel="bookmark">Android RecyclerView Tutorial</a>
+                    </h2> <!-- //.entry-title -->
+
+        <div class="clearfix entry-meta">
+            <ul>
+                
+                
+                                
+                
+                 
+                                    <li class="comments-link">
+                        <i class="fa fa-comments-o"></i> <a href="http://www.androidtutorialshub.com/android-recyclerview-tutorial/#respond"><span class="dsq-postid" data-dsqidentifier="264 http://www.androidtutorialshub.com/?p=264"><span class="leave-reply">No comment</span></span></a>                    </li>
+                                
+                            </ul>
+        </div> <!--/.entry-meta -->
+
+        <div class="entry-summary test2">
+            <p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><br />
+<!-- android-vasanlalit_main_Blog1_300x250_as --></p>
+<div style="float:left;margin-right:20px;">
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6699407663466810"
+     data-ad-slot="2512822485"></ins></div>
+<p><script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>The new support library in Android L introduced two new UI widgets: RecyclerView and CardView. The RecyclerView is a more advanced and more flexible version of the ListView. This new component is a big step because the ListView is one of the most used UI widgets. The CardView widget, on the other hand, is a new component that does not &#8220;upgrade&#8221; an existing component. </p>
+<h3><strong>What is RecyclerView ?</strong></h3>
+<p>The <a href="http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> widget is a more advanced and flexible version of ListView. This widget is a container for displaying large data sets that can be scrolled very efficiently by maintaining a limited number of views. RecyclerView can be used for larger datasets to be rendered on the UI like a list. RecyclerView provides maximum flexibility to design different kind of views .</p>
+<h3><strong>RecyclerView Features</strong></h3>
+<p>&#8211; ViewHolder to store data that makes binding view contents easier .<br />
+&#8211; ItemDecorator to set special drawing and layout offset .<br />
+&#8211; SmoothScroller for smooth scrolling .<br />
+&#8211; LayoutManager (LinearLayoutManager,GridLayoutManager,StaggeredGridLayoutManager)<br />
+&#8211; By Default Animations while adding or removing an item .</p>
+<h3><strong>Let’s Get it Working</strong></h3>
+<p>In this tutorial we are going to learn how to render a simple RecyclerView with a custom layout. We’ll also learn writing a adapter class, adding list divider and row click listener. The recycler view we are going to design contains list of books displaying the title and author .</p>
+<h3><strong>Step 1 ) Update build.gradle file</strong></h3>
+<p>Before you can use RecyclerView in your projects you need to add the following compile line to your Gradle dependencies block in your build.gradle file and rebuilt the project .</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eae0299230161" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+dependencies {
+    ...
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eae0299230161-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eae0299230161-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eae0299230161-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eae0299230161-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eae0299230161-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eae0299230161-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eae0299230161-1">dependencies<span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eae0299230161-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-5c10d8562eae0299230161-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>compile<span class="crayon-h"> </span><span class="crayon-s ">'com.android.support:appcompat-v7:23.1.1'</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eae0299230161-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>compile<span class="crayon-h"> </span><span class="crayon-s ">'com.android.support:design:23.1.1'</span></div><div class="crayon-line" id="crayon-5c10d8562eae0299230161-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>compile<span class="crayon-h"> </span><span class="crayon-s ">'com.android.support:recyclerview-v7:23.1.1'</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eae0299230161-6"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p> </p>
+<h3><strong>Step 2 ) Modify activity_main.xml </strong></h3>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eaf1368641982" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".MainActivity"&gt;
+
+    &lt;android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" /&gt;
+
+&lt;/RelativeLayout&gt;</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-6">6</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-8">8</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-10">10</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-12">12</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-14">14</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-16">16</div><div class="crayon-num" data-line="crayon-5c10d8562eaf1368641982-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf1368641982-18">18</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-1"><span class="crayon-ta">&lt;?</span><span class="crayon-e">xml </span><span class="crayon-i">version</span><span class="crayon-o">=</span><span class="crayon-s">"1.0"</span><span class="crayon-h"> </span><span class="crayon-i">encoding</span><span class="crayon-o">=</span><span class="crayon-s">"utf-8"</span><span class="crayon-ta">?&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-2"><span class="crayon-r ">&lt;RelativeLayout </span>xmlns<span class="crayon-o">:</span><span class="crayon-e ">android</span><span class="crayon-o">=</span><span class="crayon-s ">"http://schemas.android.com/apk/res/android"</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>xmlns<span class="crayon-o">:</span><span class="crayon-e ">tools</span><span class="crayon-o">=</span><span class="crayon-s ">"http://schemas.android.com/tools"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">paddingBottom</span><span class="crayon-o">=</span><span class="crayon-s ">"16dp"</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">paddingLeft</span><span class="crayon-o">=</span><span class="crayon-s ">"16dp"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">paddingRight</span><span class="crayon-o">=</span><span class="crayon-s ">"16dp"</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">paddingTop</span><span class="crayon-o">=</span><span class="crayon-s ">"16dp"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span>tools<span class="crayon-o">:</span><span class="crayon-e ">context</span><span class="crayon-o">=</span><span class="crayon-s ">".MainActivity"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-12"><span class="crayon-i ">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;android.support.v7.widget.RecyclerView</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-13"><span class="crayon-r ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">id</span><span class="crayon-o">=</span><span class="crayon-s ">"@+id/recycler_view"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">layout_width</span><span class="crayon-o">=</span><span class="crayon-s ">"match_parent"</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">layout_height</span><span class="crayon-o">=</span><span class="crayon-s ">"wrap_content"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>android<span class="crayon-o">:</span><span class="crayon-e ">scrollbars</span><span class="crayon-o">=</span><span class="crayon-s ">"vertical"</span><span class="crayon-r "> /&gt;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf1368641982-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf1368641982-18"><span class="crayon-r ">&lt;/RelativeLayout&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0038 seconds] -->
+<p> </p>
+<h3><strong>Step 3 ) Write Book model class </strong></h3>
+<p>Create a class named <strong>Book.java</strong> and declare title and author. Also add the getter/setter methods to each variable.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eaf8973652191" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+package com.androidtutorialshub.recyclerviewtutorial.Model;
+
+public class Book {
+
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-6">6</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-8">8</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-10">10</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-12">12</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-14">14</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-16">16</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-18">18</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-20">20</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-22">22</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-24">24</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-26">26</div><div class="crayon-num" data-line="crayon-5c10d8562eaf8973652191-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eaf8973652191-28">28</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-1"><span class="crayon-t">package</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">Model</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-2">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-3"><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-4">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">title</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">author</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-12">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-e">getTitle</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-16">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">setTitle</span><span class="crayon-sy">(</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">title</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">title</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-20">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-e">getAuthor</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-24">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">setAuthor</span><span class="crayon-sy">(</span><span class="crayon-t">String</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">author</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">author</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eaf8973652191-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eaf8973652191-28"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0026 seconds] -->
+<p> </p>
+<h3><strong>Step 4 ) List Row layout </strong></h3>
+<p>Create an layout xml named <strong>book_list_row.xml</strong> with the below code. This layout file renders a single row in recycler view by displaying book title and author .</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eafe448865965" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical"&gt;
+
+    &lt;TextView
+        android:id="@+id/title"
+        android:textColor="@android:color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" /&gt;
+
+    &lt;TextView
+        android:id="@+id/author"
+        android:layout_below="@id/title"
+        android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content" /&gt;
+
+
+&lt;/RelativeLayout&gt;</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-6">6</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-8">8</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-10">10</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-12">12</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-14">14</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-16">16</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-18">18</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-20">20</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-22">22</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-24">24</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-26">26</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-28">28</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eafe448865965-30">30</div><div class="crayon-num" data-line="crayon-5c10d8562eafe448865965-31">31</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eafe448865965-1"><span class="crayon-ta">&lt;?</span><span class="crayon-e">xml </span><span class="crayon-i">version</span><span class="crayon-o">=</span><span class="crayon-s">"1.0"</span><span class="crayon-h"> </span><span class="crayon-i">encoding</span><span class="crayon-o">=</span><span class="crayon-s">"utf-8"</span><span class="crayon-ta">?&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-2"><span class="crayon-o">&lt;</span><span class="crayon-e">RelativeLayout </span><span class="crayon-v">xmlns</span><span class="crayon-o">:</span><span class="crayon-v">android</span><span class="crayon-o">=</span><span class="crayon-s">"http://schemas.android.com/apk/res/android"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_width</span><span class="crayon-o">=</span><span class="crayon-s">"match_parent"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_height</span><span class="crayon-o">=</span><span class="crayon-s">"match_parent"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">focusable</span><span class="crayon-o">=</span><span class="crayon-s">"true"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">paddingLeft</span><span class="crayon-o">=</span><span class="crayon-s">"16dp"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">paddingRight</span><span class="crayon-o">=</span><span class="crayon-s">"16dp"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">paddingTop</span><span class="crayon-o">=</span><span class="crayon-s">"16dp"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">paddingBottom</span><span class="crayon-o">=</span><span class="crayon-s">"16dp"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">clickable</span><span class="crayon-o">=</span><span class="crayon-s">"true"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">background</span><span class="crayon-o">=</span><span class="crayon-s">"?android:attr/selectableItemBackground"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">orientation</span><span class="crayon-o">=</span><span class="crayon-s">"vertical"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">TextView</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-15"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">id</span><span class="crayon-o">=</span><span class="crayon-s">"@+id/title"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">textColor</span><span class="crayon-o">=</span><span class="crayon-s">"@android:color/black"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">textSize</span><span class="crayon-o">=</span><span class="crayon-s">"16dp"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">textStyle</span><span class="crayon-o">=</span><span class="crayon-s">"bold"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_alignParentTop</span><span class="crayon-o">=</span><span class="crayon-s">"true"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_width</span><span class="crayon-o">=</span><span class="crayon-s">"match_parent"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_height</span><span class="crayon-o">=</span><span class="crayon-s">"wrap_content"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-22">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">TextView</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-24"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">id</span><span class="crayon-o">=</span><span class="crayon-s">"@+id/author"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_below</span><span class="crayon-o">=</span><span class="crayon-s">"@id/title"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_width</span><span class="crayon-o">=</span><span class="crayon-s">"match_parent"</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">textColor</span><span class="crayon-o">=</span><span class="crayon-s">"@android:color/black"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">android</span><span class="crayon-o">:</span><span class="crayon-v">layout_height</span><span class="crayon-o">=</span><span class="crayon-s">"wrap_content"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-29">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eafe448865965-30">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eafe448865965-31"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">RelativeLayout</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0030 seconds] -->
+<p> </p>
+<h3><strong>Step 5 ) Writing the Adapter Class </strong></h3>
+<p>Create a class named <strong>BookAdapter.java</strong> and add the below code. Here onCreateViewHolder() method inflates book_list_row.xml. In onBindViewHolder() method the appropriate book data (title and author) set to each row.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eb05355273911" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+package com.androidtutorialshub.recyclerviewtutorial.Adapter;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.androidtutorialshub.recyclerviewtutorial.Model.Book;
+import com.androidtutorialshub.recyclerviewtutorial.R;
+
+import java.util.List;
+
+public class BookAdapter extends RecyclerView.Adapter&lt;BookAdapter.BookViewHolder&gt;{
+
+    private List&lt;Book&gt; bookList;
+
+    public BookAdapter(List&lt;Book&gt; bookList) {
+        this.bookList = bookList;
+    }
+
+    @Override
+    public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.book_list_row, parent, false);
+
+        return new BookViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(BookViewHolder holder, int position) {
+            holder.title.setText(bookList.get(position).getTitle());
+            holder.author.setText(bookList.get(position).getAuthor());
+    }
+
+    @Override
+    public int getItemCount() {
+        return bookList.size();
+    }
+
+    public class BookViewHolder extends RecyclerView.ViewHolder {
+        public TextView title;
+        public TextView author;
+
+        public BookViewHolder(View view) {
+            super(view);
+            title = (TextView) view.findViewById(R.id.title);
+            author = (TextView) view.findViewById(R.id.author);
+        }
+    }
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-6">6</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-8">8</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-10">10</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-12">12</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-14">14</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-16">16</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-18">18</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-20">20</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-22">22</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-24">24</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-26">26</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-28">28</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-30">30</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-32">32</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-34">34</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-36">36</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-38">38</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-40">40</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-42">42</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-44">44</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-46">46</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-48">48</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb05355273911-50">50</div><div class="crayon-num" data-line="crayon-5c10d8562eb05355273911-51">51</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eb05355273911-1"><span class="crayon-t">package</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">Adapter</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-2">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-3"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">support</span><span class="crayon-sy">.</span><span class="crayon-v">v7</span><span class="crayon-sy">.</span><span class="crayon-v">widget</span><span class="crayon-sy">.</span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-4"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">view</span><span class="crayon-sy">.</span><span class="crayon-v">LayoutInflater</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-5"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">view</span><span class="crayon-sy">.</span><span class="crayon-v">View</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-6"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">view</span><span class="crayon-sy">.</span><span class="crayon-v">ViewGroup</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-7"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">widget</span><span class="crayon-sy">.</span><span class="crayon-v">TextView</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-8">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-9"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">Model</span><span class="crayon-sy">.</span><span class="crayon-v">Book</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-10"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">R</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-12"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">java</span><span class="crayon-sy">.</span><span class="crayon-v">util</span><span class="crayon-sy">.</span><span class="crayon-v">List</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-14"><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">BookAdapter </span><span class="crayon-r">extends</span><span class="crayon-h"> </span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">.</span><span class="crayon-v">Adapter</span><span class="crayon-o">&lt;</span><span class="crayon-v">BookAdapter</span><span class="crayon-sy">.</span><span class="crayon-v">BookViewHolder</span><span class="crayon-o">&gt;</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-15">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-v">List</span><span class="crayon-e ">&lt;Book&gt;</span><span class="crayon-h"> </span><span class="crayon-v">bookList</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">BookAdapter</span><span class="crayon-sy">(</span><span class="crayon-v">List</span><span class="crayon-e ">&lt;Book&gt;</span><span class="crayon-h"> </span><span class="crayon-v">bookList</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">bookList</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">bookList</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">BookViewHolder </span><span class="crayon-e">onCreateViewHolder</span><span class="crayon-sy">(</span><span class="crayon-e">ViewGroup </span><span class="crayon-r">parent</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">viewType</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">View </span><span class="crayon-v">itemView</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">LayoutInflater</span><span class="crayon-sy">.</span><span class="crayon-e">from</span><span class="crayon-sy">(</span><span class="crayon-r">parent</span><span class="crayon-sy">.</span><span class="crayon-e">getContext</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">inflate</span><span class="crayon-sy">(</span><span class="crayon-v">R</span><span class="crayon-sy">.</span><span class="crayon-v">layout</span><span class="crayon-sy">.</span><span class="crayon-v">book_list_row</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-r">parent</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">false</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-26">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">BookViewHolder</span><span class="crayon-sy">(</span><span class="crayon-v">itemView</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-29">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-30"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-31"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">onBindViewHolder</span><span class="crayon-sy">(</span><span class="crayon-e">BookViewHolder </span><span class="crayon-v">holder</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">position</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-32"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">holder</span><span class="crayon-sy">.</span><span class="crayon-v">title</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-v">position</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">getTitle</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-33"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">holder</span><span class="crayon-sy">.</span><span class="crayon-v">author</span><span class="crayon-sy">.</span><span class="crayon-e">setText</span><span class="crayon-sy">(</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-v">position</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">getAuthor</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-34"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-35">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">getItemCount</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">size</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-39"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-40">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">BookViewHolder </span><span class="crayon-r">extends</span><span class="crayon-h"> </span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">.</span><span class="crayon-i">ViewHolder</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-42"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">TextView </span><span class="crayon-v">title</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">TextView </span><span class="crayon-v">author</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-44">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-45"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-e">BookViewHolder</span><span class="crayon-sy">(</span><span class="crayon-e">View </span><span class="crayon-v">view</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-46"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">super</span><span class="crayon-sy">(</span><span class="crayon-v">view</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-47"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">title</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">TextView</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">view</span><span class="crayon-sy">.</span><span class="crayon-e">findViewById</span><span class="crayon-sy">(</span><span class="crayon-v">R</span><span class="crayon-sy">.</span><span class="crayon-v">id</span><span class="crayon-sy">.</span><span class="crayon-v">title</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-48"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">author</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">TextView</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">view</span><span class="crayon-sy">.</span><span class="crayon-e">findViewById</span><span class="crayon-sy">(</span><span class="crayon-v">R</span><span class="crayon-sy">.</span><span class="crayon-v">id</span><span class="crayon-sy">.</span><span class="crayon-v">author</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-49"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb05355273911-50"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c10d8562eb05355273911-51"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0060 seconds] -->
+<p> </p>
+<h3><strong>Step 6 ) Binding Adapter and RecyclerView </strong></h3>
+<p>Open <strong>MainActivity.java</strong> and update the below changes. Here initBookData() method sets the sample data to recycler view.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5c10d8562eb0c155314827" class="crayon-syntax crayon-theme-github crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+package com.androidtutorialshub.recyclerviewtutorial;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.androidtutorialshub.recyclerviewtutorial.Adapter.BookAdapter;
+import com.androidtutorialshub.recyclerviewtutorial.Model.Book;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private List&lt;Book&gt; bookList = new ArrayList&lt;&gt;();
+    private RecyclerView recyclerView;
+    private BookAdapter mAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+        mAdapter = new BookAdapter(bookList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+        initBookData();
+    }
+
+    private void initBookData() {
+        Book book = new Book("Hello Android", "Ed Burnette");
+        bookList.add(book);
+
+        book = new Book("Beginning Android 3", "Mark Murphy");
+        bookList.add(book);
+
+        book = new Book("Unlocking Android", " W. Frank Ableson");
+        bookList.add(book);
+
+        book = new Book("Android Tablet Development", "Wei Meng Lee");
+        bookList.add(book);
+
+        book = new Book("Android Apps Security", "Sheran Gunasekera");
+        bookList.add(book);
+
+        mAdapter.notifyDataSetChanged();
+    }
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="hide">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-2">2</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-4">4</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-6">6</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-8">8</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-10">10</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-12">12</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-14">14</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-16">16</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-18">18</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-20">20</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-22">22</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-24">24</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-26">26</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-28">28</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-30">30</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-32">32</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-34">34</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-36">36</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-38">38</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-40">40</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-42">42</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-44">44</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-46">46</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-48">48</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-50">50</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-52">52</div><div class="crayon-num" data-line="crayon-5c10d8562eb0c155314827-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5c10d8562eb0c155314827-54">54</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-1"><span class="crayon-t">package</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-2">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-3"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">support</span><span class="crayon-sy">.</span><span class="crayon-v">v7</span><span class="crayon-sy">.</span><span class="crayon-v">app</span><span class="crayon-sy">.</span><span class="crayon-v">AppCompatActivity</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-4"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">os</span><span class="crayon-sy">.</span><span class="crayon-v">Bundle</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-5"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">support</span><span class="crayon-sy">.</span><span class="crayon-v">v7</span><span class="crayon-sy">.</span><span class="crayon-v">widget</span><span class="crayon-sy">.</span><span class="crayon-v">DefaultItemAnimator</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-6"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">support</span><span class="crayon-sy">.</span><span class="crayon-v">v7</span><span class="crayon-sy">.</span><span class="crayon-v">widget</span><span class="crayon-sy">.</span><span class="crayon-v">LinearLayoutManager</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-7"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">android</span><span class="crayon-sy">.</span><span class="crayon-v">support</span><span class="crayon-sy">.</span><span class="crayon-v">v7</span><span class="crayon-sy">.</span><span class="crayon-v">widget</span><span class="crayon-sy">.</span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-8">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-9"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">Adapter</span><span class="crayon-sy">.</span><span class="crayon-v">BookAdapter</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-10"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">com</span><span class="crayon-sy">.</span><span class="crayon-v">androidtutorialshub</span><span class="crayon-sy">.</span><span class="crayon-v">recyclerviewtutorial</span><span class="crayon-sy">.</span><span class="crayon-v">Model</span><span class="crayon-sy">.</span><span class="crayon-v">Book</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-12"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">java</span><span class="crayon-sy">.</span><span class="crayon-v">util</span><span class="crayon-sy">.</span><span class="crayon-v">ArrayList</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-13"><span class="crayon-r">import</span><span class="crayon-h"> </span><span class="crayon-v">java</span><span class="crayon-sy">.</span><span class="crayon-v">util</span><span class="crayon-sy">.</span><span class="crayon-v">List</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-14">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-15"><span class="crayon-m">public</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-e">MainActivity</span><span class="crayon-h"> </span><span class="crayon-r">extends</span><span class="crayon-h"> </span><span class="crayon-e">AppCompatActivity</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-16">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-v">List</span><span class="crayon-e ">&lt;Book&gt;</span><span class="crayon-h"> </span><span class="crayon-v">bookList</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-v">ArrayList</span><span class="crayon-o">&lt;&gt;</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-e">RecyclerView </span><span class="crayon-v">recyclerView</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-e">BookAdapter </span><span class="crayon-v">mAdapter</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-20">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-n">@Override</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">protected</span><span class="crayon-h"> </span><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">onCreate</span><span class="crayon-sy">(</span><span class="crayon-e">Bundle </span><span class="crayon-v">savedInstanceState</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">super</span><span class="crayon-sy">.</span><span class="crayon-e">onCreate</span><span class="crayon-sy">(</span><span class="crayon-v">savedInstanceState</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-24"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">setContentView</span><span class="crayon-sy">(</span><span class="crayon-v">R</span><span class="crayon-sy">.</span><span class="crayon-v">layout</span><span class="crayon-sy">.</span><span class="crayon-v">activity_main</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-25"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">recyclerView</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-e">findViewById</span><span class="crayon-sy">(</span><span class="crayon-v">R</span><span class="crayon-sy">.</span><span class="crayon-v">id</span><span class="crayon-sy">.</span><span class="crayon-v">recycler_view</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-26">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">mAdapter</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">BookAdapter</span><span class="crayon-sy">(</span><span class="crayon-v">bookList</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">RecyclerView</span><span class="crayon-sy">.</span><span class="crayon-e">LayoutManager </span><span class="crayon-v">mLayoutManager</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">LinearLayoutManager</span><span class="crayon-sy">(</span><span class="crayon-e">getApplicationContext</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-29"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">recyclerView</span><span class="crayon-sy">.</span><span class="crayon-e">setLayoutManager</span><span class="crayon-sy">(</span><span class="crayon-v">mLayoutManager</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-30"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">recyclerView</span><span class="crayon-sy">.</span><span class="crayon-e">setItemAnimator</span><span class="crayon-sy">(</span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">DefaultItemAnimator</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-31"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">recyclerView</span><span class="crayon-sy">.</span><span class="crayon-e">setAdapter</span><span class="crayon-sy">(</span><span class="crayon-v">mAdapter</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-32">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-33"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">initBookData</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-34"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-35">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">private</span><span class="crayon-h"> </span><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">initBookData</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-37"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Book </span><span class="crayon-v">book</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-s">"Hello Android"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Ed Burnette"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">book</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-39">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-40"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">book</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-s">"Beginning Android 3"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Mark Murphy"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">book</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-42">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">book</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-s">"Unlocking Android"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">" W. Frank Ableson"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-44"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">book</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-45">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-46"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">book</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-s">"Android Tablet Development"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Wei Meng Lee"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-47"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">book</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-48">&nbsp;</div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-49"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">book</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-e">Book</span><span class="crayon-sy">(</span><span class="crayon-s">"Android Apps Security"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">"Sheran Gunasekera"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-50"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">bookList</span><span class="crayon-sy">.</span><span class="crayon-e">add</span><span class="crayon-sy">(</span><span class="crayon-v">book</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-51">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-52"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">mAdapter</span><span class="crayon-sy">.</span><span class="crayon-e">notifyDataSetChanged</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5c10d8562eb0c155314827-53"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5c10d8562eb0c155314827-54"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0065 seconds] -->
+<p> </p>
+<p><strong>Run your app , you can see the books in list .</strong><br />
+<a href="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/device-2016-02-13-231506.png" rel="attachment wp-att-272"><img src="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/device-2016-02-13-231506.png" alt="device-2016-02-13-231506" width="720" height="1280" class="alignnone size-full wp-image-272 aligncenter" srcset="http://www.androidtutorialshub.com/wp-content/uploads/2016/02/device-2016-02-13-231506.png 720w, http://www.androidtutorialshub.com/wp-content/uploads/2016/02/device-2016-02-13-231506-169x300.png 169w, http://www.androidtutorialshub.com/wp-content/uploads/2016/02/device-2016-02-13-231506-576x1024.png 576w" sizes="(max-width: 720px) 100vw, 720px" /></a></p>
+<p><a href="https://github.com/Android-Tutorials-Hub/recycler-view-tutorial/archive/master.zip" target="_blank"><img style="max-width:100%;" class="aligncenter size-full wp-image-378" src="http://www.androidtutorialshub.com/wp-content/uploads/2016/03/DownloadCde.png" alt="DownloadCode" width="500" height="69" srcset="http://www.androidtutorialshub.com/wp-content/uploads/2016/03/DownloadCde.png 500w, http://www.androidtutorialshub.com/wp-content/uploads/2016/03/DownloadCde-300x41.png 300w" sizes="(max-width: 500px) 100vw, 500px" /></a><br />
+<a href="https://github.com/Android-Tutorials-Hub/recycler-view-tutorial" target="_blank"><img style="max-width:100%;" class="aligncenter size-full wp-image-379" src="http://www.androidtutorialshub.com/wp-content/uploads/2016/03/github.png" alt="github" width="500" height="69" srcset="http://www.androidtutorialshub.com/wp-content/uploads/2016/03/github.png 500w, http://www.androidtutorialshub.com/wp-content/uploads/2016/03/github-300x41.png 300w" sizes="(max-width: 500px) 100vw, 500px" /></a></p>
+<p><strong>Enjoy Coding and Share Knowledge</strong></p>
+        </div> <!-- //.entry-summary -->
+            </div>
+ 
+
+    </div>
+
+</article> <!--/#post-->
+                                                     <div class="clearfix post-navigation">
+                                <span class="btn-style previous-post pull-left"><a href="http://www.androidtutorialshub.com/android-working-with-volley-library-http-get-post-put-delete-request/" rel="prev"><i class="fa fa-long-arrow-left"></i> previous article</a></span>                                 <span class="btn-style next-post pull-right"><a href="http://www.androidtutorialshub.com/android-recyclerview-click-listener-tutorial/" rel="next">next article <i class="fa fa-long-arrow-right"></i></a></span>                            </div> <!-- .post-navigation -->
+                                            
+                        
+<div id="disqus_thread"></div>
+                                            
+                    
+                        
+            </div> <!-- #content -->
+
+            <div id="sidebar" class="col-md-4" role="complementary">
+                
+
+	<div class="my-profile clearfix">
+		<div class="profile-bg">
+						<img class="img-responsive" src="http://www.androidtutorialshub.com/wp-content/uploads/2018/06/wallpaper-1_d0e2f99c10510d79fc5b8d4cdabc71cd.png">
+			
+						<div class="profile-img">
+				<img class="img-responsive" src="http://www.androidtutorialshub.com/wp-content/uploads/2016/01/androidtut.png">
+			</div>
+					</div>
+
+		<div class="profile-desc">
+							<h2>Android Tutorials Hub</h2>
+										<span>Android Tutorial for Everyone</span>
+									<p></p>
+					</div>
+
+		
+<div class="social-share">
+	
+	<ul>
+			
+			<li><a class="facebook" href="https://www.facebook.com/androidtutorialshub" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			
+			<li><a class="twitter" href="#" target="_blank" ><i class="fa fa-twitter"></i></a></li>
+						
+			<li><a class="g-plus" href="https://plus.google.com/u/0/b/100275500430849188154/100275500430849188154/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+							<li><a class="linkedin" href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+											 
+		
+	</ul>
+	
+</div>
+
+
+
+
+	</div>
+
+                <div class="sidebar-inner">
+                    <aside class="widget-area">
+                        <div id="search-2" class="widget widget_search" ><form role="form" method="get" id="searchform" action="http://www.androidtutorialshub.com/" >
+    <input type="text" value="" name="s" id="s" class="form-control" placeholder="Blog Search" autocomplete="off" />
+    <button class="btn btn-style btn-search"><i class="fa fa-search"></i></button>
+</form></div><div id="email-subscribers-2" class="widget widget_text elp-widget" ><h3  class="widget_title">STAY UPDATED</h3>        <div class="es_form_container">
+            <form class="es_widget_form" data-es_form_id="es_widget_form">
+				                    <div class="es_caption">Get Our Latest Post in Your INBOX</div>
+								                <div class="es_lablebox">
+                    <label class="es_widget_form_email">Email *</label>
+                </div>
+                <div class="es_textbox">
+                    <input type="email" id="es_txt_email" class="es_textbox_class" name="es_txt_email" value="" maxlength="60" required>
+                </div>
+				                <div class="es_button">
+                    <input type="submit" id="es_txt_button" class="es_textbox_button es_submit_button" name="es_txt_button" value="Subscribe">
+                </div>
+                <div class="es_msg" id="es_widget_msg">
+                    <span id="es_msg"></span>
+                </div>
+				                    <input type="hidden" id="es_txt_name" name="es_txt_name" value="">
+								<div style="position:absolute; left: -5000px"><input type="text" name="es_required_field" class="es_required_field" tabindex="-1" autocomplete="off"/></div>
+                <input type="hidden" id="es_txt_group" name="es_txt_group" value="">
+				                <input type="hidden" name="es-subscribe" id="es-subscribe" value="f69dfef027"/>
+            </form>
+			        </div>
+        </div><div id="text-4" class="widget widget_text" >			<div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- android-vasanlalit_main_Blog1_300x250_as -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-6699407663466810"
+     data-ad-slot="2512822485"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</div>		<div id="recent-posts-2" class="widget widget_recent_entries" >		<h3  class="widget_title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="http://www.androidtutorialshub.com/android-take-screenshot-programmatically/">Android take screenshot programmatically</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/android-expandable-list-view-tutorial/">Android Expandable List View Tutorial</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/android-kotlin-login-register-with-sqlite-database-tutorial/">Android[Kotlin] Login and Register with SQLite Database Tutorial</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/android-shared-preferences-tutorial/">Android Shared Preferences Tutorial</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/how-to-get-hardware-and-software-information-in-android/">How to Get Hardware and Software Information in Android</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/how-to-disable-back-button-in-android/">How to disable back button in android</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/animated-gradient-background-in-android/">Animated Gradient Background in Android</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/android-convert-dp-px-px-dp/">Android How to convert Dp to Px and Px to Dp</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/what-is-the-difference-between-px-dp-dip-sp-on-android/">What is the difference between “px”, “dp”, “dip” and “sp” on Android</a>
+									</li>
+											<li>
+					<a href="http://www.androidtutorialshub.com/how-to-reduce-android-apk-size/">How To Reduce Android APK Size</a>
+									</li>
+					</ul>
+		</div><div id="tag_cloud-2" class="widget widget_tag_cloud" ><h3  class="widget_title">Tags</h3><div class="tagcloud"><a href="http://www.androidtutorialshub.com/tag/andorid/" class="tag-cloud-link tag-link-21 tag-link-position-1" style="font-size: 8pt;" aria-label="andorid (1 item)">andorid</a>
+<a href="http://www.androidtutorialshub.com/tag/android/" class="tag-cloud-link tag-link-14 tag-link-position-2" style="font-size: 22pt;" aria-label="android (4 items)">android</a>
+<a href="http://www.androidtutorialshub.com/tag/android-development/" class="tag-cloud-link tag-link-3 tag-link-position-3" style="font-size: 8pt;" aria-label="Android Development (1 item)">Android Development</a>
+<a href="http://www.androidtutorialshub.com/tag/animation/" class="tag-cloud-link tag-link-9 tag-link-position-4" style="font-size: 8pt;" aria-label="animation (1 item)">animation</a>
+<a href="http://www.androidtutorialshub.com/tag/apk/" class="tag-cloud-link tag-link-39 tag-link-position-5" style="font-size: 8pt;" aria-label="Apk (1 item)">Apk</a>
+<a href="http://www.androidtutorialshub.com/tag/appcompat/" class="tag-cloud-link tag-link-33 tag-link-position-6" style="font-size: 14.3pt;" aria-label="appcompat (2 items)">appcompat</a>
+<a href="http://www.androidtutorialshub.com/tag/battery/" class="tag-cloud-link tag-link-15 tag-link-position-7" style="font-size: 8pt;" aria-label="battery (1 item)">battery</a>
+<a href="http://www.androidtutorialshub.com/tag/bottom-sheets/" class="tag-cloud-link tag-link-31 tag-link-position-8" style="font-size: 8pt;" aria-label="bottom sheets (1 item)">bottom sheets</a>
+<a href="http://www.androidtutorialshub.com/tag/chat-head/" class="tag-cloud-link tag-link-8 tag-link-position-9" style="font-size: 8pt;" aria-label="chat head (1 item)">chat head</a>
+<a href="http://www.androidtutorialshub.com/tag/color-palette/" class="tag-cloud-link tag-link-12 tag-link-position-10" style="font-size: 8pt;" aria-label="color palette (1 item)">color palette</a>
+<a href="http://www.androidtutorialshub.com/tag/color-picker/" class="tag-cloud-link tag-link-11 tag-link-position-11" style="font-size: 8pt;" aria-label="color picker (1 item)">color picker</a>
+<a href="http://www.androidtutorialshub.com/tag/count-down-timer/" class="tag-cloud-link tag-link-35 tag-link-position-12" style="font-size: 8pt;" aria-label="count down timer (1 item)">count down timer</a>
+<a href="http://www.androidtutorialshub.com/tag/database/" class="tag-cloud-link tag-link-18 tag-link-position-13" style="font-size: 8pt;" aria-label="database (1 item)">database</a>
+<a href="http://www.androidtutorialshub.com/tag/day-night-theme/" class="tag-cloud-link tag-link-32 tag-link-position-14" style="font-size: 8pt;" aria-label="day night theme (1 item)">day night theme</a>
+<a href="http://www.androidtutorialshub.com/tag/dimension/" class="tag-cloud-link tag-link-37 tag-link-position-15" style="font-size: 8pt;" aria-label="dimension (1 item)">dimension</a>
+<a href="http://www.androidtutorialshub.com/tag/e-books/" class="tag-cloud-link tag-link-4 tag-link-position-16" style="font-size: 8pt;" aria-label="E-books (1 item)">E-books</a>
+<a href="http://www.androidtutorialshub.com/tag/floating-label/" class="tag-cloud-link tag-link-29 tag-link-position-17" style="font-size: 8pt;" aria-label="floating label (1 item)">floating label</a>
+<a href="http://www.androidtutorialshub.com/tag/gestures/" class="tag-cloud-link tag-link-16 tag-link-position-18" style="font-size: 8pt;" aria-label="gestures (1 item)">gestures</a>
+<a href="http://www.androidtutorialshub.com/tag/glide/" class="tag-cloud-link tag-link-20 tag-link-position-19" style="font-size: 8pt;" aria-label="glide (1 item)">glide</a>
+<a href="http://www.androidtutorialshub.com/tag/image/" class="tag-cloud-link tag-link-19 tag-link-position-20" style="font-size: 14.3pt;" aria-label="image (2 items)">image</a>
+<a href="http://www.androidtutorialshub.com/tag/library/" class="tag-cloud-link tag-link-7 tag-link-position-21" style="font-size: 8pt;" aria-label="library (1 item)">library</a>
+<a href="http://www.androidtutorialshub.com/tag/material-design/" class="tag-cloud-link tag-link-28 tag-link-position-22" style="font-size: 18.5pt;" aria-label="material design (3 items)">material design</a>
+<a href="http://www.androidtutorialshub.com/tag/picasso/" class="tag-cloud-link tag-link-22 tag-link-position-23" style="font-size: 8pt;" aria-label="picasso (1 item)">picasso</a>
+<a href="http://www.androidtutorialshub.com/tag/recyclerview/" class="tag-cloud-link tag-link-27 tag-link-position-24" style="font-size: 14.3pt;" aria-label="recyclerview (2 items)">recyclerview</a>
+<a href="http://www.androidtutorialshub.com/tag/service/" class="tag-cloud-link tag-link-36 tag-link-position-25" style="font-size: 8pt;" aria-label="service (1 item)">service</a>
+<a href="http://www.androidtutorialshub.com/tag/sharedpreferences/" class="tag-cloud-link tag-link-40 tag-link-position-26" style="font-size: 8pt;" aria-label="SharedPreferences (1 item)">SharedPreferences</a>
+<a href="http://www.androidtutorialshub.com/tag/snack-bar/" class="tag-cloud-link tag-link-30 tag-link-position-27" style="font-size: 8pt;" aria-label="snack bar (1 item)">snack bar</a>
+<a href="http://www.androidtutorialshub.com/tag/soft-keyboard/" class="tag-cloud-link tag-link-38 tag-link-position-28" style="font-size: 8pt;" aria-label="soft keyboard (1 item)">soft keyboard</a>
+<a href="http://www.androidtutorialshub.com/tag/sqlite/" class="tag-cloud-link tag-link-17 tag-link-position-29" style="font-size: 14.3pt;" aria-label="sqlite (2 items)">sqlite</a>
+<a href="http://www.androidtutorialshub.com/tag/vector-drawable/" class="tag-cloud-link tag-link-34 tag-link-position-30" style="font-size: 8pt;" aria-label="vector drawable (1 item)">vector drawable</a>
+<a href="http://www.androidtutorialshub.com/tag/volley/" class="tag-cloud-link tag-link-6 tag-link-position-31" style="font-size: 8pt;" aria-label="volley (1 item)">volley</a>
+<a href="http://www.androidtutorialshub.com/tag/xml/" class="tag-cloud-link tag-link-10 tag-link-position-32" style="font-size: 8pt;" aria-label="xml (1 item)">xml</a></div>
+</div><div id="text-7" class="widget widget_text" >			<div class="textwidget"><p><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><br />
+<!-- android-vasanlalit_sidebar-right-1_AdSense1_1x1_as --><br />
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6699407663466810"
+     data-ad-slot="3219645939"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins><br />
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</div>                    </aside>
+                </div>
+            </div> <!-- #sidebar -->
+
+        </div> <!-- .row -->
+    </section> <!-- .container -->
+
+
+        <footer id="footer">
+        <div class="container">
+            <div class="footer">
+                <div class="row">
+                                            <div class="col-sm-6">
+                          Copyright &copy; 2016 <a href="http://www.androidtutorialshub.com/">Android Tutorials Hub</a>                        </div>
+                    
+                                            <div class="col-sm-6">
+                                                    </div>
+                                    </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+</div>
+
+<div id="csbwfs-delaydiv"><div class="csbwfs-social-widget"  id="csbwfs-left" title="Share This With Your Friends"  style="top:25%;left:0;"><div class="csbwfs-show"><a href="javascript:" title="Show Buttons" id="csbwfs-show"><img src="http://www.androidtutorialshub.com/wp-content/plugins/custom-share-buttons-with-floating-sidebar/images/hide-l.png" alt="Show Buttons"></a></div><div id="csbwfs-social-inner"><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-fb" class="csbwfs-fb"><a href="javascript:" onclick="javascript:window.open('//www.facebook.com/sharer/sharer.php?u=http://www.androidtutorialshub.com/android-recyclerview-tutorial/', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share On Facebook" ><i class="csbwfs_facebook"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-tw" class="csbwfs-tw"><a href="javascript:" onclick="window.open('//twitter.com/share?url=http://www.androidtutorialshub.com/android-recyclerview-tutorial/&text=Android%20RecyclerView%20Tutorial%20-%20Android%20Tutorials%20Hub','_blank','width=800,height=300')" title="Share On Twitter" ><i class="csbwfs_twitter"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-gp" class="csbwfs-gp"><a href="javascript:"  onclick="javascript:window.open('//plus.google.com/share?url=http://www.androidtutorialshub.com/android-recyclerview-tutorial/','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800');return false;" title="Share On Google Plus" ><i class="csbwfs_plus"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-li" class="csbwfs-li"><a href="javascript:" onclick="javascript:window.open('//www.linkedin.com/cws/share?mini=true&url=http://www.androidtutorialshub.com/android-recyclerview-tutorial/','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800');return false;" title="Share On Linkedin" ><i class="csbwfs_linkedin"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-pin" class="csbwfs-pin"><a onclick="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" href="javascript:void(0);"  title="Share On Pinterest"><i class="csbwfs_pinterest"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-re" class="csbwfs-re"><a onclick="window.open('//reddit.com/submit?url=http://www.androidtutorialshub.com/android-recyclerview-tutorial/&amp;title=Android%20RecyclerView%20Tutorial%20-%20Android%20Tutorials%20Hub','Reddit','toolbar=0,status=0,width=1000,height=800');" href="javascript:void(0);"  title="Share On Reddit"><i class="csbwfs_reddit"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-ml" class="csbwfs-ml"><a href="mailto:?subject=Android%20RecyclerView%20Tutorial%20-%20Android%20Tutorials%20Hub&body=http://www.androidtutorialshub.com/android-recyclerview-tutorial/" title="Contact us"  ><i class="csbwfs_mail"></i></a></div></div></div><div class="csbwfs-hide"><a href="javascript:" title="Hide Buttons" id="csbwfs-hide"><img src="http://www.androidtutorialshub.com/wp-content/plugins/custom-share-buttons-with-floating-sidebar/images/hide.png" alt="Hide Buttons"></a></div></div></div><script>
+	  var windWidth=jQuery( window ).width();
+	  //alert(windWidth);
+	  var animateWidth;
+	  var defaultAnimateWidth;
+	jQuery(document).ready(function()
+  { 
+	animateWidth="55";
+    defaultAnimateWidth= animateWidth-10;
+	animateHeight="49";
+	defaultAnimateHeight= animateHeight-2;jQuery("div.csbwfsbtns a").hover(function(){
+  jQuery(this).animate({width:animateWidth});
+  },function(){
+    jQuery(this).stop( true, true ).animate({width:defaultAnimateWidth});
+  });jQuery("div.csbwfs-show").hide();
+  jQuery("div.csbwfs-show a").click(function(){
+    jQuery("div#csbwfs-social-inner").show(500);
+     jQuery("div.csbwfs-show").hide(500);
+    jQuery("div.csbwfs-hide").show(500);
+    csbwfsSetCookie("csbwfs_show_hide_status","active","1");
+  });
+  
+  jQuery("div.csbwfs-hide a").click(function(){
+     jQuery("div.csbwfs-show").show(500);
+      jQuery("div.csbwfs-hide").hide(500);
+     jQuery("div#csbwfs-social-inner").hide(500);
+     csbwfsSetCookie("csbwfs_show_hide_status","in_active","1");
+  });var button_status=csbwfsGetCookie("csbwfs_show_hide_status");
+    if (button_status =="in_active") {
+      jQuery("div.csbwfs-show").show();
+      jQuery("div.csbwfs-hide").hide();
+     jQuery("div#csbwfs-social-inner").hide();
+    } else {
+      jQuery("div#csbwfs-social-inner").show();
+     jQuery("div.csbwfs-show").hide();
+    jQuery("div.csbwfs-hide").show();
+    }});
+
+</script><script>csbwfsCheckCookie();function csbwfsSetCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function csbwfsGetCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function csbwfsCheckCookie() {
+	var hideshowhide = ""
+    var button_status=csbwfsGetCookie("csbwfs_show_hide_status");
+    if (button_status != "") {
+        
+    } else {
+        csbwfsSetCookie("csbwfs_show_hide_status", "active",1);
+    }
+    if(hideshowhide=="yes")
+    {
+    csbwfsSetCookie("csbwfs_show_hide_status", "active",0);
+    }
+}
+
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/www.androidtutorialshub.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.0.5'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"androidtutorialshub"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.16"},"disqusIdentifier":"264 http:\/\/www.androidtutorialshub.com\/?p=264","disqusShortname":"androidtutorialshub","disqusTitle":"Android RecyclerView Tutorial","disqusUrl":"http:\/\/www.androidtutorialshub.com\/android-recyclerview-tutorial\/","postId":"264"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var es_widget_page_notices = {"es_email_notice":"Please enter email address","es_success_message":"Successfully Subscribed.","es_success_notice":"Your subscription was successful! Kindly check your mailbox and confirm your subscription. If you don't see the email within a few minutes, check the spam\/junk folder.","es_email_exists":"Email Address already exists!","es_error":"Oops.. Unexpected error occurred.","es_invalid_email":"Invalid email address","es_try_later":"Please try after some time","es_ajax_url":"http:\/\/www.androidtutorialshub.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/email-subscribers/widget/es-widget-page.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-includes/js/imagesloaded.min.js?ver=3.2.0'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-includes/js/masonry.min.js?ver=3.3.2'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/themes/prolog/js/bootstrap.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/themes/prolog/js/jquery.prettyPhoto.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/themes/prolog/js/jquery.countdown.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/themes/prolog/js/main.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=12.2'></script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var icegram_pre_data = {"ajax_url":"http:\/\/www.androidtutorialshub.com\/wp-admin\/admin-ajax.php","post_obj":{"is_home":false,"page_id":264,"action":"display_messages","shortcodes":[],"cache_compatibility":"no","device":"laptop"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.androidtutorialshub.com/wp-content/plugins/icegram/assets/js/main.min.js?ver=1.10.24'></script>
+</body>
+</html>

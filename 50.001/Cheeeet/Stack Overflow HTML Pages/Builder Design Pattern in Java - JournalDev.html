@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Manifest added by SuperPWA - Progressive Web Apps Plugin For WordPress -->
+<link rel="manifest" href="/superpwa-manifest.json">
+<meta name="theme-color" content="#D5E0EB">
+<link rel="apple-touch-icon" sizes="192x192" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/192x192-transparent.png">
+<link rel="apple-touch-icon" sizes="512x512" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/512x512-transparent.png">
+<!-- / SuperPWA.com -->
+<title>Builder Design Pattern in Java - JournalDev</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v9.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Builder Design Pattern in java. Why we need builder pattern? Builder Pattern in java example code. Creational design pattern in java."/>
+<link rel="canonical" href="https://www.journaldev.com/1425/builder-design-pattern-in-java" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Builder Design Pattern in Java - JournalDev" />
+<meta property="og:description" content="Builder Design Pattern in java. Why we need builder pattern? Builder Pattern in java example code. Creational design pattern in java." />
+<meta property="og:url" content="https://www.journaldev.com/1425/builder-design-pattern-in-java" />
+<meta property="og:site_name" content="JournalDev" />
+<meta property="article:author" content="https://www.facebook.com/PankajKumarJaiswal" />
+<meta property="article:section" content="Design Patterns" />
+<meta property="article:published_time" content="2013-06-20T04:07:13+00:00" />
+<meta property="article:modified_time" content="2018-05-11T18:39:48+00:00" />
+<meta property="og:updated_time" content="2018-05-11T18:39:48+00:00" />
+<meta property="og:image" content="https://www.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg" />
+<meta property="og:image:secure_url" content="https://www.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Builder Design Pattern in java. Why we need builder pattern? Builder Pattern in java example code. Creational design pattern in java." />
+<meta name="twitter:title" content="Builder Design Pattern in Java - JournalDev" />
+<meta name="twitter:image" content="https://www.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg" />
+<meta name="twitter:creator" content="@JournalDev" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/www.journaldev.com\/","sameAs":[],"@id":"#person","name":"Pankaj Kumar"}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.journaldev.com\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.journaldev.com\/java","name":"Java"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.journaldev.com\/java\/design-patterns","name":"Design Patterns"}},{"@type":"ListItem","position":4,"item":{"@id":"https:\/\/www.journaldev.com\/1425\/builder-design-pattern-in-java","name":"Builder Design Pattern in Java"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.journaldev.com/1425/builder-design-pattern-in-java/amp" /><link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Feed" href="https://www.journaldev.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Comments Feed" href="https://www.journaldev.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Builder Design Pattern in Java Comments Feed" href="https://www.journaldev.com/1425/builder-design-pattern-in-java/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/cdn.journaldev.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='news-pro-theme-css'  href='https://cdn.journaldev.com/wp-content/themes/news-pro/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/screen.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://cdn.journaldev.com/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css'  href='//fonts.googleapis.com/css?family=Raleway%3A400%2C700%7CPathway+Gothic+One&#038;ver=3.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-basic-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style.basic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-ajaxsearchlite-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style-simple-red.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/genesis/lib/js/html5shiv.min.js'></script>
+<![endif]-->
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/news-pro/js/responsive-menu.js'></script>
+<link rel='https://api.w.org/' href='https://www.journaldev.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.journaldev.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.journaldev.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='https://www.journaldev.com/?p=1425' />
+<link rel="alternate" type="application/json+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java&#038;format=xml" />
+<head profile="https://www.w3.org/2005/10/profile">
+<script type="text/javascript" src="//cdn.thisiswaldo.com/static/js/2273.js"></script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/8491498/journaldev_video', [[300, 291], [630, 430]], 'div-gpt-ad-1539114023134-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script><style type="text/css">.site-title a { background: url(https://cdn.journaldev.com/wp-content/uploads/2018/07/logo1.svg) no-repeat !important; }</style>
+                <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                      <meta name="onesignal" content="wordpress-plugin"/>
+          <link rel="manifest"
+            href="https://www.journaldev.com/superpwa-manifest.json"/>
+          <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>    <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+        OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+        OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+
+        OneSignal.setDefaultNotificationUrl("https://www.journaldev.com");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = 'bab8c5d5-918b-46f8-8634-2efa6c23e327';
+oneSignal_options['autoRegister'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "https://www.journaldev.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.0818a4e7-118f-4fc1-b0e2-07892e811a2a";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['prenotify'] = true;
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+              return OneSignal.isPushNotificationsEnabled()
+                      .then(function(isPushEnabled) {
+                          return !isPushEnabled;
+                      });
+            };
+oneSignal_options['notifyButton']['showCredit'] = false;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['text']['message.prenotify'] = 'Stay Updated with us! Subscribe to our free notifications.';
+oneSignal_options['notifyButton']['text']['tip.state.subscribed'] = 'Thanks for subscribing!';
+oneSignal_options['notifyButton']['text']['message.action.subscribed'] = 'Thanks for subscribing!';
+              OneSignal.init(window._oneSignalInitOptions);
+                    });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+
+                <style type="text/css">
+                    <!--
+                    
+            @font-face {
+                font-family: 'aslsicons2';
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot');
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot?#iefix') format('embedded-opentype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff2') format('woff2'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff') format('woff'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.ttf') format('truetype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.svg#icons') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label {
+                font-size: 0px !important;
+                color: rgba(0, 0, 0, 0);
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label:after {
+                font-size: 11px !important;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            div[id*='ajaxsearchlite'].wpdreams_asl_container {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results div.resdrg span.highlighted {
+                font-weight: bold;
+                color: rgba(217, 49, 43, 1);
+                background-color: rgba(238, 238, 238, 1);
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results .results div.asl_image {
+                width: 70px;
+                height: 70px;
+            }
+            div.asl_r .results {
+                max-height: none;
+            }
+                                -->
+                </style>
+                            <script type="text/javascript">
+                if ( typeof _ASL !== "undefined" && _ASL !== null && typeof _ASL.initialize !== "undefined" )
+                    _ASL.initialize();
+            </script>
+            <link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-180x180.png" />
+<meta name="msapplication-TileImage" content="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.scriptlesssocialsharing{box-sizing:border-box;margin:18px auto}
+.scriptlesssocialsharing-buttons{border-collapse:separate;border-spacing:3px;display:table;table-layout:fixed;width:100%}
+.scriptlesssocialsharing-buttons a.button{border:none;border-radius:0;color:white;display:table-cell;text-align:center;text-decoration:none;padding:9px}
+.scriptlesssocialsharing-buttons a.button:hover{color:#fff}
+.scriptlesssocialsharing-buttons .sss-name{position:inherit;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;border:0;overflow:hidden;word-wrap:break-word}
+.scriptlesssocialsharing-buttons .button.email{background-color:#333;background-color:rgba(51,51,51,0.8)}.scriptlesssocialsharing-buttons .button.email:hover{background-color:#333}
+.scriptlesssocialsharing-buttons .button.twitter{background-color:#55acee;background-color:rgba(85,172,238,0.8)}.scriptlesssocialsharing-buttons .button.twitter:hover{background-color:#55acee}
+.scriptlesssocialsharing-buttons .button.facebook{background-color:#3b5998;background-color:rgba(59,89,152,0.8)}.scriptlesssocialsharing-buttons .button.facebook:hover{background-color:#3b5998}
+.scriptlesssocialsharing-buttons .button.linkedin{background-color:#0077b5;background-color:rgba(0,119,181,0.8)}.scriptlesssocialsharing-buttons .button.linkedin:hover{background-color:#0077b5}
+.scriptlesssocialsharing-buttons .button.google{background-color:#dc4e41;background-color:rgba(220,78,65,0.8)}.scriptlesssocialsharing-buttons .button.google:hover{background-color:#dc4e41}
+.scriptlesssocialsharing-buttons .button.pinterest {background-color: #bd081c;background-color: rgba(189, 8, 28, .8)}
+.scriptlesssocialsharing-buttons .button.pinterest:hover {background-color: #bd081c}  
+.scriptlesssocialsharing-buttons .button.reddit {background-color: #ff4500;background-color: rgba(255, 69, 0, .8)}
+.scriptlesssocialsharing-buttons .button.reddit:hover {background-color: #ff4500}
+@media print {.scriptlesssocialsharing {display: none}}		</style>
+	</head>
+<body class="post-template-default single single-post postid-1425 single-format-standard dwpb-push-page dwpb_responsive_extra_small custom-header header-image content-sidebar" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.journaldev.com/">JournalDev</a></p><p class="site-description" itemprop="description">Java, Java EE, Android, Python, Web Development Tutorials</p></div><div class="widget-area header-widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget8-quick-adsense-3" class="widget widget_adswidget8-quick-adsense"><div class="widget-wrap"><!-- 728x90/320x50 -->
+<div id="waldo-tag-2280"></div></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><ul id="menu-new-headermenu" class="menu genesis-nav-menu menu-primary"><li id="menu-item-17036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://www.journaldev.com/java-tutorial-java-ee-tutorials" itemprop="url"><span itemprop="name">Java Tutorial</span></a></li>
+<li id="menu-item-7611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7611"><a href="#" itemprop="url"><span itemprop="name">#Index Posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7612"><a href="https://www.journaldev.com/7153/core-java-tutorial" itemprop="url"><span itemprop="name">Core Java Tutorial</span></a></li>
+	<li id="menu-item-7613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7613"><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" itemprop="url"><span itemprop="name">Java Design Patterns</span></a></li>
+	<li id="menu-item-7614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7614"><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" itemprop="url"><span itemprop="name">Servlet JSP Tutorial</span></a></li>
+	<li id="menu-item-7615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7615"><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Struts 2 Tutorial</span></a></li>
+	<li id="menu-item-7616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7616"><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" itemprop="url"><span itemprop="name">Spring Tutorial</span></a></li>
+	<li id="menu-item-7638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7638"><a href="https://www.journaldev.com/7635/jsf-tutorial" itemprop="url"><span itemprop="name">JSF Tutorial</span></a></li>
+	<li id="menu-item-7620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7620"><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Primefaces Tutorial</span></a></li>
+	<li id="menu-item-7619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7619"><a href="https://www.journaldev.com/2681/jdbc-tutorial" itemprop="url"><span itemprop="name">JDBC Tutorial</span></a></li>
+	<li id="menu-item-7617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7617"><a href="https://www.journaldev.com/3793/hibernate-tutorial" itemprop="url"><span itemprop="name">Hibernate Tutorial</span></a></li>
+	<li id="menu-item-7618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7618"><a href="https://www.journaldev.com/6672/mongodb-tutorial-installation-example-projects-integration-with-servlet-spring-jsf" itemprop="url"><span itemprop="name">MongoDB Tutorial</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7621"><a href="#" itemprop="url"><span itemprop="name">#Interview Questions</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7622"><a href="https://www.journaldev.com/java-interview-questions" itemprop="url"><span itemprop="name">Java Interview Questions</span></a></li>
+	<li id="menu-item-23747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23747"><a href="https://www.journaldev.com/2366/core-java-interview-questions-and-answers" itemprop="url"><span itemprop="name">Core Java Interview Questions</span></a></li>
+	<li id="menu-item-7623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7623"><a href="https://www.journaldev.com/2529/jdbc-interview-questions-and-answers" itemprop="url"><span itemprop="name">JDBC Interview Questions</span></a></li>
+	<li id="menu-item-7624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7624"><a href="https://www.journaldev.com/2015/servlet-interview-questions-and-answers" itemprop="url"><span itemprop="name">Servlet Interview Questions</span></a></li>
+	<li id="menu-item-7625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7625"><a href="https://www.journaldev.com/2110/jsp-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSP Interview Questions</span></a></li>
+	<li id="menu-item-7626" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7626"><a href="https://www.journaldev.com/2354/struts2-interview-questions-and-answers" itemprop="url"><span itemprop="name">Struts2 Interview Questions</span></a></li>
+	<li id="menu-item-7627" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7627"><a href="https://www.journaldev.com/2696/spring-interview-questions-and-answers" itemprop="url"><span itemprop="name">Spring Interview Questions</span></a></li>
+	<li id="menu-item-7628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7628"><a href="https://www.journaldev.com/3633/hibernate-interview-questions-and-answers" itemprop="url"><span itemprop="name">Hibernate Interview Questions</span></a></li>
+	<li id="menu-item-7629" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7629"><a href="https://www.journaldev.com/7261/jsf-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSF Interview Questions</span></a></li>
+</ul>
+</li>
+<li id="menu-item-17037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://www.journaldev.com/resources" itemprop="url"><span itemprop="name">Resources</span></a></li>
+</ul></div></nav>	
+	<div class="wrapper mailchimp">
+        <div class="box"> 
+            <form action="//journaldev.us8.list-manage.com/subscribe/post-json?u=612f3d966c86000f37699d8cf&amp;id=c64db63284&SIGNUP=TOP_HEADER&c=?"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+				<span>
+					Subscribe to Download Java Design Patterns eBook
+				</span>
+				<div class="main_inputs">	
+				<input type="text" value="" name="FNAME" class="name" id="mce-name" placeholder="Full name" required>
+				
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="name@example.com" required>
+				
+                <input type="submit" value="Download Now" name="subscribe" id="mc-embedded-subscribe" class="mc-button">
+				</div>
+				
+				 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_612f3d966c86000f37699d8cf_c64db63284" tabindex="-1" value=""></div>
+    <div class="clear"></div>
+				
+            </form>
+                <div id="subscribe-result" style="display: none">
+					<p>Thank you for subscribing. Please check your email to confirm subscription.</p>
+                </div>
+        </div>
+    </div>
+	
+
+	<script>
+		var $ = jQuery;
+		$(document).ready(function () {
+  var $form = $('#mc-embedded-subscribe-form');
+  if ($form.length > 0) {
+    $('#mc-embedded-subscribe-form input[type="submit"]').bind('click', function (event) {
+      if (event) event.preventDefault();
+      mailchimp_email_register($form);
+    })
+  }
+})
+		
+function mc_validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function mailchimp_email_register($form) {
+	if(mc_validateEmail($("#mce-EMAIL").val() )) {
+		$('#mc-embedded-subscribe').val('Sending...');
+		$.ajax({
+			type: $form.attr('method'),
+			url: $form.attr('action'),
+			data: $form.serialize(),
+			cache: false,
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
+			success: function (data) {
+				$('#mc-embedded-subscribe').val('subscribe');
+				if (data.result === 'success') {
+					console.log(data.msg);
+					$('#mce-EMAIL').css('borderColor', '#ffffff');
+					$('#subscribe-result').css('color', 'rgb(53, 114, 210)');
+					$('#mc-embedded-subscribe-form').fadeOut(300);
+					$('#subscribe-result').fadeIn(300);
+					document.cookie = "subscribed=true; expires=Thu, 18 Dec 2050 12:00:00 UTC;domain=;path=/";
+					$('#mce-EMAIL').val('');
+					$('#mce-name').val('');
+				} else {
+					console.log(data.msg)
+					alert("You have already subscribed! Please try with different email.");
+				}
+			}
+		});
+	} else {
+		alert("Please enter a valid email");
+	}
+};
+	</script>
+
+<div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemtype="https://schema.org/BreadcrumbList">	You are here:
+<span><span><a href="https://www.journaldev.com/" >Home</a> » <span><a href="https://www.journaldev.com/java" >Java</a> » <span><a href="https://www.journaldev.com/java/design-patterns" >Design Patterns</a> » <span class="breadcrumb_last">Builder Design Pattern in Java</span></span></span></span></span></div><article class="post-1425 post type-post status-publish format-standard category-design-patterns entry" itemscope itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Builder Design Pattern in Java</h1>
+<p class="entry-meta"><span class="entry-author" itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="https://www.journaldev.com/author/pankaj" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Pankaj</span></a></span> <span class="entry-comments-link"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comments">38 Comments</a></span> </p></header><div class="entry-content" itemprop="text"><!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_after_entry_728x90" data-format="728x90"> </div>
+</div>
+<p>Today we will look into Builder pattern in java. Builder <a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial">design pattern</a> is a <strong>creational design pattern</strong> like <a href="https://www.journaldev.com/1392/factory-design-pattern-in-java" title="Factory Design Pattern in Java"><strong>Factory Pattern</strong></a> and <a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" title="Abstract Factory Design Pattern in Java"><strong>Abstract Factory Pattern</strong></a>. </p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Table of Contents</p><ul class="toc_list"><li><a href="#builder-design-pattern"><span class="toc_number toc_depth_1">1</span> Builder Design Pattern</a></li><li><a href="#builder-design-pattern-in-java"><span class="toc_number toc_depth_1">2</span> Builder Design Pattern in Java</a><ul><li><a href="#builder-design-pattern-video-tutorial"><span class="toc_number toc_depth_2">2.1</span> Builder Design Pattern Video Tutorial</a></li><li><a href="#builder-design-pattern-example-in-jdk"><span class="toc_number toc_depth_2">2.2</span> Builder Design Pattern Example in JDK</a></li></ul></li></ul></div>
+<h2><span id="builder-design-pattern">Builder Design Pattern</span></h2>
+<p><a href="https://cdn.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg"><img   src="https://cdn.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg"  alt="builder pattern in java, builder design pattern, builder pattern" width="560" height="315" class="aligncenter size-full wp-image-12125" srcset="https://cdn.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern.jpg 560w, https://cdn.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern-450x253.jpg 450w, https://cdn.journaldev.com/wp-content/uploads/2013/06/builder-design-pattern-20x11.jpg 20w" sizes="(max-width: 560px) 100vw, 560px" /></a></p>
+<p>Builder pattern was introduced to solve some of the problems with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.</p>
+<p>There are three major issues with Factory and Abstract Factory design patterns when the Object contains a lot of attributes.</p>
+<ol>
+<li>Too Many arguments to pass from client program to the Factory class that can be error prone because most of the time, the type of arguments are same and from client side its hard to maintain the order of the argument.</li>
+<li>Some of the parameters might be optional but in <a href="https://www.journaldev.com/1392/factory-design-pattern-in-java">Factory pattern</a>, we are forced to send all the parameters and optional parameters need to send as NULL.</li>
+<li>If the object is heavy and its creation is complex, then all that complexity will be part of Factory classes that is confusing.</li>
+</ol>
+<p>We can solve the issues with large number of parameters by providing a constructor with required parameters and then different setter methods to set the optional parameters. The problem with this approach is that the Object state will be <strong>inconsistent</strong> until unless all the attributes are set explicitly.</p>
+<p>Builder pattern solves the issue with large number of optional parameters and inconsistent state by providing a way to build the object step-by-step and provide a method that will actually return the final Object.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-format="300x250" data-zone="jd_post_mid_300x250" ></div>
+</div>
+
+<h2><span id="builder-design-pattern-in-java">Builder Design Pattern in Java</span></h2>
+<p>Let&#8217;s see how we can implement builder design pattern in java.</p>
+<ol>
+<li>First of all you need to create a <a href="https://www.journaldev.com/996/java-inner-class">static nested class</a> and then copy all the arguments from the outer class to the Builder class. We should follow the naming convention and if the class name is <code>Computer</code> then builder class should be named as <code>ComputerBuilder</code>.</li>
+<li>Java Builder class should have a public constructor with all the required attributes as parameters.</li>
+<li>Java Builder class should have methods to set the optional parameters and it should return the same Builder object after setting the optional attribute.</li>
+<li>The final step is to provide a <code>build()</code> method in the builder class that will return the Object needed by client program. For this we need to have a private constructor in the Class with Builder class as argument.</li>
+</ol>
+<p>Here is the sample builder pattern example code where we have a Computer class and ComputerBuilder class to build it.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_leaderboard_728x90" data-format="728x90"> </div>
+</div>
+
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.builder;
+
+public class Computer {
+	
+	//required parameters
+	private String HDD;
+	private String RAM;
+	
+	//optional parameters
+	private boolean isGraphicsCardEnabled;
+	private boolean isBluetoothEnabled;
+	
+
+	public String getHDD() {
+		return HDD;
+	}
+
+	public String getRAM() {
+		return RAM;
+	}
+
+	public boolean isGraphicsCardEnabled() {
+		return isGraphicsCardEnabled;
+	}
+
+	public boolean isBluetoothEnabled() {
+		return isBluetoothEnabled;
+	}
+	
+	private Computer(ComputerBuilder builder) {
+		this.HDD=builder.HDD;
+		this.RAM=builder.RAM;
+		this.isGraphicsCardEnabled=builder.isGraphicsCardEnabled;
+		this.isBluetoothEnabled=builder.isBluetoothEnabled;
+	}
+	
+	//Builder Class
+	public static class ComputerBuilder{
+
+		// required parameters
+		private String HDD;
+		private String RAM;
+
+		// optional parameters
+		private boolean isGraphicsCardEnabled;
+		private boolean isBluetoothEnabled;
+		
+		public ComputerBuilder(String hdd, String ram){
+			this.HDD=hdd;
+			this.RAM=ram;
+		}
+
+		public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
+			this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+			return this;
+		}
+
+		public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
+			this.isBluetoothEnabled = isBluetoothEnabled;
+			return this;
+		}
+		
+		public Computer build(){
+			return new Computer(this);
+		}
+
+	}
+
+}
+</code></pre>
+<p>Notice that Computer class has only getter methods and no public constructor. So the only way to get a Computer object is through the ComputerBuilder class.</p>
+<p>Here is a builder pattern example test program showing how to use Builder class to get the object.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.test;
+
+import com.journaldev.design.builder.Computer;
+
+public class TestBuilderPattern {
+
+	public static void main(String[] args) {
+		//Using builder to get the object in a single line of code and 
+                //without any inconsistent state or arguments management issues		
+		Computer comp = new Computer.ComputerBuilder(
+				"500 GB", "2 GB").setBluetoothEnabled(true)
+				.setGraphicsCardEnabled(true).build();
+	}
+
+}
+</code></pre>
+<h3><span id="builder-design-pattern-video-tutorial">Builder Design Pattern Video Tutorial</span></h3>
+<p>Recently I uploaded a YouTube video for Builder Design Pattern. I have also explained why I think the builder pattern defined on <a href="https://en.wikipedia.org/wiki/Builder_pattern#Java" rel="noopener" target="_blank">WikiPedia using Director classes</a> is not a very good Object Oriented approach, and how we can achieve the same level of abstraction using different approach and with one class. </p>
+<p>Note that this is my point of view, I feel design patterns are to guide us, but ultimately we have to decide if it&#8217;s really beneficial to implement it in our project or not. I am a firm believer of <a href="https://en.wikipedia.org/wiki/KISS_principle" rel="noopener" target="_blank">KISS principle</a>.</p>
+<p><iframe data-lazyloaded="1" src="about:blank" width="500" height="281" data-src="https://www.youtube.com/embed/D5NK5qMM14g?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><noscript><iframe width="500" height="281" src="https://www.youtube.com/embed/D5NK5qMM14g?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></noscript> </p>
+<p>If you like the video, please do share it, like it and subscribe to my channel. If you think I am mistaken or you have any comments or feedback so that I can improve my videos in future, please let me know through comments here or on YouTube video page.</p>
+<h3><span id="builder-design-pattern-example-in-jdk">Builder Design Pattern Example in JDK</span></h3>
+<p>Some of the builder pattern example in Java classes are;</p>
+<ul>
+<li>java.lang.StringBuilder#append() (unsynchronized)</li>
+<li>java.lang.StringBuffer#append() (synchronized)</li>
+</ul>
+<p>That&#8217;s all for builder design pattern in java.</p>
+<div class="github-box">You can download the example code from my <a href="https://github.com/journaldev/journaldev/tree/master/java-design-patterns/Builder-Design-Pattern">GitHub Repository</a>.</div>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6459403732537629"
+     data-ad-slot="7381719979"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div><div class="scriptlesssocialsharing"><div class="scriptlesssocialsharing-buttons"><a class="button twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Builder%20Design%20Pattern%20in%20Java&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java&#038;via=JournalDev&#038;related=JournalDev" rel="noopener"><span class="sss-name">Twitter</span></a><a class="button facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java" rel="noopener"><span class="sss-name">Facebook</span></a><a class="button linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=1&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java&#038;title=Builder%20Design%20Pattern%20in%20Java&#038;source=https://www.journaldev.com" rel="noopener"><span class="sss-name">Linkedin</span></a><a class="button email" href="mailto:?body=I%20read%20this%20post%20and%20wanted%20to%20share%20it%20with%20you.%20Here&#039;s%20the%20link:%20https%3A%2F%2Fwww.journaldev.com%2F1425%2Fbuilder-design-pattern-in-java&#038;subject=A%20post%20worth%20sharing:%20Builder%20Design%20Pattern%20in%20Java" rel="noopener"><span class="sss-name">Email</span></a></div></div><div class="prev-next-navigation"><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" rel="prev"><div class="previous"><span class="prev_icon">&nbsp;Previous </span><br/> <span class="pagi_content">Abstract Factory Design Pattern in Java</span></div></a><a href="https://www.journaldev.com/1440/prototype-design-pattern-in-java" rel="next"><div class="next"><span class="next_icon">Next&nbsp;</span><br/> <span class="pagi_content">Prototype Design Pattern in Java</span></div></a></div>
+		<!-- .prev-next-navigation --><section class="author-box" itemprop="author" itemscope itemtype="https://schema.org/Person"><img alt='' src='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=120&#038;d=blank&#038;r=g' srcset='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=240&#038;d=blank&#038;r=g 2x' class='avatar avatar-120 photo' height='120' width='120' /><h4 class="author-box-title">About <span itemprop="name">Pankaj</span></h4><div class="author-box-content" itemprop="description"><p>If you have come this far, it means that you liked what you are reading. Why not reach little more and connect with me directly on <a href="https://plus.google.com/118104420597648001532/posts?rel=author"><strong>Google Plus</strong></a>, <a href="https://www.facebook.com/journaldev"><strong>Facebook</strong></a> or <a href="https://twitter.com/JournalDev"><strong>Twitter</strong></a>. I would love to hear your thoughts and opinions on my articles directly.</p>
+<p>Recently I started creating video tutorials too, so do check out my videos on <a href="https://www.youtube.com/user/JournalDev"><strong>Youtube</strong></a>.</p>
+</div></section></div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.journaldev.com/java/design-patterns" rel="category tag">Design Patterns</a></span> </p></footer></article><div class="after-entry" class="widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget7-quick-adsense-3" class="widget widget_adswidget7-quick-adsense"><div class="widget-wrap"><!-- 728x90/970x90/970x250/320x50 -->
+<div id="waldo-tag-2281"></div></div></section>
+</div><div class="adjacent-entry-pagination pagination"><div class="pagination-previous alignleft"><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" rel="prev"><span class="adjacent-post-link">&#xAB; Abstract Factory Design Pattern in Java</span></a></div><div class="pagination-next alignright"><a href="https://www.journaldev.com/1432/java-immutable-class-builder" rel="next"><span class="adjacent-post-link">Java Immutable Class &#8211; Builder Pattern &#xBB;</span></a></div></div><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-43954">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Mehdi Ahmed</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-20T02:41:06+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43954" class="comment-time-link" itemprop="url">July 20, 2018 at 2:41 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hey man thanks for this nice video/Article</p>
+<p>I have a question.</p>
+<p>What if you are working with POJO that you need to persist with Jpa/Hibernate.</p>
+<p>Do we need the setters for that?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43954' onclick='return addComment.moveForm( "comment-43954", "43954", "respond", "1425" )' aria-label='Reply to Mehdi Ahmed'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-43955">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-20T07:41:29+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43955" class="comment-time-link" itemprop="url">July 20, 2018 at 7:41 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hibernate requires No-Args constructor as well as getter-setter for the fields. So yes, they will be required to work with Hibernate.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43955' onclick='return addComment.moveForm( "comment-43955", "43955", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-43889">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Bismeet</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-11T18:40:40+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43889" class="comment-time-link" itemprop="url">July 11, 2018 at 6:40 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Since we have to invoke the constructors and setter methods explicitly anyway, cant we do it directly on the computer class via a public constructor? Why did we even need the inner class ??</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43889' onclick='return addComment.moveForm( "comment-43889", "43889", "respond", "1425" )' aria-label='Reply to Bismeet'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-2" id="comment-43990">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Kamil</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-26T03:03:56+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43990" class="comment-time-link" itemprop="url">July 26, 2018 at 3:03 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Once you build the object it is immutable. We can achieve that only by providing setters methods on the nested class. Otherwise, we would expose public setters on the class causing mutability of the object.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43990' onclick='return addComment.moveForm( "comment-43990", "43990", "respond", "1425" )' aria-label='Reply to Kamil'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-43813">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ujjawal Besra</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-01T03:33:03+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43813" class="comment-time-link" itemprop="url">July 1, 2018 at 3:33 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>This is a different version of Builder pattern which I have come to know but definitely its a way of implementing things. Thanks for sharing this with the code.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43813' onclick='return addComment.moveForm( "comment-43813", "43813", "respond", "1425" )' aria-label='Reply to Ujjawal Besra'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-43528">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">satya</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-05-29T18:30:26+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43528" class="comment-time-link" itemprop="url">May 29, 2018 at 6:30 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>If you are copying same data from compute calss to computer builder class  and pass those parameters from client to builder . . Why are we doing this , why cant we directly instantiate object of computer from client . What is the use of builder pattern . Because you are any way having constructer in builder class for which client needs to send parameters , in the same way we can declare constructer in main class itself  and parameters from client. You example is not clear why to use builder pattern.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43528' onclick='return addComment.moveForm( "comment-43528", "43528", "respond", "1425" )' aria-label='Reply to satya'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-43890">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Bismeet</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-11T18:41:16+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43890" class="comment-time-link" itemprop="url">July 11, 2018 at 6:41 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I have the same question.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43890' onclick='return addComment.moveForm( "comment-43890", "43890", "respond", "1425" )' aria-label='Reply to Bismeet'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-3" id="comment-43991">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Kamil</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-26T03:52:37+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43991" class="comment-time-link" itemprop="url">July 26, 2018 at 3:52 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Immutability is the key. Once the object is built, it cannot be changed since there are no setters</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43991' onclick='return addComment.moveForm( "comment-43991", "43991", "respond", "1425" )' aria-label='Reply to Kamil'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-42417">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">yaccob</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-03-08T14:30:17+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-42417" class="comment-time-link" itemprop="url">March 8, 2018 at 2:30 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>A question regarding &#8220;We should follow the naming convention and if the class name is Computer then builder class should be named as ComputerBuilder&#8221;:<br />
+Since our builder is a nested class, it will usually be addressed by something like ContainingClass.NestedClass, right? For example ClassToBeBuilt.Builder. Why does the convention suggest to use ClassToBeBuilt.ClassToBeBuiltBuilder instead?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42417' onclick='return addComment.moveForm( "comment-42417", "42417", "respond", "1425" )' aria-label='Reply to yaccob'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-42421">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-03-08T23:33:56+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-42421" class="comment-time-link" itemprop="url">March 8, 2018 at 11:33 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>It&#8217;s not a requirement to have Builder class as a nested class. Just for simplicity of coding, I have create it as nested class. If you have a lot of POJO and their builder classes, then it&#8217;s best strategy to have a package itself for builder classes. For example <code>com.journaldev.java.pojo</code> for POJOs and <code>com.journaldev.java.builders</code> for Builder classes. However note that in this case, POJO classes constructor can&#8217;t be private and can be instantiate directly.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42421' onclick='return addComment.moveForm( "comment-42421", "42421", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-39866">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">kathiravan</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-11-01T06:26:20+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-39866" class="comment-time-link" itemprop="url">November 1, 2017 at 6:26 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Font is too big to Read.<br />
+pls make one unit small to boost Readability.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39866' onclick='return addComment.moveForm( "comment-39866", "39866", "respond", "1425" )' aria-label='Reply to kathiravan'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-38384">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">ravi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-06-15T02:21:20+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-38384" class="comment-time-link" itemprop="url">June 15, 2017 at 2:21 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Builder pattern requires a Director, I don&#8217;t see it here.<br />
+just because you are calling a build() in the end will not make it a builder pattern.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38384' onclick='return addComment.moveForm( "comment-38384", "38384", "respond", "1425" )' aria-label='Reply to ravi'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-38385">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">ravi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-06-15T02:27:23+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-38385" class="comment-time-link" itemprop="url">June 15, 2017 at 2:27 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>continuing Builder pattern must build a complete object in parts. i.e. there must be a abstract builder and then concrete builders must be responsible for building one part each. </p>
+<p>StringBuilder in java is not a right example of BuilderPattern neither the HttpSecurityBuilder of spring.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38385' onclick='return addComment.moveForm( "comment-38385", "38385", "respond", "1425" )' aria-label='Reply to ravi'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-3" id="comment-43232">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-05-01T02:29:22+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-43232" class="comment-time-link" itemprop="url">May 1, 2018 at 2:29 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>The Builder pattern I have explained here is the same as defined by Joshua Bloch in Effective Java. I don&#8217;t like the Builder pattern implementation provided in Wikipedia. It defeats the purpose of having variables. According to Wikipedia implementation, every Director class will be able to create only one variance of an Object. So if we have Director classes for &#8220;Car&#8221; and we want to have 5 different colours, it will result in classes like BlackCarDirector, RedCarDirector, GreenCarDirector.</p>
+<p>I hope you understood where I am going with this. Again it&#8217;s my point of view, design patterns provide us a way to do things properly. But it doesn&#8217;t mean we have to follow them strictly as is, we can make certain modifications based on our project requirement to make it even better with code simplicity.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43232' onclick='return addComment.moveForm( "comment-43232", "43232", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-37709">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Vinoth</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-03-14T08:16:22+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-37709" class="comment-time-link" itemprop="url">March 14, 2017 at 8:16 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p><a href="http://stackoverflow.com/questions/5238007/stringbuilder-and-builder-pattern" rel="nofollow">http://stackoverflow.com/questions/5238007/stringbuilder-and-builder-pattern</a></p>
+<p>he Append method of StringBuilder simply adds more characters to the existing string. There are no new objects created (basic function of the builder pattern) and there is no design pattern involved. It&#8217;s a single method call to a single object instance.</p>
+<p>Please correct it.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37709' onclick='return addComment.moveForm( "comment-37709", "37709", "respond", "1425" )' aria-label='Reply to Vinoth'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-37205">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">PK</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-01-06T05:40:03+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-37205" class="comment-time-link" itemprop="url">January 6, 2017 at 5:40 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Well explained.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37205' onclick='return addComment.moveForm( "comment-37205", "37205", "respond", "1425" )' aria-label='Reply to PK'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-37067">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Venu</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-12-16T06:46:03+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-37067" class="comment-time-link" itemprop="url">December 16, 2016 at 6:46 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I see Builder Pattern being used in  Spring Security (Something like this) . This is reference for  Pattern being used ? </p>
+<p>public final class HttpSecurity extends<br />
+		AbstractConfiguredSecurityBuilder<br />
+		implements SecurityBuilder,<br />
+		HttpSecurityBuilder {   </p>
+<p>its too complex to me to grasp easily in spring custom class . However  this tutorial example is clear to understand the basic idea of using this Builder Pattern and implement.</p>
+<p> @Override<br />
+    public void configure(HttpSecurity http) throws Exception {<br />
+        http.<br />
+        anonymous().disable()<br />
+        .requestMatchers().antMatchers(&#8220;/user/**&#8221;)<br />
+        .and().authorizeRequests()<br />
+        .antMatchers(&#8220;/user/**&#8221;).access(&#8220;hasRole(&#8216;ADMIN&#8217;)&#8221;)<br />
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());<br />
+    }</p>
+<p>Thank you Pankaj /Jounaldev</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37067' onclick='return addComment.moveForm( "comment-37067", "37067", "respond", "1425" )' aria-label='Reply to Venu'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-36902">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Saurabh Tiwari</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-11-23T05:46:00+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-36902" class="comment-time-link" itemprop="url">November 23, 2016 at 5:46 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Please correct this syntax which is using in Builder factory pattern example.</p>
+<p>Your Code:</p>
+<p>Computer comp = new Computer.ComputerBuilder(<br />
+				&#8220;500 GB&#8221;, &#8220;2 GB&#8221;).setBluetoothEnabled(true)<br />
+				.setGraphicsCardEnabled(true).build();</p>
+<p>call statement is wrong<br />
+&#8220;new Computer.ComputerBuilder&#8221;</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36902' onclick='return addComment.moveForm( "comment-36902", "36902", "respond", "1425" )' aria-label='Reply to Saurabh Tiwari'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-36966">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">R</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-12-04T04:25:33+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-36966" class="comment-time-link" itemprop="url">December 4, 2016 at 4:25 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Please see the full call the build method is returning us the Computer Object.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36966' onclick='return addComment.moveForm( "comment-36966", "36966", "respond", "1425" )' aria-label='Reply to R'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-36577">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Hari</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-10-14T02:22:48+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-36577" class="comment-time-link" itemprop="url">October 14, 2016 at 2:22 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Very nice article for Design Patterns!! SPOC blog for all design patterns for beginners.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36577' onclick='return addComment.moveForm( "comment-36577", "36577", "respond", "1425" )' aria-label='Reply to Hari'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-36349">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">naval jain</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-09-19T02:47:40+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-36349" class="comment-time-link" itemprop="url">September 19, 2016 at 2:47 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>It seems the only problem addressed here is when there are lot of input arguments to the constructor and all of them are not necessary.<br />
+The above specified solution is just one of the use case of builder pattern.<br />
+Don&#8217;t know if it is correct.<br />
+Please refer to effective Java for the above specified problem. Chapter 2 Item 2.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36349' onclick='return addComment.moveForm( "comment-36349", "36349", "respond", "1425" )' aria-label='Reply to naval jain'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-36274">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Maliox</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-09-09T19:40:25+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-36274" class="comment-time-link" itemprop="url">September 9, 2016 at 7:40 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>This is not the definition of Builder pattern described in GoF. However, it&#8217;s a good solution for the problem mentioned at the beginning of the article which was addressed in Effective Java book.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36274' onclick='return addComment.moveForm( "comment-36274", "36274", "respond", "1425" )' aria-label='Reply to Maliox'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-35622">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Kishan</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-07-08T09:54:58+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-35622" class="comment-time-link" itemprop="url">July 8, 2016 at 9:54 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I have one question that we are returning this in set() I know it is very important to return this in Builder pattern. But, Can you tell me what is the actual meaning when we return this and how it is actually executed. I have some confusions that how complier deal when we have used set() method of different fields for multiple times in same line of code while creating object and who will pick up this references of object before build().</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-35622' onclick='return addComment.moveForm( "comment-35622", "35622", "respond", "1425" )' aria-label='Reply to Kishan'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-35621">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Prabhakaran</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-07-08T02:46:21+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-35621" class="comment-time-link" itemprop="url">July 8, 2016 at 2:46 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Builder pattern described here is completely different from what other websites implementations.  Here it shows with static inner class but others its not. Not sure which one is correct.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-35621' onclick='return addComment.moveForm( "comment-35621", "35621", "respond", "1425" )' aria-label='Reply to Prabhakaran'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-34499">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Arijit Medya</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-04-14T05:18:58+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-34499" class="comment-time-link" itemprop="url">April 14, 2016 at 5:18 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>This blog was really nicely articulated and helpful. Thanks &#8230;</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-34499' onclick='return addComment.moveForm( "comment-34499", "34499", "respond", "1425" )' aria-label='Reply to Arijit Medya'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-32378">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">vijay</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-05-05T11:25:43+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-32378" class="comment-time-link" itemprop="url">May 5, 2015 at 11:25 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>By this way, we can also create the object. Can you please explain the difference in using return this and the way below :</p>
+<p>public class TestBuilderPattern {</p>
+<p>	public static void main(String[] args) {<br />
+		// Using builder to get the object in a single line of code and<br />
+		// without any inconsistent state or arguments management issues<br />
+		Computer.ComputerBuilder comp = new Computer.ComputerBuilder(&#8220;500 GB&#8221;,<br />
+				&#8220;2 GB&#8221;);<br />
+		comp.setBluetoothEnabled(true);<br />
+		comp.setGraphicsCardEnabled(true);<br />
+		comp.build();</p>
+<p>		System.out.println(comp);<br />
+	}</p>
+<p> public void setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {<br />
+            this.isGraphicsCardEnabled = isGraphicsCardEnabled;<br />
+           // return this;<br />
+        }</p>
+<p>        public void setBluetoothEnabled(boolean isBluetoothEnabled) {<br />
+            this.isBluetoothEnabled = isBluetoothEnabled;<br />
+           // return this;<br />
+        }<br />
+}</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-32378' onclick='return addComment.moveForm( "comment-32378", "32378", "respond", "1425" )' aria-label='Reply to vijay'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-31335">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Rishi Naik</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-01-05T22:50:54+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-31335" class="comment-time-link" itemprop="url">January 5, 2015 at 10:50 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>What is a need of getter and setter methods for outer class in above example if we are providing private constructor and no outer world can access the outer class?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-31335' onclick='return addComment.moveForm( "comment-31335", "31335", "respond", "1425" )' aria-label='Reply to Rishi Naik'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-2" id="comment-33640">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ketki</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-12-08T03:34:46+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-33640" class="comment-time-link" itemprop="url">December 8, 2015 at 3:34 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>That&#8217;s correct as per my knowledge as well. There is no need to have getter and setter methods in the outside class.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-33640' onclick='return addComment.moveForm( "comment-33640", "33640", "respond", "1425" )' aria-label='Reply to Ketki'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-3" id="comment-33937">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Pratap Shinde</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-01-23T03:37:01+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-33937" class="comment-time-link" itemprop="url">January 23, 2016 at 3:37 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Rishi: There are no setters in the outer class only getters.<br />
+Secondly you do need those getter methods, otherwise how are you going to utilize the properties set in the Outer class<br />
+By having just private constructor doesn&#8217;t mean you cannot access the outer class</p>
+<p>Computer comp = new Computer.ComputerBuilder(&#8220;500 GB&#8221;, &#8220;2 GB&#8221;).setBluetoothEnabled(true)<br />
+                .setGraphicsCardEnabled(true).build(); //This is creating the outer object<br />
+System.out.println(comp.isBluetoothEnabled()) //This is use of getter method</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-33937' onclick='return addComment.moveForm( "comment-33937", "33937", "respond", "1425" )' aria-label='Reply to Pratap Shinde'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-30371">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ashakant</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-10-05T02:08:35+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-30371" class="comment-time-link" itemprop="url">October 5, 2014 at 2:08 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Can you please share/post  UML design for the same as explain above<br />
+Thanks<br />
+Ashakant</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-30371' onclick='return addComment.moveForm( "comment-30371", "30371", "respond", "1425" )' aria-label='Reply to Ashakant'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-30078">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ashish</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-09-09T05:46:57+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-30078" class="comment-time-link" itemprop="url">September 9, 2014 at 5:46 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi Pankaj,</p>
+<p>There is still an issue with this approach. We are still expecting the client code to invoke the setters explicitly to ensure that the object state is consistent before the finally created object is returned upon invocation of build() method. We could have invoked the build method without even calling the setters and the boolean variables would have been initialized to false by default and still the object creation would have been successful with the consistent state. I think the another approach could be to provide a series of overloaded constructors with various combinations of optional parameters which invoke them in sequence until all the parameters are set and then the final object is created. In this case, we would not require to have even a build method.</p>
+<p>Please comment.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-30078' onclick='return addComment.moveForm( "comment-30078", "30078", "respond", "1425" )' aria-label='Reply to Ashish'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-30079">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-09-09T05:52:38+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-30079" class="comment-time-link" itemprop="url">September 9, 2014 at 5:52 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>You can easily avoid that by using Boolean rather than primitive type boolean. Object default value is NULL. Also you should have a constructor with all the mandatory parameters so that client is forced to provide values for them.</p>
+<p>Creating multiple constructor with optional parameters will not help and you will not be using Builder pattern then.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-30079' onclick='return addComment.moveForm( "comment-30079", "30079", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-29806">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Amritpal Singh</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-08-13T04:35:18+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-29806" class="comment-time-link" itemprop="url">August 13, 2014 at 4:35 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hello Pankaj i have Question Why u have used only static nested class why not normal/regular inner class&#8230;..i knw  differences  but in this example why we have used static nested clas only&#8230;.plz reply..!</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-29806' onclick='return addComment.moveForm( "comment-29806", "29806", "respond", "1425" )' aria-label='Reply to Amritpal Singh'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-2" id="comment-29900">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Surya</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-08-25T16:26:17+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-29900" class="comment-time-link" itemprop="url">August 25, 2014 at 4:26 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>The primary usage of the <b>Static</b> Nested Inner class here is to create an inner class object without instantiating the enclosing outer class. </p>
+<p>Instead of creating multiple overload constructors and/or various setters for the Computer class and try to construct an object in multiple steps (Object created this might be inconsistent till all the needy fields are set!), we try to construct the computer object by using the static nested inner class <b>ComputerBuilder</b>.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-29900' onclick='return addComment.moveForm( "comment-29900", "29900", "respond", "1425" )' aria-label='Reply to Surya'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-29426">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">M</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-07-08T04:21:01+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-29426" class="comment-time-link" itemprop="url">July 8, 2014 at 4:21 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Good article.<br />
+Why does below functions needs to return &#8220;this&#8221; when setting parameter? can you please give pointer on this?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-29426' onclick='return addComment.moveForm( "comment-29426", "29426", "respond", "1425" )' aria-label='Reply to M'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-29433">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-07-08T07:37:24+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-29433" class="comment-time-link" itemprop="url">July 8, 2014 at 7:37 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p><code>return this;</code> is used to return the current object, this is how Builder pattern works and it&#8217;s key for that. </p>
+<p>Otherwise <code>new Computer.ComputerBuilder("500 GB", "2 GB").setBluetoothEnabled(true).setGraphicsCardEnabled(true).build();</code> will not work.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-29433' onclick='return addComment.moveForm( "comment-29433", "29433", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-28056">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">HIMANSU NAYAK</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-02-02T03:50:40+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-28056" class="comment-time-link" itemprop="url">February 2, 2014 at 3:50 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Good article. Simple, lucid &amp; very specific.<br />
+Brings all the initialization complexity to inner class, which keeps you outer class clean, love this pattern.</p>
+<p>Is it like builder pattern cannot be implemented on those class whose attributes keep shifting from mandatory to optional and vice-versa, unless its designed to take every attributes thru the setter method of inner class.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-28056' onclick='return addComment.moveForm( "comment-28056", "28056", "respond", "1425" )' aria-label='Reply to HIMANSU NAYAK'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-28057">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-02-02T04:34:33+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java#comment-28057" class="comment-time-link" itemprop="url">February 2, 2014 at 4:34 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Yes if the attributes keep on changing from mandatory to optional and vice versa, we will have to change the inner class that will break the pattern. So implementation should be done based on clear requirements.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-28057' onclick='return addComment.moveForm( "comment-28057", "28057", "respond", "1425" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ol></div>	<div class="comment-policy-box">
+		<p class="comment-policy"><small><strong>Comment Policy:</strong>Please submit comments to add value to the post. Comments like "Thank You" and "Awesome Post" will be not published. If you want to post code then wrap them inside &lt;pre&gt; tags. For example <strong>&lt;pre&gt;class Foo { }&lt;/pre&gt;</strong>.<br>If you want to post XML content, then please escape &lt; with &amp;lt; and > with &amp;gt; otherwise they will not be shown properly.</small></p>
+	</div>
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/1425/builder-design-pattern-in-java#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.journaldev.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1425' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<!-- Anti-spam plugin v.5.2 wordpress.org/plugins/anti-spam/ -->
+		<p class="antispam-group antispam-group-q" style="clear: both;">
+			<label>Current ye@r <span class="required">*</span></label>
+			<input type="hidden" name="antspm-a" class="antispam-control antispam-control-a" value="2018" />
+			<input type="text" name="antspm-q" class="antispam-control antispam-control-q" value="5.2" autocomplete="off" />
+		</p>
+		<p class="antispam-group antispam-group-e" style="display: none;">
+			<label>Leave this field empty</label>
+			<input type="text" name="antspm-e-email-url-website" class="antispam-control antispam-control-e" value="" autocomplete="off" />
+		</p>
+			</form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope itemtype="https://schema.org/WPSideBar"><section id="search-3" class="widget widget_search"><div class="widget-wrap"><script>
+  (function() {
+    var cx = 'partner-pub-5143693538742787:5127011729';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget6-quick-adsense-2" class="widget widget_adswidget6-quick-adsense"><div class="widget-wrap"><!-- /8491498/journaldev_video -->
+<div id='div-gpt-ad-1539114023134-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539114023134-0'); });
+</script>
+</div></div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget9-quick-adsense-3" class="widget widget_adswidget9-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2282"></div></div></section>
+<section id="text-2" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Design Patterns Tutorial</h4>
+			<div class="textwidget"><ul>
+<h4><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></h4>
+<h4>Creational Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples" target="_blank">Singleton</a></li>
+<li><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java" target="_blank">Factory</a></li>
+<li><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" target="_blank">Abstract Factory</a></li>
+<li><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java" target="_blank">Builder</a></li>
+<li><a href="https://www.journaldev.com/1440/prototype-design-pattern-in-java" target="_blank">Prototype</a></li>
+<h4>Structural Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1487/adapter-design-pattern-java" target="_blank">Adapter</a></li>
+<li><a href="https://www.journaldev.com/1535/composite-design-pattern-in-java" target="_blank">Composite</a></li>
+<li><a href="https://www.journaldev.com/1572/proxy-design-pattern" target="_blank">Proxy</a></li>
+<li><a href="https://www.journaldev.com/1562/flyweight-design-pattern-java" target="_blank">Flyweight</a></li>
+<li><a href="https://www.journaldev.com/1557/facade-design-pattern-in-java" target="_blank">Facade</a></li>
+<li><a href="https://www.journaldev.com/1491/bridge-design-pattern-java" target="_blank">Bridge</a></li>
+<li><a href="https://www.journaldev.com/1540/decorator-design-pattern-in-java-example" target="_blank">Decorator</a></li>
+<h4>Behavioral Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1763/template-method-design-pattern-in-java" target="_blank">Template Method</a></li>
+<li><a href="https://www.journaldev.com/1730/mediator-design-pattern-in-java-example-tutorial" target="_blank">Mediator</a></li>
+<li><a href="https://www.journaldev.com/1617/chain-of-responsibility-design-pattern-in-java" target="_blank">Chain of Responsibility</a></li>
+<li><a href="https://www.journaldev.com/1739/observer-design-pattern-in-java" target="_blank">Observer</a></li>
+<li><a href="https://www.journaldev.com/1754/strategy-design-pattern-in-java-example-tutorial" target="_blank">Strategy</a></li>
+<li><a href="https://www.journaldev.com/1624/command-design-pattern" target="_blank">Command</a></li>
+<li><a href="https://www.journaldev.com/1751/state-design-pattern-java" target="_blank">State</a></li>
+<li><a href="https://www.journaldev.com/1769/visitor-design-pattern-java" target="_blank">Visitor</a></li>
+<li><a href="https://www.journaldev.com/1635/interpreter-design-pattern-java" target="_blank">Interpreter</a></li>
+<li><a href="https://www.journaldev.com/1716/iterator-design-pattern-java" target="_blank">Iterator</a></li>
+<li><a href="https://www.journaldev.com/1734/memento-design-pattern-java" target="_blank">Memento</a></li>
+<h4>Miscellaneous Design Patterns</h4>
+<li><a href="https://www.journaldev.com/2394/java-dependency-injection-design-pattern-example-tutorial" target="_blank">Dependency Injection</a></li>
+<li><a href="https://www.journaldev.com/171/thread-safety-in-java-singleton-classes-with-example-code" target="_blank">Thread Safety in Java Singleton</a></li>
+</ul>
+</div>
+		</div></section>
+<section id="text-11" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Recommended Tutorials</h4>
+			<div class="textwidget"><h4>Java Tutorials</h4>
+<ul>
+<li><a href="https://www.journaldev.com/942/java-io-tutorial" target="_blank">Java IO</a></li>
+<li><a href="https://www.journaldev.com/634/regular-expression-in-java-regex-example" target="_blank">Java Regular Expressions</a></li>
+<li><a href="https://www.journaldev.com/1079/multithreading-in-java" target="_blank">Multithreading in Java</a></li>
+<li><a href="https://www.journaldev.com/977/java-logging-api-tutorial-examples-logger-levels-handlers-formatters-filters" target="_blank">Java Logging</a></li>
+<li><a href="https://www.journaldev.com/721/java-annotations-example-tutorial" target="_blank">Java Annotations</a></li>
+<li><a href="https://www.journaldev.com/1240/java-xml-tutorial" target="_blank">Java XML</a></li>
+<li><a href="https://www.journaldev.com/1260/collections-in-java-tutorial" target="_blank">Collections in Java</a></li>
+<li><a href="https://www.journaldev.com/1663/java-generics-example-method-class-interface" target="_blank">Java Generics</a></li>
+<li><a href="https://www.journaldev.com/1696/exception-handling-in-java" target="_blank">Exception Handling in Java</a></li>
+<li><a href="https://www.journaldev.com/1789/java-reflection-example-tutorial" target="_blank">Java Reflection</a></li>
+<li><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></li>
+<li><a href="https://www.journaldev.com/2681/jdbc-tutorial-with-example-projects-datasource-jndi-and-spring-integration" target="_blank">JDBC Tutorial</a></li>
+<h4>Java EE Tutorials</h4>
+<li><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" target="_blank">Servlet JSP Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" target="_blank">Struts2 Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" target="_blank">Spring Tutorial</a></li>
+<li><a href="https://www.journaldev.com/3793/hibernate-tutorial" target="_blank">Hibernate Tutorial</a></li>
+<li><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" target="_blank">Primefaces Tutorial</a></li>
+<li><a href="https://www.journaldev.com/255/axis2-web-services-tutorial" target="_blank">Apache Axis 2</a></li>
+<li><a href="https://www.journaldev.com/498/jax-rs-restful-web-service-using-jersey-example-tutorial" target="_blank">JAX-RS</a></li>
+<li><a href="https://www.journaldev.com/1117/memcached-tutorial" target="_blank">Memcached Tutorial</a></li>
+</ul>
+</div>
+		</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget10-quick-adsense-2" class="widget widget_adswidget10-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2283"></div></div></section>
+</aside></div></div><footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter"><div class="wrap"><p>&#x000A9;&nbsp;2018 &middot; <a href="https://www.journaldev.com/privacy-policy">Privacy Policy</a> &middot; Powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a></p></div></footer></div></script>
+<script type='text/javascript'>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script');
+        _dma.type = 'text/javascript';
+        _dma.async = true;
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12171637-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-12171637-4', { 'anonymize_ip': true });
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>
+		jQuery(document).ready(function() {
+		  jQuery('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+			$(".entry-content pre").show();
+		  });
+		  	
+			jQuery('.entry-content pre code').mouseenter(function(e){
+				var t = jQuery(this);
+					t.children(".re_clip-board").slideDown(100);
+				jQuery(e.target).mouseleave(function(){
+					t.children(".re_clip-board").slideUp(100);
+					
+					setTimeout(function() {
+						t.children(".re_clip-board").text("Copy");
+					}, 100);
+					
+				});
+			});
+			
+			jQuery('.entry-content pre code .re_clip-board').click(function(e){
+				re_copyToClipboard(jQuery(this));
+				$(this).text("Copied!");
+				$(this).css("width", "85px");
+			});
+		});
+		
+function re_copyToClipboard(element) {
+	var elements = element.parent();
+  	var $temp = $("<textarea>");
+  	$("body").append($temp);
+	var text = $(elements).text().replace(/Copy/g, "");
+  	$temp.val(text).select();
+  	document.execCommand("copy");
+  	$temp.remove();
+}
+
+/*Starting expand widget jquery codes */
+var rotation = 0;
+jQuery.fn.plus_rotate = function(degrees) {
+    $(this).css({"-webkit-transform" : "rotate("+ degrees +"deg)",
+                 "-moz-transform" : "rotate("+ degrees +"deg)",
+                 "-ms-transform" : "rotate("+ degrees +"deg)",
+                 "transform" : "rotate("+ degrees +"deg)"});
+    return $(this);
+};
+
+$(document).ready(function(){
+  $(".expand_widget_title").click(function(){
+    if ( !$(this).parent().children("ul").is(":visible") ) {
+      rotation += 360;
+	  $(this).children(".widget_plus_icon").removeClass("zero_six_rotate");
+      $(this).children(".widget_plus_icon").addClass("tree_six_rotate");
+     $(this).parent().children("ul").slideDown(390);
+	 
+	 var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("plus_icon");
+		t.children(".widget_plus_icon").addClass("minus_icon");
+	 }, 400);
+  } else {
+    rotation -= 360;
+     	$(this).children(".widget_plus_icon").removeClass("tree_six_rotate");
+		$(this).children(".widget_plus_icon").addClass("zero_six_rotate");
+    $(this).parent().children("ul").slideUp(390);
+	
+	var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("minus_icon");
+		t.children(".widget_plus_icon").addClass("plus_icon");
+	 }, 400);
+  }
+  });
+ });
+
+/*Ending expand widget jquery codes */
+
+</script>
+	<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/anti-spam/js/anti-spam-5.2.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var superpwa_sw = {"url":"\/OneSignalSDKWorker.js.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/super-progressive-web-apps/public/js/register-sw.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"hide","width":"Auto","smooth_scroll_offset":"60"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/front.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"sidebar","margin_top":10,"margin_bottom":0,"stop_id":"","screen_max_width":1024,"screen_max_height":120,"width_inherit":false,"refresh_interval":1500,"window_load_hook":false,"disable_mo_api":false,"widgets":["adswidget10-quick-adsense-2"]}];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/q2w3-fixed-widget/js/q2w3-fixed-widget.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/wp-embed.min.js'></script>
+<script src="https://cdn.journaldev.com/wp-content/plugins/litespeed-cache/js/lazyload.min.js"></script></body></html>
+
+<!-- Page generated by LiteSpeed Cache 2.8.1 on 2018-12-05 23:24:41 -->

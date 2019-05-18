@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+
+
+    <html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
+
+    <head>
+
+        <title>lifecycle - Android activity life cycle - what are all these methods for? - Stack Overflow</title>
+        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+
+        <meta property="og:type" content= "website" />
+        <meta property="og:url" content="https://stackoverflow.com/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for"/>
+        <meta property="og:site_name" content="Stack Overflow" />
+        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:domain" content="stackoverflow.com"/>
+        <meta name="twitter:title" property="og:title" itemprop="title name" content="Android activity life cycle - what are all these methods for?" />
+        <meta name="twitter:description" property="og:description" itemprop="description" content="What is the life cycle of an Android activity? Why are so many similar sounding methods (onCreate(), onStart(), onResume()) called during initialization, and so many others (onPause(), onStop(), " />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.sstatic.net/Js/stub.en.js?v=a24f2dd1c73b"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=aaf0ba27d97b">
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary-unified.css?v=817d51abf646">
+
+    
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Android activity life cycle - what are all these methods for?&#39;" href="/feeds/question/8515936">
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:3,shownCommentCount:3,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8515936});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '8515936');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+        
+        
+        
+        
+        
+        
+                <script>
+        StackExchange.init({"locale":"en","serverTime":1543759329,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"a06d43983f02eaa2264520441be31017aafc81bd58d4e118e8b00f5fe71ee942","tid":"4a331d05-1bab-c2fb-ca09-f15e269eeada","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"inline_signup_hero":{"v":"d","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"38192da1e2db"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true,"stacksValidation":true},"userMessaging":{"showNewFeatureNotice":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"11cdf9752b16","js/moderator.en.js":"c48addfbc3c8","js/full-anon.en.js":"c27371e6b1d8","js/full.en.js":"63a333389acd","js/wmd.en.js":"7eb0bf86f30d","js/mobile.en.js":"13ddd7009887","js/help.en.js":"57d6f3309236","js/tageditor.en.js":"418cdb406dd8","js/tageditornew.en.js":"be3e098366c3","js/inline-tag-editing.en.js":"6566adfb26a8","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"b7e5436fbed7","js/tagsuggestions.en.js":"ddb0e41afe26","js/post-validation.en.js":"5269aad2fb0e","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"e8c4ba371a48","js/keyboard-shortcuts.en.js":"2e119050cebe","js/external-editor.en.js":"8b5b85bfbf3f","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"3238dd301e69","js/external-editor.en.js":"8b5b85bfbf3f","js/snippet-javascript.en.js":"709f7dfbf56d","js/snippet-javascript-codemirror.en.js":"240c8e8c0c8d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
+    </head>
+        <body class="question-page unified-theme">
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<header class="top-bar js-top-bar _fixed top-bar__network">
+    <div class="-container">
+        <div class="-main">
+                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
+                                <a href="https://stackoverflow.com" class="-logo js-gps-track"
+                        data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+                        <span class="-img _glyph">Stack Overflow</span>
+                    </a>
+
+
+
+        </div>
+
+            <form id="search" action=/search method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
+                    <div class="ps-relative">
+                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="f-input js-search-field " />
+                        <button type="submit" aria-label="Search..." class="s-btn s-btn__primary btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></button>
+                    </div>
+            </form>
+
+        
+
+
+
+
+
+<ol class="-secondary js-secondary-topbar-links drop-icons-responsively">
+        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></a></li>
+            <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
+            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"/></svg>
+            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
+        </a>
+    </li>
+    <li class="-item">
+        <a href="https://stackexchange.com/users/?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
+            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"/></svg>
+            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
+        </a>
+    </li>
+
+    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
+        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"/></svg>
+    </a></li>
+
+    <li class="-item">
+        <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 174 Stack Exchange sites">
+            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"/></svg>
+        </a>
+    </li>
+
+            <li class="-ctas">
+                        <a href="https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f8515936%2fandroid-activity-life-cycle-what-are-all-these-methods-for" class="login-link s-btn btn-topbar-clear py8" rel="nofollow">Log In</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&returnurl=%2fusers%2fstory%2fcurrent" class="login-link s-btn s-btn__primary py8 btn-topbar-primary" rel="nofollow" data-ga="[&quot;sign up&quot;,&quot;Sign Up Navigation&quot;,&quot;Header&quot;,null,null]">Sign Up</a>
+
+            </li>
+
+    <li class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li class="grid">
+                            <div class="fl1">
+            <a href="https://stackoverflow.com"
+       class="current-site-link site-link js-gps-track grid gs8 gsx"
+       data-id="1"
+       data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Stack Overflow
+        </span>
+    </a>
+
+    </div>
+    <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:14 })"
+>help</a>
+                    <a href="https://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+            </div>
+
+                    </li>
+                    <li class="related-site grid">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                            <a href="https://meta.stackoverflow.com"
+       class="site-link js-gps-track grid gs8 gsx"
+       data-id="552"
+       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
+        <span class="grid--cell fl1">
+            Meta Stack Overflow
+        </span>
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:10 })"
+>Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f8515936%2fandroid-activity-life-cycle-what-are-all-these-methods-for" class="login-link js-gps-track"     data-gps-track="site_switcher.click({ item_type:11 })"
+>log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+            <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
+                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
+            </div>
+    </li>
+</ol>
+
+    </div>
+</header>
+    <div id="js-gdpr-consent-banner" class="p16 bg-black-700 ff-sans fc-white ps-fixed b0 l0 r0 z-banner" role="banner" aria-hidden="false">
+        <div class="wmx8 mx-auto grid jc-center" role="alertdialog" aria-describedby="notice-message">
+            <div class="grid--cell mr12" aria-label="notice-message">
+                <p class="mb0 lh-lg">
+                    By using our site, you acknowledge that you have read and understand our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/cookie-policy">Cookie Policy</a>, <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a>, and our <a class="s-link s-link__inherit td-underline fc-white" target="_blank" href="https://stackoverflow.com/legal/terms-of-service/public">Terms of Service</a>.
+                </p>
+            </div>
+            <a class="grid--cell fc-white js-notice-close" aria-label="notice-dismiss">
+                <svg aria-hidden="true" class="svg-icon m0 iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);     </script>
+
+
+    
+
+
+    <div class="container  ">
+                
+
+
+
+
+<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
+    <div class="left-sidebar--sticky-container js-sticky-leftnav">
+        <nav role="navigation">
+            <ol class="nav-links">
+                <li>    <li>
+        <a
+            href="/"
+            class="pl8 js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+Home        </a>
+    </li>
+</li>
+                <li>
+                    <ol class="nav-links">
+                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
+                            <li class=" youarehere">
+        <a id="nav-questions"
+            href="/questions"
+            class="pl8 js-gps-track nav-links--link -link__with-icon"
+            
+            data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
+<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z"/></svg>                <span class="-link--channel-name">Stack Overflow</span>
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-tags"
+            href="/tags"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
+Tags        </a>
+    </li>
+    <li>
+        <a id="nav-users"
+            href="/users"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
+Users        </a>
+    </li>
+    <li>
+        <a id="nav-jobs"
+            href="/jobs?med=site-ui&amp;ref=jobs-tab"
+            class=" js-gps-track nav-links--link"
+            
+            data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
+Jobs        </a>
+    </li>
+                                            </ol>
+                </li>
+                    <li>
+                        <ol class="nav-links">
+                                    <li class="fs-fine tt-uppercase ml8 mt24 mb4 fc-light">
+                                        Teams
+                                    </li>
+                                    <li class="ps-relative">
+                                        <a href="https://stackoverflow.com/teams"
+                                           class="pl8 js-gps-track nav-links--link -link__with-icon"
+                                           title="A private, secure home for your team&#39;s questions and answers. Starts at $10/month"
+                                           data-gps-track="teams.create.left-sidenav.click"
+                                           data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]">
+                                            <svg aria-hidden="true" class="svg-icon iconPlus" width="18" height="18" viewBox="0 0 18 18"><path d="M10 2H8v6H2v2h6v6h2v-6h6V8h-6z"></path></svg>
+                                            <span class="js-create-team-btn-with-tooltip -link--channel-name">Create Team</span>
+                                        </a>
+
+
+
+<div class="d-none create-team-tooltip js-create-team-tooltip bar-sm bg-blue-500 fc-white l100 md:d-none mln24 new-feature-wrapper p16 pr32 t0 ws2"
+     data-cookie="notice-ctt"
+     data-expire-date="1859378529978">
+    <svg aria-hidden="true" class="svg-icon ps-absolute r12 c-pointer iconClearSm" width="14" height="14" viewBox="0 0 14 14"><path d="M12 3.41L10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7z"/></svg>
+    <p class="mb0">Q&amp;A for work. A dedicated place to share your team’s knowledge.</p>
+</div>
+<script>
+    StackExchange.ready(function () {
+        StackExchange.Notice.tooltipInit();
+    });
+</script>
+                                    </li>
+                        </ol>
+                    </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+        <div id="content" class="snippet-hidden">
+
+
+            
+
+
+<div itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+    <div class="inner-content clearfix">
+    
+    
+
+<style>.everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}</style>
+        <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>            <div id="question-header" class="grid">
+                    <h1 itemprop="name" class="grid--cell fs-headline1 fl1 wb-break-word"><a href="/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for" class="question-hyperlink">Android activity life cycle - what are all these methods for?</a></h1>
+
+            
+
+
+
+<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
+            <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary" >Ask Question</a>
+</div>
+
+        </div>
+            <div id="mainbar" role="main" aria-label="question and answers">
+
+            
+
+<div class="question" data-questionid="8515936"  id="question">
+
+    
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="8515936">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">380</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>271</b></div>
+
+
+
+</div>
+
+            </div>
+
+            
+<div class="postcell post-layout--right">
+    <div class="post-text" itemprop="text">
+
+<p>What is the life cycle of an Android activity? Why are so many similar sounding methods (<code>onCreate()</code>, <code>onStart()</code>, <code>onResume()</code>) called during initialization, and so many others (<code>onPause()</code>, <code>onStop()</code>, <code>onDestroy()</code>) called at the end?</p>
+
+<p>When are these methods called, and how should they be used properly?</p>
+    </div>
+
+        <div class="post-taglist grid gs4 gsy fd-column">
+            <div class="grid ps-relative d-block">
+                <a href="/questions/tagged/android" class="post-tag" title="show questions tagged &#39;android&#39;" rel="tag"><img src="//i.stack.imgur.com/bk9VA.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="/questions/tagged/lifecycle" class="post-tag" title="show questions tagged &#39;lifecycle&#39;" rel="tag">lifecycle</a> <a href="/questions/tagged/oncreate" class="post-tag" title="show questions tagged &#39;oncreate&#39;" rel="tag">oncreate</a> <a href="/questions/tagged/onresume" class="post-tag" title="show questions tagged &#39;onresume&#39;" rel="tag">onresume</a> <a href="/questions/tagged/ondestroy" class="post-tag" title="show questions tagged &#39;ondestroy&#39;" rel="tag">ondestroy</a> 
+            </div>
+        </div>
+
+    <div class="mb0 ">
+        <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
+            <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/q/8515936" title="short permalink to this question" class="short-link" id="link-post-8515936">share</a><span class="lsep">|</span><a href="/posts/8515936/edit" class="suggest-edit-post" title="">improve this question</a></div>
+            </div>
+
+                <div class="post-signature grid--cell">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/8515936/revisions" title="show all edits to this post">edited <span title="2014-01-22 22:14:51Z" class="relativetime">Jan 22 '14 at 22:14</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/63550/peter-mortensen"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/RIZKi.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/63550/peter-mortensen">Peter Mortensen</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 13,335" dir="ltr">13.3k</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="83 silver badges"><span class="badge2"></span><span class="badgecount">83</span></span><span title="111 bronze badges"><span class="badge3"></span><span class="badgecount">111</span></span>
+        </div>
+    </div>
+</div>                </div>
+            <div class="post-signature owner grid--cell">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-12-15 06:20:44Z" class="relativetime">Dec 15 '11 at 6:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1080093/nav"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/laQAi.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1080093/nav">Nav</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,328</span><span title="13 gold badges"><span class="badge1"></span><span class="badgecount">13</span></span><span title="43 silver badges"><span class="badge2"></span><span class="badgecount">43</span></span><span title="73 bronze badges"><span class="badge3"></span><span class="badgecount">73</span></span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+    <div class="post-layout--right">
+	    <div id="comments-8515936" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-24149295" class="comment js-comment " data-comment-id="24149295">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="hot">15</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Why this question has been upvoted so many times? Why it has not been closed?</span>
+                    &ndash;&nbsp;<a href="/users/721079/alexander-kulyakhtin"
+                       title="32,281 reputation"
+                       class="comment-user">Alexander Kulyakhtin</a>
+                <span class="comment-date" dir="ltr"><span title="2013-05-26 19:29:45Z" class="relativetime-clean">May 26 '13 at 19:29</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-37309004" class="comment js-comment " data-comment-id="37309004">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="supernova">49</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Why close a question with a lot of upvotes? Stackoverflow has a bad habit of that.</span>
+                    &ndash;&nbsp;<a href="/users/1839500/dick-lucas"
+                       title="4,448 reputation"
+                       class="comment-user">Dick Lucas</a>
+                <span class="comment-date" dir="ltr"><span title="2014-06-11 20:16:54Z" class="relativetime-clean">Jun 11 '14 at 20:16</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-42897105" class="comment js-comment " data-comment-id="42897105">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">9</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">This is a wiki-style question and I feel it should be allowed on the site.</span>
+                    &ndash;&nbsp;<a href="/users/365102/mateen-ulhaq"
+                       title="11,230 reputation"
+                       class="comment-user">Mateen Ulhaq</a>
+                <span class="comment-date" dir="ltr"><span title="2014-11-29 22:00:52Z" class="relativetime-clean">Nov 29 '14 at 22:00</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-8515936" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>        </div>
+</div>
+
+
+<div id="dfp-isb" class="everyonelovesstackoverflow everyoneloves__inline-sidebar"></div>
+        <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2 data-answercount="7">
+                                7 Answers
+                                <span style="display:none;" itemprop="answerCount">7</span>
+                        </h2>
+                        <div>
+                            
+<div id="tabs">
+        <a href="/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere is-selected " href="/questions/8515936/android-activity-life-cycle-what-are-all-these-methods-for?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+    </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+  
+<a name="8516056"></a>
+<div id="answer-8516056" class="answer accepted-answer" data-answerid="8516056"   itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="8516056">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">705</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>See it in <em><a href="http://developer.android.com/reference/android/app/Activity.html#ActivityLifecycle" rel="noreferrer">Activity Lifecycle</a></em> (at Android Developers).</p>
+
+<p><img src="https://developer.android.com/images/activity_lifecycle.png" alt="Enter image description here"></p>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onCreate%28android.os.Bundle%29" rel="noreferrer">onCreate()</a></strong>:</p>
+
+<blockquote>
+  <p>Called when the activity is first created. This is where you should do
+  all of your normal static set up: create views, bind data to lists,
+  etc. This method also provides you with a Bundle containing the
+  activity's previously frozen state, if there was one. Always followed
+  by onStart().</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onRestart%28%29" rel="noreferrer">onRestart()</a></strong>:</p>
+
+<blockquote>
+  <p>Called after your activity has been stopped, prior to it being started
+  again. Always followed by onStart()</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onStart%28%29" rel="noreferrer">onStart()</a></strong>:</p>
+
+<blockquote>
+  <p>Called when the activity is becoming visible to the user. Followed by
+  onResume() if the activity comes to the foreground, or onStop()  if it
+  becomes hidden.</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onResume%28%29" rel="noreferrer">onResume()</a></strong>:</p>
+
+<blockquote>
+  <p>Called when the activity will start interacting with the user. At this
+  point your activity is at the top of the activity stack, with user
+  input going to it. Always followed by onPause().</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onPause%28%29" rel="noreferrer">onPause ()</a>:</strong></p>
+
+<blockquote>
+  <p>Called as part of the activity lifecycle when an activity is going
+  into the background,
+  but has not (yet) been killed. The counterpart to onResume().
+  When activity B is launched in front of activity A, this callback will be invoked on A.
+  B will not be created until A's onPause() returns, so be sure to not
+  do anything lengthy here.</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onStop%28%29" rel="noreferrer">onStop()</a></strong>:</p>
+
+<blockquote>
+  <p>Called when you are no longer visible to the user. You will next
+  receive either onRestart(),  onDestroy(), or nothing, depending on
+  later user activity.</p>
+  
+  <p>Note that this method may never be called, in low memory situations
+  where the system does not  have enough memory to keep your activity's
+  process running after its onPause() method is called.</p>
+</blockquote>
+
+<p><strong><a href="http://developer.android.com/reference/android/app/Activity.html#onDestroy%28%29" rel="noreferrer">onDestroy()</a></strong>:</p>
+
+<blockquote>
+  <p>The final call you receive before your activity is destroyed. This
+  can happen either because the activity is finishing (someone called
+  finish() on it, or because the system is temporarily destroying this
+  instance of the activity to save space. You can distinguish between> these two scenarios with the isFinishing() method.</p>
+</blockquote>
+
+<p>When the Activity <strong>first time loads</strong> the events are called as below:</p>
+
+<pre><code>onCreate()
+onStart()
+onResume()
+</code></pre>
+
+<p>When you <strong>click on Phone button</strong> the Activity goes to the background and the below events are called:</p>
+
+<pre><code>onPause()
+onStop()
+</code></pre>
+
+<p><strong>Exit the phone dialer</strong> and the below events will be called:</p>
+
+<pre><code>onRestart()
+onStart()
+onResume()
+</code></pre>
+
+<p>When you click the <strong>back button</strong> OR try to <strong>finish()</strong> the activity the events are called as below:</p>
+
+<pre><code>onPause()
+onStop()
+onDestroy()
+</code></pre>
+
+<hr>
+
+<p><strong><a href="http://docs.xamarin.com/android/tutorials/Activity_Lifecycle" rel="noreferrer">Activity States</a></strong></p>
+
+<p>The Android OS uses a priority queue to assist in managing activities running on the device. Based on the state a particular Android activity is in, it will be assigned a certain priority within the OS. This priority system helps Android identify activities that are no longer in use, allowing the OS to reclaim memory and resources. The following diagram illustrates the states an activity can go through, during its lifetime:</p>
+
+<p>These states can be broken into three main groups as follows:</p>
+
+<p><strong>Active or Running</strong> - Activities are considered active or running if they are in the foreground, also known as the top of the activity stack. This is considered the highest priority activity in the Android Activity stack, and as such will only be killed by the OS in extreme situations, such as if the activity tries to use more memory than is available on the device as this could cause the UI to become unresponsive.</p>
+
+<p><strong>Paused</strong> - When the device goes to sleep, or an activity is still visible but partially hidden by a new, non-full-sized or transparent activity, the activity is considered paused. Paused activities are still alive, that is, they maintain all state and member information, and remain attached to the window manager. This is considered to be the second highest priority activity in the Android Activity stack and, as such, will only be killed by the OS if killing this activity will satisfy the resource requirements needed to keep the Active/Running Activity stable and responsive.</p>
+
+<p><strong>Stopped</strong> - Activities that are completely obscured by another activity are considered stopped or in the background. Stopped activities still try to retain their state and member information for as long as possible, but stopped activities are considered to be the lowest priority of the three states and, as such, the OS will kill activities in this state first to satisfy the resource requirements of higher priority activities.</p>
+
+<p>*Sample activity to understand the life cycle**</p>
+
+<pre><code>import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+public class MainActivity extends Activity {
+    String tag = "LifeCycleEvents";
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.main);
+       Log.d(tag, "In the onCreate() event");
+    }
+    public void onStart()
+    {
+       super.onStart();
+       Log.d(tag, "In the onStart() event");
+    }
+    public void onRestart()
+    {
+       super.onRestart();
+       Log.d(tag, "In the onRestart() event");
+    }
+    public void onResume()
+    {
+       super.onResume();
+       Log.d(tag, "In the onResume() event");
+    }
+    public void onPause()
+    {
+       super.onPause();
+       Log.d(tag, "In the onPause() event");
+    }
+    public void onStop()
+    {
+       super.onStop();
+       Log.d(tag, "In the onStop() event");
+    }
+    public void onDestroy()
+    {
+       super.onDestroy();
+       Log.d(tag, "In the onDestroy() event");
+    }
+}
+</code></pre>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/8516056" title="short permalink to this answer" class="short-link" id="link-post-8516056">share</a><span class="lsep">|</span><a href="/posts/8516056/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/8516056/revisions" title="show all edits to this post">edited <span title="2018-07-11 18:07:33Z" class="relativetime">Jul 11 at 18:07</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5106574/jitesh-mohite"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/xt7dc.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/5106574/jitesh-mohite">jitesh mohite</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,412</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="32 bronze badges"><span class="badge3"></span><span class="badgecount">32</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-12-15 06:37:42Z" class="relativetime">Dec 15 '11 at 6:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/265167/yaqub-ahmad"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/0b6a17dd8bf2171a5e90bae39836f394?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/265167/yaqub-ahmad">Yaqub Ahmad</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 22,845" dir="ltr">22.8k</span><span title="20 gold badges"><span class="badge1"></span><span class="badgecount">20</span></span><span title="85 silver badges"><span class="badge2"></span><span class="badgecount">85</span></span><span title="131 bronze badges"><span class="badge3"></span><span class="badgecount">131</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-8516056" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="1"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-17908620" class="comment js-comment " data-comment-id="17908620">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">So if I understood it correctly onStop() is always called after onPause() ?</span>
+                    &ndash;&nbsp;<a href="/users/1044591/titouan-de-bailleul"
+                       title="10,807 reputation"
+                       class="comment-user">Titouan de Bailleul</a>
+                <span class="comment-date" dir="ltr"><span title="2012-10-31 16:19:35Z" class="relativetime-clean">Oct 31 '12 at 16:19</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-18578256" class="comment js-comment " data-comment-id="18578256">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">4</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">NOT always, &quot;onStop(): Called when you are no longer visible to the user&quot;</span>
+                    &ndash;&nbsp;<a href="/users/265167/yaqub-ahmad"
+                       title="22,845 reputation"
+                       class="comment-user">Yaqub Ahmad</a>
+                <span class="comment-date" dir="ltr"><span title="2012-11-26 08:22:50Z" class="relativetime-clean">Nov 26 '12 at 8:22</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-27987197" class="comment js-comment " data-comment-id="27987197">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Is there anything by any chance that gets called before onCreate?</span>
+                    &ndash;&nbsp;<a href="/users/1310974/aaron-russell"
+                       title="1,122 reputation"
+                       class="comment-user">Aaron Russell</a>
+                <span class="comment-date" dir="ltr"><span title="2013-09-23 03:31:41Z" class="relativetime-clean">Sep 23 '13 at 3:31</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-45836106" class="comment js-comment " data-comment-id="45836106">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">5</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Yes there is - the default constructor (that&#39;s the one with no parameters). But it has only very limited use for very basic initialization purposes. Usually you should <i>not</i> use it unless you really know what you are doing. And even then you should think twice if there&#39;s a better way of doing things.</span>
+                    &ndash;&nbsp;<a href="/users/2764882/mjoellnir"
+                       title="406 reputation"
+                       class="comment-user">Mjoellnir</a>
+                <span class="comment-date" dir="ltr"><span title="2015-02-28 07:45:42Z" class="relativetime-clean">Feb 28 '15 at 7:45</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-47240630" class="comment js-comment " data-comment-id="47240630">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">How to go directly from onResume() to onPause() in an activity?</span>
+                    &ndash;&nbsp;<a href="/users/3710548/kaveesh-kanwal"
+                       title="1,486 reputation"
+                       class="comment-user">Kaveesh Kanwal</a>
+                <span class="comment-date" dir="ltr"><span title="2015-04-09 16:57:42Z" class="relativetime-clean">Apr 9 '15 at 16:57</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-8516056" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </div>    </div>
+</div>
+<div id="dfp-mlb" class="everyonelovesstackoverflow everyoneloves__mid-leaderboard"></div>
+  
+<a name="9113262"></a>
+<div id="answer-9113262" class="answer" data-answerid="9113262"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9113262">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">145</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>The entire confusion is caused since Google chose non-intuivitive names instead of something as follows:</p>
+
+<pre><code>onCreateAndPrepareToDisplay()   [instead of onCreate() ]
+onPrepareToDisplay()            [instead of onRestart() ]
+onVisible()                     [instead of onStart() ]
+onBeginInteraction()            [instead of onResume() ]
+onPauseInteraction()            [instead of onPause() ]
+onInvisible()                   [instead of onStop]
+onDestroy()                     [no change] 
+</code></pre>
+
+<p>The Activity Diagram can be interpreted as:</p>
+
+<p><img src="https://i.stack.imgur.com/88cpr.jpg" alt="enter image description here"></p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/9113262" title="short permalink to this answer" class="short-link" id="link-post-9113262">share</a><span class="lsep">|</span><a href="/posts/9113262/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/9113262/revisions" title="show all edits to this post">edited <span title="2012-03-10 23:22:28Z" class="relativetime">Mar 10 '12 at 23:22</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-02-02 13:35:20Z" class="relativetime">Feb 2 '12 at 13:35</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1185239/nilesh-pawar"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/YjnS3.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1185239/nilesh-pawar">Nilesh Pawar</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,233</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-9113262" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="5"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-23310259" class="comment js-comment " data-comment-id="23310259">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">1</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Depends. Unless it solves confusion, a long name ain&#39;t hurt. Eg: onRoutePresentationDisplayChanged() is very much a function from inside Android SDK</span>
+                    &ndash;&nbsp;<a href="/users/1185239/nilesh-pawar"
+                       title="3,233 reputation"
+                       class="comment-user">Nilesh Pawar</a>
+                <span class="comment-date" dir="ltr"><span title="2013-04-29 18:45:31Z" class="relativetime-clean">Apr 29 '13 at 18:45</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-26139722" class="comment js-comment " data-comment-id="26139722">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">If we had to type these method names often, the ones from the SDK present a good balance between length and being descriptive enough. However, IDEs have shortcuts to override these things and we don&#39;t really need to be calling them around, so longer descriptive names as these would have worked just nicely. This is more of a problem to beginners though.</span>
+                    &ndash;&nbsp;<a href="/users/2188058/daniel"
+                       title="322 reputation"
+                       class="comment-user">Daniel</a>
+                <span class="comment-date" dir="ltr"><span title="2013-07-27 10:46:14Z" class="relativetime-clean">Jul 27 '13 at 10:46</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-26366944" class="comment js-comment " data-comment-id="26366944">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">9</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">I personally don&#39;t find your names extremely more intuitive, plus with Fragments, it doesn&#39;t really correlate.</span>
+                    &ndash;&nbsp;<a href="/users/2684/martin-marconcini"
+                       title="15,634 reputation"
+                       class="comment-user">Martin Marconcini</a>
+                <span class="comment-date" dir="ltr"><span title="2013-08-02 21:44:23Z" class="relativetime-clean">Aug 2 '13 at 21:44</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-33593121" class="comment js-comment " data-comment-id="33593121">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="warm">9</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Upvoted. More helpful than the official documentation</span>
+                    &ndash;&nbsp;<a href="/users/1114457/bad-keypoints"
+                       title="842 reputation"
+                       class="comment-user">bad_keypoints</a>
+                <span class="comment-date" dir="ltr"><span title="2014-03-03 05:41:53Z" class="relativetime-clean">Mar 3 '14 at 5:41</span></span>
+                        <span title="this comment was edited 2 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-66478119" class="comment js-comment " data-comment-id="66478119">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Its a great post. One problem. When you type Andoid Lifecycle methods in to google this image comes up above the search option (not even in image search mode) as the answer to Android Life cycle methods. The unaware (or lazy depending on how you look at it) might easily get mislead unless they follow the StackOverflow link rather than clicking on the flowchart image (your image).</span>
+                    &ndash;&nbsp;<a href="/users/966656/andrew-s"
+                       title="1,600 reputation"
+                       class="comment-user">Andrew S</a>
+                <span class="comment-date" dir="ltr"><span title="2016-09-20 00:50:36Z" class="relativetime-clean">Sep 20 '16 at 0:50</span></span>
+                        <span title="this comment was edited 2 times">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-9113262" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>5</b> more comments</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="28778985"></a>
+<div id="answer-28778985" class="answer" data-answerid="28778985"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="28778985">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">139</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p><strong>Activity has six states</strong></p>
+
+<ul>
+<li><em>Created</em></li>
+<li><em>Started</em></li>
+<li><em>Resumed</em></li>
+<li><em>Paused</em></li>
+<li><em>Stopped</em></li>
+<li><em>Destroyed</em></li>
+</ul>
+
+<p><strong>Activity lifecycle</strong> has seven methods </p>
+
+<ul>
+<li><code>onCreate()</code></li>
+<li><code>onStart()</code></li>
+<li><code>onResume()</code></li>
+<li><code>onPause()</code></li>
+<li><code>onStop()</code></li>
+<li><code>onRestart()</code></li>
+<li><code>onDestroy()</code></li>
+</ul>
+
+<p><img src="https://i.stack.imgur.com/2CP6n.png" alt="activity life cycle"></p>
+
+<p><strong>Situations</strong> </p>
+
+<ul>
+<li><p><strong>When open the app</strong></p>
+
+<pre><code>onCreate() --&gt; onStart() --&gt;  onResume()
+</code></pre></li>
+<li><p><strong>When back button pressed and exit the app</strong></p>
+
+<pre><code>onPaused() -- &gt; onStop() --&gt; onDestory()
+</code></pre></li>
+<li><p><strong>When home button pressed</strong> </p>
+
+<pre><code>onPaused() --&gt; onStop()
+</code></pre></li>
+<li><p><strong>After pressed home button when again open app from recent task list or clicked on icon</strong></p>
+
+<pre><code>onRestart() --&gt; onStart() --&gt; onResume()
+</code></pre></li>
+<li><p><strong>When open app another app from notification bar or open settings</strong></p>
+
+<pre><code>onPaused() --&gt; onStop()
+</code></pre></li>
+<li><p><strong>Back button pressed from another app or settings then used can see our app</strong></p>
+
+<pre><code>onRestart() --&gt; onStart() --&gt; onResume()
+</code></pre></li>
+<li><p><strong>When any dialog open on screen</strong></p>
+
+<pre><code>onPause()
+</code></pre></li>
+<li><p><strong>After dismiss the dialog or back button from dialog</strong> </p>
+
+<pre><code>onResume()
+</code></pre></li>
+<li><p><strong>Any phone is ringing and user in the app</strong></p>
+
+<pre><code>onPause() --&gt; onResume() 
+</code></pre></li>
+<li><p><strong>When user pressed phone's answer button</strong></p>
+
+<pre><code>onPause()
+</code></pre></li>
+<li><p><strong>After call end</strong> </p>
+
+<pre><code>onResume()
+</code></pre></li>
+<li><p><strong>When phone screen off</strong></p>
+
+<pre><code>onPaused() --&gt; onStop()
+</code></pre></li>
+<li><p><strong>When screen is turned back on</strong></p>
+
+<pre><code>onRestart() --&gt; onStart() --&gt; onResume()
+</code></pre></li>
+</ul>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/28778985" title="short permalink to this answer" class="short-link" id="link-post-28778985">share</a><span class="lsep">|</span><a href="/posts/28778985/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/28778985/revisions" title="show all edits to this post">edited <span title="2017-03-24 19:12:19Z" class="relativetime">Mar 24 '17 at 19:12</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4999394/ravindra-babu"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/nAGmt.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/4999394/ravindra-babu">Ravindra babu</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 28,724" dir="ltr">28.7k</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="154 silver badges"><span class="badge2"></span><span class="badgecount">154</span></span><span title="134 bronze badges"><span class="badge3"></span><span class="badgecount">134</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2015-02-28 06:42:16Z" class="relativetime">Feb 28 '15 at 6:42</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1058330/arun-kumar"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/cfbf3f6d76b30b0b3b1e78b69200b64b?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1058330/arun-kumar">Arun Kumar</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,278</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-28778985" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="1"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-59440801" class="comment js-comment " data-comment-id="59440801">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">&#39;When any dialog open on screen , onPause() is called&#39;, doesn&#39;t hold true for an alertdialog. It&#39;s called only when the dialog is itself a dialog activity (has theme set to @android:style/Theme.Dialog).</span>
+                    &ndash;&nbsp;<a href="/users/1671058/gaurav-jain"
+                       title="1,560 reputation"
+                       class="comment-user">gaurav jain</a>
+                <span class="comment-date" dir="ltr"><span title="2016-03-09 11:12:08Z" class="relativetime-clean">Mar 9 '16 at 11:12</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-66187456" class="comment js-comment " data-comment-id="66187456">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">2</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">Valuable answer. Do submit this to google to add to their documentation. I am saving your answer to a Word document to keep!</span>
+                    &ndash;&nbsp;<a href="/users/398348/likejudo"
+                       title="1,188 reputation"
+                       class="comment-user">likejudo</a>
+                <span class="comment-date" dir="ltr"><span title="2016-09-11 01:53:36Z" class="relativetime-clean">Sep 11 '16 at 1:53</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-67737788" class="comment js-comment " data-comment-id="67737788">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">I don&#39;t understand the &quot;Any phone is ringing and user in the app&quot;. What&#39;s the scenario exactly? My first though was if the user is in the app and the phone starts ringing then would be onPause()--&gt;onStop() in case the full screen became the call. For the heads-up incoming call message might be just OnResume--&gt;onPause() but I&#39;m not sure of this. What&#39;s the situation in a call for onPause--&gt;onResume? Is at the end of the call?</span>
+                    &ndash;&nbsp;<a href="/users/1177959/sotti"
+                       title="10,504 reputation"
+                       class="comment-user">Sotti</a>
+                <span class="comment-date" dir="ltr"><span title="2016-10-25 10:49:26Z" class="relativetime-clean">Oct 25 '16 at 10:49</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-73551861" class="comment js-comment " data-comment-id="73551861">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">This is what I was looking for. Just wanted to know where should I put my api call.</span>
+                    &ndash;&nbsp;<a href="/users/2180959/heisenberg"
+                       title="3,027 reputation"
+                       class="comment-user">Heisenberg</a>
+                <span class="comment-date" dir="ltr"><span title="2017-04-05 20:17:47Z" class="relativetime-clean">Apr 5 '17 at 20:17</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-74644866" class="comment js-comment " data-comment-id="74644866">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">I liked your <b>scenario based</b> answer.</span>
+                    &ndash;&nbsp;<a href="/users/579381/kokabi"
+                       title="1,269 reputation"
+                       class="comment-user">kokabi</a>
+                <span class="comment-date" dir="ltr"><span title="2017-05-05 10:40:31Z" class="relativetime-clean">May 5 '17 at 10:40</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-28778985" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="18721241"></a>
+<div id="answer-18721241" class="answer" data-answerid="18721241"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="18721241">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">18</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p><a href="http://developer.android.com/reference/android/app/Activity.html#ActivityLifecycle"><strong>ANDROID LIFE-CYCLE</strong></a></p>
+
+<p>There are seven methods that manage the life cycle of an Android application:</p>
+
+<ul>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onCreate%28android.os.Bundle%29"><strong><em>onCreate()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onStart%28%29"><strong><em>onStart()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onResume%28%29"><strong><em>onResume()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onRestart%28%29"><strong><em>onRestart()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onPause%28%29"><strong><em>onPause()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onStop%28%29"><strong><em>onStop()</em></strong></a></li>
+<li><a href="http://developer.android.com/reference/android/app/Activity.html#onDestroy%28%29"><strong><em>onDestroy()</em></strong></a></li>
+</ul>
+
+<hr>
+
+<h2>Answer for what are all these methods for:</h2>
+
+<p>Let us take a simple scenario where knowing in what order these methods are called will help us give a clarity why they are used.</p>
+
+<ul>
+<li>Suppose you are using a calculator app. Three methods are called in
+succession to start the app.</li>
+</ul>
+
+<p><strong><code>onCreate()</code></strong>  <strong>- - - ></strong>  <strong><code>onStart()</code></strong>  <strong>- - - ></strong>  <strong><code>onResume()</code></strong></p>
+
+<ul>
+<li>When I am using the calculator app, suddenly a call comes the.
+The calculator activity goes to the background and another activity say.
+Dealing with the call comes to the foreground, and now two methods are
+called in succession.</li>
+</ul>
+
+<p><strong><code>onPause()</code></strong>  <strong>- - - ></strong>  <strong><code>onStop()</code></strong></p>
+
+<ul>
+<li>Now say I finish the conversation on the phone, the calculator
+activity comes to foreground from the background, so three methods
+are called in succession.</li>
+</ul>
+
+<p><strong><code>onRestart()</code></strong>  <strong>- - - ></strong>  <strong><code>onStart()</code></strong>  <strong>- - - ></strong>  <strong><code>onResume()</code></strong></p>
+
+<ul>
+<li>Finally, say I have finished all the tasks in calculator app, and I
+want to exit the app. Futher two methods are called in succession.</li>
+</ul>
+
+<p><strong><code>onStop()</code></strong>  <strong>- - - ></strong>  <strong><code>onDestroy()</code></strong></p>
+
+<hr>
+
+<h2>There are four states an activity can possibly exist:</h2>
+
+<ul>
+<li><em>Starting State</em></li>
+<li><em>Running State</em></li>
+<li><em>Paused State</em></li>
+<li><em>Stopped state</em></li>
+</ul>
+
+<p><strong>Starting state involves:</strong></p>
+
+<p>Creating a new Linux process, allocating new memory for the new UI objects, and setting up the whole screen. So most of the work is involved here.</p>
+
+<p><strong>Running state involves:</strong></p>
+
+<p>It is the activity (state) that is currently on the screen. This state alone handles things such as typing on the screen, and touching &amp; clicking buttons.</p>
+
+<p><strong>Paused state involves:</strong></p>
+
+<p>When an activity is not in the foreground and instead it is in the background, then the activity is said to be in paused state.</p>
+
+<p><strong>Stopped state involves:</strong></p>
+
+<p>A stopped activity can only be bought into foreground by restarting it and also it can be destroyed at any point in time.</p>
+
+<p>The activity manager handles all these states in such a way that the user experience and performance is always at its best even in scenarios where the new activity is added to the existing activities</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/18721241" title="short permalink to this answer" class="short-link" id="link-post-18721241">share</a><span class="lsep">|</span><a href="/posts/18721241/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/18721241/revisions" title="show all edits to this post">edited <span title="2014-09-23 07:37:24Z" class="relativetime">Sep 23 '14 at 7:37</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/100297/martijn-pieters"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/24780fb6df85a943c7aea0402c843737?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/100297/martijn-pieters">Martijn Pieters</a><span class="mod-flair" title="moderator">&#9830;</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 693,389" dir="ltr">693k</span><span title="129 gold badges"><span class="badge1"></span><span class="badgecount">129</span></span><span title="2400 silver badges"><span class="badge2"></span><span class="badgecount">2400</span></span><span title="2237 bronze badges"><span class="badge3"></span><span class="badgecount">2237</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-09-10 14:11:07Z" class="relativetime">Sep 10 '13 at 14:11</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1083093/devrath"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/3AgYu.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1083093/devrath">Devrath</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 21,964" dir="ltr">22k</span><span title="37 gold badges"><span class="badge1"></span><span class="badgecount">37</span></span><span title="130 silver badges"><span class="badge2"></span><span class="badgecount">130</span></span><span title="185 bronze badges"><span class="badge3"></span><span class="badgecount">185</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-18721241" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-80039613" class="comment js-comment " data-comment-id="80039613">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">any example for <b>onPause</b> to <b>onResume</b>?</span>
+                    &ndash;&nbsp;<a href="/users/3879456/zeeali"
+                       title="731 reputation"
+                       class="comment-user">zeeali</a>
+                <span class="comment-date" dir="ltr"><span title="2017-10-03 10:51:58Z" class="relativetime-clean">Oct 3 '17 at 10:51</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-18721241" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="37753090"></a>
+<div id="answer-37753090" class="answer" data-answerid="37753090"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="37753090">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">10</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>I like this question and the answers to it, but so far there isn't coverage of less frequently used callbacks like <strong><em>onPostCreate()</em></strong> or <strong><em>onPostResume()</em></strong>.  Steve Pomeroy has attempted a diagram including these and how they relate to Android's <strong>Fragment</strong> life cycle, at <a href="https://github.com/xxv/android-lifecycle" rel="noreferrer">https://github.com/xxv/android-lifecycle</a>.  I revised Steve's large diagram to include only the <strong>Activity</strong> portion and formatted it for letter size one-page printout.  I've posted it as a text PDF at <a href="https://github.com/code-read/android-lifecycle/blob/master/AndroidActivityLifecycle1.pdf" rel="noreferrer">https://github.com/code-read/android-lifecycle/blob/master/AndroidActivityLifecycle1.pdf</a> and below is its image:</p>
+
+<p><a href="https://i.stack.imgur.com/4OcXC.png" rel="noreferrer"><img src="https://i.stack.imgur.com/4OcXC.png" alt="Android Activity Lifecycle"></a></p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/37753090" title="short permalink to this answer" class="short-link" id="link-post-37753090">share</a><span class="lsep">|</span><a href="/posts/37753090/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-06-10 16:29:24Z" class="relativetime">Jun 10 '16 at 16:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/5025060/code-read"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/eUCHO.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/5025060/code-read">CODE-REaD</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,130</span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="37 bronze badges"><span class="badge3"></span><span class="badgecount">37</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-37753090" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-37753090" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="8515974"></a>
+<div id="answer-8515974" class="answer" data-answerid="8515974"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="8515974">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>From the Android Developers page,</p>
+
+<p>onPause():</p>
+
+<blockquote>
+  <p>Called when the system is about to start resuming a previous activity.
+  This is typically used to commit unsaved changes to persistent data,
+  stop animations and other things that may be consuming CPU, etc.
+  Implementations of this method must be very quick because the next
+  activity will not be resumed until this method returns. Followed by
+  either onResume() if the activity returns back to the front, or
+  onStop() if it becomes invisible to the user.</p>
+</blockquote>
+
+<p>onStop():</p>
+
+<blockquote>
+  <p>Called when the activity is no longer visible to the user, because
+  another activity has been resumed and is covering this one. This may
+  happen either because a new activity is being started, an existing one
+  is being brought in front of this one, or this one is being destroyed.
+  Followed by either onRestart() if this activity is coming back to
+  interact with the user, or onDestroy() if this activity is going away.</p>
+</blockquote>
+
+<p>Now suppose there are three Activities and you go from A to B, then onPause of A will be called now from B to C, then onPause of B and onStop of A will be called.</p>
+
+<p>The paused Activity gets a Resume and Stopped gets Restarted.</p>
+
+<p>When you call <code>this.finish()</code>, onPause-onStop-onDestroy will be called. The main thing to remember is: paused Activities get Stopped and a Stopped activity gets Destroyed whenever Android requires memory for other operations.</p>
+
+<p>I hope it's clear enough.</p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/8515974" title="short permalink to this answer" class="short-link" id="link-post-8515974">share</a><span class="lsep">|</span><a href="/posts/8515974/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/8515974/revisions" title="show all edits to this post">edited <span title="2014-01-22 22:21:32Z" class="relativetime">Jan 22 '14 at 22:21</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/63550/peter-mortensen"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/RIZKi.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/63550/peter-mortensen">Peter Mortensen</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 13,335" dir="ltr">13.3k</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="83 silver badges"><span class="badge2"></span><span class="badgecount">83</span></span><span title="111 bronze badges"><span class="badge3"></span><span class="badgecount">111</span></span>
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-12-15 06:25:57Z" class="relativetime">Dec 15 '11 at 6:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/617461/masiar"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/b8174f68089de8a59fbcd234fed99f29?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/617461/masiar">Masiar</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,821</span><span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span><span title="77 silver badges"><span class="badge2"></span><span class="badgecount">77</span></span><span title="115 bronze badges"><span class="badge3"></span><span class="badgecount">115</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-8515974" class="comments js-comments-container ">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+
+    <li id="comment-10543478" class="comment js-comment " data-comment-id="10543478">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">can we term onPause method as an intermediate stage between the activity starting to loose focus and it finally becoming invisble to the user and the Onstop method as when the activity has become completely invisble to the user</span>
+                    &ndash;&nbsp;<a href="/users/1080093/nav"
+                       title="4,328 reputation"
+                       class="comment-user owner">Nav</a>
+                <span class="comment-date" dir="ltr"><span title="2011-12-15 06:29:19Z" class="relativetime-clean">Dec 15 '11 at 6:29</span></span>
+                        <span title="this comment was edited 1 time">
+                            <svg aria-hidden="true" class="svg-icon va-text-bottom o50 iconPencilSm" width="14" height="15" viewBox="0 0 14 15"><path d="M8.37 4.7L2 11.11V13h1.88l6.37-6.43zM12.23 3.83L11.1 2.71a.5.5 0 0 0-.7 0L9.2 3.86l1.88 1.84 1.14-1.16a.5.5 0 0 0 0-.71z"/></svg>
+                        </span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-10543506" class="comment js-comment " data-comment-id="10543506">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">I think it should be like that.</span>
+                    &ndash;&nbsp;<a href="/users/617461/masiar"
+                       title="6,821 reputation"
+                       class="comment-user">Masiar</a>
+                <span class="comment-date" dir="ltr"><span title="2011-12-15 06:31:17Z" class="relativetime-clean">Dec 15 '11 at 6:31</span></span>
+                                                                            </div>
+        </div>
+    </li>
+    <li id="comment-10543645" class="comment js-comment " data-comment-id="10543645">
+        <div class="js-comment-actions comment-actions">
+            <div class="comment-score">
+                    <span title="number of &#39;useful comment&#39; votes received"
+                            class="cool">3</span>
+            </div>
+                    </div>
+        <div class="comment-text js-comment-text-and-form">
+            <div class="comment-body" style="display: block;" >
+                <span class="comment-copy">@Nav Suppose there are 3 Activities and You go from A to B,then onPause of A will be called now from B to C then onPause of B and onStop of A will be called.</span>
+                    &ndash;&nbsp;<a href="/users/903469/mkjparekh"
+                       title="29,240 reputation"
+                       class="comment-user">MKJParekh</a>
+                <span class="comment-date" dir="ltr"><span title="2011-12-15 06:44:48Z" class="relativetime-clean">Dec 15 '11 at 6:44</span></span>
+                                                                            </div>
+        </div>
+    </li>
+            </ul>
+	    </div>
+
+        <div id="comments-link-8515974" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+
+  
+<a name="42163579"></a>
+<div id="answer-42163579" class="answer" data-answerid="42163579"   itemscope itemtype="http://schema.org/Answer">
+    <div class="post-layout">
+            <div class="votecell post-layout--left">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42163579">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+
+</div>
+
+            </div>
+            
+
+
+<div class="answercell post-layout--right">
+    <div class="post-text" itemprop="text">
+<p>Adding some more info on top of highly rated answer (Added additional section of KILLABLE and next set of methods, which are going to be called in the life cycle):</p>
+
+<p>Source: <a href="https://developer.android.com/reference/android/app/Activity.html" rel="nofollow noreferrer">developer.android.com</a></p>
+
+<p><a href="https://i.stack.imgur.com/EMuk1.jpg" rel="nofollow noreferrer"><img src="https://i.stack.imgur.com/EMuk1.jpg" alt="enter image description here"></a></p>
+
+<p>Note the "<strong>Killable</strong>" column in the above table -- for those methods that are marked as being killable, after that method returns the process hosting the activity may be killed by the system at any time without another line of its code being executed.</p>
+
+<p>Because of this, you should use the <code>onPause()</code> method to write any persistent data (such as user edits) to storage. In addition, the method <code>onSaveInstanceState(Bundle)</code> is called before placing the activity in such a background state, allowing you to save away any dynamic instance state in your activity into the given <code>Bundle</code>, to be later received in <code>onCreate(Bundle)</code> if the activity needs to be re-created. </p>
+
+<p>Note that it is important to save persistent data in <code>onPause()</code> instead of <code>onSaveInstanceState(Bundle)</code> because the latter is not part of the lifecycle callbacks, so will not be called in every situation as described in its documentation.</p>
+
+<p>I would like to add few more methods. These are not listed as life cycle methods but they will be called during life cycle depending on some conditions. Depending on your requirement, you may have to implement these methods in your application for proper handling of state. </p>
+
+<pre><code>onPostCreate(Bundle savedInstanceState)
+</code></pre>
+
+<blockquote>
+  <p>Called when activity start-up is complete (after <code>onStart()</code> and <code>onRestoreInstanceState(Bundle)</code> have been called).</p>
+</blockquote>
+
+<pre><code>onPostResume()
+</code></pre>
+
+<blockquote>
+  <p>Called when activity resume is complete (after <code>onResume()</code> has been called).</p>
+</blockquote>
+
+<pre><code>onSaveInstanceState(Bundle outState)
+</code></pre>
+
+<blockquote>
+  <p>Called to retrieve per-instance state from an activity before being killed so that the state can be restored in <code>onCreate(Bundle)</code> or <code>onRestoreInstanceState(Bundle)</code> (the Bundle populated by this method will be passed to both).</p>
+</blockquote>
+
+<pre><code>onRestoreInstanceState(Bundle savedInstanceState)
+</code></pre>
+
+<blockquote>
+  <p>This method is called after <code>onStart()</code> when the activity is being re-initialized from a previously saved state, given here in <code>savedInstanceState</code>.</p>
+</blockquote>
+
+<p>My application code using all these methods:</p>
+
+<pre><code>public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private EditText txtUserName;
+    private EditText txtPassword;
+    Button  loginButton;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.d("Ravi","Main OnCreate");
+        txtUserName=(EditText) findViewById(R.id.username);
+        txtPassword=(EditText) findViewById(R.id.password);
+        loginButton =  (Button)  findViewById(R.id.login);
+        loginButton.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        Log.d("Ravi", "Login processing initiated");
+        Intent intent = new Intent(this,LoginActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("userName",txtUserName.getText().toString());
+        bundle.putString("password",txtPassword.getText().toString());
+        intent.putExtras(bundle);
+        startActivityForResult(intent,1);
+       // IntentFilter
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent resIntent){
+        Log.d("Ravi back result:", "start");
+        String result = resIntent.getStringExtra("result");
+        Log.d("Ravi back result:", result);
+        TextView txtView = (TextView)findViewById(R.id.txtView);
+        txtView.setText(result);
+
+        Intent sendIntent = new Intent();
+        //sendIntent.setPackage("com.whatsapp");
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Message...");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Ravi","Main Start");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("Ravi","Main ReStart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Ravi","Main Pause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("Ravi","Main Resume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Ravi","Main Stop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Ravi","Main OnDestroy");
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+        Log.d("Ravi","Main onPostCreate");
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Log.d("Ravi","Main PostResume");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+}
+</code></pre>
+
+<p>Login Activity:</p>
+
+<pre><code>public class LoginActivity extends AppCompatActivity {
+
+    private TextView txtView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        txtView = (TextView) findViewById(R.id.Result);
+        Log.d("Ravi","Login OnCreate");
+        Bundle bundle = getIntent().getExtras();
+        txtView.setText(bundle.getString("userName")+":"+bundle.getString("password"));
+        //Intent  intent = new Intent(this,MainActivity.class);
+        Intent  intent = new Intent();
+        intent.putExtra("result","Success");
+        setResult(1,intent);
+       // finish();
+    }
+}
+</code></pre>
+
+<p>output: ( Before pause)</p>
+
+<pre><code>D/Ravi: Main OnCreate
+D/Ravi: Main Start
+D/Ravi: Main Resume
+D/Ravi: Main PostResume
+</code></pre>
+
+<p>output: ( After resume from pause)</p>
+
+<pre><code>D/Ravi: Main ReStart
+D/Ravi: Main Start
+D/Ravi: Main Resume
+D/Ravi: Main PostResume
+</code></pre>
+
+<p>Note that <code>onPostResume()</code> is invoked even though it's not quoted as life cycle method. </p>
+    </div>
+    <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
+    <div class="grid--cell mr16" style="flex: 1 1 100px;">
+<div class="post-menu"><a href="/a/42163579" title="short permalink to this answer" class="short-link" id="link-post-42163579">share</a><span class="lsep">|</span><a href="/posts/42163579/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </div>
+    <div class="post-signature grid--cell fl0">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/42163579/revisions" title="show all edits to this post">edited <span title="2017-02-11 16:46:08Z" class="relativetime">Feb 11 '17 at 16:46</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </div>
+            
+
+
+    <div class="post-signature grid--cell fl0">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-02-10 15:58:41Z" class="relativetime">Feb 10 '17 at 15:58</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/4999394/ravindra-babu"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/nAGmt.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/4999394/ravindra-babu">Ravindra babu</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 28,724" dir="ltr">28.7k</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="154 silver badges"><span class="badge2"></span><span class="badgecount">154</span></span><span title="134 bronze badges"><span class="badge3"></span><span class="badgecount">134</span></span>
+        </div>
+    </div>
+</div>
+
+    </div>
+    </div>
+</div>
+    
+    <div class="post-layout--right">
+	    <div id="comments-42163579" class="comments js-comments-container  dno">
+            <ul class="comments-list js-comments-list"
+                    data-remaining-comments-count="0"
+                    data-canpost="false"
+                    data-cansee="true"
+                    data-comments-unavailable="false"
+                    data-addlink-disabled="true">
+
+            </ul>
+	    </div>
+
+        <div id="comments-link-42163579" data-rep=50 data-anon=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </div>    </div>
+</div>
+                    <div class="question-status">
+        <h2>                    <b>protected</b> by <a href="/users/493939/luksprog">Luksprog</a> <span dir="ltr"><span title="2013-05-26 19:28:30Z" class="relativetime">May 26 '13 at 19:28</span></span>
+</h2>
+        <p>
+Thank you for your interest in this question. 
+Because it has attracted low-quality or spam answers that had to be removed, posting an answer now requires 10 <a href="/help/whats-reputation">reputation</a> on this site (the <a href="/help/privileges/new-user">association bonus does not count</a>).
+<br /><br />
+Would you like to answer one of these <a href="/unanswered?fromProtectedNotice=true">unanswered questions</a> instead?</p>
+    </div>
+
+
+
+
+
+                        <h2 class="bottom-notice" data-loc="1">
+Not the answer you&#39;re looking for?                            Browse other questions tagged <a href="/questions/tagged/android" class="post-tag" title="show questions tagged &#39;android&#39;" rel="tag"><img src="//i.stack.imgur.com/bk9VA.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="/questions/tagged/lifecycle" class="post-tag" title="show questions tagged &#39;lifecycle&#39;" rel="tag">lifecycle</a> <a href="/questions/tagged/oncreate" class="post-tag" title="show questions tagged &#39;oncreate&#39;" rel="tag">oncreate</a> <a href="/questions/tagged/onresume" class="post-tag" title="show questions tagged &#39;onresume&#39;" rel="tag">onresume</a> <a href="/questions/tagged/ondestroy" class="post-tag" title="show questions tagged &#39;ondestroy&#39;" rel="tag">ondestroy</a>  or <a href="/questions/ask">ask your own question</a>.                        </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+                            <div class="module question-stats">
+                    <table id="qinfo">
+                        <tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2011-12-15 06:20:44Z"><b>6 years, 11 months ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>257,441 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2018-07-11 18:07:33Z">4 months ago</a></b></p>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            
+<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
+            <div id="hireme"></div>
+<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=1db48f495ba1","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
+                var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
+                clc.cmd = clc.cmd || [];
+                clc.cmd.push(function () { window.clc_request='AkchhsBeWNYIAAAAAGDxgQACAAAAAgAAAAAvAAAAfGFuZHJvaWR8bGlmZWN5Y2xlfG9uY3JlYXRlfG9ucmVzdW1lfG9uZGVzdHJveXwAmMkwBVqAXVnQGw'; clc.load(); });
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['false'],'so-tag':['android','lifecycle','oncreate','onresume','ondestroy']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+            </script>
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="/q/6812003" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">135</div>
+	</a>
+	<a href="/questions/6812003/difference-between-oncreate-and-onstart?noredirect=1" class="question-hyperlink">Difference between onCreate() and onStart()?</a>
+</div>
+<div class="spacer">
+	<a href="/q/12468614" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">9</div>
+	</a>
+	<a href="/questions/12468614/oncreate-vs-onstart?noredirect=1" class="question-hyperlink">OnCreate() vs OnStart()</a>
+</div>
+<div class="spacer">
+	<a href="/q/13947587" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/13947587/android-life-cycle-activities?noredirect=1" class="question-hyperlink">Android life cycle activities</a>
+</div>
+<div class="spacer">
+	<a href="/q/7242585" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">8</div>
+	</a>
+	<a href="/questions/7242585/what-is-called-before-oncreate-in-android?noredirect=1" class="question-hyperlink">what is called before onCreate in android</a>
+</div>
+<div class="spacer">
+	<a href="/q/16788644" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="/questions/16788644/which-method-is-called-in-current-activity-when-moving-to-another-activity?noredirect=1" class="question-hyperlink">which method is called in current activity when moving to another activity?</a>
+</div>
+<div class="spacer">
+	<a href="/q/6290365" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">6</div>
+	</a>
+	<a href="/questions/6290365/how-to-detect-when-an-android-activity-starts-and-ends?noredirect=1" class="question-hyperlink">how to detect when an Android activity starts and ends</a>
+</div>
+<div class="spacer">
+	<a href="/q/6387084" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/6387084/can-anybody-explain-life-cycle-of-activity-in-android?noredirect=1" class="question-hyperlink">can anybody explain life cycle of activity in android</a>
+</div>
+<div class="spacer">
+	<a href="/q/35007227" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-5</div>
+	</a>
+	<a href="/questions/35007227/in-android-activity-lifecycle-do-onstop-and-ondestroy-always-called-why?noredirect=1" class="question-hyperlink">In Android activity lifecycle, do onStop() and onDestroy() always called? Why?</a>
+</div>
+<div class="spacer">
+	<a href="/q/5270749" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/5270749/how-the-android-system-starts-the-main-activity-when-the-application-launcher-is?noredirect=1" class="question-hyperlink">How the Android system starts the main activity when the application launcher is clicked?</a>
+</div>
+<div class="spacer">
+	<a href="/q/17087858" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="/questions/17087858/is-onstart-method-redundant?noredirect=1" class="question-hyperlink">Is onStart() method redundant?</a>
+</div>					<div class="spacer more">
+				<a href="/questions/linked/8515936">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer"><a href="/q/151777" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2319</div></a><a href="/questions/151777/saving-android-activity-state-using-save-instance-state" class="question-hyperlink">Saving Android Activity state using Save Instance State</a></div><div class="spacer"><a href="/q/456211" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1259</div></a><a href="/questions/456211/activity-restart-on-rotation-android" class="question-hyperlink">Activity restart on rotation Android</a></div><div class="spacer"><a href="/q/2033914" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1064</div></a><a href="/questions/2033914/is-quitting-an-application-frowned-upon" class="question-hyperlink">Is quitting an application frowned upon?</a></div><div class="spacer"><a href="/q/3572463" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1646</div></a><a href="/questions/3572463/what-is-context-on-android" class="question-hyperlink">What is &#39;Context&#39; on Android?</a></div><div class="spacer"><a href="/q/6812003" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">135</div></a><a href="/questions/6812003/difference-between-oncreate-and-onstart" class="question-hyperlink">Difference between onCreate() and onStart()?</a></div><div class="spacer"><a href="/q/17607181" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="/questions/17607181/android-inter-activity-life-cycle" class="question-hyperlink">Android inter-Activity life cycle</a></div><div class="spacer"><a href="/q/25105641" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="/questions/25105641/android-4-0-activities-life-cycles" class="question-hyperlink">Android 4.0+/Activities Life Cycles</a></div><div class="spacer"><a href="/q/29236704" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">21</div></a><a href="/questions/29236704/which-activity-lifecycle-methods-are-best-to-register-unregister-to-event-bus" class="question-hyperlink">Which Activity lifecycle methods are best to register/unregister to event bus?</a></div><div class="spacer"><a href="/q/49279334" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">-3</div></a><a href="/questions/49279334/life-cycle-method-for-activity-switch" class="question-hyperlink">life cycle method for activity switch</a></div>
+                    </div>
+                </div>
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot"
+           class="js-gps-track s-link s-link__inherit" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/443586/why-cant-we-see-images-reflected-on-a-piece-of-paper" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can&#39;t we see images reflected on a piece of paper?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/187204/invisible-to-vs-invisible-for" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    &quot;invisible to&quot; VS &quot;invisible for&quot;
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="https://skeptics.stackexchange.com/questions/42886/did-the-number-of-u-s-food-drug-administration-food-safety-inspections-fall-f" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did the number of U.S. Food &amp; Drug Administration food safety inspections fall from the 1972 to 2006?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/136329/as-a-player-with-adhd-how-do-i-avoid-disrupting-the-game" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    As a player with ADHD, how do I avoid disrupting the game?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/151514/alarms-on-doors-that-have-access-to-a-pool" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Alarms on Doors that have Access to a Pool
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/474850/pregnant-as-a-taboo-word" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    &quot;Pregnant&quot; as a taboo word
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/462788/unexpected-space-in-table" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Unexpected space in table
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/136651/when-upcasting-cause-fear-do-targets-need-to-be-within-30-feet-of-all-other-tar" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When upcasting Cause Fear, do targets need to be within 30 feet of all other targets, or just any one target?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="https://codereview.stackexchange.com/questions/208832/advent-of-code-2018-day-1-part-2-find-the-first-repeated-number-after-some-incr" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Advent of Code 2018 day 1 part 2: find the first repeated number after some increases and decreases
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cs" title="Computer Science Stack Exchange"></div><a href="https://cs.stackexchange.com/questions/100599/is-legislation-np-complete" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:419 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is legislation NP-complete?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/136486/what-is-the-origin-of-the-phrase-orc-and-pie" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the origin of the phrase ‘orc and pie’?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="https://gaming.stackexchange.com/questions/341706/why-are-people-who-spend-a-lot-of-money-on-video-game-micro-transactions-called" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are people who spend a lot of money on video game micro-transactions called &quot;whales&quot;?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="https://serverfault.com/questions/942430/example-com-typing-ip-address-directly-does-not-load-the-website" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    example.com -&gt; typing IP address directly -&gt; does not load the website
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/316701/if-the-closed-unit-ball-of-banach-space-has-at-least-one-extreme-point-must-the" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If the closed unit ball of Banach space has at least one extreme point, must the Banach space the be a dual space?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/126450/why-is-my-bag-never-one-of-the-first-on-the-carousel" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is my bag never one of the first on the carousel?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/199594/why-do-immortals-not-use-any-neck-armour-in-highlander-1986" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do immortals not use any neck armour in Highlander (1986)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/444580/is-earth-an-inertial-reference-frame" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is Earth an inertial reference frame?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/123657/boss-wants-to-use-my-lunchtime-for-work" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Boss wants to use my lunchtime for work
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-law" title="Law Stack Exchange"></div><a href="https://law.stackexchange.com/questions/33966/can-women-also-go-shirtless-in-public-legally" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:617 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can women also go shirtless in public legally?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-hinduism" title="Hinduism Stack Exchange"></div><a href="https://hinduism.stackexchange.com/questions/30202/according-to-hindu-scriptures-what-are-some-of-the-great-sins-that-god-never-fo" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:567 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    According to Hindu scriptures, what are some of the great sins that God never forgives?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="https://movies.stackexchange.com/questions/94182/why-does-ramsay-snow-engineer-a-sham-escape" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does Ramsay Snow engineer a sham escape?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-retrocomputing" title="Retrocomputing Stack Exchange"></div><a href="https://retrocomputing.stackexchange.com/questions/8422/how-was-copying-prevented-when-the-first-cd-rom-games-were-introduced" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:648 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How was copying prevented when the first CD-ROM games were introduced?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/131609/always-a-full-moon-for-the-emperor-can-this-be-achieved-with-solar-panels-and" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Always a full Moon for the Emperor - Can this be achieved with solar panels and LEDs?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/199541/movie-about-a-civilization-with-limited-life-span-and-an-integrated-light-indica" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Movie about a civilization with limited life span and an integrated light indicator in their hands showing when they were about to die
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+
+<div id="feed-link">
+    <a href="/feeds/question/8515936" title="feed of this question and its answers">
+        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
+        question feed
+    </a>
+</div>
+        </div>
+    </div>
+<script>StackExchange.ready(function(){$.get('/posts/8515936/ivc/b352');});</script>
+<noscript><div><img src="/posts/8515936/ivc/b352" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+        </div>
+    </div>
+
+    <footer id="footer" class="site-footer js-footer" role="contentinfo">
+        <div class="site-footer--container">
+                <div class="site-footer--logo">
+
+                    
+                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"/><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"/></g></svg></a>
+                </div>
+            
+            <nav class="site-footer--nav">
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list js-primary-footer-links">
+                            <li class="-item"><a href="/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                     <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
+                                                            <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" 
+                                                 data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"
+                                                 data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Engagement</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                        </ul>
+                    </div>
+                <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
+                    <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                    <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackoverflow.com/legal">Legal</a></li>
+                        <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackoverflow.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"/></svg></a>
+                    <div>
+                        <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                            <li class="-item"><a href="#" class="-link _expandable js-footer-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-footer--categories">
+                    <div class="site-footer--col site-footer--category js-footer-col" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Portugu&#234;s</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://magento.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores y profesionales de la inform&#225;tica">Stack Overflow en espa&#241;ol</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
+                <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
+                <li class="-item"><a href="https://bitcoin.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Bitcoin crypto-currency enthusiasts">Bitcoin</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (30)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (15)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (33)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientists, academics, teachers, and students in the field of chemistry">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="site-footer--col site-footer--category js-footer-col" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </div>
+                </div>
+            </nav>
+            <div class="site-footer--copyright fs-fine">
+                <ul class="-list">
+                    <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog?blb=1">Blog</a></li>
+                    <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                    <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                    <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                </ul>
+
+                <p class="mt-auto mb24">
+site design / logo &#169; 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                            with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                    <span id="svnrev">rev&nbsp;2018.11.30.32292</span>
+                </p>
+            </div>
+        </div>
+
+            </footer>
+            <script>StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })</script>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled
+            <img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno">
+        </div>
+    </noscript>
+
+<script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-1'
+                    ]
+                });
+
+
+
+                    StackExchange.ga.setDimension('dimension2', '|android|lifecycle|oncreate|onresume|ondestroy|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
+            
+
+</script>
+            
+    </body>
+    </html>

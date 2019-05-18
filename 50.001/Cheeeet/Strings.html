@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Java Strings</title>
+<meta name="description" content="Java Strings - Learn Java in simple and easy steps starting from basic to advanced concepts with examples including Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI." />
+<meta name="keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI." />
+<base href="https://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="https://www.tutorialspoint.com/theme/js/script-min-v4.js?v=2"></script>
+<link rel="stylesheet" href="https://www.tutorialspoint.com/theme/css/style-min.css?v=3">
+<script>
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #eb4847 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #eb4847 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #eb4847 !important;}
+.submenu-item{ border-bottom: 2px solid #eb4847 !important; border-top: 2px solid #eb4847 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#eb4847; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<div id="right_obs" class="display-none" onclick="close_obs_sidenav()"></div>
+<header>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/java/images/logo.png">
+      </a>
+      </h1>			
+      <ul class="tp-inline-block pull-right" id="tp-head-icons">
+        <li>
+           <div class="tp-second-nav tp-display-none tp-pointer" onclick="openNav()">
+              <i class="fa fa-th-large fa-lg"></i>
+           </div>
+        </li>
+     </ul>
+     <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull" style="top: 24px!important"> <i class="icon icon-bars"></i> </button>
+      <nav>
+         <ul class="nav nav-pills nav-top">
+            <li><a href="/about/about_careers.htm" style="background: #fffb09; font-weight: bold;"><i class="icon icon-suitcase"></i> Jobs</a></li>
+            <li> <a target="_blank" href="/programming_examples/"><i class="fa fa-cubes"></i> &nbsp;Examples</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/whiteboard.htm"><img src="theme/css/icons/image-editor.png" alt="Whiteboard" title="Whiteboard"> &nbsp;Whiteboard</a> </li>
+            <li> <a href="https://www.tutorialspoint.com/netmeeting.php"><i class="fa-camera"></i> &nbsp;Net Meeting</a> </li>
+            <li> <a href="/online_dev_tools.htm"> <i class="dev-tools-menu" style="opacity:.5"></i> Tools </a> </li>
+            <li> <a href="/articles/index.php"><i class="icon icon-file-text-o"></i> &nbsp;Articles</a> </li>            
+            <li class="top-icons">
+              <ul class="social-icons">
+              <li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+              <li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+              <li class="twitter"><a href="https://www.twitter.com/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Twitter">Twitter</a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/tutorialspoint" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint @ Linkedin">Linkedin</a></li>
+              <li class="youtube"><a href="https://www.youtube.com/channel/UCVLbzhxVTiTLiVKeGV7WEBg" target="_blank" rel="nofollow" data-placement="bottom" title="tutorialspoint YouTube">YouTube</a></li>
+              </ul>
+           </li>
+         </ul>
+      </nav>
+    </div>
+     <div class="sidenav" id="mySidenav">
+     <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="/questions/index.php"><i class="fa fa-send"></i> Q/A </a> </li>
+               <li class="dropdown"><a class="dropdown" href="tutorialslibrary.htm"><span class="tut-lib"> Library </span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="videotutorials/index.htm"><i class="fa-toggle-right"></i> Videos </a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutors</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="https://store.tutorialspoint.com/"><i class="fa-usd"></i> Store </a> </li>
+               <li class="dropdown no-sub-menu">
+                  <div class="searchform-popup">
+                     <input class="header-search-box" type="text" id="search-string" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off">
+                     <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+                 </div>
+               </li>
+            </ul>
+         </nav>
+        </div>
+      </div>	
+     </div>	
+   </div>	
+</header>
+<div style="clear:both;"></div>
+<div role="main" class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-2">
+<aside class="sidebar">
+<style>
+.ts{
+   vertical-align:middle !important;
+   text-align:center !important;   
+}
+</style>
+<div class="mini-logo">
+<img src="/java/images/java-mini-logo.jpg" alt="Java Tutorial" />
+</div>
+<ul class="nav nav-list primary left-menu" >
+<li><a class="videolink" href="/java_online_training/index.asp" target="_blank"><img src="/java/images/java-video-tutorials.jpg" alt="Java Video Tutorials" /></a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">Java Tutorial</li>
+<li><a href="/java/index.htm">Java - Home</a></li>
+<li><a href="/java/java_overview.htm">Java - Overview</a></li>
+<li><a href="/java/java_environment_setup.htm">Java - Environment Setup</a></li>
+<li><a href="/java/java_basic_syntax.htm">Java - Basic Syntax</a></li>
+<li><a href="/java/java_object_classes.htm">Java - Object &amp; Classes</a></li>
+<li><a href="/java/java_constructors.htm">Java - Constructors</a></li>
+<li><a href="/java/java_basic_datatypes.htm">Java - Basic Datatypes</a></li>
+<li><a href="/java/java_variable_types.htm">Java - Variable Types</a></li>
+<li><a href="/java/java_modifier_types.htm">Java - Modifier Types</a></li>
+<li><a href="/java/java_basic_operators.htm">Java - Basic Operators</a></li>
+<li><a href="/java/java_loop_control.htm">Java - Loop Control</a></li>
+<li><a href="/java/java_decision_making.htm">Java - Decision Making</a></li>
+<li><a href="/java/java_numbers.htm">Java - Numbers</a></li>
+<li><a href="/java/java_characters.htm">Java - Characters</a></li>
+<li><a href="/java/java_strings.htm">Java - Strings</a></li>
+<li><a href="/java/java_arrays.htm">Java - Arrays</a></li>
+<li><a href="/java/java_date_time.htm">Java - Date &amp; Time</a></li>
+<li><a href="/java/java_regular_expressions.htm">Java - Regular Expressions</a></li>
+<li><a href="/java/java_methods.htm">Java - Methods</a></li>
+<li><a href="/java/java_files_io.htm">Java - Files and I/O</a></li>
+<li><a href="/java/java_exceptions.htm">Java - Exceptions</a></li>
+<li><a href="/java/java_innerclasses.htm">Java - Inner classes</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">Java Object Oriented</li>
+<li><a href="/java/java_inheritance.htm">Java - Inheritance</a></li>
+<li><a href="/java/java_overriding.htm">Java - Overriding</a></li>
+<li><a href="/java/java_polymorphism.htm">Java - Polymorphism</a></li>
+<li><a href="/java/java_abstraction.htm">Java - Abstraction</a></li>
+<li><a href="/java/java_encapsulation.htm">Java - Encapsulation</a></li>
+<li><a href="/java/java_interfaces.htm">Java - Interfaces</a></li>
+<li><a href="/java/java_packages.htm">Java - Packages</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">Java Advanced</li>
+<li><a href="/java/java_data_structures.htm">Java - Data Structures</a></li>
+<li><a href="/java/java_collections.htm">Java - Collections</a></li>
+<li><a href="/java/java_generics.htm">Java - Generics</a></li>
+<li><a href="/java/java_serialization.htm">Java - Serialization</a></li>
+<li><a href="/java/java_networking.htm">Java - Networking</a></li>
+<li><a href="/java/java_sending_email.htm">Java - Sending Email</a></li>
+<li><a href="/java/java_multithreading.htm">Java - Multithreading</a></li>
+<li><a href="/java/java_applet_basics.htm">Java - Applet Basics</a></li>
+<li><a href="/java/java_documentation.htm">Java - Documentation</a></li>
+</ul>
+<ul class="nav nav-list primary left-menu" >
+<li class="heading">Java Useful Resources</li>
+<li><a href="/java/java_questions_answers.htm">Java - Questions and Answers</a></li>
+<li><a href="/java/java_quick_guide.htm">Java - Quick Guide</a></li>
+<li><a href="/java/java_useful_resources.htm">Java - Useful Resources</a></li>
+<li><a href="/java/java_discussion.htm">Java - Discussion</a></li>
+<li><a href="/javaexamples/index.htm">Java - Examples</a></li>
+</ul>
+<ul class="nav nav-list primary push-bottom left-menu special">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="/upsc_ias_exams.htm">UPSC IAS Exams Notes</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="/questions_and_answers.htm">Questions and Answers</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="/hr_interview_questions/index.htm">HR Interview Questions</a></li>
+<li><a target="_top" href="/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</aside>
+</div>
+<!-- PRINTING STARTS HERE -->
+<div class="row">
+<div class="content">
+<div class="col-md-7 middle-col">
+<h1>Java - Strings Class</h1>
+<hr />
+<div style="padding-bottom:5px;padding-left:10px;text-align: center;">Advertisements</div>
+<div style="text-align: center;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js"> 
+</script>
+</div>
+<hr />
+<div class="pre-btn">
+<a href="/java/java_characters.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/java_arrays.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<div class="clearer"></div>
+<hr />
+<p>Strings, which are widely used in Java programming, are a sequence of characters. In Java programming language, strings are treated as objects.</p>
+<p>The Java platform provides the String class to create and manipulate strings.</p>
+<h2>Creating Strings</h2>
+<p>The most direct way to create a string is to write &minus;</p>
+<pre class="result notranslate">
+String greeting = "Hello world!";
+</pre>
+<p>Whenever it encounters a string literal in your code, the compiler creates a String object with its value in this case, "Hello world!'.</p>
+<p>As with any other object, you can create String objects by using the new keyword and a constructor. The String class has 11 constructors that allow you to provide the initial value of the string using different sources, such as an array of characters.</p>
+<h3>Example</h3>
+<a href="http://tpcg.io/vfCoDd" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+<pre class="prettyprint notranslate">
+public class StringDemo {
+
+   public static void main(String args[]) {
+      char[] helloArray = { 'h', 'e', 'l', 'l', 'o', '.' };
+      String helloString = new String(helloArray);  
+      System.out.println( helloString );
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p><h3>Output</h3> 
+<pre class="result notranslate">
+hello.
+</pre>
+<p><b>Note</b> &minus; The String class is immutable, so that once it is created a String object cannot be changed. If there is a necessity to make a lot of modifications to Strings of characters, then you should use <a href="/java/java_string_buffer.htm">String Buffer &amp; String Builder</a> Classes.</p>
+<h2>String Length</h2>
+<p>Methods used to obtain information about an object are known as <b>accessor methods</b>. One accessor method that you can use with strings is the length() method, which returns the number of characters contained in the string object.</p>
+<p>The following program is an example of <b>length()</b>, method String class.</p>
+<h3>Example</h3>
+<a href="http://tpcg.io/RQvY2G" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+<pre class="prettyprint notranslate">
+public class StringDemo {
+
+   public static void main(String args[]) {
+      String palindrome = "Dot saw I was Tod";
+      int len = palindrome.length();
+      System.out.println( "String Length is : " + len );
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p><h3>Output</h3> 
+<pre class="result notranslate">
+String Length is : 17
+</pre>
+<h2>Concatenating Strings</h2>
+<p>The String class includes a method for concatenating two strings &minus;</p>
+<pre class="result notranslate">
+string1.concat(string2);
+</pre>
+<p>This returns a new string that is string1 with string2 added to it at the end. You can also use the concat() method with string literals, as in &minus;</p>
+<pre class="result notranslate">
+"My name is ".concat("Zara");
+</pre>
+<p>Strings are more commonly concatenated with the &plus; operator, as in &minus;</p>
+<pre class="result notranslate">
+"Hello," + " world" + "!"
+</pre>
+<p>which results in &minus;</p>
+<pre class="result notranslate">
+"Hello, world!"
+</pre>
+<p>Let us look at the following example &minus;</p>
+<h3>Example</h3>
+<a href="http://tpcg.io/JDwlLW" target="_blank" class="demo" rel="nofollow"><i class="fa-external-link"></i> Live Demo</a>
+<pre class="prettyprint notranslate">
+public class StringDemo {
+
+   public static void main(String args[]) {
+      String string1 = "saw I was ";
+      System.out.println("Dot " + string1 + "Tod");
+   }
+}
+</pre>
+<p>This will produce the following result &minus;</p><h3>Output</h3>
+<pre class="result notranslate">
+Dot saw I was Tod
+</pre>
+<h2>Creating Format Strings</h2>
+<p>You have printf() and format() methods to print output with formatted numbers. The String class has an equivalent class method, format(), that returns a String object rather than a PrintStream object.</p>
+<p>Using String's static format() method allows you to create a formatted string that you can reuse, as opposed to a one-time print statement. For example, instead of &minus;</p>
+<h3>Example</h3>
+<pre class="prettyprint notranslate">
+System.out.printf("The value of the float variable is " +
+                  "%f, while the value of the integer " +
+                  "variable is %d, and the string " +
+                  "is %s", floatVar, intVar, stringVar);
+</pre>
+<p>You can write &minus;</p>
+<pre class="prettyprint notranslate">
+String fs;
+fs = String.format("The value of the float variable is " +
+                   "%f, while the value of the integer " +
+                   "variable is %d, and the string " +
+                   "is %s", floatVar, intVar, stringVar);
+System.out.println(fs);
+</pre>
+<h2>String Methods</h2>
+<p>Here is the list of methods supported by String class &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th>Sr.No.</th>
+<th style="text-align:center;">Method &amp; Description</th>
+</tr>
+<tr>
+<td class="ts">1</td>
+<td><a href="/java/java_string_charat.htm">char  charAt(int index)</a>
+<p>Returns the character at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td><a href="/java/java_string_compareto.htm">int compareTo(Object o)</a>
+<p>Compares this String to another Object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td><a href="/java/java_string_compareto_anotherstring.htm">int compareTo(String anotherString)</a>
+<p>Compares two strings lexicographically.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">4</td>
+<td><a href="/java/java_string_comparetoignorecase.htm">int compareToIgnoreCase(String str)</a> 
+<p>Compares two strings lexicographically, ignoring case differences.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">5</td>
+<td><a href="/java/java_string_concat.htm">String concat(String str)</a>
+<p>Concatenates the specified string to the end of this string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">6</td>
+<td><a href="/java/java_string_contentequals.htm">boolean contentEquals(StringBuffer sb)</a>
+<p>Returns true if and only if this String represents the same sequence of characters as the specified StringBuffer.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">7</td>
+<td><a href="/java/java_string_copyvalueof.htm">static String copyValueOf(char[] data)</a>
+<p>Returns a String that represents the character sequence in the array specified.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">8</td>
+<td><a href="/java/java_string_copyvalueof_dataoffsetcount.htm">static String copyValueOf(char[] data, int offset, int count)</a>
+<p>Returns a String that represents the character sequence in the array specified.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">9</td>
+<td><a href="/java/java_string_endswith.htm">boolean endsWith(String suffix)</a> 
+<p>Tests if this string ends with the specified suffix.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">10</td>
+<td><a href="/java/java_string_equals.htm">boolean equals(Object anObject)</a>
+<p>Compares this string to the specified object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">11</td>
+<td><a href="/java/java_string_equalsignorecase.htm">boolean equalsIgnoreCase(String anotherString)</a>
+<p>Compares this String to another String, ignoring case considerations.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">12</td>
+<td><a href="/java/java_string_getbytes.htm">byte getBytes()</a> 
+<p>Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">13</td>
+<td><a href="/java/java_string_getbytes_charsetname.htm">byte[] getBytes(String charsetName)</a>
+<p>Encodes this String into a sequence of bytes using the named charset, storing the result into a new byte array.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">14</td>
+<td><a href="/java/java_string_getchars.htm">void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</a>
+<p>Copies characters from this string into the destination character array.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">15</td>
+<td><a href="/java/java_string_hashcode.htm">int hashCode()</a>
+<p>Returns a hash code for this string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">16</td>
+<td><a href="/java/java_string_indexof.htm">int indexOf(int ch)</a>
+<p>Returns the index within this string of the first occurrence of the specified character.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">17</td>
+<td><a href="/java/java_string_indexof_fromindex.htm">int indexOf(int ch, int fromIndex)</a> 
+<p>Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">18</td>
+<td><a href="/java/java_string_indexof_str.htm">int indexOf(String str)</a>
+<p>Returns the index within this string of the first occurrence of the specified substring.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">19</td>
+<td><a href="/java/java_string_indexof_strfromindex.htm">int indexOf(String str, int fromIndex)</a>
+<p>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">20</td>
+<td><a href="/java/java_string_intern.htm">String intern()</a>
+<p>Returns a canonical representation for the string object.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">21</td>
+<td><a href="/java/java_string_lastindexof.htm">int lastIndexOf(int ch)</a>
+<p>Returns the index within this string of the last occurrence of the specified character.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">22</td>
+<td><a href="/java/java_string_lastindexof_chfromindex.htm">int lastIndexOf(int ch, int fromIndex)</a>
+<p>Returns the index within this string of the last occurrence of the specified character, searching backward starting at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">23</td>
+<td><a href="/java/java_string_lastindexof_str.htm">int lastIndexOf(String str)</a>
+<p>Returns the index within this string of the rightmost occurrence of the specified substring.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">24</td>
+<td><a href="/java/java_string_lastindexof_fromindex.htm">int lastIndexOf(String str, int fromIndex)</a> 
+<p>Returns the index within this string of the last occurrence of the specified substring, searching backward starting at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">25</td>
+<td><a href="/java/java_string_length.htm">int length()</a>
+<p>Returns the length of this string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">26</td>
+<td><a href="/java/java_string_matches.htm">boolean matches(String regex)</a>
+<p>Tells whether or not this string matches the given regular expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">27</td>
+<td><a href="/java/java_string_regionmatches_ignorecase.htm">boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len) </a>
+<p>Tests if two string regions are equal.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">28</td>
+<td><a href="/java/java_string_regionmatches.htm">boolean regionMatches(int toffset, String other, int ooffset, int len)</a>
+<p>Tests if two string regions are equal.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">29</td>
+<td><a href="/java/java_string_replace.htm">String replace(char oldChar, char newChar)</a>
+<p>Returns a new string resulting from replacing all occurrences of oldChar in this string with newChar.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">30</td>
+<td><a href="/java/java_string_replaceall.htm">String replaceAll(String regex, String replacement</a>
+<p>Replaces each substring of this string that matches the given regular expression with the given replacement.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">31</td>
+<td><a href="/java/java_string_replacefirst.htm">String replaceFirst(String regex, String replacement)</a> 
+<p>Replaces the first substring of this string that matches the given regular expression with the given replacement.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">32</td>
+<td><a href="/java/java_string_split.htm">String[] split(String regex)</a>
+<p>Splits this string around matches of the given regular expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">33</td>
+<td><a href="/java/java_string_split_regexlimit.htm">String[] split(String regex, int limit)</a>
+<p>Splits this string around matches of the given regular expression.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">34</td>
+<td><a href="/java/java_string_startswith.htm">boolean startsWith(String prefix)</a>
+<p>Tests if this string starts with the specified prefix.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">35</td>
+<td><a href="/java/java_string_startswith_prefixtoffset.htm">boolean startsWith(String prefix, int toffset)</a>
+<p>Tests if this string starts with the specified prefix beginning a specified index.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">36</td>
+<td><a href="/java/java_string_subsequence.htm">CharSequence subSequence(int beginIndex, int endIndex)</a>
+<p>Returns a new character sequence that is a subsequence of this sequence.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">37</td>
+<td><a href="/java/java_string_substring.htm">String substring(int beginIndex)</a>
+<p>Returns a new string that is a substring of this string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">38</td>
+<td><a href="/java/java_string_substring_beginendindex.htm">String substring(int beginIndex, int endIndex)</a>
+<p>Returns a new string that is a substring of this string.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">39</td>
+<td><a href="/java/java_string_tochararray.htm">char[] toCharArray()</a> 
+<p>Converts this string to a new character array.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">40</td>
+<td><a href="/java/java_string_tolowercase.htm">String toLowerCase()</a>
+<p>Converts all of the characters in this String to lower case using the rules of the default locale.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">41</td>
+<td><a href="/java/java_string_tolowercase_locale.htm">String toLowerCase(Locale locale)</a>
+<p>Converts all of the characters in this String to lower case using the rules of the given Locale.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">42</td>
+<td><a href="/java/java_string_tostring.htm">String toString()</a>
+<p>This object (which is already a string!) is itself returned.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">43</td>
+<td><a href="/java/java_string_touppercase.htm">String toUpperCase()</a> 
+<p>Converts all of the characters in this String to upper case using the rules of the default locale.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">44</td>
+<td><a href="/java/java_string_touppercase_locale.htm">String toUpperCase(Locale locale)</a> 
+<p>Converts all of the characters in this String to upper case using the rules of the given Locale.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">45</td>
+<td><a href="/java/java_string_trim.htm">String trim()</a> 
+<p>Returns a copy of the string, with leading and trailing whitespace omitted.</p>
+</td>
+</tr>
+<tr>
+<td class="ts">46</td>
+<td><a href="/java/java_string_valueof.htm">static String valueOf(primitive data type x)</a>
+<p>Returns the string representation of the passed data type argument.</p>
+</td>
+</tr>
+</table>
+<hr />
+<div class="pre-btn">
+<a href="/java/java_characters.htm"><i class="icon icon-arrow-circle-o-left big-font"></i> Previous Page</a>
+</div>
+<div class="print-btn center">
+<a href="/cgi-bin/printpage.cgi" target="_blank"><i class="icon icon-print big-font"></i> Print</a>
+</div>
+<div class="nxt-btn">
+<a href="/java/java_arrays.htm">Next Page <i class="icon icon-arrow-circle-o-right big-font"></i>&nbsp;</a>
+</div>
+<hr />
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div class="bottomadtag">Advertisements</div>
+<script><!--
+var width = 580;
+var height = 400;
+var format = "580x400_as";
+if( window.innerWidth < 468 ){
+   width = 300;
+   height = 250;
+   format = "300x250_as";
+}
+google_ad_client = "pub-7133395778201029";
+google_ad_width = width;
+google_ad_height = height;
+google_ad_format = format;
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3" id="rightbar">
+<div class="simple-ad">
+<a href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.facebook.com/sharer.php?u=' + 'https://www.tutorialspoint.com/java/java_strings.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/facebookIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://twitter.com/share?url=' + 'https://www.tutorialspoint.com/java/java_strings.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/twitterIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.linkedin.com/cws/share?url=' + 'https://www.tutorialspoint.com/java/java_strings.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/linkedinIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://plus.google.com/share?url=https://www.tutorialspoint.com/java/java_strings.htm','sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/googlePlusIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://www.stumbleupon.com/submit?url=https://www.tutorialspoint.com/java/java_strings.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=456,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/StumbleUponIcon.jpg" alt="img" />
+</a>
+<a  href="javascript:void(0)" onclick="var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open('https://reddit.com/submit?url=https://www.tutorialspoint.com/java/java_strings.htm&amp;title='+ document.title,'sharer','toolbar=0,status=0,width=626,height=656,top='+sTop+',left='+sLeft);return false;">
+<img src="/images/reddit.jpg" alt="img" />
+</a>
+</div>
+<div class="rightgooglead">
+<script><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 300;
+google_ad_height = 600;
+google_ad_format = "300x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div class="rightgooglead">
+<script><!--
+google_ad_client = "ca-pub-2537027957187252";
+/* Right Side Ad */
+google_ad_slot = "right_side_ad";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_privacy.htm#cookies">Cookies Policy</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2018. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Libs -->
+<script src="/theme/js/custom-min.js?v=7"></script>
+<script src="https://www.google-analytics.com/urchin.js">
+</script>
+<script>
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.pg-icon').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+</div>
+</body>
+</html>

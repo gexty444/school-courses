@@ -1,0 +1,19 @@
+ThreadPerTaskWebServer.java
+10 clients:		Spent time: 106
+100 clients:	Spent time: 253
+1000 clients:	Spent time: 3448
+
+SingleThreadWebServer.java
+10 clients:		Spent time: 151
+100 clients:	Spent time: 312
+1000 clients:	Spent time: 3611
+
+
+ExecutorWebServer.java
+10 clients:		Spent time: 81
+100 clients:	Spent time: 164
+1000 clients:	Spent time: 1775
+
+Comparing between the 3 servers, we see that ExecutorWebServer generally fared the best. However, we notice that with smaller number of clients (less than 10), the increase in performance might not be significant. With 1000 clients, we observe a clear difference in the performance (1700+ vs 3000+).
+
+

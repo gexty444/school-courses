@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Manifest added by SuperPWA - Progressive Web Apps Plugin For WordPress -->
+<link rel="manifest" href="/superpwa-manifest.json">
+<meta name="theme-color" content="#D5E0EB">
+<link rel="apple-touch-icon" sizes="192x192" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/192x192-transparent.png">
+<link rel="apple-touch-icon" sizes="512x512" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/512x512-transparent.png">
+<!-- / SuperPWA.com -->
+<title>Factory Design Pattern in Java - JournalDev</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v9.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Factory Design Pattern in Java. Factory Pattern Java. Java Factory Method Design Pattern. Factory Design pattern advantages, JDK example, class diagram."/>
+<link rel="canonical" href="https://www.journaldev.com/1392/factory-design-pattern-in-java" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Factory Design Pattern in Java - JournalDev" />
+<meta property="og:description" content="Factory Design Pattern in Java. Factory Pattern Java. Java Factory Method Design Pattern. Factory Design pattern advantages, JDK example, class diagram." />
+<meta property="og:url" content="https://www.journaldev.com/1392/factory-design-pattern-in-java" />
+<meta property="og:site_name" content="JournalDev" />
+<meta property="article:author" content="https://www.facebook.com/PankajKumarJaiswal" />
+<meta property="article:section" content="Design Patterns" />
+<meta property="article:published_time" content="2013-05-22T08:58:27+00:00" />
+<meta property="article:modified_time" content="2018-05-03T19:34:47+00:00" />
+<meta property="og:updated_time" content="2018-05-03T19:34:47+00:00" />
+<meta property="og:image" content="https://www.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg" />
+<meta property="og:image:secure_url" content="https://www.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Factory Design Pattern in Java. Factory Pattern Java. Java Factory Method Design Pattern. Factory Design pattern advantages, JDK example, class diagram." />
+<meta name="twitter:title" content="Factory Design Pattern in Java - JournalDev" />
+<meta name="twitter:image" content="https://www.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg" />
+<meta name="twitter:creator" content="@JournalDev" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/www.journaldev.com\/","sameAs":[],"@id":"#person","name":"Pankaj Kumar"}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.journaldev.com\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.journaldev.com\/java","name":"Java"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.journaldev.com\/java\/design-patterns","name":"Design Patterns"}},{"@type":"ListItem","position":4,"item":{"@id":"https:\/\/www.journaldev.com\/1392\/factory-design-pattern-in-java","name":"Factory Design Pattern in Java"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.journaldev.com/1392/factory-design-pattern-in-java/amp" /><link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Feed" href="https://www.journaldev.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Comments Feed" href="https://www.journaldev.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Factory Design Pattern in Java Comments Feed" href="https://www.journaldev.com/1392/factory-design-pattern-in-java/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/cdn.journaldev.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='news-pro-theme-css'  href='https://cdn.journaldev.com/wp-content/themes/news-pro/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/screen.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://cdn.journaldev.com/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css'  href='//fonts.googleapis.com/css?family=Raleway%3A400%2C700%7CPathway+Gothic+One&#038;ver=3.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-basic-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style.basic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-ajaxsearchlite-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style-simple-red.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/genesis/lib/js/html5shiv.min.js'></script>
+<![endif]-->
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/news-pro/js/responsive-menu.js'></script>
+<link rel='https://api.w.org/' href='https://www.journaldev.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.journaldev.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.journaldev.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='https://www.journaldev.com/?p=1392' />
+<link rel="alternate" type="application/json+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java&#038;format=xml" />
+<head profile="https://www.w3.org/2005/10/profile">
+<script type="text/javascript" src="//cdn.thisiswaldo.com/static/js/2273.js"></script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/8491498/journaldev_video', [[300, 291], [630, 430]], 'div-gpt-ad-1539114023134-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script><style type="text/css">.site-title a { background: url(https://cdn.journaldev.com/wp-content/uploads/2018/07/logo1.svg) no-repeat !important; }</style>
+                <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                      <meta name="onesignal" content="wordpress-plugin"/>
+          <link rel="manifest"
+            href="https://www.journaldev.com/superpwa-manifest.json"/>
+          <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>    <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+        OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+        OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+
+        OneSignal.setDefaultNotificationUrl("https://www.journaldev.com");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = 'bab8c5d5-918b-46f8-8634-2efa6c23e327';
+oneSignal_options['autoRegister'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "https://www.journaldev.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.0818a4e7-118f-4fc1-b0e2-07892e811a2a";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['prenotify'] = true;
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+              return OneSignal.isPushNotificationsEnabled()
+                      .then(function(isPushEnabled) {
+                          return !isPushEnabled;
+                      });
+            };
+oneSignal_options['notifyButton']['showCredit'] = false;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['text']['message.prenotify'] = 'Stay Updated with us! Subscribe to our free notifications.';
+oneSignal_options['notifyButton']['text']['tip.state.subscribed'] = 'Thanks for subscribing!';
+oneSignal_options['notifyButton']['text']['message.action.subscribed'] = 'Thanks for subscribing!';
+              OneSignal.init(window._oneSignalInitOptions);
+                    });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+
+                <style type="text/css">
+                    <!--
+                    
+            @font-face {
+                font-family: 'aslsicons2';
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot');
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot?#iefix') format('embedded-opentype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff2') format('woff2'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff') format('woff'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.ttf') format('truetype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.svg#icons') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label {
+                font-size: 0px !important;
+                color: rgba(0, 0, 0, 0);
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label:after {
+                font-size: 11px !important;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            div[id*='ajaxsearchlite'].wpdreams_asl_container {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results div.resdrg span.highlighted {
+                font-weight: bold;
+                color: rgba(217, 49, 43, 1);
+                background-color: rgba(238, 238, 238, 1);
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results .results div.asl_image {
+                width: 70px;
+                height: 70px;
+            }
+            div.asl_r .results {
+                max-height: none;
+            }
+                                -->
+                </style>
+                            <script type="text/javascript">
+                if ( typeof _ASL !== "undefined" && _ASL !== null && typeof _ASL.initialize !== "undefined" )
+                    _ASL.initialize();
+            </script>
+            <link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-180x180.png" />
+<meta name="msapplication-TileImage" content="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.scriptlesssocialsharing{box-sizing:border-box;margin:18px auto}
+.scriptlesssocialsharing-buttons{border-collapse:separate;border-spacing:3px;display:table;table-layout:fixed;width:100%}
+.scriptlesssocialsharing-buttons a.button{border:none;border-radius:0;color:white;display:table-cell;text-align:center;text-decoration:none;padding:9px}
+.scriptlesssocialsharing-buttons a.button:hover{color:#fff}
+.scriptlesssocialsharing-buttons .sss-name{position:inherit;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;border:0;overflow:hidden;word-wrap:break-word}
+.scriptlesssocialsharing-buttons .button.email{background-color:#333;background-color:rgba(51,51,51,0.8)}.scriptlesssocialsharing-buttons .button.email:hover{background-color:#333}
+.scriptlesssocialsharing-buttons .button.twitter{background-color:#55acee;background-color:rgba(85,172,238,0.8)}.scriptlesssocialsharing-buttons .button.twitter:hover{background-color:#55acee}
+.scriptlesssocialsharing-buttons .button.facebook{background-color:#3b5998;background-color:rgba(59,89,152,0.8)}.scriptlesssocialsharing-buttons .button.facebook:hover{background-color:#3b5998}
+.scriptlesssocialsharing-buttons .button.linkedin{background-color:#0077b5;background-color:rgba(0,119,181,0.8)}.scriptlesssocialsharing-buttons .button.linkedin:hover{background-color:#0077b5}
+.scriptlesssocialsharing-buttons .button.google{background-color:#dc4e41;background-color:rgba(220,78,65,0.8)}.scriptlesssocialsharing-buttons .button.google:hover{background-color:#dc4e41}
+.scriptlesssocialsharing-buttons .button.pinterest {background-color: #bd081c;background-color: rgba(189, 8, 28, .8)}
+.scriptlesssocialsharing-buttons .button.pinterest:hover {background-color: #bd081c}  
+.scriptlesssocialsharing-buttons .button.reddit {background-color: #ff4500;background-color: rgba(255, 69, 0, .8)}
+.scriptlesssocialsharing-buttons .button.reddit:hover {background-color: #ff4500}
+@media print {.scriptlesssocialsharing {display: none}}		</style>
+	</head>
+<body class="post-template-default single single-post postid-1392 single-format-standard dwpb-push-page dwpb_responsive_extra_small custom-header header-image content-sidebar" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.journaldev.com/">JournalDev</a></p><p class="site-description" itemprop="description">Java, Java EE, Android, Python, Web Development Tutorials</p></div><div class="widget-area header-widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget8-quick-adsense-3" class="widget widget_adswidget8-quick-adsense"><div class="widget-wrap"><!-- 728x90/320x50 -->
+<div id="waldo-tag-2280"></div></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><ul id="menu-new-headermenu" class="menu genesis-nav-menu menu-primary"><li id="menu-item-17036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://www.journaldev.com/java-tutorial-java-ee-tutorials" itemprop="url"><span itemprop="name">Java Tutorial</span></a></li>
+<li id="menu-item-7611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7611"><a href="#" itemprop="url"><span itemprop="name">#Index Posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7612"><a href="https://www.journaldev.com/7153/core-java-tutorial" itemprop="url"><span itemprop="name">Core Java Tutorial</span></a></li>
+	<li id="menu-item-7613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7613"><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" itemprop="url"><span itemprop="name">Java Design Patterns</span></a></li>
+	<li id="menu-item-7614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7614"><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" itemprop="url"><span itemprop="name">Servlet JSP Tutorial</span></a></li>
+	<li id="menu-item-7615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7615"><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Struts 2 Tutorial</span></a></li>
+	<li id="menu-item-7616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7616"><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" itemprop="url"><span itemprop="name">Spring Tutorial</span></a></li>
+	<li id="menu-item-7638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7638"><a href="https://www.journaldev.com/7635/jsf-tutorial" itemprop="url"><span itemprop="name">JSF Tutorial</span></a></li>
+	<li id="menu-item-7620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7620"><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Primefaces Tutorial</span></a></li>
+	<li id="menu-item-7619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7619"><a href="https://www.journaldev.com/2681/jdbc-tutorial" itemprop="url"><span itemprop="name">JDBC Tutorial</span></a></li>
+	<li id="menu-item-7617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7617"><a href="https://www.journaldev.com/3793/hibernate-tutorial" itemprop="url"><span itemprop="name">Hibernate Tutorial</span></a></li>
+	<li id="menu-item-7618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7618"><a href="https://www.journaldev.com/6672/mongodb-tutorial-installation-example-projects-integration-with-servlet-spring-jsf" itemprop="url"><span itemprop="name">MongoDB Tutorial</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7621"><a href="#" itemprop="url"><span itemprop="name">#Interview Questions</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7622"><a href="https://www.journaldev.com/java-interview-questions" itemprop="url"><span itemprop="name">Java Interview Questions</span></a></li>
+	<li id="menu-item-23747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23747"><a href="https://www.journaldev.com/2366/core-java-interview-questions-and-answers" itemprop="url"><span itemprop="name">Core Java Interview Questions</span></a></li>
+	<li id="menu-item-7623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7623"><a href="https://www.journaldev.com/2529/jdbc-interview-questions-and-answers" itemprop="url"><span itemprop="name">JDBC Interview Questions</span></a></li>
+	<li id="menu-item-7624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7624"><a href="https://www.journaldev.com/2015/servlet-interview-questions-and-answers" itemprop="url"><span itemprop="name">Servlet Interview Questions</span></a></li>
+	<li id="menu-item-7625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7625"><a href="https://www.journaldev.com/2110/jsp-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSP Interview Questions</span></a></li>
+	<li id="menu-item-7626" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7626"><a href="https://www.journaldev.com/2354/struts2-interview-questions-and-answers" itemprop="url"><span itemprop="name">Struts2 Interview Questions</span></a></li>
+	<li id="menu-item-7627" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7627"><a href="https://www.journaldev.com/2696/spring-interview-questions-and-answers" itemprop="url"><span itemprop="name">Spring Interview Questions</span></a></li>
+	<li id="menu-item-7628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7628"><a href="https://www.journaldev.com/3633/hibernate-interview-questions-and-answers" itemprop="url"><span itemprop="name">Hibernate Interview Questions</span></a></li>
+	<li id="menu-item-7629" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7629"><a href="https://www.journaldev.com/7261/jsf-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSF Interview Questions</span></a></li>
+</ul>
+</li>
+<li id="menu-item-17037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://www.journaldev.com/resources" itemprop="url"><span itemprop="name">Resources</span></a></li>
+</ul></div></nav>	
+	<div class="wrapper mailchimp">
+        <div class="box"> 
+            <form action="//journaldev.us8.list-manage.com/subscribe/post-json?u=612f3d966c86000f37699d8cf&amp;id=c64db63284&SIGNUP=TOP_HEADER&c=?"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+				<span>
+					Subscribe to Download Java Design Patterns eBook
+				</span>
+				<div class="main_inputs">	
+				<input type="text" value="" name="FNAME" class="name" id="mce-name" placeholder="Full name" required>
+				
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="name@example.com" required>
+				
+                <input type="submit" value="Download Now" name="subscribe" id="mc-embedded-subscribe" class="mc-button">
+				</div>
+				
+				 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_612f3d966c86000f37699d8cf_c64db63284" tabindex="-1" value=""></div>
+    <div class="clear"></div>
+				
+            </form>
+                <div id="subscribe-result" style="display: none">
+					<p>Thank you for subscribing. Please check your email to confirm subscription.</p>
+                </div>
+        </div>
+    </div>
+	
+
+	<script>
+		var $ = jQuery;
+		$(document).ready(function () {
+  var $form = $('#mc-embedded-subscribe-form');
+  if ($form.length > 0) {
+    $('#mc-embedded-subscribe-form input[type="submit"]').bind('click', function (event) {
+      if (event) event.preventDefault();
+      mailchimp_email_register($form);
+    })
+  }
+})
+		
+function mc_validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function mailchimp_email_register($form) {
+	if(mc_validateEmail($("#mce-EMAIL").val() )) {
+		$('#mc-embedded-subscribe').val('Sending...');
+		$.ajax({
+			type: $form.attr('method'),
+			url: $form.attr('action'),
+			data: $form.serialize(),
+			cache: false,
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
+			success: function (data) {
+				$('#mc-embedded-subscribe').val('subscribe');
+				if (data.result === 'success') {
+					console.log(data.msg);
+					$('#mce-EMAIL').css('borderColor', '#ffffff');
+					$('#subscribe-result').css('color', 'rgb(53, 114, 210)');
+					$('#mc-embedded-subscribe-form').fadeOut(300);
+					$('#subscribe-result').fadeIn(300);
+					document.cookie = "subscribed=true; expires=Thu, 18 Dec 2050 12:00:00 UTC;domain=;path=/";
+					$('#mce-EMAIL').val('');
+					$('#mce-name').val('');
+				} else {
+					console.log(data.msg)
+					alert("You have already subscribed! Please try with different email.");
+				}
+			}
+		});
+	} else {
+		alert("Please enter a valid email");
+	}
+};
+	</script>
+
+<div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemtype="https://schema.org/BreadcrumbList">	You are here:
+<span><span><a href="https://www.journaldev.com/" >Home</a> » <span><a href="https://www.journaldev.com/java" >Java</a> » <span><a href="https://www.journaldev.com/java/design-patterns" >Design Patterns</a> » <span class="breadcrumb_last">Factory Design Pattern in Java</span></span></span></span></span></div><article class="post-1392 post type-post status-publish format-standard category-design-patterns entry" itemscope itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Factory Design Pattern in Java</h1>
+<p class="entry-meta"><span class="entry-author" itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="https://www.journaldev.com/author/pankaj" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Pankaj</span></a></span> <span class="entry-comments-link"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comments">31 Comments</a></span> </p></header><div class="entry-content" itemprop="text"><!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_after_entry_728x90" data-format="728x90"> </div>
+</div>
+<p>Welcome to the Factory <a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial">Design Pattern</a> in <a href="https://www.journaldev.com/7153/core-java-tutorial">Java tutorial</a>. <strong>Factory Pattern</strong> is one of the <strong>Creational Design pattern</strong> and it&#8217;s widely used in JDK as well as frameworks like Spring and Struts. </p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Table of Contents</p><ul class="toc_list"><li><a href="#factory-design-pattern"><span class="toc_number toc_depth_1">1</span> Factory Design Pattern</a><ul><li><a href="#factory-design-pattern-super-class"><span class="toc_number toc_depth_2">1.1</span> Factory Design Pattern Super Class</a></li><li><a href="#factory-design-pattern-sub-classes"><span class="toc_number toc_depth_2">1.2</span> Factory Design Pattern Sub Classes</a></li><li><a href="#factory-class"><span class="toc_number toc_depth_2">1.3</span> Factory Class</a></li><li><a href="#factory-design-pattern-advantages"><span class="toc_number toc_depth_2">1.4</span> Factory Design Pattern Advantages</a></li><li><a href="#factory-design-pattern-examples-in-jdk"><span class="toc_number toc_depth_2">1.5</span> Factory Design Pattern Examples in JDK</a></li><li><a href="#factory-design-pattern-youtube-video-tutorial"><span class="toc_number toc_depth_2">1.6</span> Factory Design Pattern YouTube Video Tutorial</a></li></ul></li></ul></div>
+<h2><span id="factory-design-pattern">Factory Design Pattern</span></h2>
+<p><a href="https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg"><img   src="https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg"  alt="factory design pattern, factory design pattern in java, factory pattern, factory method pattern, factory pattern example" width="560" height="315" class="aligncenter size-full wp-image-11920" srcset="https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern.jpg 560w, https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern-450x253.jpg 450w, https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-design-pattern-20x11.jpg 20w" sizes="(max-width: 560px) 100vw, 560px" /></a></p>
+<p>Factory design pattern is used when we have a super class with multiple sub-classes and based on input, we need to return one of the sub-class. This pattern take out the responsibility of instantiation of a class from client program to the factory class. </p>
+<p>Let&#8217;s first learn how to implement factory design pattern in java and then we will look into factory pattern advantages. We will see some of factory design pattern usage in JDK. Note that this pattern is also known as <strong>Factory Method Design Pattern</strong>.</p>
+<h3><span id="factory-design-pattern-super-class">Factory Design Pattern Super Class</span></h3>
+<p>Super class in factory design pattern can be an interface, <strong><a href="https://www.journaldev.com/1582/abstract-class-in-java" title="Abstract Class in Java with Example">abstract class</a></strong> or a normal java class. For our factory design pattern example, we have abstract super class with <a href="https://www.journaldev.com/817/java-override-annotation" title="Overriding Methods in Java? – Always use @Override annotation">overridden</a> <code>toString()</code> method for testing purpose.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.model;
+
+public abstract class Computer {
+	
+	public abstract String getRAM();
+	public abstract String getHDD();
+	public abstract String getCPU();
+	
+	@Override
+	public String toString(){
+		return "RAM= "+this.getRAM()+", HDD="+this.getHDD()+", CPU="+this.getCPU();
+	}
+}
+</code></pre>
+<h3><span id="factory-design-pattern-sub-classes">Factory Design Pattern Sub Classes</span></h3>
+<p>Let&#8217;s say we have two sub-classes PC and Server with below implementation.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-format="300x250" data-zone="jd_post_mid_300x250" ></div>
+</div>
+
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.model;
+
+public class PC extends Computer {
+
+	private String ram;
+	private String hdd;
+	private String cpu;
+	
+	public PC(String ram, String hdd, String cpu){
+		this.ram=ram;
+		this.hdd=hdd;
+		this.cpu=cpu;
+	}
+	@Override
+	public String getRAM() {
+		return this.ram;
+	}
+
+	@Override
+	public String getHDD() {
+		return this.hdd;
+	}
+
+	@Override
+	public String getCPU() {
+		return this.cpu;
+	}
+
+}
+</code></pre>
+<p>Notice that both the classes are extending <code>Computer</code> super class.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.model;
+
+public class Server extends Computer {
+
+	private String ram;
+	private String hdd;
+	private String cpu;
+	
+	public Server(String ram, String hdd, String cpu){
+		this.ram=ram;
+		this.hdd=hdd;
+		this.cpu=cpu;
+	}
+	@Override
+	public String getRAM() {
+		return this.ram;
+	}
+
+	@Override
+	public String getHDD() {
+		return this.hdd;
+	}
+
+	@Override
+	public String getCPU() {
+		return this.cpu;
+	}
+
+}
+</code></pre>
+<h3><span id="factory-class">Factory Class</span></h3>
+<p>Now that we have super classes and sub-classes ready, we can write our factory class. Here is the basic implementation.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_leaderboard_728x90" data-format="728x90"> </div>
+</div>
+
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.factory;
+
+import com.journaldev.design.model.Computer;
+import com.journaldev.design.model.PC;
+import com.journaldev.design.model.Server;
+
+public class ComputerFactory {
+
+	public static Computer getComputer(String type, String ram, String hdd, String cpu){
+		if("PC".equalsIgnoreCase(type)) return new PC(ram, hdd, cpu);
+		else if("Server".equalsIgnoreCase(type)) return new Server(ram, hdd, cpu);
+		
+		return null;
+	}
+}
+</code></pre>
+<p>Some important points about Factory Design Pattern method are;</p>
+<ol>
+<li>We can keep Factory class <a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples">Singleton</a> or we can keep the method that returns the subclass as <a href="https://www.journaldev.com/1365/static-keyword-in-java" title="What is static in Java? Java Static methods, variables, static block and class">static</a>.</li>
+<li>Notice that based on the input parameter, different subclass is created and returned. <code>getComputer</code> is the factory method.</li>
+</ol>
+<p><a href="https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-pattern-java.png"><img   src="https://cdn.journaldev.com/wp-content/uploads/2013/05/factory-pattern-java-450x327.png"  alt="factory pattern java, factory pattern, factory design pattern, factory pattern class diagram" width="450" height="327" class="aligncenter size-medium wp-image-1394" /></a></p>
+<p>Here is a simple test client program that uses above factory design pattern implementation.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.test;
+
+import com.journaldev.design.factory.ComputerFactory;
+import com.journaldev.design.model.Computer;
+
+public class TestFactory {
+
+	public static void main(String[] args) {
+		Computer pc = ComputerFactory.getComputer("pc","2 GB","500 GB","2.4 GHz");
+		Computer server = ComputerFactory.getComputer("server","16 GB","1 TB","2.9 GHz");
+		System.out.println("Factory PC Config::"+pc);
+		System.out.println("Factory Server Config::"+server);
+	}
+
+}
+</code></pre>
+<p>Output of above program is:</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+Factory PC Config::RAM= 2 GB, HDD=500 GB, CPU=2.4 GHz
+Factory Server Config::RAM= 16 GB, HDD=1 TB, CPU=2.9 GHz
+</code></pre>
+<h3><span id="factory-design-pattern-advantages">Factory Design Pattern Advantages</span></h3>
+<ol>
+<li>Factory design pattern provides approach to code for interface rather than implementation.</li>
+<li>Factory pattern removes the instantiation of actual implementation classes from client code. Factory pattern makes our code more robust, less coupled and easy to extend. For example, we can easily change PC class implementation because client program is unaware of this.</li>
+<li>Factory pattern provides abstraction between implementation and client classes through inheritance.</li>
+</ol>
+<h3><span id="factory-design-pattern-examples-in-jdk">Factory Design Pattern Examples in JDK</span></h3>
+<ol>
+<li>java.util.Calendar, ResourceBundle and NumberFormat <code>getInstance()</code> methods uses Factory pattern.</li>
+<li><code>valueOf()</code> method in wrapper classes like Boolean, Integer etc.</li>
+</ol>
+<h3><span id="factory-design-pattern-youtube-video-tutorial">Factory Design Pattern YouTube Video Tutorial</span></h3>
+<p>I recently uploaded a video on YouTube for Factory Design pattern, please check it out. Please like and share the video and subscribe to my YouTube channel.</p>
+<p><iframe data-lazyloaded="1" src="about:blank" width="500" height="281" data-src="https://www.youtube.com/embed/J1QU_R4MQQc?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><noscript><iframe width="500" height="281" src="https://www.youtube.com/embed/J1QU_R4MQQc?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></noscript></p>
+<div class="content-box-red">You can download the example code from my <a href="https://github.com/journaldev/journaldev/tree/master/java-design-patterns/Factory-Design-Pattern" rel="noopener" target="_blank">GitHub Project</a>.</div>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6459403732537629"
+     data-ad-slot="7381719979"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div><div class="scriptlesssocialsharing"><div class="scriptlesssocialsharing-buttons"><a class="button twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Factory%20Design%20Pattern%20in%20Java&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java&#038;via=JournalDev&#038;related=JournalDev" rel="noopener"><span class="sss-name">Twitter</span></a><a class="button facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java" rel="noopener"><span class="sss-name">Facebook</span></a><a class="button linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=1&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java&#038;title=Factory%20Design%20Pattern%20in%20Java&#038;source=https://www.journaldev.com" rel="noopener"><span class="sss-name">Linkedin</span></a><a class="button email" href="mailto:?body=I%20read%20this%20post%20and%20wanted%20to%20share%20it%20with%20you.%20Here&#039;s%20the%20link:%20https%3A%2F%2Fwww.journaldev.com%2F1392%2Ffactory-design-pattern-in-java&#038;subject=A%20post%20worth%20sharing:%20Factory%20Design%20Pattern%20in%20Java" rel="noopener"><span class="sss-name">Email</span></a></div></div><div class="prev-next-navigation"><a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples" rel="prev"><div class="previous"><span class="prev_icon">&nbsp;Previous </span><br/> <span class="pagi_content">Java Singleton Design Pattern Best Practices with Examples</span></div></a><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" rel="next"><div class="next"><span class="next_icon">Next&nbsp;</span><br/> <span class="pagi_content">Abstract Factory Design Pattern in Java</span></div></a></div>
+		<!-- .prev-next-navigation --><section class="author-box" itemprop="author" itemscope itemtype="https://schema.org/Person"><img alt='' src='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=120&#038;d=blank&#038;r=g' srcset='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=240&#038;d=blank&#038;r=g 2x' class='avatar avatar-120 photo' height='120' width='120' /><h4 class="author-box-title">About <span itemprop="name">Pankaj</span></h4><div class="author-box-content" itemprop="description"><p>If you have come this far, it means that you liked what you are reading. Why not reach little more and connect with me directly on <a href="https://plus.google.com/118104420597648001532/posts?rel=author"><strong>Google Plus</strong></a>, <a href="https://www.facebook.com/journaldev"><strong>Facebook</strong></a> or <a href="https://twitter.com/JournalDev"><strong>Twitter</strong></a>. I would love to hear your thoughts and opinions on my articles directly.</p>
+<p>Recently I started creating video tutorials too, so do check out my videos on <a href="https://www.youtube.com/user/JournalDev"><strong>Youtube</strong></a>.</p>
+</div></section></div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.journaldev.com/java/design-patterns" rel="category tag">Design Patterns</a></span> </p></footer></article><div class="after-entry" class="widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget7-quick-adsense-3" class="widget widget_adswidget7-quick-adsense"><div class="widget-wrap"><!-- 728x90/970x90/970x250/320x50 -->
+<div id="waldo-tag-2281"></div></div></section>
+</div><div class="adjacent-entry-pagination pagination"><div class="pagination-previous alignleft"><a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples" rel="prev"><span class="adjacent-post-link">&#xAB; Java Singleton Design Pattern Best Practices with Examples</span></a></div><div class="pagination-next alignright"><a href="https://www.journaldev.com/1398/svn-keywords-substitution-example" rel="next"><span class="adjacent-post-link">SVN Keywords substitution example &#xBB;</span></a></div></div><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-44267">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">supriya</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-08-21T03:01:59+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-44267" class="comment-time-link" itemprop="url">August 21, 2018 at 3:01 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Very helpful artical. Thank you.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-44267' onclick='return addComment.moveForm( "comment-44267", "44267", "respond", "1392" )' aria-label='Reply to supriya'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-43983">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Jaleel</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-24T14:30:16+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-43983" class="comment-time-link" itemprop="url">July 24, 2018 at 2:30 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Very weel explained! Thank you!</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43983' onclick='return addComment.moveForm( "comment-43983", "43983", "respond", "1392" )' aria-label='Reply to Jaleel'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-43570">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">wade</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-06-03T04:43:10+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-43570" class="comment-time-link" itemprop="url">June 3, 2018 at 4:43 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>very nice tutorial, easy to understand!</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43570' onclick='return addComment.moveForm( "comment-43570", "43570", "respond", "1392" )' aria-label='Reply to wade'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-42807">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="http://sites.google.com/a/ec.aits.edu.in/khandhedia" class="comment-author-link" rel="external nofollow" itemprop="url">Nirav Khandhedia</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-04-04T09:59:59+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42807" class="comment-time-link" itemprop="url">April 4, 2018 at 9:59 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I  understand that there&#8217;s always a benefit to get the instance of a class using the provided factory implementation.<br />
+How can I force users to compulsorily use the factory implementation to get the instance, instead of getting away creating an instance directly using new operator of the actual class?<br />
+i.e. How can I force people to use ServerFactory.getInstance() instead of new Server()?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42807' onclick='return addComment.moveForm( "comment-42807", "42807", "respond", "1392" )' aria-label='Reply to Nirav Khandhedia'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-42923">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Geeks</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-04-10T02:31:28+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42923" class="comment-time-link" itemprop="url">April 10, 2018 at 2:31 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>You can make Server Class as an abstract class.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42923' onclick='return addComment.moveForm( "comment-42923", "42923", "respond", "1392" )' aria-label='Reply to Geeks'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-3" id="comment-43048">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">abhi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-04-19T03:47:54+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-43048" class="comment-time-link" itemprop="url">April 19, 2018 at 3:47 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>But in that case Your Factory wont be able to create the instance itself.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43048' onclick='return addComment.moveForm( "comment-43048", "43048", "respond", "1392" )' aria-label='Reply to abhi'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-3" id="comment-43279">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Muthu Vignesh</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-05-05T23:56:45+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-43279" class="comment-time-link" itemprop="url">May 5, 2018 at 11:56 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>If you can make the constructor private as per singleton, then i assume that you cannot create the instance using new Server(); and only enforces the user to access the object only through getInstance(). Also as an additional rule getInstance() method can be enforced as a rule to be implemented in the sub-classes extending computer. i.e. an abstract method of getInstance(), be present in Computer class which is already an abstract class. Hope m right, others correct me if m wrong</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43279' onclick='return addComment.moveForm( "comment-43279", "43279", "respond", "1392" )' aria-label='Reply to Muthu Vignesh'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-42663">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Srinivasa.....</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-03-30T02:58:27+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42663" class="comment-time-link" itemprop="url">March 30, 2018 at 2:58 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>It&#8217;s Nice Explanation Learnt new things more it&#8217;s best practice and understanding</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42663' onclick='return addComment.moveForm( "comment-42663", "42663", "respond", "1392" )' aria-label='Reply to Srinivasa.....'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-42293">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Chris</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-02-21T03:13:37+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42293" class="comment-time-link" itemprop="url">February 21, 2018 at 3:13 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Quick and easy tutorial, thanks.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42293' onclick='return addComment.moveForm( "comment-42293", "42293", "respond", "1392" )' aria-label='Reply to Chris'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-42261">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://viewport-tech.com" class="comment-author-link" rel="external nofollow" itemprop="url">Daniel</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-02-16T07:35:20+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42261" class="comment-time-link" itemprop="url">February 16, 2018 at 7:35 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Learned some new stuff with very detailed information.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42261' onclick='return addComment.moveForm( "comment-42261", "42261", "respond", "1392" )' aria-label='Reply to Daniel'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-42093">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">BkOfc</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-01-23T17:39:18+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42093" class="comment-time-link" itemprop="url">January 23, 2018 at 5:39 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Where below are implemented </p>
+<p>import com.journaldev.design.abstractfactory.PCFactory;<br />
+import com.journaldev.design.abstractfactory.ServerFactory;</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42093' onclick='return addComment.moveForm( "comment-42093", "42093", "respond", "1392" )' aria-label='Reply to BkOfc'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-2" id="comment-42095">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-01-23T20:33:07+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-42095" class="comment-time-link" itemprop="url">January 23, 2018 at 8:33 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Sorry, that came out while copying the code from my Eclipse editor by mistake. Those imports are useless, I have removed them from above code.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-42095' onclick='return addComment.moveForm( "comment-42095", "42095", "respond", "1392" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-39967">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Prashanth</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-11-15T20:05:04+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-39967" class="comment-time-link" itemprop="url">November 15, 2017 at 8:05 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>It&#8217;s a very good tutorial. But I have a doubt,</p>
+<p>You mentioned Calendar#getInstance() as factory pattern implementation. But in this there is a small difference right?</p>
+<p>There is no separate factory class. The super class Calendar itself is acting as the factory class. </p>
+<p>Does an implementation like this have any advantage or disadvantage?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39967' onclick='return addComment.moveForm( "comment-39967", "39967", "respond", "1392" )' aria-label='Reply to Prashanth'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-39412">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="http://www.luiscunhaweb.com" class="comment-author-link" rel="external nofollow" itemprop="url">Luis Cunha</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-09-08T08:02:25+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-39412" class="comment-time-link" itemprop="url">September 8, 2017 at 8:02 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi, is there a place in which I can download all the source code for the several design pattern examples.</p>
+<p>These are great examples, but I have to copy-paste each single text box into Intellij, and it is very cumbersome.</p>
+<p>Thank you very much, and congratulations for such good material.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39412' onclick='return addComment.moveForm( "comment-39412", "39412", "respond", "1392" )' aria-label='Reply to Luis Cunha'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-39235">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Vishal</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-08-23T01:47:57+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-39235" class="comment-time-link" itemprop="url">August 23, 2017 at 1:47 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Yes. Its very nice article about simple factory covers basic concepts.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39235' onclick='return addComment.moveForm( "comment-39235", "39235", "respond", "1392" )' aria-label='Reply to Vishal'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-38105">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Stephen Ubogu</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-05-07T04:09:47+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-38105" class="comment-time-link" itemprop="url">May 7, 2017 at 4:09 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I am relatively new to design patterns but I need to ask this question. What if we need to add another subclass of computer say Laptop to the application.? Does this mean we will have to modify the computer factory class? This looks like violating the OO principle which says classes should be closed to modification but open to extension.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38105' onclick='return addComment.moveForm( "comment-38105", "38105", "respond", "1392" )' aria-label='Reply to Stephen Ubogu'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-36508">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="http://blog.lecomte.me" class="comment-author-link" rel="external nofollow" itemprop="url">JocelynL</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-10-06T03:28:03+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-36508" class="comment-time-link" itemprop="url">October 6, 2016 at 3:28 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>It seems to me that you&#8217;re showing what is called a simple factory with ComputerFactory;  It is not the Factory Method Pattern.<br />
+The client TestFactory delegates the creation to another class which it is composed with.</p>
+<p>If you want to implement the Factory Method Pattern,:<br />
+1.  ComputerFactory should define an asbtract method getComputer(String ram, String hdd, String cpu)<br />
+2. ComputerFactory should have two subclasses PCFactory and ServerFactory.which implements the  superclass abstract method to return either a PC or a server<br />
+3. The client should be given one of the two concrete factories and call the factory method to get PC or servers, depending which one was instanciated</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36508' onclick='return addComment.moveForm( "comment-36508", "36508", "respond", "1392" )' aria-label='Reply to JocelynL'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-2" id="comment-37571">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">catherine</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-02-25T18:24:36+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-37571" class="comment-time-link" itemprop="url">February 25, 2017 at 6:24 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>yes , i agree. the article is about simple factory not factory .<br />
+But still a nice article.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37571' onclick='return addComment.moveForm( "comment-37571", "37571", "respond", "1392" )' aria-label='Reply to catherine'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-3" id="comment-43253">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Vijay Kambala</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-05-03T05:18:01+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-43253" class="comment-time-link" itemprop="url">May 3, 2018 at 5:18 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Could you please reply back with actual factory pattern example<br />
+in your own explanatroy words&#8230;</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-43253' onclick='return addComment.moveForm( "comment-43253", "43253", "respond", "1392" )' aria-label='Reply to Vijay Kambala'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt depth-2" id="comment-37771">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Vinod Kumar</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-03-23T04:52:54+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-37771" class="comment-time-link" itemprop="url">March 23, 2017 at 4:52 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>yes absolutely you are right. It is not factory method pattern.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37771' onclick='return addComment.moveForm( "comment-37771", "37771", "respond", "1392" )' aria-label='Reply to Vinod Kumar'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-2" id="comment-38383">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">ravi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-06-15T01:18:47+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-38383" class="comment-time-link" itemprop="url">June 15, 2017 at 1:18 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>This is a factory (factory method ) pattern, if you make factory abstract then it becomes abstract factory pattern</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38383' onclick='return addComment.moveForm( "comment-38383", "38383", "respond", "1392" )' aria-label='Reply to ravi'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-36029">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Gani Victory</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-08-11T03:37:55+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-36029" class="comment-time-link" itemprop="url">August 11, 2016 at 3:37 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Nice article !!!!!!!!</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36029' onclick='return addComment.moveForm( "comment-36029", "36029", "respond", "1392" )' aria-label='Reply to Gani Victory'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-34903">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">panky031</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-06-03T07:27:50+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-34903" class="comment-time-link" itemprop="url">June 3, 2016 at 7:27 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Now i found the perfect article for Design pattern.</p>
+<p>Thanks Pankaj</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-34903' onclick='return addComment.moveForm( "comment-34903", "34903", "respond", "1392" )' aria-label='Reply to panky031'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-31806">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">vamshi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-02-23T18:20:02+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-31806" class="comment-time-link" itemprop="url">February 23, 2015 at 6:20 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Thanks for the clear explanation.<br />
+I have one doubt here in Factory pattern. We have two concrete classes implementing the interface/Abstract class whose instances are created inside Factory class.But, instead of below line<br />
+Computer pc = ComputerFactory.getComputer(&#8220;pc&#8221;,&#8221;2 GB&#8221;,&#8221;500 GB&#8221;,&#8221;2.4 GHz&#8221;);</p>
+<p>we can also use<br />
+Computer pc=new PC(&#8220;pc&#8221;,&#8221;2 GB&#8221;,&#8221;500 GB&#8221;,&#8221;2.4 GHz&#8221;);  to get new instance of PC. Then what is the advantage of using ComputerFactory.getComputer() method on the client side directly.?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-31806' onclick='return addComment.moveForm( "comment-31806", "31806", "respond", "1392" )' aria-label='Reply to vamshi'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-32267">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ofer Yuval</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-04-22T00:03:53+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-32267" class="comment-time-link" itemprop="url">April 22, 2015 at 12:03 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>See here<br />
+<a href="http://stackoverflow.com/questions/14575457/factory-classes" rel="nofollow">http://stackoverflow.com/questions/14575457/factory-classes</a></p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-32267' onclick='return addComment.moveForm( "comment-32267", "32267", "respond", "1392" )' aria-label='Reply to Ofer Yuval'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt depth-2" id="comment-34454">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Ajay</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-04-05T11:29:17+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-34454" class="comment-time-link" itemprop="url">April 5, 2016 at 11:29 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>That&#8217;s why it&#8217;s called an creation all design pattern cause then we don&#8217;t have to dirty our code keeping the instance creation all logic here and there cause we have implanted a factory out there which is just doing it for us you just name it..name the object and it&#8217;s ready for you&#8230;.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-34454' onclick='return addComment.moveForm( "comment-34454", "34454", "respond", "1392" )' aria-label='Reply to Ajay'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-2" id="comment-39458">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Avinash Nayak</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-09-14T10:31:25+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-39458" class="comment-time-link" itemprop="url">September 14, 2017 at 10:31 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Thats because u will be bound to the object, ie if you create Computer pc=new PC(“pc”,”2 GB”,”500 GB”,”2.4 GHz”) u will always get the instance of PC and it would be hardcoding, So if you use factory you wil not worry of the implementation u will always get the object of reference Computer.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39458' onclick='return addComment.moveForm( "comment-39458", "39458", "respond", "1392" )' aria-label='Reply to Avinash Nayak'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-30433">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Siva</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-10-10T14:26:39+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-30433" class="comment-time-link" itemprop="url">October 10, 2014 at 2:26 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Some body asked me that Why do we have to implement singleton pattern when we have static.<br />
+And here in your post you say that either we can  use static method or implement it as Singleton. Can you please detail on this?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-30433' onclick='return addComment.moveForm( "comment-30433", "30433", "respond", "1392" )' aria-label='Reply to Siva'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-34691">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">JavaBee</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-05-16T07:00:57+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-34691" class="comment-time-link" itemprop="url">May 16, 2016 at 7:00 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>May be its a late reply, but worth share thought here.</p>
+<p>Factory classes(In general design patterns) are meant for maintainability and re-usability. Factory pattern states that, the objective of this pattern is to decouple the object instantiation from the client program. And this can be achieved either by static method or singleton factory class.</p>
+<p>Why we use singleton pattern when we have static?<br />
+  we use &#8220;static&#8221;  when a piece of code/data same across all instances of a class OR important piece of code that needs to be executed even when class is not instantiated OR instantiation is not required.</p>
+<p>Question here is, how to make outer class itself static? the answer is &#8220;Singleton Pattern&#8221;.</p>
+<p>The &#8220;singleton pattern&#8221; is a mechanism, which gives the flexibility to reuse the same instance of a class(avoid multiple instantiation of a class when it is not required OR execute mandatory functionality only once) OR have the single instance to achieve the expected functionality.<br />
+ This can be achieved by using static + additional checks on the pre-existence of the instance(of self).<br />
+Ex: Thread pool.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-34691' onclick='return addComment.moveForm( "comment-34691", "34691", "respond", "1392" )' aria-label='Reply to JavaBee'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-3" id="comment-36540">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">robothy</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-10-11T02:26:19+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-36540" class="comment-time-link" itemprop="url">October 11, 2016 at 2:26 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Good answer!!!</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36540' onclick='return addComment.moveForm( "comment-36540", "36540", "respond", "1392" )' aria-label='Reply to robothy'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even depth-3" id="comment-37576">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">RazorEdge</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-02-26T08:14:52+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java#comment-37576" class="comment-time-link" itemprop="url">February 26, 2017 at 8:14 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Very good answer&#8230; Thank You</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-37576' onclick='return addComment.moveForm( "comment-37576", "37576", "respond", "1392" )' aria-label='Reply to RazorEdge'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ol></div>	<div class="comment-policy-box">
+		<p class="comment-policy"><small><strong>Comment Policy:</strong>Please submit comments to add value to the post. Comments like "Thank You" and "Awesome Post" will be not published. If you want to post code then wrap them inside &lt;pre&gt; tags. For example <strong>&lt;pre&gt;class Foo { }&lt;/pre&gt;</strong>.<br>If you want to post XML content, then please escape &lt; with &amp;lt; and > with &amp;gt; otherwise they will not be shown properly.</small></p>
+	</div>
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/1392/factory-design-pattern-in-java#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.journaldev.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1392' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<!-- Anti-spam plugin v.5.2 wordpress.org/plugins/anti-spam/ -->
+		<p class="antispam-group antispam-group-q" style="clear: both;">
+			<label>Current ye@r <span class="required">*</span></label>
+			<input type="hidden" name="antspm-a" class="antispam-control antispam-control-a" value="2018" />
+			<input type="text" name="antspm-q" class="antispam-control antispam-control-q" value="5.2" autocomplete="off" />
+		</p>
+		<p class="antispam-group antispam-group-e" style="display: none;">
+			<label>Leave this field empty</label>
+			<input type="text" name="antspm-e-email-url-website" class="antispam-control antispam-control-e" value="" autocomplete="off" />
+		</p>
+			</form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope itemtype="https://schema.org/WPSideBar"><section id="search-3" class="widget widget_search"><div class="widget-wrap"><script>
+  (function() {
+    var cx = 'partner-pub-5143693538742787:5127011729';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget6-quick-adsense-2" class="widget widget_adswidget6-quick-adsense"><div class="widget-wrap"><!-- /8491498/journaldev_video -->
+<div id='div-gpt-ad-1539114023134-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539114023134-0'); });
+</script>
+</div></div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget9-quick-adsense-3" class="widget widget_adswidget9-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2282"></div></div></section>
+<section id="text-2" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Design Patterns Tutorial</h4>
+			<div class="textwidget"><ul>
+<h4><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></h4>
+<h4>Creational Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples" target="_blank">Singleton</a></li>
+<li><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java" target="_blank">Factory</a></li>
+<li><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" target="_blank">Abstract Factory</a></li>
+<li><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java" target="_blank">Builder</a></li>
+<li><a href="https://www.journaldev.com/1440/prototype-design-pattern-in-java" target="_blank">Prototype</a></li>
+<h4>Structural Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1487/adapter-design-pattern-java" target="_blank">Adapter</a></li>
+<li><a href="https://www.journaldev.com/1535/composite-design-pattern-in-java" target="_blank">Composite</a></li>
+<li><a href="https://www.journaldev.com/1572/proxy-design-pattern" target="_blank">Proxy</a></li>
+<li><a href="https://www.journaldev.com/1562/flyweight-design-pattern-java" target="_blank">Flyweight</a></li>
+<li><a href="https://www.journaldev.com/1557/facade-design-pattern-in-java" target="_blank">Facade</a></li>
+<li><a href="https://www.journaldev.com/1491/bridge-design-pattern-java" target="_blank">Bridge</a></li>
+<li><a href="https://www.journaldev.com/1540/decorator-design-pattern-in-java-example" target="_blank">Decorator</a></li>
+<h4>Behavioral Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1763/template-method-design-pattern-in-java" target="_blank">Template Method</a></li>
+<li><a href="https://www.journaldev.com/1730/mediator-design-pattern-in-java-example-tutorial" target="_blank">Mediator</a></li>
+<li><a href="https://www.journaldev.com/1617/chain-of-responsibility-design-pattern-in-java" target="_blank">Chain of Responsibility</a></li>
+<li><a href="https://www.journaldev.com/1739/observer-design-pattern-in-java" target="_blank">Observer</a></li>
+<li><a href="https://www.journaldev.com/1754/strategy-design-pattern-in-java-example-tutorial" target="_blank">Strategy</a></li>
+<li><a href="https://www.journaldev.com/1624/command-design-pattern" target="_blank">Command</a></li>
+<li><a href="https://www.journaldev.com/1751/state-design-pattern-java" target="_blank">State</a></li>
+<li><a href="https://www.journaldev.com/1769/visitor-design-pattern-java" target="_blank">Visitor</a></li>
+<li><a href="https://www.journaldev.com/1635/interpreter-design-pattern-java" target="_blank">Interpreter</a></li>
+<li><a href="https://www.journaldev.com/1716/iterator-design-pattern-java" target="_blank">Iterator</a></li>
+<li><a href="https://www.journaldev.com/1734/memento-design-pattern-java" target="_blank">Memento</a></li>
+<h4>Miscellaneous Design Patterns</h4>
+<li><a href="https://www.journaldev.com/2394/java-dependency-injection-design-pattern-example-tutorial" target="_blank">Dependency Injection</a></li>
+<li><a href="https://www.journaldev.com/171/thread-safety-in-java-singleton-classes-with-example-code" target="_blank">Thread Safety in Java Singleton</a></li>
+</ul>
+</div>
+		</div></section>
+<section id="text-11" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Recommended Tutorials</h4>
+			<div class="textwidget"><h4>Java Tutorials</h4>
+<ul>
+<li><a href="https://www.journaldev.com/942/java-io-tutorial" target="_blank">Java IO</a></li>
+<li><a href="https://www.journaldev.com/634/regular-expression-in-java-regex-example" target="_blank">Java Regular Expressions</a></li>
+<li><a href="https://www.journaldev.com/1079/multithreading-in-java" target="_blank">Multithreading in Java</a></li>
+<li><a href="https://www.journaldev.com/977/java-logging-api-tutorial-examples-logger-levels-handlers-formatters-filters" target="_blank">Java Logging</a></li>
+<li><a href="https://www.journaldev.com/721/java-annotations-example-tutorial" target="_blank">Java Annotations</a></li>
+<li><a href="https://www.journaldev.com/1240/java-xml-tutorial" target="_blank">Java XML</a></li>
+<li><a href="https://www.journaldev.com/1260/collections-in-java-tutorial" target="_blank">Collections in Java</a></li>
+<li><a href="https://www.journaldev.com/1663/java-generics-example-method-class-interface" target="_blank">Java Generics</a></li>
+<li><a href="https://www.journaldev.com/1696/exception-handling-in-java" target="_blank">Exception Handling in Java</a></li>
+<li><a href="https://www.journaldev.com/1789/java-reflection-example-tutorial" target="_blank">Java Reflection</a></li>
+<li><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></li>
+<li><a href="https://www.journaldev.com/2681/jdbc-tutorial-with-example-projects-datasource-jndi-and-spring-integration" target="_blank">JDBC Tutorial</a></li>
+<h4>Java EE Tutorials</h4>
+<li><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" target="_blank">Servlet JSP Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" target="_blank">Struts2 Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" target="_blank">Spring Tutorial</a></li>
+<li><a href="https://www.journaldev.com/3793/hibernate-tutorial" target="_blank">Hibernate Tutorial</a></li>
+<li><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" target="_blank">Primefaces Tutorial</a></li>
+<li><a href="https://www.journaldev.com/255/axis2-web-services-tutorial" target="_blank">Apache Axis 2</a></li>
+<li><a href="https://www.journaldev.com/498/jax-rs-restful-web-service-using-jersey-example-tutorial" target="_blank">JAX-RS</a></li>
+<li><a href="https://www.journaldev.com/1117/memcached-tutorial" target="_blank">Memcached Tutorial</a></li>
+</ul>
+</div>
+		</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget10-quick-adsense-2" class="widget widget_adswidget10-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2283"></div></div></section>
+</aside></div></div><footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter"><div class="wrap"><p>&#x000A9;&nbsp;2018 &middot; <a href="https://www.journaldev.com/privacy-policy">Privacy Policy</a> &middot; Powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a></p></div></footer></div></script>
+<script type='text/javascript'>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script');
+        _dma.type = 'text/javascript';
+        _dma.async = true;
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12171637-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-12171637-4', { 'anonymize_ip': true });
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>
+		jQuery(document).ready(function() {
+		  jQuery('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+			$(".entry-content pre").show();
+		  });
+		  	
+			jQuery('.entry-content pre code').mouseenter(function(e){
+				var t = jQuery(this);
+					t.children(".re_clip-board").slideDown(100);
+				jQuery(e.target).mouseleave(function(){
+					t.children(".re_clip-board").slideUp(100);
+					
+					setTimeout(function() {
+						t.children(".re_clip-board").text("Copy");
+					}, 100);
+					
+				});
+			});
+			
+			jQuery('.entry-content pre code .re_clip-board').click(function(e){
+				re_copyToClipboard(jQuery(this));
+				$(this).text("Copied!");
+				$(this).css("width", "85px");
+			});
+		});
+		
+function re_copyToClipboard(element) {
+	var elements = element.parent();
+  	var $temp = $("<textarea>");
+  	$("body").append($temp);
+	var text = $(elements).text().replace(/Copy/g, "");
+  	$temp.val(text).select();
+  	document.execCommand("copy");
+  	$temp.remove();
+}
+
+/*Starting expand widget jquery codes */
+var rotation = 0;
+jQuery.fn.plus_rotate = function(degrees) {
+    $(this).css({"-webkit-transform" : "rotate("+ degrees +"deg)",
+                 "-moz-transform" : "rotate("+ degrees +"deg)",
+                 "-ms-transform" : "rotate("+ degrees +"deg)",
+                 "transform" : "rotate("+ degrees +"deg)"});
+    return $(this);
+};
+
+$(document).ready(function(){
+  $(".expand_widget_title").click(function(){
+    if ( !$(this).parent().children("ul").is(":visible") ) {
+      rotation += 360;
+	  $(this).children(".widget_plus_icon").removeClass("zero_six_rotate");
+      $(this).children(".widget_plus_icon").addClass("tree_six_rotate");
+     $(this).parent().children("ul").slideDown(390);
+	 
+	 var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("plus_icon");
+		t.children(".widget_plus_icon").addClass("minus_icon");
+	 }, 400);
+  } else {
+    rotation -= 360;
+     	$(this).children(".widget_plus_icon").removeClass("tree_six_rotate");
+		$(this).children(".widget_plus_icon").addClass("zero_six_rotate");
+    $(this).parent().children("ul").slideUp(390);
+	
+	var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("minus_icon");
+		t.children(".widget_plus_icon").addClass("plus_icon");
+	 }, 400);
+  }
+  });
+ });
+
+/*Ending expand widget jquery codes */
+
+</script>
+	<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/anti-spam/js/anti-spam-5.2.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var superpwa_sw = {"url":"\/OneSignalSDKWorker.js.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/super-progressive-web-apps/public/js/register-sw.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"hide","width":"Auto","smooth_scroll_offset":"60"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/front.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"sidebar","margin_top":10,"margin_bottom":0,"stop_id":"","screen_max_width":1024,"screen_max_height":120,"width_inherit":false,"refresh_interval":1500,"window_load_hook":false,"disable_mo_api":false,"widgets":["adswidget10-quick-adsense-2"]}];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/q2w3-fixed-widget/js/q2w3-fixed-widget.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/wp-embed.min.js'></script>
+<script src="https://cdn.journaldev.com/wp-content/plugins/litespeed-cache/js/lazyload.min.js"></script></body></html>
+
+<!-- Page generated by LiteSpeed Cache 2.8.1 on 2018-12-05 23:24:39 -->

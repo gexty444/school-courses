@@ -1,0 +1,4289 @@
+
+
+
+
+
+
+<!DOCTYPE html><html lang="en"
+      class=""><head><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script><meta charset="utf-8"><meta name="xsrf_token" content="hyzUxhj4r0X6gTDdr4qMymFskfNuoCVTi8KAe9eYIBQ6MTU0NDYyNDY2Mzg4MDU5MA" /><link rel="canonical" href="https://developer.android.com/reference/android/net/Uri"><link rel="alternate" href="https://developer.android.com/reference/android/net/Uri" hreflang="en"><link rel="alternate" href="https://developer.android.google.cn/reference/android/net/Uri" hreflang="en-cn"><link rel="alternate" href="https://developer.android.com/reference/android/net/Uri" hreflang="x-default"><link rel="shortcut icon" href="https://developer.android.com/_static/9f55fd91be/images/android/favicon.png"><link rel="apple-touch-icon" href="https://developer.android.com/_static/9f55fd91be/images/android/touchicon-180.png"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet"
+      
+      href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons"
+      ><link rel="stylesheet"
+        href="https://developer.android.com/_static/9f55fd91be/css/devsite-android-light-grey.css"><link rel="stylesheet" href="https://developer.android.com/_static/9f55fd91be/css/android/android-site.css"><link rel="search"
+        type="application/opensearchdescription+xml"
+        title="Android Developers"
+        href="https://developer.android.com/s/opensearch.xml"><script src="https://developer.android.com/_static/9f55fd91be/js/jquery-bundle.js"></script><meta property="og:site_name" content="Android Developers"><meta property="og:type" content="website"><meta property="og:url" content="https://developer.android.com/reference/android/net/Uri"><meta property="og:locale" content="en"><script>
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script><title>Uri &nbsp;|&nbsp; Android Developers</title><meta property="og:title" content="Uri &nbsp;|&nbsp; Android Developers"><link rel="stylesheet" href="https://developer.android.com/static/css/reference-docs.css"></head><body class="
+               devsite-doc-page
+               
+               
+               
+               
+               "
+        
+        
+        
+        id="top_of_page"><div class="devsite-wrapper"><div class="devsite-top-section-wrapper
+            "><header class="devsite-top-section nocontent"><div class="devsite-top-logo-row-wrapper-wrapper"><div class="devsite-top-logo-row-wrapper"><div class="devsite-top-logo-row devsite-full-site-width"><button type="button" class="devsite-expand-section-nav devsite-header-icon-button
+                                       button-flat material-icons gc-analytics-event"
+                  data-category="Site-Wide Custom Events" data-label="Hamburger menu"></button><div class="devsite-product-name-wrapper"><a href="https://developer.android.com/"
+   class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events"
+   data-label="Site logo"
+   track-type = "globalNav"
+   track-name = "androiddevelopers"
+   track-metadata-eventDetail = "nav"
+   track-metadata-position = "nav"><img src="https://developer.android.com/_static/9f55fd91be/images/android/lockup.svg"
+       class="devsite-site-logo" alt="Android Developers"><span class="devsite-site-name devsite-product-name">Android Developers</span></a></div><div class="devsite-header-upper-tabs"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/about/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Platform"
+         >
+          Platform
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/studio/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Android Studio"
+         >
+          Android Studio
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/distribute/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google Play"
+         >
+          Google Play
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/jetpack/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Android Jetpack"
+         >
+          Android Jetpack
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/docs/"
+           class="devsite-doc-set-nav-active devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           aria-label="Docs, selected"
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Docs"
+         >
+          Docs
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/news/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: News"
+         >
+          News
+        </a></li></ul></nav></div><form class="devsite-search-form"
+                action="https://developer.android.com/s/results/"
+                method="GET"
+                id="top-search"
+                search-placeholder='Search'><div id="searchbox" class="devsite-searchbox"><input placeholder='Search'
+         
+         type="text"
+         class="devsite-search-field devsite-search-query"
+         name="q"
+         value=""
+         autocomplete="off"
+         
+         aria-label="Search box"
+         ><div class="devsite-search-image material-icons"></div></div><input type="hidden"
+       name="p"
+       id="search_project"
+       value="/"
+       data-project-name="Android Developers"
+       data-project-path="/"
+       data-query-match=""><input type="hidden" class="suggest-project" value="Android Developers" /><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Open Source Project" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Apigee Docs" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Google Cloud" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Dialogflow" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Firebase" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Link.app" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Nest Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="OpenThread" ></div><div class="suggest-project-metadata" data-home_url="https://www.orbitera.com/" data-path="/" data-name="Orbitera" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="TensorFlow" ></div></form><button type="button" class="devsite-search-button devsite-header-icon-button button-flat
+                                       material-icons"></button></div></div></div><div class="devsite-collapsible-section"><div class="devsite-header-background devsite-full-site-width"><div class="devsite-product-id-row devsite-full-site-width"><div class="devsite-product-description-row"><ul class="devsite-breadcrumb-list"><li class="devsite-breadcrumb-item">
+    
+    
+    
+      Documentation
+    
+    
+  </li></ul></div></div><div class="devsite-doc-set-nav-row devsite-full-site-width"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/docs/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Overview"
+         >
+          Overview
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/guide/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Guides"
+         >
+          Guides
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/reference/"
+           class="devsite-doc-set-nav-active devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           aria-label="Reference, selected"
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Reference"
+         >
+          Reference
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/samples/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Samples"
+         >
+          Samples
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/design/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Design &amp; Quality"
+         >
+          Design &amp; Quality
+        </a></li></ul></nav></div></div></div></header><script>
+    if (window.jQuery) {
+      $(document).ready(function() {
+        if (window.devsite && window.devsite.search) {
+          
+          window.devsite.search.init('en')
+        }
+      });
+    }
+  </script></div><div id="gc-wrapper"itemscope itemtype="http://schema.org/APIReference"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Developers&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Developers&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}"><input class="google-tag-manager-id" type="hidden" value="GTM-KMSWPCJ"><script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "SG", "language": {"requested": "en", "served": "en"}, "projectName": "Android Developers", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+
+      
+        <div class="devsite-site-mask"></div>
+        
+  
+
+
+<nav class="devsite-nav-responsive devsite-nav nocontent" tabindex="0">
+  
+  <div class="devsite-nav-responsive-tabs-panel">
+    
+      
+        
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/about/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Platform">
+          Platform
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/studio/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Android Studio">
+          Android Studio
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/distribute/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Google Play">
+          Google Play
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/jetpack/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Android Jetpack">
+          Android Jetpack
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/docs/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  devsite-nav-active"
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Docs">
+          Docs
+        </a>
+      
+
+      
+
+      
+
+      
+        
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/docs/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Overview">
+          Overview
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/guide/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Guides">
+          Guides
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <span class="devsite-nav-responsive-forward devsite-nav-responsive-tab devsite-nav-title
+                     devsite-nav-active gc-analytics-event"
+              data-category="Site-Wide Custom Events" data-label="Responsive Tab: Reference"
+              tabindex="0">
+          Reference
+        </span>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/samples/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Samples">
+          Samples
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/design/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Design &amp; Quality">
+          Design &amp; Quality
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+
+  
+  </ul>
+</nav>
+
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/news/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: News">
+          News
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+
+  
+  </ul>
+</nav>
+
+
+      
+    
+  </div>
+  
+  
+  <div class="devsite-nav-responsive-sidebar-panel">
+    
+    <div class="devsite-nav-responsive-back" tabindex="0"></div>
+    
+    <nav class="devsite-nav-responsive-sidebar">
+      
+      
+    </nav>
+  </div>
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+</nav>
+
+
+        <div class="devsite-main-content clearfix">
+
+        
+        
+
+        
+  
+  
+    
+    
+      
+  <nav class="devsite-section-nav devsite-nav nocontent">
+    <ul class="devsite-nav-list devsite-nav-list-mini"><li class="devsite-nav-item"><a href="/reference/" class="devsite-nav-title">Overview</a></li><li class="devsite-nav-item"><span class="devsite-nav-title devsite-nav-title-no-path">Android Platform</span></li><li class="devsite-nav-item"><a href="/reference/android/support/packages" class="devsite-nav-title">Android Support Library</a></li><li class="devsite-nav-item"><a href="/reference/androidx/packages" class="devsite-nav-title">AndroidX</a></li><li class="devsite-nav-item"><a href="/reference/androidx/test/packages" class="devsite-nav-title">AndroidX Test</a></li><li class="devsite-nav-item"><a href="/reference/android/arch/packages" class="devsite-nav-title">Architecture Components</a></li><li class="devsite-nav-item"><a href="/reference/android/car/packages" class="devsite-nav-title">Android Automotive Library</a></li><li class="devsite-nav-item"><a href="/reference/android/databinding/packages" class="devsite-nav-title">Databinding Library</a></li><li class="devsite-nav-item"><a href="/reference/android/support/constraint/packages" class="devsite-nav-title">Constraint Layout Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/material/packages" class="devsite-nav-title">Material Components</a></li><li class="devsite-nav-item"><a href="/reference/android/support/test/packages" class="devsite-nav-title">Test Support Library</a></li><li class="devsite-nav-item"><a href="/reference/android/support/wearable/packages" class="devsite-nav-title">Wearable Library</a></li><li class="devsite-nav-item"><a href="/reference/com/android/billingclient/packages" class="devsite-nav-title">Play Billing Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/play/core/packages" class="devsite-nav-title">Play Core Library</a></li><li class="devsite-nav-item"><a href="/reference/com/android/installreferrer/packages" class="devsite-nav-title">Play Install Referrer Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/things/packages" class="devsite-nav-title">Android Things</a></li><li class="devsite-nav-item"><span class="devsite-nav-title devsite-nav-title-no-path">Kotlin API Reference (Preview)</span></li><li class="devsite-nav-item"><a href="/reference/kotlin/packages" class="devsite-nav-title">Android Platform</a></li><li class="devsite-nav-item"><a href="/reference/kotlin/androidx/packages" class="devsite-nav-title">AndroidX</a></li></ul>
+  </nav>
+
+    
+
+    
+  <nav class="devsite-page-nav devsite-nav"></nav>
+
+
+      <article class="devsite-article">
+        <article class="devsite-article-inner">
+  
+          
+  
+
+
+<div class="devsite-rating-container
+            "><div class="devsite-rating-stars"><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="1" data-category="Site-Wide Custom Events" data-label="Star Rating 1"
+         track-metadata-score="1" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 1 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="2" data-category="Site-Wide Custom Events" data-label="Star Rating 2"
+         track-metadata-score="2" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 2 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="3" data-category="Site-Wide Custom Events" data-label="Star Rating 3"
+         track-metadata-score="3" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 3 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="4" data-category="Site-Wide Custom Events" data-label="Star Rating 4"
+         track-metadata-score="4" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 4 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="5" data-category="Site-Wide Custom Events" data-label="Star Rating 5"
+         track-metadata-score="5" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 5 out of 5"></div></div><div class="devsite-rating-description"></div><div class="devsite-rating-internal"><span class="devsite-rating-stats"></span></div></div><script>
+  $(document).ready(function() {
+    devsite.ratings.init(
+      document.querySelectorAll('#devsite-feedback-project'), false
+      
+    );
+  });
+</script>
+
+
+  
+  <nav class="devsite-breadcrumb-nav devsite-nav">
+    
+
+
+
+
+<ul class="devsite-breadcrumb-list">
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <a href="https://developer.android.com/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="1">
+    
+    
+      Android Developers
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developer.android.com/docs/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="2">
+    
+    
+      Docs
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developer.android.com/reference/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="3">
+    
+    
+      Reference
+    
+    
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </nav>
+  
+  
+  
+  <nav class="devsite-page-nav-embedded devsite-nav"></nav>
+  
+  <div class="devsite-article-body clearfix
+            
+              devsite-no-page-title
+            "
+       itemprop="articleBody">
+    
+
+<div itemscope itemtype="http://developers.google.com/ReferenceObject">
+<!-- This DIV closes at the end of the BODY -->
+  <meta itemprop="name" content="android.net.Uri" />
+  <meta itemprop="path" content="API level 1" />
+
+
+
+<div id="naMessage"></div>
+
+<div id="api-info-block">
+<div class="api-level">
+  
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+  
+  
+  
+  
+
+</div>
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+   
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+
+
+
+
+  &#124; <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+
+</div><!-- end sum-details-links -->
+</div><!-- end api-info-block -->
+
+<div id="jd-content" data-version-added="1" >
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<h1 class="api-title">Uri</h1>
+<p>
+<code class="api-signature">
+  public
+  
+  
+  abstract
+  class
+  Uri
+</code>
+<br>
+
+
+<code class="api-signature">
+  
+    extends <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a>
+  
+  
+  
+</code>
+
+<code class="api-signature">
+  
+  
+      implements
+      
+        <a href="https://developer.android.com/reference/android/os/Parcelable.html">Parcelable</a>, 
+      
+        <a href="https://developer.android.com/reference/java/lang/Comparable.html">Comparable</a>&lt;<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a>&gt;
+      
+  
+  
+</code>
+
+</p><table class="jd-inheritance-table">
+
+
+  <tr>
+    
+    <td colspan="2" class="jd-inheritance-class-cell"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+    </td>
+  </tr>
+  
+
+  <tr>
+    
+      <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+    
+    <td colspan="1" class="jd-inheritance-class-cell">android.net.Uri
+    </td>
+  </tr>
+  
+
+</table>
+  
+
+    
+
+<br><hr>
+
+
+  <p>Immutable URI reference. A URI reference includes a URI and a fragment, the
+ component of the URI following a '#'. Builds and parses URI references
+ which conform to
+ <a href="http://www.faqs.org/rfcs/rfc2396.html">RFC 2396</a>.
+
+ <p>In the interest of performance, this class performs little to no
+ validation. Behavior is undefined for invalid input. This class is very
+ forgiving--in the face of invalid input, it will return garbage
+ rather than throw an exception unless otherwise specified.
+</p>
+
+
+
+
+
+
+
+
+
+<h2 class="api-section">Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="responsive">
+<tr><th colspan="2"><h3>Nested classes</h3></th></tr>
+
+
+  
+    <tr data-version-added="1" >
+      <td class="jd-typecol"><code>
+        
+        
+        
+        
+        class</code></td>
+      <td class="jd-descrcol" width="100%">
+        <code><a href="https://developer.android.com/reference/android/net/Uri.Builder.html">Uri.Builder</a></code>
+        <p>Helper class for building or manipulating URI references.&nbsp;
+        
+    
+</p>
+      </td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="responsive constants inhtable">
+<tr><th><h3>Inherited constants</h3></th></tr>
+
+
+
+
+  <tr  >
+  <td>
+    <div class="expandable jd-inherited-apis">
+      <span class="expand-control">From interface
+        <code><a href="https://developer.android.com/reference/android/os/Parcelable.html">android.os.Parcelable</a></code>
+      </span>
+      <table class="responsive">
+        
+
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/os/Parcelable.html#CONTENTS_FILE_DESCRIPTOR">CONTENTS_FILE_DESCRIPTOR</a></code>
+          <p>Descriptor bit used with <code><a href="https://developer.android.com/reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: indicates that
+ the Parcelable object's flattened representation includes a file descriptor.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/os/Parcelable.html#PARCELABLE_WRITE_RETURN_VALUE">PARCELABLE_WRITE_RETURN_VALUE</a></code>
+          <p>Flag for use with <code><a href="https://developer.android.com/reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel,%20int)">writeToParcel(Parcel, int)</a></code>: the object being written
+ is a return value, that is the result of a function such as
+ "<code>Parcelable someFunction()</code>",
+ "<code>void someFunction(out Parcelable)</code>", or
+ "<code>void someFunction(inout Parcelable)</code>".
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+
+      </table>
+    </div>
+  </td></tr>
+
+
+
+
+</table>
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="responsive properties">
+<tr><th colspan="2"><h3>Fields</h3></th></tr>
+
+
+
+  <tr data-version-added="1" >
+    <td><code>
+    public
+    static
+    final
+    <a href="https://developer.android.com/reference/android/os/Parcelable.Creator.html">Creator</a>&lt;<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a>&gt;</code></td>
+    <td width="100%">
+      <code><a href="https://developer.android.com/reference/android/net/Uri.html#CREATOR">CREATOR</a></code>
+      <p>Reads Uris from Parcels.
+      
+    
+</p>
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+    <td><code>
+    public
+    static
+    final
+    <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+    <td width="100%">
+      <code><a href="https://developer.android.com/reference/android/net/Uri.html#EMPTY">EMPTY</a></code>
+      <p>The empty URI, equivalent to "".
+      
+    
+</p>
+    </td>
+  </tr>
+  
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="responsive methods">
+<tr><th colspan="2"><h3>Public methods</h3></th></tr>
+
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.Builder.html">Uri.Builder</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#buildUpon()">buildUpon</a>()
+      </code>
+      
+        <p>Constructs a new builder, copying the attributes from this Uri.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#compareTo(android.net.Uri)">compareTo</a>(<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> other)
+      </code>
+      
+        <p>Compares the string representation of this Uri with that of
+ another.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#decode(java.lang.String)">decode</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s)
+      </code>
+      
+        <p>Decodes '%'-escaped octets in the given string using the UTF-8 scheme.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#encode(java.lang.String,%20java.lang.String)">encode</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> allow)
+      </code>
+      
+        <p>Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#encode(java.lang.String)">encode</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s)
+      </code>
+      
+        <p>Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#equals(java.lang.Object)">equals</a>(<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Compares this Uri to another object for equality.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#fromFile(java.io.File)">fromFile</a>(<a href="https://developer.android.com/reference/java/io/File.html">File</a> file)
+      </code>
+      
+        <p>Creates a Uri from a file.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#fromParts(java.lang.String,%20java.lang.String,%20java.lang.String)">fromParts</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> scheme, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> ssp, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> fragment)
+      </code>
+      
+        <p>Creates an opaque Uri from the given components.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getAuthority()">getAuthority</a>()
+      </code>
+      
+        <p>Gets the decoded authority part of this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="11" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getBooleanQueryParameter(java.lang.String,%20boolean)">getBooleanQueryParameter</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key, boolean defaultValue)
+      </code>
+      
+        <p>Searches the query string for the first value with the given key and interprets it
+ as a boolean value.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedAuthority()">getEncodedAuthority</a>()
+      </code>
+      
+        <p>Gets the encoded authority part of this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedFragment()">getEncodedFragment</a>()
+      </code>
+      
+        <p>Gets the encoded fragment part of this URI, everything after the '#'.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedPath()">getEncodedPath</a>()
+      </code>
+      
+        <p>Gets the encoded path.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedQuery()">getEncodedQuery</a>()
+      </code>
+      
+        <p>Gets the encoded query component from this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedSchemeSpecificPart()">getEncodedSchemeSpecificPart</a>()
+      </code>
+      
+        <p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getEncodedUserInfo()">getEncodedUserInfo</a>()
+      </code>
+      
+        <p>Gets the encoded user information from the authority.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getFragment()">getFragment</a>()
+      </code>
+      
+        <p>Gets the decoded fragment part of this URI, everything after the '#'.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getHost()">getHost</a>()
+      </code>
+      
+        <p>Gets the encoded host from the authority for this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getLastPathSegment()">getLastPathSegment</a>()
+      </code>
+      
+        <p>Gets the decoded last segment in the path.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getPath()">getPath</a>()
+      </code>
+      
+        <p>Gets the decoded path.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getPathSegments()">getPathSegments</a>()
+      </code>
+      
+        <p>Gets the decoded path segments.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getPort()">getPort</a>()
+      </code>
+      
+        <p>Gets the port from the authority for this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getQuery()">getQuery</a>()
+      </code>
+      
+        <p>Gets the decoded query component from this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getQueryParameter(java.lang.String)">getQueryParameter</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key)
+      </code>
+      
+        <p>Searches the query string for the first value with the given key.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="11" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getQueryParameterNames()">getQueryParameterNames</a>()
+      </code>
+      
+        <p>Returns a set of the unique names of all query parameters.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getQueryParameters(java.lang.String)">getQueryParameters</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key)
+      </code>
+      
+        <p>Searches the query string for parameter values with the given key.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getScheme()">getScheme</a>()
+      </code>
+      
+        <p>Gets the scheme of this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getSchemeSpecificPart()">getSchemeSpecificPart</a>()
+      </code>
+      
+        <p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#getUserInfo()">getUserInfo</a>()
+      </code>
+      
+        <p>Gets the decoded user information from the authority.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Hashes the encoded string represention of this Uri consistently with
+ <code><a href="https://developer.android.com/reference/android/net/Uri.html#equals(java.lang.Object)">equals(Object)</a></code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#isAbsolute()">isAbsolute</a>()
+      </code>
+      
+        <p>Returns true if this URI is absolute, i.e.&nbsp;if it contains an
+ explicit scheme.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#isHierarchical()">isHierarchical</a>()
+      </code>
+      
+        <p>Returns true if this URI is hierarchical like "http://google.com".
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#isOpaque()">isOpaque</a>()
+      </code>
+      
+        <p>Returns true if this URI is opaque like "mailto:nobody@google.com".
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#isRelative()">isRelative</a>()
+      </code>
+      
+        <p>Returns true if this URI is relative, i.e.&nbsp;if it doesn't contain an
+ explicit scheme.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="16" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#normalizeScheme()">normalizeScheme</a>()
+      </code>
+      
+        <p>Return an equivalent URI with a lowercase scheme component.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#parse(java.lang.String)">parse</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> uriString)
+      </code>
+      
+        <p>Creates a Uri which parses the given encoded URI string.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns the encoded string representation of this URI.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#withAppendedPath(android.net.Uri,%20java.lang.String)">withAppendedPath</a>(<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> baseUri, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> pathSegment)
+      </code>
+      
+        <p>Creates a new Uri by appending an already-encoded path segment to a
+ base Uri.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/net/Uri.html#writeToParcel(android.os.Parcel,%20android.net.Uri)">writeToParcel</a>(<a href="https://developer.android.com/reference/android/os/Parcel.html">Parcel</a> out, <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)
+      </code>
+      
+        <p>Writes a Uri to a Parcel.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="responsive methods inhtable">
+<tr><th><h3>Inherited methods</h3></th></tr>
+
+
+<tr  >
+<td colspan="2">
+  <div class="expandable jd-inherited-apis">
+    <span class="expand-control">From class
+      <code>
+        
+          <a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+        
+      </code>
+    </span>
+    <table class="responsive">
+      
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#clone()">clone</a>()
+      </code>
+      
+        <p>Creates and returns a copy of this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#equals(java.lang.Object)">equals</a>(<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a> obj)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#finalize()">finalize</a>()
+      </code>
+      
+        <p>Called by the garbage collector on an object when garbage collection
+ determines that there are no more references to the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#getClass()">getClass</a>()
+      </code>
+      
+        <p>Returns the runtime class of this <code>Object</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify</a>()
+      </code>
+      
+        <p>Wakes up a single thread that is waiting on this object's
+ monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll</a>()
+      </code>
+      
+        <p>Wakes up all threads that are waiting on this object's monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long,%20int)">wait</a>(long millis, int nanos)
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
+ some other thread interrupts the current thread, or a certain
+ amount of real time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long)">wait</a>(long millis)
+      </code>
+      
+        <p>Causes the current thread to wait until either another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
+ specified amount of time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait()">wait</a>()
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</td></tr>
+
+
+
+<tr  >
+<td colspan="2">
+  <div class="expandable jd-inherited-apis">
+    <span class="expand-control">From interface
+      <code>
+        
+          <a href="https://developer.android.com/reference/android/os/Parcelable.html">android.os.Parcelable</a>
+        
+      </code>
+    </span>
+    <table class="responsive">
+      
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/os/Parcelable.html#describeContents()">describeContents</a>()
+      </code>
+      
+        <p>Describe the kinds of special objects contained in this Parcelable
+ instance's marshaled representation.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel,%20int)">writeToParcel</a>(<a href="https://developer.android.com/reference/android/os/Parcel.html">Parcel</a> dest, int flags)
+      </code>
+      
+        <p>Flatten this object in to a Parcel.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</td></tr>
+
+
+
+<tr  >
+<td colspan="2">
+  <div class="expandable jd-inherited-apis">
+    <span class="expand-control">From interface
+      <code>
+        
+          <a href="https://developer.android.com/reference/java/lang/Comparable.html">java.lang.Comparable</a>
+        
+      </code>
+    </span>
+    <table class="responsive">
+      
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Comparable.html#compareTo(T)">compareTo</a>(<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> o)
+      </code>
+      
+        <p>Compares this object with the specified object for order.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</td></tr>
+
+
+</table>
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2 class="api-section">Fields</h2>
+
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="CREATOR">CREATOR</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final <a href="https://developer.android.com/reference/android/os/Parcelable.Creator.html">Creator</a>&lt;<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a>&gt; CREATOR</pre>
+    
+    
+
+    
+  <p>Reads Uris from Parcels.
+</p></p>
+
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="EMPTY">EMPTY</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> EMPTY</pre>
+    
+    
+
+    
+  <p>The empty URI, equivalent to "".
+</p></p>
+
+    
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2 class="api-section">Public methods</h2>
+
+
+<div data-version-added="1">
+    <h3 class="api-name" id="buildUpon()">buildUpon</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/android/net/Uri.Builder.html">Uri.Builder</a> buildUpon ()</pre>
+    
+    
+
+    
+  <p>Constructs a new builder, copying the attributes from this Uri.
+</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.Builder.html">Uri.Builder</a></code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="compareTo(android.net.Uri)">compareTo</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public int compareTo (<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> other)</pre>
+    
+    
+
+    
+  <p>Compares the string representation of this Uri with that of
+ another.
+</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>other</code></td>
+        <td width="100%">
+          <code>Uri</code> <!-- no parameter comment --></p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="decode(java.lang.String)">decode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/java/lang/String.html">String</a> decode (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s)</pre>
+    
+    
+
+    
+  <p>Decodes '%'-escaped octets in the given string using the UTF-8 scheme.
+ Replaces invalid octets with the unicode replacement character
+ ("\\uFFFD").</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>s</code></td>
+        <td width="100%">
+          <code>String</code>: encoded string to decode</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the given string with escaped octets decoded, or null if
+  s is null
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="encode(java.lang.String,%20java.lang.String)">encode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/java/lang/String.html">String</a> encode (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> allow)</pre>
+    
+    
+
+    
+  <p>Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme. Leaves letters ("A-Z", "a-z"), numbers
+ ("0-9"), and unreserved characters ("_-!.~'()*") intact. Encodes
+ all other characters with the exception of those specified in the
+ allow argument.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>s</code></td>
+        <td width="100%">
+          <code>String</code>: string to encode</p></td>
+      </tr>
+      <tr>
+        <td><code>allow</code></td>
+        <td width="100%">
+          <code>String</code>: set of additional characters to allow in the encoded form,
+  null if no characters should be skipped</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">an encoded version of s suitable for use as a URI component,
+  or null if s is null
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="encode(java.lang.String)">encode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/java/lang/String.html">String</a> encode (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> s)</pre>
+    
+    
+
+    
+  <p>Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme. Leaves letters ("A-Z", "a-z"), numbers
+ ("0-9"), and unreserved characters ("_-!.~'()*") intact. Encodes
+ all other characters.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>s</code></td>
+        <td width="100%">
+          <code>String</code>: string to encode</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">an encoded version of s suitable for use as a URI component,
+  or null if s is null
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="equals(java.lang.Object)">equals</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public boolean equals (<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a> o)</pre>
+    
+    
+
+    
+  <p>Compares this Uri to another object for equality. Returns true if the
+ encoded string representations of this Uri and the given Uri are
+ equal. Case counts. Paths are not normalized. If one Uri specifies a
+ default port explicitly and the other leaves it implicit, they will not
+ be considered equal.
+</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>o</code></td>
+        <td width="100%">
+          <code>Object</code>: the reference object with which to compare.</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><code>true</code> if this object is the same as the obj
+          argument; <code>false</code> otherwise.</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="fromFile(java.io.File)">fromFile</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> fromFile (<a href="https://developer.android.com/reference/java/io/File.html">File</a> file)</pre>
+    
+    
+
+    
+  <p>Creates a Uri from a file. The URI has the form
+ "file://<absolute path>". Encodes path characters with the exception of
+ '/'.
+
+ <p>Example: "file:///tmp/android.txt"</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>file</code></td>
+        <td width="100%">
+          <code>File</code> <!-- no parameter comment --></p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+        <td width="100%">a Uri for the given file
+</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if file is null</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="fromParts(java.lang.String,%20java.lang.String,%20java.lang.String)">fromParts</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> fromParts (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> scheme, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> ssp, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> fragment)</pre>
+    
+    
+
+    
+  <p>Creates an opaque Uri from the given components. Encodes the ssp
+ which means this method cannot be used to create hierarchical URIs.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>scheme</code></td>
+        <td width="100%">
+          <code>String</code>: of the URI</p></td>
+      </tr>
+      <tr>
+        <td><code>ssp</code></td>
+        <td width="100%">
+          <code>String</code>: scheme-specific-part, everything between the
+  scheme separator (':') and the fragment separator ('#'), which will
+  get encoded</p></td>
+      </tr>
+      <tr>
+        <td><code>fragment</code></td>
+        <td width="100%">
+          <code>String</code>: fragment, everything after the '#', null if undefined,
+  will get encoded</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+        <td width="100%">Uri composed of the given scheme, ssp, and fragment</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if scheme or ssp is null</td>
+        </tr>
+      </table>
+  
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code><a href="https://developer.android.com/reference/android/net/Uri.Builder.html">if you don't want the ssp and fragment to be encoded
+</a></code></li>
+      </ul>
+  </div>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getAuthority()">getAuthority</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getAuthority ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded authority part of this URI. For
+ server addresses, the authority is structured as follows:
+ <code>[ userinfo '@' ] host [ ':' port ]</code>
+
+ <p>Examples: "google.com", "bob@google.com:80"</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the authority for this URI or null if not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="11">
+    <h3 class="api-name" id="getBooleanQueryParameter(java.lang.String,%20boolean)">getBooleanQueryParameter</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public boolean getBooleanQueryParameter (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key, 
+                boolean defaultValue)</pre>
+    
+    
+
+    
+  <p>Searches the query string for the first value with the given key and interprets it
+ as a boolean value. "false" and "0" are interpreted as <code>false</code>, everything
+ else is interpreted as <code>true</code>.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>key</code></td>
+        <td width="100%">
+          <code>String</code>: which will be decoded</p></td>
+      </tr>
+      <tr>
+        <td><code>defaultValue</code></td>
+        <td width="100%">
+          <code>boolean</code>: the default value to return if there is no query parameter for key</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">the boolean interpretation of the query parameter key
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedAuthority()">getEncodedAuthority</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedAuthority ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded authority part of this URI. For
+ server addresses, the authority is structured as follows:
+ <code>[ userinfo '@' ] host [ ':' port ]</code>
+
+ <p>Examples: "google.com", "bob@google.com:80"</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the authority for this URI or null if not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedFragment()">getEncodedFragment</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedFragment ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded fragment part of this URI, everything after the '#'.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the encoded fragment or null if there isn't one
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedPath()">getEncodedPath</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedPath ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded path.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the encoded path, or null if this is not a hierarchical URI
+ (like "mailto:nobody@google.com") or the URI is invalid
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedQuery()">getEncodedQuery</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedQuery ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded query component from this URI. The query comes after
+ the query separator ('?') and before the fragment separator ('#'). This
+ method would return "q=android" for
+ "http://www.google.com/search?q=android".</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the encoded query or null if there isn't one
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedSchemeSpecificPart()">getEncodedSchemeSpecificPart</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedSchemeSpecificPart ()</pre>
+    
+    
+
+    
+  <p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'. If this is a
+ relative URI, this method returns the entire URI. Leaves escaped octets
+ intact.
+
+ <p>Example: "//www.google.com/search?q=android"</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded scheme-specific-part
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getEncodedUserInfo()">getEncodedUserInfo</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getEncodedUserInfo ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded user information from the authority.
+ For example, if the authority is "nobody@google.com", this method will
+ return "nobody".</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the user info for this URI or null if not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getFragment()">getFragment</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getFragment ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded fragment part of this URI, everything after the '#'.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded fragment or null if there isn't one
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getHost()">getHost</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getHost ()</pre>
+    
+    
+
+    
+  <p>Gets the encoded host from the authority for this URI. For example,
+ if the authority is "bob@google.com", this method will return
+ "google.com".</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the host for this URI or null if not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getLastPathSegment()">getLastPathSegment</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getLastPathSegment ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded last segment in the path.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded last segment or null if the path is empty
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getPath()">getPath</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getPath ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded path.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded path, or null if this is not a hierarchical URI
+ (like "mailto:nobody@google.com") or the URI is invalid
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getPathSegments()">getPathSegments</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt; getPathSegments ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded path segments.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code></td>
+        <td width="100%">decoded path segments, each without a leading or trailing '/'
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getPort()">getPort</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract int getPort ()</pre>
+    
+    
+
+    
+  <p>Gets the port from the authority for this URI. For example,
+ if the authority is "google.com:80", this method will return 80.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">the port for this URI or -1 if invalid or not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getQuery()">getQuery</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getQuery ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded query component from this URI. The query comes after
+ the query separator ('?') and before the fragment separator ('#'). This
+ method would return "q=android" for
+ "http://www.google.com/search?q=android".</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded query or null if there isn't one
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getQueryParameter(java.lang.String)">getQueryParameter</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getQueryParameter (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key)</pre>
+    
+    
+
+    
+  <p>Searches the query string for the first value with the given key.
+
+ <p><strong>Warning:</strong> Prior to Jelly Bean, this decoded
+ the '+' character as '+' rather than ' '.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>key</code></td>
+        <td width="100%">
+          <code>String</code>: which will be encoded</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded value or null if no parameter is found
+</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code></td>
+          <td width="100%">if this isn't a hierarchical URI</td>
+        </tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if key is null</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="11">
+    <h3 class="api-name" id="getQueryParameterNames()">getQueryParameterNames</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public <a href="https://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt; getQueryParameterNames ()</pre>
+    
+    
+
+    
+  <p>Returns a set of the unique names of all query parameters. Iterating
+ over the set will return the names in order of their first occurrence.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/util/Set.html">Set</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code></td>
+        <td width="100%">a set of decoded names
+</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code></td>
+          <td width="100%">if this isn't a hierarchical URI</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getQueryParameters(java.lang.String)">getQueryParameters</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt; getQueryParameters (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> key)</pre>
+    
+    
+
+    
+  <p>Searches the query string for parameter values with the given key.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>key</code></td>
+        <td width="100%">
+          <code>String</code>: which will be encoded</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&gt;</code></td>
+        <td width="100%">a list of decoded values
+</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code></td>
+          <td width="100%">if this isn't a hierarchical URI</td>
+        </tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if key is null</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getScheme()">getScheme</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getScheme ()</pre>
+    
+    
+
+    
+  <p>Gets the scheme of this URI. Example: "http"</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the scheme or null if this is a relative URI
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getSchemeSpecificPart()">getSchemeSpecificPart</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getSchemeSpecificPart ()</pre>
+    
+    
+
+    
+  <p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'. If this is a
+ relative URI, this method returns the entire URI. Decodes escaped octets.
+
+ <p>Example: "//www.google.com/search?q=android"</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the decoded scheme-specific-part
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getUserInfo()">getUserInfo</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getUserInfo ()</pre>
+    
+    
+
+    
+  <p>Gets the decoded user information from the authority.
+ For example, if the authority is "nobody@google.com", this method will
+ return "nobody".</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">the user info for this URI or null if not present
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="hashCode()">hashCode</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public int hashCode ()</pre>
+    
+    
+
+    
+  <p>Hashes the encoded string represention of this Uri consistently with
+ <code><a href="https://developer.android.com/reference/android/net/Uri.html#equals(java.lang.Object)">equals(Object)</a></code>.
+</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">a hash code value for this object.</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="isAbsolute()">isAbsolute</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public boolean isAbsolute ()</pre>
+    
+    
+
+    
+  <p>Returns true if this URI is absolute, i.e.&nbsp;if it contains an
+ explicit scheme.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">true if this URI is absolute, false if it's relative
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="isHierarchical()">isHierarchical</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract boolean isHierarchical ()</pre>
+    
+    
+
+    
+  <p>Returns true if this URI is hierarchical like "http://google.com".
+ Absolute URIs are hierarchical if the scheme-specific part starts with
+ a '/'. Relative URIs are always hierarchical.
+</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="isOpaque()">isOpaque</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public boolean isOpaque ()</pre>
+    
+    
+
+    
+  <p>Returns true if this URI is opaque like "mailto:nobody@google.com". The
+ scheme-specific part of an opaque URI cannot start with a '/'.
+</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="isRelative()">isRelative</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract boolean isRelative ()</pre>
+    
+    
+
+    
+  <p>Returns true if this URI is relative, i.e.&nbsp;if it doesn't contain an
+ explicit scheme.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">true if this URI is relative, false if it's absolute
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="16">
+    <h3 class="api-name" id="normalizeScheme()">normalizeScheme</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 16</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> normalizeScheme ()</pre>
+    
+    
+
+    
+  <p>Return an equivalent URI with a lowercase scheme component.
+ This aligns the Uri with Android best practices for
+ intent filtering.
+
+ <p>For example, "HTTP://www.android.com" becomes
+ "http://www.android.com"
+
+ <p>All URIs received from outside Android (such as user input,
+ or external sources like Bluetooth, NFC, or the Internet) should
+ be normalized before they are used to create an Intent.
+
+ <p class="note">This method does <em>not</em> validate bad URI's,
+ or 'fix' poorly formatted URI's - so do not use it for input validation.
+ A Uri will always be returned, even if the Uri is badly formatted to
+ begin with and a scheme component cannot be found.</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+        <td width="100%">normalized Uri (never null)</p></td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code><a href="https://developer.android.com/reference/android/content/Intent.html#setData(android.net.Uri)">Intent.setData(Uri)</a></code></li><li><code><a href="https://developer.android.com/reference/android/content/Intent.html#setDataAndNormalize(android.net.Uri)">Intent.setDataAndNormalize(Uri)</a></code></li>
+      </ul>
+  </div>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="parse(java.lang.String)">parse</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> parse (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> uriString)</pre>
+    
+    
+
+    
+  <p>Creates a Uri which parses the given encoded URI string.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>uriString</code></td>
+        <td width="100%">
+          <code>String</code>: an RFC 2396-compliant, encoded URI</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+        <td width="100%">Uri for this given uri string
+</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if uriString is null</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="toString()">toString</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public abstract <a href="https://developer.android.com/reference/java/lang/String.html">String</a> toString ()</pre>
+    
+    
+
+    
+  <p>Returns the encoded string representation of this URI.
+ Example: "http://google.com/"
+</p></p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">a string representation of the object.
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="withAppendedPath(android.net.Uri,%20java.lang.String)">withAppendedPath</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> withAppendedPath (<a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> baseUri, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> pathSegment)</pre>
+    
+    
+
+    
+  <p>Creates a new Uri by appending an already-encoded path segment to a
+ base Uri.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>baseUri</code></td>
+        <td width="100%">
+          <code>Uri</code>: Uri to append path segment to</p></td>
+      </tr>
+      <tr>
+        <td><code>pathSegment</code></td>
+        <td width="100%">
+          <code>String</code>: encoded path segment to append</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></code></td>
+        <td width="100%">a new Uri based on baseUri with the given segment appended to
+  the path</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if baseUri is null
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="writeToParcel(android.os.Parcel,%20android.net.Uri)">writeToParcel</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static void writeToParcel (<a href="https://developer.android.com/reference/android/os/Parcel.html">Parcel</a> out, 
+                <a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a> uri)</pre>
+    
+    
+
+    
+  <p>Writes a Uri to a Parcel.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>out</code></td>
+        <td width="100%">
+          <code>Parcel</code>: parcel to write to</p></td>
+      </tr>
+      <tr>
+        <td><code>uri</code></td>
+        <td width="100%">
+          <code>Uri</code>: to write, can be null
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+
+</div><!-- end jd-content -->
+
+
+
+<div class="data-reference-resources-wrapper">
+  
+  <ul data-reference-resources>
+    
+    
+    <li><h2 class="hide-from-toc">Interfaces</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/net/ConnectivityManager.OnNetworkActiveListener.html">ConnectivityManager.OnNetworkActiveListener</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/UrlQuerySanitizer.ValueSanitizer.html">UrlQuerySanitizer.ValueSanitizer</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Classes</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/net/CaptivePortal.html">CaptivePortal</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/ConnectivityManager.html">ConnectivityManager</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback.html">ConnectivityManager.NetworkCallback</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/Credentials.html">Credentials</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/DhcpInfo.html">DhcpInfo</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpPrefix.html">IpPrefix</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecAlgorithm.html">IpSecAlgorithm</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecManager.html">IpSecManager</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecManager.SecurityParameterIndex.html">IpSecManager.SecurityParameterIndex</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecManager.UdpEncapsulationSocket.html">IpSecManager.UdpEncapsulationSocket</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecTransform.html">IpSecTransform</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecTransform.Builder.html">IpSecTransform.Builder</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/LinkAddress.html">LinkAddress</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/LinkProperties.html">LinkProperties</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/LocalServerSocket.html">LocalServerSocket</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/LocalSocket.html">LocalSocket</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/LocalSocketAddress.html">LocalSocketAddress</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/MacAddress.html">MacAddress</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/MailTo.html">MailTo</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/Network.html">Network</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkCapabilities.html">NetworkCapabilities</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkInfo.html">NetworkInfo</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkRequest.html">NetworkRequest</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkRequest.Builder.html">NetworkRequest.Builder</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkSpecifier.html">NetworkSpecifier</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/Proxy.html">Proxy</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/ProxyInfo.html">ProxyInfo</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/RouteInfo.html">RouteInfo</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/SSLCertificateSocketFactory.html">SSLCertificateSocketFactory</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/SSLSessionCache.html">SSLSessionCache</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/TrafficStats.html">TrafficStats</a></li>
+          <li class="selected"><a href="https://developer.android.com/reference/android/net/Uri.html">Uri</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/Uri.Builder.html">Uri.Builder</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/UrlQuerySanitizer.html">UrlQuerySanitizer</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/UrlQuerySanitizer.IllegalCharacterValueSanitizer.html">UrlQuerySanitizer.IllegalCharacterValueSanitizer</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/UrlQuerySanitizer.ParameterValuePair.html">UrlQuerySanitizer.ParameterValuePair</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/VpnService.html">VpnService</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/VpnService.Builder.html">VpnService.Builder</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Enums</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/net/LocalSocketAddress.Namespace.html">LocalSocketAddress.Namespace</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkInfo.DetailedState.html">NetworkInfo.DetailedState</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/NetworkInfo.State.html">NetworkInfo.State</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Exceptions</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecManager.ResourceUnavailableException.html">IpSecManager.ResourceUnavailableException</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/IpSecManager.SpiUnavailableException.html">IpSecManager.SpiUnavailableException</a></li>
+          <li><a href="https://developer.android.com/reference/android/net/ParseException.html">ParseException</a></li>
+      </ul>
+    </li>
+    
+  </ul>
+  
+</div>
+
+
+
+</div><!-- end devsite ReferenceObject -->
+
+  </div>
+  
+
+  
+        
+  
+
+
+
+
+
+
+
+        
+<div class="devsite-content-footer nocontent">
+  
+  
+    <p>Content and code samples on this page are subject to the licenses described in the <a href="/license">Content License</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+
+  
+    
+    <p class="devsite-content-footer-date" itemprop="datePublished"
+       content="2018-06-06T16:09:23.767360">
+      
+      Last updated June 6, 2018.
+    </p>
+  
+
+</div>
+
+        </article>
+      </article>
+  
+
+        </div>
+      
+
+<footer class="devsite-footer-promos nocontent"><nav class="devsite-full-site-width"><ul class="devsite-footer-promos-list"><li class="devsite-footer-promo"><a href="//twitter.com/AndroidDev"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Twitter Promo"
+           ><img class="devsite-footer-promo-icon" src="https://developer.android.com/images/footer/logo-twitter.svg">
+          
+          
+            Twitter
+          
+        </a><div class="devsite-footer-promo-description">Follow @AndroidDev on Twitter</div></li><li class="devsite-footer-promo"><a href="//plus.google.com/+AndroidDevelopers"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Google+ Promo"
+           ><img class="devsite-footer-promo-icon" src="//www.gstatic.com/images/branding/product/2x/google_plus_48dp.png">
+          
+          
+            Google+
+          
+        </a><div class="devsite-footer-promo-description">Follow Android Developers on Google+</div></li><li class="devsite-footer-promo"><a href="//www.youtube.com/user/androiddevelopers"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer YouTube Promo"
+           ><img class="devsite-footer-promo-icon" src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png">
+          
+          
+            YouTube
+          
+        </a><div class="devsite-footer-promo-description">Check out Android Developers on YouTube</div></li></ul></nav></footer><footer class="devsite-footer-linkboxes nocontent
+               devsite-footer-linkboxes-all-backup
+               devsite-footer-linkboxes-with-sites"><nav class="devsite-full-site-width"><ul class="devsite-footer-linkboxes-list"><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">More Android</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link"
+               >
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/enterprise/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Enterprise Link"
+               >
+                Enterprise
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/security-center/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Security Link"
+               >
+                Security
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://source.android.com/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Open Source Link"
+               >
+                Source
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Support</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://issuetracker.google.com/issues/new?component=190923&template=841312"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Report Android Bug Link"
+               >
+                Report platform bug
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://issuetracker.google.com/issues/new?component=192697"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Report Android Doc Bug Link"
+               >
+                Report documentation bug
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://support.google.com/googleplay/android-developer"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Play Support Link"
+               >
+                Google Play support
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf27XIxoFmNpTjTYdk-m1uKWGqEnd7_4C_E1AD5fdCfyTBWNA/viewform?usp=pp_url&entry.1909689089&entry.208743710&entry.408796755&entry.1341430893&entry.594931249&entry.1640656812&entry.1759804042&entry.1441312344=developer.android.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer User Studies Link"
+               >
+                Join user studies
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Documentation</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/guide/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Guides Link"
+               >
+                Developer guides
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/design/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Design Guides"
+               >
+                Design guides
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/reference/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev API Ref Link"
+               >
+                API reference
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/samples/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Samples Link"
+               >
+                Samples
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/studio/intro/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Studio Link"
+               >
+                Android Studio
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-sites"><a href="https://developers.google.com/"
+           class="gc-analytics-event devsite-footer-linkbox-logo-link"
+           data-category="Site-Wide Custom Events" data-label="Footer Google Developers Link"><img class="devsite-footer-linkbox-logo"
+               src="https://developer.android.com/_static/9f55fd91be/images/redesign-14/lockup-color-knockout.png"
+               alt="Google Developers"></a><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//developer.android.com/index.html"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link"
+               >
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developer.chrome.com/home"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Link"
+               >
+                Chrome
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//firebase.google.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Link"
+               >
+                Firebase
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cloud.google.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cloud Link"
+               >
+                Google Cloud Platform
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/products/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Products Link"
+               >
+                All Products
+            </a></li></ul></li></ul></nav></footer><footer class="devsite-utility-footer"><nav class="devsite-utility-footer-nav devsite-nav devsite-full-site-width"><div class="devsite-utility-footer-nav-left"><form class="devsite-utility-footer-language" action="https://developer.android.com/i18n/setlang/"
+            method="post"><input type="hidden" name="xsrf_token" value="hyzUxhj4r0X6gTDdr4qMymFskfNuoCVTi8KAe9eYIBQ6MTU0NDYyNDY2Mzg4MDU5MA" /><input type="hidden" name="next" value="/reference/android/net/Uri"><select class="devsite-utility-footer-language-select kd-select" name="language"
+                track-type="languageSelector" track-name="click"><option value="id"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="id"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="id">
+            Bahasa Indonesia
+          </option><option value="de"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="de"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="de">
+            Deutsch
+          </option><option value="en"
+                 selected="selected" 
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="en"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="en">
+            English
+          </option><option value="es"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="es"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es">
+            español
+          </option><option value="es-419"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="es-419"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es-419">
+            Español (América Latina)
+          </option><option value="fr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="fr"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="fr">
+            français
+          </option><option value="pt-br"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="pt-br"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="pt-br">
+            Português Brasileiro
+          </option><option value="vi"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="vi"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="vi">
+            Tiếng Việt
+          </option><option value="tr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="tr"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="tr">
+            Türkçe
+          </option><option value="ru"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ru"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ru">
+            Русский
+          </option><option value="th"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="th"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="th">
+            ภาษาไทย
+          </option><option value="ja"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ja"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ja">
+            日本語
+          </option><option value="zh-cn"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="zh-cn"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-cn">
+            简体中文
+          </option><option value="zh-tw"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="zh-tw"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-tw">
+            繁體中文
+          </option><option value="ko"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ko"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ko">
+            한국어
+          </option></select></form><span class="devsite-utility-footer-links"><a class="devsite-utility-footer-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer privacy link"
+           data-footer-link-id="privacy"
+           >Privacy
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developer.android.com/license"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer license link"
+           data-footer-link-id="license"
+           >License
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer brand_guidelines link"
+           data-footer-link-id="brand_guidelines"
+           >Brand Guidelines
+         </a></span></div><div class="devsite-utility-footer-nav-right"><div class="devsite-utility-footer-newsletter-signup-text">
+        Get Android and Google Play news by email
+      </div><a class="button button-primary devsite-utility-footer-newsletter-signup-button"
+         href="/newsletter/#subscribe"
+         track-type="navigateTo" track-name="newsletter"
+         track-metadata-eventDetail="footer"
+         track-metadata-position="footer">
+        
+        Subscribe
+      </a></div></nav></footer></div><script async defer src="//www.gstatic.com/feedback/api.js"></script><script src="https://developer.android.com/_static2/9f55fd91be/jsi18n/"></script><script src="https://developer.android.com/_static/9f55fd91be/js/script_foot_closure.js"></script><script src="https://developer.android.com/_static/9f55fd91be/js/script_foot.js"></script><script>var METADATA = {};</script><script src="https://developer.android.com/irina_metadata_en.js?v=2018121202"></script><script src="https://developer.android.com/_static/9f55fd91be/js/managed/dynamic-content-widget.js"></script><script>
+        (function($) {
+          
+          devsite.devsite.Init($, {'ENABLE_BLOCKED_VIDEO_PLACEHOLDER': 0, 'SITE_NAME': 'irina', 'FULL_SITE_SEARCH_ENABLED': 1, 'ENABLE_CLOUDTRACK': 0, 'VTAGS_ENABLED': 0, 'HISTORY_ENABLED': 0, 'SIDEBAR_MINI_ENABLED': 1, 'VERSION_HASH': '9f55fd91be', 'SCRIPTSAFE_DOMAIN': 'android-dot-google-developers.appspot.com', 'ENABLE_BLOCKED_LINK_TOOLTIP': 0, 'ALLOWED_HOSTS': ['.android.com', '.appspot.com', '.gonglchuangl.net', '.google.cn', '.google.com', '.googleplex.com', '.tensorflow.org'], 'BLOCK_RSS_FEEDS': 0},
+                               '[]','en',
+                               true, '',
+                               {"f62218c009ec029abef196bba5aa34cf": true, "8de7a048f21618359bd37f5ce44be073": false, "098dafe57affddc137df300142652cfd": false, "8e03e230de0bd8a6fe173fdf172e8b3f": true, "cb025a64a50094835616312f4774a53d": true, "51470233c56fc1fde50f00b73c52b216": false, "d169d485cf24243a263783dbe42029b1": true, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true}, '/',
+                               'https://developer.android.com/');
+        })(jQuery);
+
+        
+        devsite.localInit = function() {
+          
+        };
+
+      </script><script>
+      $('.devsite-utility-footer-language-select').each(function() {
+        $(this).change(function(){$('.devsite-utility-footer-language').submit();});
+      });
+      </script></div><span id="devsite-request-elapsed" data-request-elapsed="398.44417572"></span></body></html>

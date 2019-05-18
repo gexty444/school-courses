@@ -1,0 +1,14 @@
+ThreadPerTaskWebServer.java
+10 clients:		Spent time: 106
+100 clients:	Spent time: 253
+1000 clients:	Spent time: 3448
+
+SingleThreadWebServer.java
+10 clients:		Spent time: 151
+100 clients:	Spent time: 312
+1000 clients:	Spent time: 3611
+
+An increase in the number of clients leads to a longer time spent. 
+
+SingleThreadWebServer generally fared worse than the ThreadPerTaskWebServer.
+Initially, when the number of clients are low (10 or 100), the time differences for ThreadPerTaskWebServer and SingleThreadWebServer are more significant. However, when we reached 1000 clients, the time difference became less significant.

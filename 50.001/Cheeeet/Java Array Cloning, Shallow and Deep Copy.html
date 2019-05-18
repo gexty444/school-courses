@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+		Java Array Cloning, Shallow and Deep Copy
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="/assets/css/csfundamentals-v9.css" type="text/css">
+<link rel="icon shortcut" type="image/png/vnd.microsoft.icon/x-icon/ico" href="http://cs-fundamentals.com/assets/images/favicon.ico" />
+
+<meta name="googlebot" content="noodp"/>
+<meta name="slurp" content="noydr"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="bingbot" content="noodp"/>
+<meta name="robots" content="NOODP,NOYDIR" />
+<meta name="robots" content="index,follow" />
+<meta name="Distribution" content="Global" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Author" content="Krishan Kumar" />
+
+
+		<meta name="description" content="This tutorial explains array cloning, shallow and deep copy and difference between clone and deep copy in Java. Array cloning in Java uses shallow copy. Shallow copy copies elements up to one level. Multi dimensional arrays are copied upto first dimension using array cloning in Java."/>
+		<meta name="keywords" content="clone, method, array, cloning, objects, copying, objects, arraycopy, arrays, utility, class"/>
+		<link rel="canonical" href="http://cs-fundamentals.com/java-programming/java-arrays-clone-shallow-deep-copy.php"/>
+
+		<!-- twitter meta tag-->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@csfundamentals">
+		<meta name="twitter:title" content="Java Array Cloning, Shallow and Deep Copy">
+		<meta name="twitter:description" content="This tutorial explains array cloning, shallow and deep copy and difference between clone and deep copy in Java. Array cloning in Java uses shallow copy. Shallow copy copies elements up to one level. Multi dimensional arrays are copied upto first dimension using array cloning in Java.">
+		<meta name="twitter:creator" content="@amikrishan">
+		<meta name="twitter:image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.png">
+		<meta name="twitter:domain" content="cs-fundamentals.com">
+		<meta name="twitter:url" content="http://cs-fundamentals.com/java-programming/java-arrays-clone-shallow-deep-copy.php">
+
+		<!-- fb meta tags -->
+		<meta property="og:title" content="Java Array Cloning, Shallow and Deep Copy" />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="http://cs-fundamentals.com/java-programming/java-arrays-clone-shallow-deep-copy.php" />
+		<meta property="og:image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.jpg"/>
+		<meta property="og:description" content="This tutorial explains array cloning, shallow and deep copy and difference between clone and deep copy in Java. Array cloning in Java uses shallow copy. Shallow copy copies elements up to one level. Multi dimensional arrays are copied upto first dimension using array cloning in Java." />
+		<meta property="og:site_name" content="cs-fundamentals.com" />
+		<meta property="article:tag" content="clone, method, array, cloning, objects, copying, objects, arraycopy, arrays, utility, class" />
+		<meta property="fb:admins" content="100002008933625"/>
+
+		<!-- Google Authorship and Publisher Markup -->
+		<link rel="author" href="https://plus.google.com/+KrishanKumarEr/posts"/>
+		<link rel="publisher" href="https://plus.google.com/+Csfundamentals-google-plus/posts"/>
+
+		<!-- Schema.org markup for Google+ -->
+		<meta itemprop="name" content="Java Array Cloning, Shallow and Deep Copy">
+		<meta itemprop="description" content="This tutorial explains array cloning, shallow and deep copy and difference between clone and deep copy in Java. Array cloning in Java uses shallow copy. Shallow copy copies elements up to one level. Multi dimensional arrays are copied upto first dimension using array cloning in Java.">
+		<meta itemprop="image" content="http://cs-fundamentals.com/assets/images/cs-fundamentals-logo.jpg">
+
+		<!-- Dublin Core Meta Tags-->
+		<meta name="DC.title" lang="en" content="Java Array Cloning, Shallow and Deep Copy"/>
+		<meta name="DC.creator" content="Krishan Kumar"/>
+		<meta name="DC.subject" lang="en" content="Java Programming Tutorials"/>
+		<meta name="DC.description" lang="en" content="This tutorial explains array cloning, shallow and deep copy and difference between clone and deep copy in Java. Array cloning in Java uses shallow copy. Shallow copy copies elements up to one level. Multi dimensional arrays are copied upto first dimension using array cloning in Java."/>
+		<meta name="DC.publisher" content="cs-fundamentals.com"/>
+		<meta name="DC.identifier" content="http://cs-fundamentals.com/java-programming/java-arrays-clone-shallow-deep-copy.php"/>
+	</head>
+
+	<body>
+		<div id="page-wrapper">
+			<div id="fb-root"></div>
+<div id="header-wrapper" class="border-box blue white-text">
+	<div id="header" class="container padding-lr">
+		<div id="logo-and-tagline-wrap">
+			<div id="logo"><a href="http://cs-fundamentals.com">cs-Fundamentals.com</a></div>
+			<div id="tagline"> Programming Tutorials and Interview Questions </div>	
+		</div>
+		<div id="google-search-box">
+			<gcse:searchbox-only></gcse:searchbox-only>
+		</div>					
+	</div>
+	<div id="toggle-nav-btn"></div>
+</div>
+
+<div id="nav-panel-wrapper" >
+	<div id="nav-panel" class="container">
+		<div id="menu-items" >
+			<ul>
+				<li id="home"><a href="http://cs-fundamentals.com" >Home</a></li>
+				<li id="c-programming"><a href="http://cs-fundamentals.com/c-programming/c-programming-tutorials.php">C Programming</a></li>
+				<li id="java-programming"><a  href="http://cs-fundamentals.com/java-programming/java-programming-tutorials.php">Java Programming</a></li>
+				<li id="data-structures"><a href="http://cs-fundamentals.com/data-structures/data-structures-tutorials.php">Data Structures</a></li>
+				<li id="web-development"><a href="http://cs-fundamentals.com/web-development/web-development-tutorials.php">Web Development</a></li>
+				<li id="tech-interview"><a href="http://cs-fundamentals.com/tech-interview/tech-interview-questions.php">Tech Interview</a></li>
+			</ul>
+		</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="body-content-wrapper">
+				<div id="body-content" class="body-content container padding-10px">
+					<div id="left-col" class="left-col-below-650">
+						<div class="section-heading"><h1><b>Java Array Cloning, Shallow and Deep Copy</b></h1></div>
+						<div class="left-col-floating-ad">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad_resp_text_disp -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>
+						<ul class="outline">
+							<li><a href="#java-arrays-cloning-shallow-deep-copy">Java Array Cloning, Shallow and Deep Copy</a>
+								<ul>
+									<li><a href="#why-java-cloning-needed">Why is Java's Clone Needed?</a></li>
+									<li><a href="#java-arrays-cloning-shallow-copy">Java Arrays: Cloning and Shallow Copy</a></li>
+									<li><a href="#copying-java-arrays-arraycopy">Copying Java Array by <code>System.arraycopy()</code></a></li>
+									<li><a href="#java-arrays-utility-class">Java Arrays: <code>java.util.Arrays</code> Class</a></li>
+									<li><a href="#java-arrays-deep-copy">Java Arrays: Deep Copy or Deep Cloning</a></li>
+									<li><a href="#java-multi-dimensional-arrays">Java Multidimensional Arrays</a></li>
+									<li><a href="#java-multi-dimensional-arrays-cloning">Java Cloning of Multidimensional Arrays</a></li>
+									<li><a href="#references">References</a></li>
+								</ul>
+							</li>
+						</ul>
+			
+						<a name="java-arrays-cloning-shallow-deep-copy"></a>
+						<h2><b>Java Array Cloning, Shallow and Deep Copy</b></h2>					
+						<p>
+						Cloning, shallow copy and deep copy in Java are the ways of copying the attributes of one object into another of same type. Cloning, and shallow copy in Java are the same things. Java provides a <code>clone</code> method that copies the attributes of one object into another using shallow copy. Cloning Arrays in Java and other objects sometimes behave differently. Java Language Specification states that a clone of a multidimensional array is shallow, which is to say that it creates only a single new array. Subarrays are shared.
+						</p>
+
+						<a name="why-java-cloning-needed"></a>
+						<h2><b>Why is Java's Clone Needed?</b></h2>
+						<p>
+						To understand the need of Java's <code>clone()</code> method we first have to understand what is the difference between a reference to an object in memory and an altogether separate copy of an object. When more than one reference points to a single object in memory and the state of the object is changed by using any reference, all references retain the same behaviour because underneath the object in memory is the same for all references. This does not happen when there are separate copies. We need to clone a Java object when it is a parameter or return value of one of the public methods. If the object is a method parameter, then we don't want the caller to modify it later. Likewise, if we return an object that is part of our class's internal state, we should return a copy instead of a reference so that callers can't accidentally or deliberately change that internal state.			
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>			
+						<a name="java-arrays-cloning-shallow-copy"></a>
+						<h2><b>Java Arrays: Cloning and Shallow Copy</b></h2>
+						<p>
+						Cloning or shallow copy and deep copy in Java have purpose when it comes to objects; primitive types are always copied by their value. Arrays in Java are objects; therefore they inherit all the characteristics of <code>java.lang.Object</code>. An array type has a <code>public</code> method <code>clone()</code>, which overrides the <code>clone()</code> method of class <code>Object</code>. An array type inherits all methods except <code>clone</code> from <code>Object</code> class. The <code>clone</code> method of an array type returns a duplicate copy of the same array. Also note that every Java array implements the interfaces <code>Cloneable</code> and <code>java.io.Serializable</code>. Following program acquaints you to cloning of arrays in Java.
+						</p>
+
+<div class="code-div">
+<pre class="java geshi-border" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">/* ArrayCloneDemo.java */</span>
+<span style="color: #666666; font-style: italic;">// Demonstrating cloning of array objects</span>
+<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> ArrayCloneDemo
+<span style="color: #009900;">&#123;</span>
+    <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span style="color: #003399;">String</span></a><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> args<span style="color: #009900;">&#41;</span>
+    <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">int</span> ai<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#123;</span><span style="color: #cc66cc;">1</span>, <span style="color: #cc66cc;">2</span>, <span style="color: #cc66cc;">3</span>, <span style="color: #cc66cc;">4</span>, <span style="color: #cc66cc;">5</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+&nbsp;
+        <span style="color: #666666; font-style: italic;">/* copying the reference ai to aic,
+         * after following assignment, aic
+         * will point to the same array ai points.
+         */</span>
+        <span style="color: #000066; font-weight: bold;">int</span> aic<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> ai<span style="color: #339933;">;</span> 
+&nbsp;
+        aic<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span><span style="color: #339933;">;</span>
+&nbsp;
+        <span style="color: #666666; font-style: italic;">/* both print statements will print
+         * the same result because ai, and aic
+         * are the reference of same array, then no matter
+         * which reference is being used to update array values.
+         */</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span>aic<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span>ai<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+        <span style="color: #666666; font-style: italic;">/* Now illustrating clone(). 
+         * In below assignment ai.clone() creates
+         * a separate copy of the array in memory
+         * and then assigns it to aic. Now, both 
+         * ai and aic point to two different arrays
+         * so changes made to one will not impact the other
+         */</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;---&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//separator</span>
+        aic <span style="color: #339933;">=</span> ai.<span style="color: #006633;">clone</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        aic<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">15</span><span style="color: #339933;">;</span>
+&nbsp;
+        <span style="color: #666666; font-style: italic;">/* both print statements will print 
+         * the value stored at 1st index in the array
+         * they point to.
+         */</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span>aic<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span>ai<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span>
+&nbsp;
+OUTPUT
+<span style="color: #339933;">======</span>
+<span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span>
+<span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span>
+<span style="color: #339933;">---</span>
+<span style="color: #339933;">-</span><span style="color: #cc66cc;">15</span>
+<span style="color: #cc66cc;">2</span></pre></div>		
+						<p>
+						In above example we see cloning of one dimensional array, where <code>aic</code> has a cloned array or a separate copy of <code>ai </code> after executing <code>aic = ai.clone();</code> statement.
+						</p>
+						<p>
+						Cloning could be a feasible solution in case of one dimensional arrays of basic types or objects that have only primitive types as their members. But, it does not guarantee to work as you expect if the array contains objects of type <code>Object</code> or <code>Cloneable</code> or <code>java.io.Serializable</code> or other user defined types those further can contain sub-objets, or the array has more than one dimension. Cloning can fail in case of objects that have other objects as their members. You may be thinking why? The answer is, because method <code>clone</code> performs shallow copy which does not copies child objects recursively and children objects may still point to the same objects in memory as original object's children do. As we have articulated in beginning of this article that Java cloning or shallow copy copies items up to one level. 
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>						
+						<a name="copying-java-arrays-arraycopy"></a>
+						<h2><b>Copying Java Array by <code>java.lang.System.arraycopy()</code></b></h2>
+						<p>
+						Along with Java's <code>clone()</code> method to copy array elements from one array to another Java provides <code>java.lang.System.arraycopy()</code>. However, <code>java.lang.System.arraycopy()</code> is different from cloning; during cloning we create a duplicate copy of an array whereas in copying we copy individual elements from one array to another. Java's <code>static</code> method <code>java.lang.System.arraycopy()</code> is used to copy complete array to another and also for copying selected elements. The method <code>arraycopy</code> has the following signature:
+						</p>
+<div class="code-div">
+<pre class="java geshi-border" style="font-family:monospace;"><span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> arraycopy<span style="color: #009900;">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span style="color: #003399;">Object</span></a> src,
+                             <span style="color: #000066; font-weight: bold;">int</span> srcPos,
+                             <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span style="color: #003399;">Object</span></a> dest,
+                             <span style="color: #000066; font-weight: bold;">int</span> destPos,
+                             <span style="color: #000066; font-weight: bold;">int</span> length<span style="color: #009900;">&#41;</span></pre></div>
+						<p>
+						Method <code>arraycopy()</code> copies an array from the specified source array, beginning at the specified position, to the specified position of the destination array. A subsequence of array components is copied from the source array referenced by <code>src</code> to the destination array referenced by <code>dest</code>. The number of components copied is equal to the <code>length</code> argument. The components at positions <code>srcPos</code> through <code>srcPos + length - 1</code> in the source array are copied into positions <code>destPos</code> through <code>destPos + length - 1</code>, respectively, of the destination array.
+						</p>
+						<p>
+						If the <code>src</code> and <code>dest</code> arguments refer to the same array object, then the copying is performed as if the components at positions <code>srcPos</code> through <code>srcPos + length - 1</code> were first copied to a temporary array with <code>length</code> components and then the contents of the temporary array were copied into positions <code>destPos</code> through <code>destPos + length - 1</code> of the destination array.
+						</p>
+						<p>
+						If either or both of the arrays are <code>null</code>, then a <code>NullPointerException</code> is thrown. See <a class="body-link" href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/System.html#arraycopy(java.lang.Object, int, java.lang.Object, int, int)" rel="nofollow">java.lang.System.arraycopy(java.lang.Object, int, java.lang.Object, int, int)</a> for more details. Following is a small example, which demonstrates <code>arraycopy()</code>.
+						</p>
+<div class="code-div">
+<pre class="java geshi-border" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">/* ArrayCopyDemo.java */</span>
+<span style="color: #666666; font-style: italic;">// Demonstrating array copy using System.arraycopy()</span>
+<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> ArrayCopyDemo
+<span style="color: #009900;">&#123;</span>
+    <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span style="color: #003399;">String</span></a><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> args<span style="color: #009900;">&#41;</span>
+    <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> src <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">5</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">=</span> <span style="color: #cc66cc;">0</span><span style="color: #339933;">;</span> i <span style="color: #339933;">&lt;</span> src.<span style="color: #006633;">length</span><span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> 
+        <span style="color: #009900;">&#123;</span>
+            src<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> i <span style="color: #339933;">+</span> <span style="color: #cc66cc;">1</span><span style="color: #339933;">;</span>
+        <span style="color: #009900;">&#125;</span>
+        <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> dest <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">5</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">arraycopy</span><span style="color: #009900;">&#40;</span>src, <span style="color: #cc66cc;">0</span>, dest, <span style="color: #cc66cc;">0</span>, <span style="color: #cc66cc;">5</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;src contents: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">:</span> src<span style="color: #009900;">&#41;</span>
+            <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">print</span><span style="color: #009900;">&#40;</span>i <span style="color: #339933;">+</span> <span style="color: #0000ff;">&quot; &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//blank line</span>
+&nbsp;
+        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;dest contents: &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">int</span> i <span style="color: #339933;">:</span> dest<span style="color: #009900;">&#41;</span>
+            <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">print</span><span style="color: #009900;">&#40;</span>i <span style="color: #339933;">+</span> <span style="color: #0000ff;">&quot; &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span>
+OUTPUT
+<span style="color: #339933;">======</span>
+src contents<span style="color: #339933;">:</span> 
+<span style="color: #cc66cc;">1</span> <span style="color: #cc66cc;">2</span> <span style="color: #cc66cc;">3</span> <span style="color: #cc66cc;">4</span> <span style="color: #cc66cc;">5</span> 
+&nbsp;
+dest contents<span style="color: #339933;">:</span> 
+<span style="color: #cc66cc;">1</span> <span style="color: #cc66cc;">2</span> <span style="color: #cc66cc;">3</span> <span style="color: #cc66cc;">4</span> <span style="color: #cc66cc;">5</span> </pre></div>	
+						<p>
+						The statement <code>System.arraycopy(src, 0, dest, 0, 5);</code> copies 5 array elements from <code>src</code> to <code>dest</code> starting from index zero.
+						</p>
+						<div class="ad-link-unit">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- link_unit_200x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:200px;height:90px"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="2497824475"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>						</div>						
+						<a name="java-arrays-utility-class"></a>
+						<h2><b>Java Arrays: <code>java.util.Arrays</code> Class</b></h2>
+						<p>
+						The <code>java.util.Arrays</code> class is a member of Java Collections Framework. This class contains many useful <code>static</code> methods for array operations (such as sorting and searching). Methods of <code>java.util.Arrays</code> are <code>static</code> by nature because this class is a utility class, therefore creating an object is not essential to manipulate arrays by using this class.
+						</p>
+						
+						<a name="java-arrays-deep-copy"></a>
+						<h2><b>Java Arrays: Deep Copy or Deep Cloning</b></h2>
+						<p>
+						In Java programming language, usually copying an object means we create another reference that eventually points to the same object in memory. This means if we made a change to one object, the other will also be affected in the same way. As we have seen so far, Java's <code>clone()</code> makes an independent copy but this is shallow; sub-objects still point to the originals.  
+						</p>
+						<p>
+						During deep copying or deep cloning in Java all sub-objects of an object are recursively copied. For an instance, you have a very few options for deep cloning and with immense care. These options are Serialization, and Reflection.
+						</p>
+						
+						<a name="java-multi-dimensional-arrays"></a>
+						<h2><b>Java Multidimensional Arrays</b></h2>
+						<p>
+						Java does not support multidimensional arrays like C language. Rather, seemingly looking Java's multidimensional arrays are indeed arrays whose components are themselves arrays. In Java it is because the all rows may or may not have same number of columns, or the size of rows may vary in length. Program <code>EnForArrayDemo.java</code> demonstrates this. 
+						</p>
+						<p>
+						Another important point to note that two nested <code>for</code> loops won't help when all rows of a seemingly looking two dimensional array have different number of columns. The <i>for-each</i> variant of <code>for</code> loop proved to be suitable for such conditions. 
+						</p>
+<div class="code-div">
+<pre class="java geshi-border" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">//EnForArrayDemo.java</span>
+<span style="color: #666666; font-style: italic;">// Demonstrating accessing array elements</span>
+<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> EnForArrayDemo
+<span style="color: #009900;">&#123;</span>
+    <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span style="color: #003399;">String</span></a><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> args<span style="color: #009900;">&#41;</span>
+    <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> arrTwoD <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">3</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        arrTwoD<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        arrTwoD<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">3</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+        arrTwoD<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> <span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">4</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+&nbsp;
+        <span style="color: #000000; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">int</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> arr <span style="color: #339933;">:</span> arrTwoD<span style="color: #009900;">&#41;</span>
+        <span style="color: #009900;">&#123;</span>
+            <span style="color: #000000; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">int</span> elm <span style="color: #339933;">:</span> arr<span style="color: #009900;">&#41;</span>
+            <span style="color: #009900;">&#123;</span>
+                <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">print</span><span style="color: #009900;">&#40;</span>elm <span style="color: #339933;">+</span> <span style="color: #0000ff;">&quot; &quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+            <span style="color: #009900;">&#125;</span>
+            <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+        <span style="color: #009900;">&#125;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span>
+&nbsp;
+OUTPUT
+<span style="color: #339933;">======</span>
+<span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> 
+<span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> 
+<span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> <span style="color: #cc66cc;">0</span> </pre></div>	
+						<a name="java-multi-dimensional-arrays-cloning"></a>
+						<h2><b>Java Cloning of Multidimensional Arrays</b></h2>
+						<p>
+						The following, example program (<code>CloneTwoDArrayDemo.java</code>) demonstrates how clone method works on array of arrays in Java, and what are its side effects? Following program demonstrates the inability of Java cloning that  creates a duplicate copy of two dimensional array by using <code>clone()</code> method.
+						</p>
+
+<div class="code-div">
+<pre class="java geshi-border" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">// CloneTwoDArrayDemo.java</span>
+<span style="color: #666666; font-style: italic;">// Demonstrating cloning of two dimensional array objects</span>
+<span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">class</span> CloneTwoDArrayDemo
+<span style="color: #009900;">&#123;</span>
+  <span style="color: #000000; font-weight: bold;">public</span> <span style="color: #000000; font-weight: bold;">static</span> <span style="color: #000066; font-weight: bold;">void</span> main<span style="color: #009900;">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span style="color: #003399;">String</span></a><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> args<span style="color: #009900;">&#41;</span>
+  <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">int</span> arri<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#123;</span><span style="color: #009900;">&#123;</span><span style="color: #cc66cc;">1</span>, <span style="color: #cc66cc;">2</span><span style="color: #009900;">&#125;</span>, <span style="color: #009900;">&#123;</span><span style="color: #cc66cc;">3</span>, <span style="color: #cc66cc;">4</span><span style="color: #009900;">&#125;</span>, <span style="color: #009900;">&#123;</span><span style="color: #cc66cc;">5</span>, <span style="color: #cc66cc;">6</span><span style="color: #009900;">&#125;</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">int</span> cloneArri<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+&nbsp;
+    <span style="color: #666666; font-style: italic;">//cloneArri is assigned a clone of arri</span>
+    cloneArri <span style="color: #339933;">=</span> arri.<span style="color: #006633;">clone</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+    <span style="color: #666666; font-style: italic;">/* nullify 0th row of cloneArri.
+     * It will not effect arri, because cloneArri and
+     * arri have a separate set of rows.
+     */</span>
+    cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">null</span><span style="color: #339933;">;</span>
+    <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;cloneArri[0]: &quot;</span> <span style="color: #339933;">+</span> cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// null</span>
+    <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;arri[0]: &quot;</span> <span style="color: #339933;">+</span> arri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">//class name + @ + hashcode in hex</span>
+&nbsp;
+    <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// blank line</span>
+&nbsp;
+    <span style="color: #666666; font-style: italic;">/* Now, assign a new value to cloneArri[1][1].
+     * It will change the value of arri[1][1] also,
+     * because clone() does not copy subarray
+     * therefore cloneArri[1][1], and arri[1][1]
+     * will have the same value.
+     */</span>
+    cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span><span style="color: #339933;">;</span>
+&nbsp;
+    <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;cloneArri[1][1]: &quot;</span> <span style="color: #339933;">+</span> cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span style="color: #003399;">System</span></a>.<span style="color: #006633;">out</span>.<span style="color: #006633;">println</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;arri[1][1]: &quot;</span> <span style="color: #339933;">+</span> arri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span>
+&nbsp;
+OUTPUT
+<span style="color: #339933;">======</span>
+cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">:</span> <span style="color: #000066; font-weight: bold;">null</span>
+arri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">:</span> <span style="color: #009900;">&#91;</span>I@8dc8569
+&nbsp;
+cloneArri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">:</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span>
+arri<span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">:</span> <span style="color: #339933;">-</span><span style="color: #cc66cc;">9</span></pre></div>	
+						<p>
+						Examine the output of <code>CloneTwoDArrayDemo.java</code>, and you will find that while cloning two dimensional array Java creates a shallow copy up to the rows level. That's why if we assign <code>cloneArri[1][1]</code> by <code>-9</code>, the value of <code>arri[1][1]</code> will also be changed to <code>-9</code>.
+						</p>
+						<p>
+						By using Java's <code>clone()</code> method, when a two dimensional array is cloned a new list of objects pointing to rows is created. Each object from this list further points to the same location where the original array's row object points. Therefore, when you do <code>cloneArri[0] = null;</code>. It has no effect on the <code>arri[0]</code>. Because both arrays <code>arri</code> and <code>cloneArri</code> have separate copies of row level objects. But, at one level deeper when statement <code>cloneArri[1][1] = -9;</code> is executed both arrays <code>arri</code> and <code>cloneArri</code> will be updated, because both arrays point to the same location when it comes to column level.
+						</p>
+
+						<h2>Last Word</h2>	
+						<p>
+						This tutorial explained clone vs deep copy. Java cloning uses shallow copy. Hope you have enjoyed reading this tutorial. Please do <a class="body-link" href="http://cs-fundamentals.com/contact-us.php" target="_blank">write us</a> if you have any suggestion/comment or come across any error on this page. Thanks for reading! 
+						</p>
+						
+						<a name="references"></a>
+						<h3>References</h3>
+						<div id="reference-text">
+						<ol>
+							<li><a href="http://docs.oracle.com/javase/specs/" rel="nofollow"
+								target="_blank">Java Language and Virtual Machine Specifications</a></li>
+								
+							<li><a
+								href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" rel="nofollow"
+								target="_blank">Arrays: Java&#0153; Tutorials</a></li>
+								
+							<li><a href="http://math.hws.edu/javanotes/" rel="nofollow"
+								target="_blank">Introduction to Programming Using Java by  David J. Eck </a></li>
+
+							<li><a href="http://www.horstmann.com/corejava.html" rel="nofollow"
+								target="_blank">Core Java Volume I - Fundamentals</a></li>
+								
+							<li><a
+								href="http://www.tatamcgrawhill.com/html/9780070636774.html"
+								target="_blank">Java: The Complete Reference, Seventh Edition</a></li>
+						</ol>
+						</div>
+						<br>
+						<div class="left-col-block-ad">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+						</div>
+						<br>
+						<!-- comments -->
+						<div id="comments">	
+								<!-- facebook comments won't be shown on mobile -->
+<div id="comments-and-sharing-toolbox">
+	<!-- Facebook comment box -->
+	<div class="fb-comments comment-box" notify="true" data-notify="true" data-href="http://cs-fundamentals.com/java-programming/java-arrays-clone-shallow-deep-copy.php" data-width="100%"></div>
+
+	<!-- Discuss comment box 
+	<div id="disqus_thread"></div>
+	<br>
+	-->
+
+	<!--
+	<div id="google-comments"></div>
+        -->
+	
+
+</div>
+
+
+						</div>
+					</div>
+					<div id="right-col" class="right-col-over-650">
+						<div id="subscription-form" class="right-col-divs">
+	<div style="border:1px solid #DAE9F5; background-color: #FCFEFE; padding-top: 10px;" id="subscription-form-div">
+<form id="subscription-form"
+action="http://feedburner.google.com/fb/a/mailverify" 
+method="post" target="popupwindow" 
+onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=http/cs-fundamentalscom/cs-fundamentals-feedxml', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+	<p style="font-weight: bold; text-align: center;">Get Free Tutorials by Email</p>
+	<p style="text-align: center;">
+		<label style="color: #155c92;">Email: </label>
+		<input style="width:170px;" type="text" name="email"/>
+	</p>
+	
+	<p style="text-align: center;">
+	<input type="hidden" value="http/cs-fundamentalscom/cs-fundamentals-feedxml" name="uri"/>
+	<input type="hidden" name="loc" value="en_US"/>
+	<input class="button" type="submit" value="Subscribe" />
+	</p>
+</form>
+</div> 
+</div>
+
+<div id="add-this-btns" style="border:1px solid #DAE9F5; background-color: #FCFEFE; padding: 7px 5px 1px 5px; text-align: center;" class="right-col-divs">
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5079795154047342" async="async"></script>
+
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<div class="addthis_sharing_toolbox"></div>
+</div>
+
+
+<!--
+<p/>
+<script src="https://www.gstatic.com/xads/publisher_badge/contributor_badge.js" data-width="300" data-height="100" data-theme="dark" data-pub-name="cs-Fundamentals" data-pub-id="ca-pub-3909319156194832"></script>
+
+-->
+<div id="social-badges" class="right-col-divs">
+	<!-- fb follow-us faces box -->
+<div class="right-col-divs">
+	<div class="fb-fan-box">
+		<div class="fb-page" data-href="https://www.facebook.com/csFundamentals" data-width="300" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+
+		</div>
+	</div>
+</div>
+
+
+<!-- google plus badge -->
+<div class="fb-fan-box right-col-divs">
+	<div class="g-page" data-href="//plus.google.com/u/0/113816903030219515535" data-layout="landscape" data-rel="publisher"></div>
+</div>
+
+</div>
+
+<div id="right-col-block-ad" class="right-col-block-ad" style="margin-bottom: 20px;">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad_resp_text_disp -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3909319156194832"
+     data-ad-slot="4736407675"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+<h2 class="section-heading" style="border: 1px solid #DAE9F5; border-bottom: none;">About the Author</h2>
+<div style="padding: 5px; border: 1px solid #DAE9F5; overflow: hidden; background-color: #FCFEFE;" class="right-col-divs">
+
+	<a href="//plus.google.com/u/0/116692599875032003849?prsrc=3" rel="author" target="_blank"><img alt="Author Photo" class="profile-img" src="/assets/images/krishan-profile-img.png" height="80" width="80"></a>
+	
+	
+	<p style="margin: 0px; padding: 0px;">
+	<a href="https://www.facebook.com/whoiskk" rel="author" target="_blank" style="color: #155c92;"><b>Krishan Kumar</b></a>
+	is the main author for cs-fundamentals.com. He is a software professional (post graduated from BITS-Pilani) and loves writing technical articles on programming and data structures.
+	</p>
+</div>
+
+<div id="tech-news-div" class="right-col-divs">
+	<h2 class="section-heading" style="border: 1px solid #DAE9F5; border-bottom: none;">Today's Tech News</h2>
+	<div id="tech-news">
+<strong><a href="https://www.bbc.co.uk/news/technology-46048601" rel="nofollow" title="Royole's bendy-screen FlexPai phone unveiled in China" target="_blank">Royole's bendy-screen FlexPai phone unveiled in China</a></strong><em>Posted on Wednesday October 31, 2018</em><br/><p>The FlexPai phone offers a tablet-sized screen when open or three separate displays when folded up.</p><strong><a href="https://www.bbc.co.uk/news/technology-45992475" rel="nofollow" title="Robot backpack: How this Fusion bot aids collaboration" target="_blank">Robot backpack: How this Fusion bot aids collaboration</a></strong><em>Posted on Wednesday October 31, 2018</em><br/><p>The Fusion bot shares and teaches skills by transferring body motions from one person to another.</p><strong><a href="https://www.bbc.co.uk/news/technology-46043578" rel="nofollow" title="Fake Cambridge Analytica ad hits Facebook" target="_blank">Fake Cambridge Analytica ad hits Facebook</a></strong><em>Posted on Wednesday October 31, 2018</em><br/><p>The bogus advert purports to be for the BeLeave Brexit campaign and received more than 1,000 views.</p><ins class="horizontal-line"></ins><em style="color: grey;">Courtesy BBC News</em></div>
+</div>					</div>
+				</div>
+			</div>
+			
+			<div id="footer-wrapper">
+	<div id="footer" class="footer container">
+		<div id="social-buttons" class="social-buttons">
+			<ul class="icons">
+				<li><a style="background-color: #305891;" href="https://www.facebook.com/csFundamentals" target="_blank" class="icon fa-facebook"></a></li>
+				<li><a style="background-color: #CE4D39;" href="https://plus.google.com/+Csfundamentals-google-plus" target="_blank" class="icon fa-google"></a></li>
+				<li><a style="background-color: #2CA8D2;" href="https://twitter.com/csfundamentals" target="_blank" class="icon fa-twitter"></a></li>
+				<li><a style="background-color: #0077B5;" href="https://www.linkedin.com/company/cs-fundamentals-com" target="_blank" class="icon fa-linkedin"></a></li>
+				<li><a style="background-color: #E65229;" href="http://www.stumbleupon.com/stumbler/csfundamental" target="_blank" class="icon fa-stumbleupon"></a></li>
+			</ul>
+		</div>
+		
+		<div id="internal-links" class="internal-links">
+			<ul>
+				<li id="home"><a href="http://cs-fundamentals.com" >Home</a></li>
+				<li id="contact-us"><a href="http://cs-fundamentals.com/contact-us.php">Contact Us</a></li>
+				<li id="about-us"><a  href="http://cs-fundamentals.com/about.php">About Us</a></li>
+				<li id="write-for-us"><a href="http://cs-fundamentals.com/write-for-us.php">Write For Us</a></li>
+				<li id="rss-feed"><a href="http://cs-fundamentals.com/cs-fundamentals-feed.xml">RSS Feed</a></li>
+			</ul>
+		</div>
+		<div id="footer-copyright" class="footer-copyright">
+				&copy; copyright 2016 <strong><a href="http://cs-fundamentals.com">cs-Fundamentals.com</a></strong>
+		</div>
+	</div>
+	
+</div>
+
+<!-- Back To Top Button -->
+<div id="go-top">
+<ins title="Back to Top"></ins>
+</div>
+
+<!-- include javascript files in the footer so that main content gets load faster-->
+<script type="text/javascript" src="/assets/js/jquery-182-min.js"></script>
+<script type="text/javascript" src="/assets/js/csfundamentals-v9-min.js"></script>
+
+<!-- Enable page level adds in mobile devices 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3909319156194832",
+    enable_page_level_ads: true
+  });
+</script>
+
+-->
+
+
+
+<style>
+/* The Modal (background) */
+.adb-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+	font-family: Arial, Sans-Serif;
+}
+
+/* Modal Content */
+.adb-modal-content {
+    position: relative;
+    background-color: #001c42;
+    margin: auto;
+    padding: 0;
+    
+    width: 600px;
+	height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.8s;
+    animation-name: animatetop;
+    animation-duration: 0.8s;
+	color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.adb-modal-header {
+	padding: 10px;
+    background-color: #0a3352;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.adb-modal-body {
+	padding: 10px;
+	font-size: 30px;
+	color: #F6F6F6;
+}
+
+.adb-modal-footer {
+	padding: 10px;
+	background-color: #0a3352;
+	font-size: 20px;
+}
+
+/*====================================================*/
+
+
+/* The Modal (background) */
+.adv-container {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 0px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.adv-container-content {
+    margin: auto;
+    width: 300px;
+	height: 250px;
+	padding: 2px;
+/*	border: 1px solid #E5E5E5;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+}
+
+/* The Close Button */
+.adv-close {
+    color: #555656;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -30px;
+	margin-right: -2px;
+    
+}
+
+.adv-close:hover,
+.adv-close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.responsive {
+	width: 300px;
+	height: 250px;
+}
+
+@media screen and (min-width: 360px) {
+
+}
+
+</style>
+
+
+<!-- AdBlocker Modal -->
+<div id="adBlockerAlert" class="adb-modal">
+
+  <!-- Modal content -->
+  <div class="adb-modal-content" style="text-align: center;">
+    <div class="adb-modal-header">
+         <p>AD BLOCKER DETECTED!</p>
+    </div>
+    <div class="adb-modal-body">
+		<p >Advertisements help running this site for free.</p>
+		<p><br></p>
+		<p>To view the content please disable AdBlocker and refresh the page. </p>
+
+    </div>
+    <div class="adb-modal-footer">
+      <p style="text-align: center;">Thank You!</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- The Modal -->
+<div id="adv-container" class="adv-container">
+  <!-- Modal content -->
+  <div id="adv-content" class="adv-container-content">
+	<span id="close-btn" class="adv-close">&times;</span> 
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- ad_resp_text_disp -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-3909319156194832"
+		 data-ad-slot="4736407675"
+		 data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+  </div>
+</div>
+
+<script>
+	var modal1 = document.getElementById('adv-container');  
+	modal1.style.width = "1px";
+	modal1.style.height = "1px";
+	//modal1.style.display = "none";
+	window.onload = function() {
+		
+		    setTimeout(function() {
+			  if ( typeof(window.google_jobrunner) === "undefined" ) {
+				var modal = document.getElementById('adBlockerAlert');
+				modal.style.display = "block";
+			  }
+			}, 7000); 
+			
+	                //setTimeout(function() {showme();}, 30000);
+			setTimeout(function() {showme();}, 95000);
+			//setTimeout(function() {showme();}, 180000);
+			//setTimeout(function() {showme();}, Math.floor(Math.random() * (150000 - 60000 + 1)) + 60000);
+			//setTimeout(function() {showme();}, Math.floor(Math.random() * (300000 - 180000 + 1)) + 180000);
+			//setTimeout(function() {showme();}, 240000);
+	};
+	
+	function showme() {
+			if ( typeof(window.google_jobrunner) !== "undefined" ) {
+				// Get the modal
+				var modal = document.getElementById('adv-container');
+
+				// Get the <span> element that closes the modal
+				var closeBtn = document.getElementById('close-btn');;
+
+				// When the user clicks the button, open the modal 
+				var modalContent = document.getElementById('adv-content');
+				modal.style.width = "100%";
+				modal.style.height = "100%";
+				modal.style.padding = "150px 0px 0px 0px";
+				
+				
+				modal.style.display = "block";
+
+				// When the user clicks on <span> (x), close the modal
+				closeBtn.onclick = function() {
+					modal.style.display = "none";
+				}
+				
+				// When the user clicks anywhere outside of the modal, close it
+				//window.onclick = function(event) {
+				//	if (event.target == modal) {
+				//		modal.style.display = "none";
+				//	}
+				//}
+			}
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://apis.google.com/js/plusone.js"></script>
+<script>
+gapi.comments.render('google-comments', {
+href: window.location,
+width: '599',
+first_party_property: 'BLOGGER',
+view_type: 'FILTERED_POSTMOD'
+});
+</script>
+-->		</div>
+	</body>
+</html>

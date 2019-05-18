@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Manifest added by SuperPWA - Progressive Web Apps Plugin For WordPress -->
+<link rel="manifest" href="/superpwa-manifest.json">
+<meta name="theme-color" content="#D5E0EB">
+<link rel="apple-touch-icon" sizes="192x192" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/192x192-transparent.png">
+<link rel="apple-touch-icon" sizes="512x512" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/512x512-transparent.png">
+<!-- / SuperPWA.com -->
+<title>Adapter Design Pattern in Java - JournalDev</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v9.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Adapter Design Pattern in Java. Adapter Pattern example tutorial in java. Java Adapter Design Pattern example using Class Adapter, Object Adapter."/>
+<link rel="canonical" href="https://www.journaldev.com/1487/adapter-design-pattern-java" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Adapter Design Pattern in Java - JournalDev" />
+<meta property="og:description" content="Adapter Design Pattern in Java. Adapter Pattern example tutorial in java. Java Adapter Design Pattern example using Class Adapter, Object Adapter." />
+<meta property="og:url" content="https://www.journaldev.com/1487/adapter-design-pattern-java" />
+<meta property="og:site_name" content="JournalDev" />
+<meta property="article:author" content="https://www.facebook.com/PankajKumarJaiswal" />
+<meta property="article:section" content="Design Patterns" />
+<meta property="article:published_time" content="2013-07-02T15:35:24+00:00" />
+<meta property="article:modified_time" content="2016-07-24T15:04:16+00:00" />
+<meta property="og:updated_time" content="2016-07-24T15:04:16+00:00" />
+<meta property="og:image" content="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram.png" />
+<meta property="og:image:secure_url" content="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram.png" />
+<meta property="og:image:width" content="711" />
+<meta property="og:image:height" content="460" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Adapter Design Pattern in Java. Adapter Pattern example tutorial in java. Java Adapter Design Pattern example using Class Adapter, Object Adapter." />
+<meta name="twitter:title" content="Adapter Design Pattern in Java - JournalDev" />
+<meta name="twitter:image" content="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram.png" />
+<meta name="twitter:creator" content="@JournalDev" />
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"Person","url":"https:\/\/www.journaldev.com\/","sameAs":[],"@id":"#person","name":"Pankaj Kumar"}</script>
+<script type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.journaldev.com\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.journaldev.com\/java","name":"Java"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.journaldev.com\/java\/design-patterns","name":"Design Patterns"}},{"@type":"ListItem","position":4,"item":{"@id":"https:\/\/www.journaldev.com\/1487\/adapter-design-pattern-java","name":"Adapter Design Pattern in Java"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="amphtml" href="https://www.journaldev.com/1487/adapter-design-pattern-java/amp" /><link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Feed" href="https://www.journaldev.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Comments Feed" href="https://www.journaldev.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="JournalDev &raquo; Adapter Design Pattern in Java Comments Feed" href="https://www.journaldev.com/1487/adapter-design-pattern-java/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/cdn.journaldev.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='news-pro-theme-css'  href='https://cdn.journaldev.com/wp-content/themes/news-pro/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/screen.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://cdn.journaldev.com/wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css'  href='//fonts.googleapis.com/css?family=Raleway%3A400%2C700%7CPathway+Gothic+One&#038;ver=3.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-asl-basic-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style.basic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wpdreams-ajaxsearchlite-css'  href='https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/style-simple-red.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/genesis/lib/js/html5shiv.min.js'></script>
+<![endif]-->
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/themes/news-pro/js/responsive-menu.js'></script>
+<link rel='https://api.w.org/' href='https://www.journaldev.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.journaldev.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.journaldev.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.8" />
+<link rel='shortlink' href='https://www.journaldev.com/?p=1487' />
+<link rel="alternate" type="application/json+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.journaldev.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java&#038;format=xml" />
+<head profile="https://www.w3.org/2005/10/profile">
+<script type="text/javascript" src="//cdn.thisiswaldo.com/static/js/2273.js"></script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/8491498/journaldev_video', [[300, 291], [630, 430]], 'div-gpt-ad-1539114023134-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script><style type="text/css">.site-title a { background: url(https://cdn.journaldev.com/wp-content/uploads/2018/07/logo1.svg) no-repeat !important; }</style>
+                <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                      <meta name="onesignal" content="wordpress-plugin"/>
+          <link rel="manifest"
+            href="https://www.journaldev.com/superpwa-manifest.json"/>
+          <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>    <script>
+
+      window.OneSignal = window.OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+        OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+        OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+
+        OneSignal.setDefaultNotificationUrl("https://www.journaldev.com");
+        var oneSignal_options = {};
+        window._oneSignalInitOptions = oneSignal_options;
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = 'bab8c5d5-918b-46f8-8634-2efa6c23e327';
+oneSignal_options['autoRegister'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['path'] = "https://www.journaldev.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.0818a4e7-118f-4fc1-b0e2-07892e811a2a";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['prenotify'] = true;
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+              return OneSignal.isPushNotificationsEnabled()
+                      .then(function(isPushEnabled) {
+                          return !isPushEnabled;
+                      });
+            };
+oneSignal_options['notifyButton']['showCredit'] = false;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['text']['message.prenotify'] = 'Stay Updated with us! Subscribe to our free notifications.';
+oneSignal_options['notifyButton']['text']['tip.state.subscribed'] = 'Thanks for subscribing!';
+oneSignal_options['notifyButton']['text']['message.action.subscribed'] = 'Thanks for subscribing!';
+              OneSignal.init(window._oneSignalInitOptions);
+                    });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+
+                <style type="text/css">
+                    <!--
+                    
+            @font-face {
+                font-family: 'aslsicons2';
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot');
+                src: url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.eot?#iefix') format('embedded-opentype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff2') format('woff2'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.woff') format('woff'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.ttf') format('truetype'),
+                     url('https://cdn.journaldev.com/wp-content/plugins/ajax-search-lite/css/fonts/icons2.svg#icons') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label {
+                font-size: 0px !important;
+                color: rgba(0, 0, 0, 0);
+            }
+            div[id*='ajaxsearchlitesettings'].searchsettings .asl_option_inner label:after {
+                font-size: 11px !important;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            div[id*='ajaxsearchlite'].wpdreams_asl_container {
+                width: 100%;
+                margin: 0px 0px 0px 0px;
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results div.resdrg span.highlighted {
+                font-weight: bold;
+                color: rgba(217, 49, 43, 1);
+                background-color: rgba(238, 238, 238, 1);
+            }
+            div[id*='ajaxsearchliteres'].wpdreams_asl_results .results div.asl_image {
+                width: 70px;
+                height: 70px;
+            }
+            div.asl_r .results {
+                max-height: none;
+            }
+                                -->
+                </style>
+                            <script type="text/javascript">
+                if ( typeof _ASL !== "undefined" && _ASL !== null && typeof _ASL.initialize !== "undefined" )
+                    _ASL.initialize();
+            </script>
+            <link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-180x180.png" />
+<meta name="msapplication-TileImage" content="https://cdn.journaldev.com/wp-content/uploads/2018/12/cropped-512x512-transparent-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.scriptlesssocialsharing{box-sizing:border-box;margin:18px auto}
+.scriptlesssocialsharing-buttons{border-collapse:separate;border-spacing:3px;display:table;table-layout:fixed;width:100%}
+.scriptlesssocialsharing-buttons a.button{border:none;border-radius:0;color:white;display:table-cell;text-align:center;text-decoration:none;padding:9px}
+.scriptlesssocialsharing-buttons a.button:hover{color:#fff}
+.scriptlesssocialsharing-buttons .sss-name{position:inherit;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;border:0;overflow:hidden;word-wrap:break-word}
+.scriptlesssocialsharing-buttons .button.email{background-color:#333;background-color:rgba(51,51,51,0.8)}.scriptlesssocialsharing-buttons .button.email:hover{background-color:#333}
+.scriptlesssocialsharing-buttons .button.twitter{background-color:#55acee;background-color:rgba(85,172,238,0.8)}.scriptlesssocialsharing-buttons .button.twitter:hover{background-color:#55acee}
+.scriptlesssocialsharing-buttons .button.facebook{background-color:#3b5998;background-color:rgba(59,89,152,0.8)}.scriptlesssocialsharing-buttons .button.facebook:hover{background-color:#3b5998}
+.scriptlesssocialsharing-buttons .button.linkedin{background-color:#0077b5;background-color:rgba(0,119,181,0.8)}.scriptlesssocialsharing-buttons .button.linkedin:hover{background-color:#0077b5}
+.scriptlesssocialsharing-buttons .button.google{background-color:#dc4e41;background-color:rgba(220,78,65,0.8)}.scriptlesssocialsharing-buttons .button.google:hover{background-color:#dc4e41}
+.scriptlesssocialsharing-buttons .button.pinterest {background-color: #bd081c;background-color: rgba(189, 8, 28, .8)}
+.scriptlesssocialsharing-buttons .button.pinterest:hover {background-color: #bd081c}  
+.scriptlesssocialsharing-buttons .button.reddit {background-color: #ff4500;background-color: rgba(255, 69, 0, .8)}
+.scriptlesssocialsharing-buttons .button.reddit:hover {background-color: #ff4500}
+@media print {.scriptlesssocialsharing {display: none}}		</style>
+	</head>
+<body class="post-template-default single single-post postid-1487 single-format-standard dwpb-push-page dwpb_responsive_extra_small custom-header header-image content-sidebar" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.journaldev.com/">JournalDev</a></p><p class="site-description" itemprop="description">Java, Java EE, Android, Python, Web Development Tutorials</p></div><div class="widget-area header-widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget8-quick-adsense-3" class="widget widget_adswidget8-quick-adsense"><div class="widget-wrap"><!-- 728x90/320x50 -->
+<div id="waldo-tag-2280"></div></div></section>
+</div></div></header><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><ul id="menu-new-headermenu" class="menu genesis-nav-menu menu-primary"><li id="menu-item-17036" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://www.journaldev.com/java-tutorial-java-ee-tutorials" itemprop="url"><span itemprop="name">Java Tutorial</span></a></li>
+<li id="menu-item-7611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7611"><a href="#" itemprop="url"><span itemprop="name">#Index Posts</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7612"><a href="https://www.journaldev.com/7153/core-java-tutorial" itemprop="url"><span itemprop="name">Core Java Tutorial</span></a></li>
+	<li id="menu-item-7613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7613"><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" itemprop="url"><span itemprop="name">Java Design Patterns</span></a></li>
+	<li id="menu-item-7614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7614"><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" itemprop="url"><span itemprop="name">Servlet JSP Tutorial</span></a></li>
+	<li id="menu-item-7615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7615"><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Struts 2 Tutorial</span></a></li>
+	<li id="menu-item-7616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7616"><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" itemprop="url"><span itemprop="name">Spring Tutorial</span></a></li>
+	<li id="menu-item-7638" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7638"><a href="https://www.journaldev.com/7635/jsf-tutorial" itemprop="url"><span itemprop="name">JSF Tutorial</span></a></li>
+	<li id="menu-item-7620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7620"><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" itemprop="url"><span itemprop="name">Primefaces Tutorial</span></a></li>
+	<li id="menu-item-7619" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7619"><a href="https://www.journaldev.com/2681/jdbc-tutorial" itemprop="url"><span itemprop="name">JDBC Tutorial</span></a></li>
+	<li id="menu-item-7617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7617"><a href="https://www.journaldev.com/3793/hibernate-tutorial" itemprop="url"><span itemprop="name">Hibernate Tutorial</span></a></li>
+	<li id="menu-item-7618" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7618"><a href="https://www.journaldev.com/6672/mongodb-tutorial-installation-example-projects-integration-with-servlet-spring-jsf" itemprop="url"><span itemprop="name">MongoDB Tutorial</span></a></li>
+</ul>
+</li>
+<li id="menu-item-7621" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7621"><a href="#" itemprop="url"><span itemprop="name">#Interview Questions</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-7622" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7622"><a href="https://www.journaldev.com/java-interview-questions" itemprop="url"><span itemprop="name">Java Interview Questions</span></a></li>
+	<li id="menu-item-23747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23747"><a href="https://www.journaldev.com/2366/core-java-interview-questions-and-answers" itemprop="url"><span itemprop="name">Core Java Interview Questions</span></a></li>
+	<li id="menu-item-7623" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7623"><a href="https://www.journaldev.com/2529/jdbc-interview-questions-and-answers" itemprop="url"><span itemprop="name">JDBC Interview Questions</span></a></li>
+	<li id="menu-item-7624" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7624"><a href="https://www.journaldev.com/2015/servlet-interview-questions-and-answers" itemprop="url"><span itemprop="name">Servlet Interview Questions</span></a></li>
+	<li id="menu-item-7625" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7625"><a href="https://www.journaldev.com/2110/jsp-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSP Interview Questions</span></a></li>
+	<li id="menu-item-7626" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7626"><a href="https://www.journaldev.com/2354/struts2-interview-questions-and-answers" itemprop="url"><span itemprop="name">Struts2 Interview Questions</span></a></li>
+	<li id="menu-item-7627" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7627"><a href="https://www.journaldev.com/2696/spring-interview-questions-and-answers" itemprop="url"><span itemprop="name">Spring Interview Questions</span></a></li>
+	<li id="menu-item-7628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7628"><a href="https://www.journaldev.com/3633/hibernate-interview-questions-and-answers" itemprop="url"><span itemprop="name">Hibernate Interview Questions</span></a></li>
+	<li id="menu-item-7629" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7629"><a href="https://www.journaldev.com/7261/jsf-interview-questions-and-answers" itemprop="url"><span itemprop="name">JSF Interview Questions</span></a></li>
+</ul>
+</li>
+<li id="menu-item-17037" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://www.journaldev.com/resources" itemprop="url"><span itemprop="name">Resources</span></a></li>
+</ul></div></nav>	
+	<div class="wrapper mailchimp">
+        <div class="box"> 
+            <form action="//journaldev.us8.list-manage.com/subscribe/post-json?u=612f3d966c86000f37699d8cf&amp;id=c64db63284&SIGNUP=TOP_HEADER&c=?"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+				<span>
+					Subscribe to Download Java Design Patterns eBook
+				</span>
+				<div class="main_inputs">	
+				<input type="text" value="" name="FNAME" class="name" id="mce-name" placeholder="Full name" required>
+				
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="name@example.com" required>
+				
+                <input type="submit" value="Download Now" name="subscribe" id="mc-embedded-subscribe" class="mc-button">
+				</div>
+				
+				 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_612f3d966c86000f37699d8cf_c64db63284" tabindex="-1" value=""></div>
+    <div class="clear"></div>
+				
+            </form>
+                <div id="subscribe-result" style="display: none">
+					<p>Thank you for subscribing. Please check your email to confirm subscription.</p>
+                </div>
+        </div>
+    </div>
+	
+
+	<script>
+		var $ = jQuery;
+		$(document).ready(function () {
+  var $form = $('#mc-embedded-subscribe-form');
+  if ($form.length > 0) {
+    $('#mc-embedded-subscribe-form input[type="submit"]').bind('click', function (event) {
+      if (event) event.preventDefault();
+      mailchimp_email_register($form);
+    })
+  }
+})
+		
+function mc_validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function mailchimp_email_register($form) {
+	if(mc_validateEmail($("#mce-EMAIL").val() )) {
+		$('#mc-embedded-subscribe').val('Sending...');
+		$.ajax({
+			type: $form.attr('method'),
+			url: $form.attr('action'),
+			data: $form.serialize(),
+			cache: false,
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			error: function (err) { alert('Could not connect to the registration server. Please try again later.') },
+			success: function (data) {
+				$('#mc-embedded-subscribe').val('subscribe');
+				if (data.result === 'success') {
+					console.log(data.msg);
+					$('#mce-EMAIL').css('borderColor', '#ffffff');
+					$('#subscribe-result').css('color', 'rgb(53, 114, 210)');
+					$('#mc-embedded-subscribe-form').fadeOut(300);
+					$('#subscribe-result').fadeIn(300);
+					document.cookie = "subscribed=true; expires=Thu, 18 Dec 2050 12:00:00 UTC;domain=;path=/";
+					$('#mce-EMAIL').val('');
+					$('#mce-name').val('');
+				} else {
+					console.log(data.msg)
+					alert("You have already subscribed! Please try with different email.");
+				}
+			}
+		});
+	} else {
+		alert("Please enter a valid email");
+	}
+};
+	</script>
+
+<div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><div class="breadcrumb" itemtype="https://schema.org/BreadcrumbList">	You are here:
+<span><span><a href="https://www.journaldev.com/" >Home</a> » <span><a href="https://www.journaldev.com/java" >Java</a> » <span><a href="https://www.journaldev.com/java/design-patterns" >Design Patterns</a> » <span class="breadcrumb_last">Adapter Design Pattern in Java</span></span></span></span></span></div><article class="post-1487 post type-post status-publish format-standard has-post-thumbnail category-design-patterns entry" itemscope itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Adapter Design Pattern in Java</h1>
+<p class="entry-meta"><span class="entry-author" itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="https://www.journaldev.com/author/pankaj" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Pankaj</span></a></span> <span class="entry-comments-link"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comments">16 Comments</a></span> </p></header><div class="entry-content" itemprop="text"><!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_after_entry_728x90" data-format="728x90"> </div>
+</div>
+<p>Adapter <a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial">design pattern</a> is one of the <strong>structural design pattern</strong> and its used so that two unrelated interfaces can work together. The object that joins these unrelated interface is called an <strong>Adapter</strong>.</p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Table of Contents</p><ul class="toc_list"><li><a href="#adapter-design-pattern"><span class="toc_number toc_depth_1">1</span> Adapter Design Pattern</a><ul><li><a href="#two-way-adapter-pattern"><span class="toc_number toc_depth_2">1.1</span> Two Way Adapter Pattern</a></li><li><a href="#adapter-design-pattern-8211-class-adapter"><span class="toc_number toc_depth_2">1.2</span> Adapter Design Pattern &#8211; Class Adapter</a></li><li><a href="#adapter-design-pattern-8211-object-adapter-implementation"><span class="toc_number toc_depth_2">1.3</span> Adapter Design Pattern &#8211; Object Adapter Implementation</a></li><li><a href="#adapter-design-pattern-class-diagram"><span class="toc_number toc_depth_2">1.4</span> Adapter Design Pattern Class Diagram</a></li><li><a href="#adapter-design-pattern-example-in-jdk"><span class="toc_number toc_depth_2">1.5</span> Adapter Design Pattern Example in JDK</a></li></ul></li></ul></div>
+<h2><span id="adapter-design-pattern">Adapter Design Pattern</span></h2>
+<p><a href="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-design-pattern.jpg"><img   src="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-design-pattern.jpg"  alt="adapter design pattern, adapter design pattern in java, adapter pattern, adapter pattern java example" width="560" height="315" class="aligncenter size-full wp-image-11963" srcset="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-design-pattern.jpg 560w, https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-design-pattern-450x253.jpg 450w, https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-design-pattern-20x11.jpg 20w" sizes="(max-width: 560px) 100vw, 560px" /></a><br />
+One of the great real life example of Adapter design pattern is mobile charger. Mobile battery needs 3 volts to charge but the normal socket produces either 120V (US) or 240V (India). So the mobile charger works as an adapter between mobile charging socket and the wall socket.</p>
+<p>We will try to implement multi-adapter using adapter design pattern in this tutorial.</p>
+<p>So first of all we will have two classes &#8211; <code>Volt</code> (to measure volts) and <code>Socket</code> (producing constant volts of 120V).</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.adapter;
+
+public class Volt {
+
+	private int volts;
+	
+	public Volt(int v){
+		this.volts=v;
+	}
+
+	public int getVolts() {
+		return volts;
+	}
+
+	public void setVolts(int volts) {
+		this.volts = volts;
+	}
+	
+}
+</code></pre>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.adapter;
+
+public class Socket {
+
+	public Volt getVolt(){
+		return new Volt(120);
+	}
+}
+</code></pre>
+<p>Now we want to build an adapter that can produce 3 volts, 12 volts and default 120 volts. So first of all we will create an adapter interface with these methods.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.adapter;
+
+public interface SocketAdapter {
+
+	public Volt get120Volt();
+		
+	public Volt get12Volt();
+	
+	public Volt get3Volt();
+}
+</code></pre>
+<h3><span id="two-way-adapter-pattern">Two Way Adapter Pattern</span></h3>
+<p>While implementing Adapter pattern, there are two approaches &#8211; class adapter and object adapter &#8211; however both these approaches produce same result.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-format="300x250" data-zone="jd_post_mid_300x250" ></div>
+</div>
+
+<ol>
+<li><strong>Class Adapter</strong> &#8211; This form uses <a href="https://www.journaldev.com/644/inheritance-java-example"><strong>java inheritance</strong></a> and extends the source interface, in our case Socket class.</li>
+<li><strong>Object Adapter</strong> &#8211; This form uses <a href="https://www.journaldev.com/1325/composition-in-java-example"><strong>Java Composition</strong></a> and adapter contains the source object.</li>
+</ol>
+<h3><span id="adapter-design-pattern-8211-class-adapter">Adapter Design Pattern &#8211; Class Adapter</span></h3>
+<p>Here is the <strong>class adapter</strong> approach implementation of our adapter.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.adapter;
+
+//Using inheritance for adapter pattern
+public class SocketClassAdapterImpl extends Socket implements SocketAdapter{
+
+	@Override
+	public Volt get120Volt() {
+		return getVolt();
+	}
+
+	@Override
+	public Volt get12Volt() {
+		Volt v= getVolt();
+		return convertVolt(v,10);
+	}
+
+	@Override
+	public Volt get3Volt() {
+		Volt v= getVolt();
+		return convertVolt(v,40);
+	}
+	
+	private Volt convertVolt(Volt v, int i) {
+		return new Volt(v.getVolts()/i);
+	}
+
+}
+</code></pre>
+<h3><span id="adapter-design-pattern-8211-object-adapter-implementation">Adapter Design Pattern &#8211; Object Adapter Implementation</span></h3>
+<p>Here is the <strong>Object adapter</strong> implementation of our adapter.</p>
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<div data-type="ad" data-publisher="journaldev.com" data-zone="jd_leaderboard_728x90" data-format="728x90"> </div>
+</div>
+
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.adapter;
+
+public class SocketObjectAdapterImpl implements SocketAdapter{
+
+	//Using Composition for adapter pattern
+	private Socket sock = new Socket();
+	
+	@Override
+	public Volt get120Volt() {
+		return sock.getVolt();
+	}
+
+	@Override
+	public Volt get12Volt() {
+		Volt v= sock.getVolt();
+		return convertVolt(v,10);
+	}
+
+	@Override
+	public Volt get3Volt() {
+		Volt v= sock.getVolt();
+		return convertVolt(v,40);
+	}
+	
+	private Volt convertVolt(Volt v, int i) {
+		return new Volt(v.getVolts()/i);
+	}
+}
+</code></pre>
+<p>Notice that both the adapter implementations are almost same and they implement the <code>SocketAdapter</code> interface. The adapter interface can also be an <a href="https://www.journaldev.com/1582/abstract-class-in-java"><strong>abstract class</strong></a>.</p>
+<p>Here is a test program to consume our adapter design pattern implementation.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+package com.journaldev.design.test;
+
+import com.journaldev.design.adapter.SocketAdapter;
+import com.journaldev.design.adapter.SocketClassAdapterImpl;
+import com.journaldev.design.adapter.SocketObjectAdapterImpl;
+import com.journaldev.design.adapter.Volt;
+
+public class AdapterPatternTest {
+
+	public static void main(String[] args) {
+		
+		testClassAdapter();
+		testObjectAdapter();
+	}
+
+	private static void testObjectAdapter() {
+		SocketAdapter sockAdapter = new SocketObjectAdapterImpl();
+		Volt v3 = getVolt(sockAdapter,3);
+		Volt v12 = getVolt(sockAdapter,12);
+		Volt v120 = getVolt(sockAdapter,120);
+		System.out.println("v3 volts using Object Adapter="+v3.getVolts());
+		System.out.println("v12 volts using Object Adapter="+v12.getVolts());
+		System.out.println("v120 volts using Object Adapter="+v120.getVolts());
+	}
+
+	private static void testClassAdapter() {
+		SocketAdapter sockAdapter = new SocketClassAdapterImpl();
+		Volt v3 = getVolt(sockAdapter,3);
+		Volt v12 = getVolt(sockAdapter,12);
+		Volt v120 = getVolt(sockAdapter,120);
+		System.out.println("v3 volts using Class Adapter="+v3.getVolts());
+		System.out.println("v12 volts using Class Adapter="+v12.getVolts());
+		System.out.println("v120 volts using Class Adapter="+v120.getVolts());
+	}
+	
+	private static Volt getVolt(SocketAdapter sockAdapter, int i) {
+		switch (i){
+		case 3: return sockAdapter.get3Volt();
+		case 12: return sockAdapter.get12Volt();
+		case 120: return sockAdapter.get120Volt();
+		default: return sockAdapter.get120Volt();
+		}
+	}
+}
+</code></pre>
+<p>When we run above test program, we get following output.</p>
+<pre><code><div class='re_clip-board'>Copy</div>
+v3 volts using Class Adapter=3
+v12 volts using Class Adapter=12
+v120 volts using Class Adapter=120
+v3 volts using Object Adapter=3
+v12 volts using Object Adapter=12
+v120 volts using Object Adapter=120
+</code></pre>
+<h3><span id="adapter-design-pattern-class-diagram">Adapter Design Pattern Class Diagram</span></h3>
+<p><a href="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram.png"><img   src="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram-450x291.png"  alt="adapter pattern class diagram, adapter design pattern, adapter pattern, adapter design pattern in java" width="450" height="291" class="aligncenter size-medium wp-image-1488" srcset="https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram-450x291.png 450w, https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram-20x13.png 20w, https://cdn.journaldev.com/wp-content/uploads/2013/07/adapter-pattern-java-class-diagram.png 711w" sizes="(max-width: 450px) 100vw, 450px" /></a></p>
+<h3><span id="adapter-design-pattern-example-in-jdk">Adapter Design Pattern Example in JDK</span></h3>
+<p>Some of the adapter design pattern example I could easily find in JDK classes are;</p>
+<ul>
+<li>java.util.Arrays#asList()</li>
+<li>java.io.InputStreamReader(InputStream) (returns a Reader)</li>
+<li>java.io.OutputStreamWriter(OutputStream) (returns a Writer)</li>
+</ul>
+<p>That&#8217;s all for adapter design pattern in java.</p>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div style="float: none; margin:10px 0 10px 0; text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="autorelaxed"
+     data-ad-client="ca-pub-6459403732537629"
+     data-ad-slot="7381719979"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div><div class="scriptlesssocialsharing"><div class="scriptlesssocialsharing-buttons"><a class="button twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Adapter%20Design%20Pattern%20in%20Java&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java&#038;via=JournalDev&#038;related=JournalDev" rel="noopener"><span class="sss-name">Twitter</span></a><a class="button facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java" rel="noopener"><span class="sss-name">Facebook</span></a><a class="button linkedin" target="_blank" href="https://www.linkedin.com/shareArticle?mini=1&#038;url=https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java&#038;title=Adapter%20Design%20Pattern%20in%20Java&#038;source=https://www.journaldev.com" rel="noopener"><span class="sss-name">Linkedin</span></a><a class="button email" href="mailto:?body=I%20read%20this%20post%20and%20wanted%20to%20share%20it%20with%20you.%20Here&#039;s%20the%20link:%20https%3A%2F%2Fwww.journaldev.com%2F1487%2Fadapter-design-pattern-java&#038;subject=A%20post%20worth%20sharing:%20Adapter%20Design%20Pattern%20in%20Java" rel="noopener"><span class="sss-name">Email</span></a></div></div><div class="prev-next-navigation"><a href="https://www.journaldev.com/1440/prototype-design-pattern-in-java" rel="prev"><div class="previous"><span class="prev_icon">&nbsp;Previous </span><br/> <span class="pagi_content">Prototype Design Pattern in Java</span></div></a><a href="https://www.journaldev.com/1491/bridge-design-pattern-java" rel="next"><div class="next"><span class="next_icon">Next&nbsp;</span><br/> <span class="pagi_content">Bridge Design Pattern in Java</span></div></a></div>
+		<!-- .prev-next-navigation --><section class="author-box" itemprop="author" itemscope itemtype="https://schema.org/Person"><img alt='' src='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=120&#038;d=blank&#038;r=g' srcset='https://secure.gravatar.com/avatar/8087ef00af2610b870ada12392286695?s=240&#038;d=blank&#038;r=g 2x' class='avatar avatar-120 photo' height='120' width='120' /><h4 class="author-box-title">About <span itemprop="name">Pankaj</span></h4><div class="author-box-content" itemprop="description"><p>If you have come this far, it means that you liked what you are reading. Why not reach little more and connect with me directly on <a href="https://plus.google.com/118104420597648001532/posts?rel=author"><strong>Google Plus</strong></a>, <a href="https://www.facebook.com/journaldev"><strong>Facebook</strong></a> or <a href="https://twitter.com/JournalDev"><strong>Twitter</strong></a>. I would love to hear your thoughts and opinions on my articles directly.</p>
+<p>Recently I started creating video tutorials too, so do check out my videos on <a href="https://www.youtube.com/user/JournalDev"><strong>Youtube</strong></a>.</p>
+</div></section></div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">Filed Under: <a href="https://www.journaldev.com/java/design-patterns" rel="category tag">Design Patterns</a></span> </p></footer></article><div class="after-entry" class="widget-area">
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget7-quick-adsense-3" class="widget widget_adswidget7-quick-adsense"><div class="widget-wrap"><!-- 728x90/970x90/970x250/320x50 -->
+<div id="waldo-tag-2281"></div></div></section>
+</div><div class="adjacent-entry-pagination pagination"><div class="pagination-previous alignleft"><a href="https://www.journaldev.com/1477/php-operators" rel="prev"><span class="adjacent-post-link">&#xAB; PHP Operators</span></a></div><div class="pagination-next alignright"><a href="https://www.journaldev.com/1491/bridge-design-pattern-java" rel="next"><span class="adjacent-post-link">Bridge Design Pattern in Java &#xBB;</span></a></div></div><div class="entry-comments" id="comments"><h3>Comments</h3><ol class="comment-list">
+	<li class="comment even thread-even depth-1" id="comment-44063">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Pitos</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2018-07-31T04:46:47+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-44063" class="comment-time-link" itemprop="url">July 31, 2018 at 4:46 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi,</p>
+<p>Personally, I would inject Socket instead of letting the adapter to initialize it, e.g </p>
+<p>public SocketObjectAdapterImpl(Socket s){<br />
+   this.s = s;<br />
+}</p>
+<p>The reason for this change is that if you want to add setters to the Socket, then you won&#8217;t be able to set the state from the client as the reference to the object is within the state of the Adapter. I would limit the adapter&#8217;s responsibility to getting state and/or converting, nothing more.</p>
+<p>Any reason why you favour the current implementation over the DI ?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-44063' onclick='return addComment.moveForm( "comment-44063", "44063", "respond", "1487" )' aria-label='Reply to Pitos'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-39445">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://betterjavacode.com/" class="comment-author-link" rel="external nofollow" itemprop="url">Yogesh</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-09-12T19:31:26+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-39445" class="comment-time-link" itemprop="url">September 12, 2017 at 7:31 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi Pankaj,<br />
+Your example was really good, it did help me understand the adapter pattern. I referenced your post while creating my demo for the same.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39445' onclick='return addComment.moveForm( "comment-39445", "39445", "respond", "1487" )' aria-label='Reply to Yogesh'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-38751">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Debi Boxi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-07-26T00:01:23+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-38751" class="comment-time-link" itemprop="url">July 26, 2017 at 12:01 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi,<br />
+I love this tutorial. its really help me a lots to understanding.</p>
+<p>Thanks a lot</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38751' onclick='return addComment.moveForm( "comment-38751", "38751", "respond", "1487" )' aria-label='Reply to Debi Boxi'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-38412">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">ravi</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-06-18T22:22:43+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-38412" class="comment-time-link" itemprop="url">June 18, 2017 at 10:22 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>What you have explained here, to some extent looks like strategy pattern.<br />
+adapter pattern  must be like below </p>
+<p>DestinationInterface adapt(SourceInterface si){</p>
+<p>DestinationInterface di = new DestinationInterface ();<br />
+//logic to convert / map SourceInterface  to DestinationInterface<br />
+return di;<br />
+}</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38412' onclick='return addComment.moveForm( "comment-38412", "38412", "respond", "1487" )' aria-label='Reply to ravi'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-38332">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Jose M Quijada</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-06-07T11:18:50+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-38332" class="comment-time-link" itemprop="url">June 7, 2017 at 11:18 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Keep in mind that with class adapter, you&#8217;re extending the adaptee (Socket.java in this case), which might pollute your API with undesirable methods/members of Socket.java and all of its parents, because you&#8217;re inheriting everything from Socket.java, giving the client more code than it needs/wants. This is important to keep in mind if you&#8217;re adapting a class that you don&#8217;t own from a 3rd party or something like that. Also, because the adapter is statically linked at compile time, you cannot adapt child classes of Socket.java. Object adapter is more flexible because you can adapt not only Socket.java, but all of its child classes as well.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38332' onclick='return addComment.moveForm( "comment-38332", "38332", "respond", "1487" )' aria-label='Reply to Jose M Quijada'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-36541">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Raed</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-10-11T02:37:17+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-36541" class="comment-time-link" itemprop="url">October 11, 2016 at 2:37 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hello Pankaj,</p>
+<p>could you please show us how does Object Adapter work ? i mean as Code in Java ?</p>
+<p>best regards</p>
+<p>Raed</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36541' onclick='return addComment.moveForm( "comment-36541", "36541", "respond", "1487" )' aria-label='Reply to Raed'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-2" id="comment-38753">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Raed</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-07-26T01:00:32+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-38753" class="comment-time-link" itemprop="url">July 26, 2017 at 1:00 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hello Pankaj,</p>
+<p>sorry i did not see it (SocketObjectAdapterImpl) with Composition.</p>
+<p>best regards</p>
+<p>Raed</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-38753' onclick='return addComment.moveForm( "comment-38753", "38753", "respond", "1487" )' aria-label='Reply to Raed'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-even depth-1" id="comment-36242">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">JIten</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-09-06T02:59:02+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-36242" class="comment-time-link" itemprop="url">September 6, 2016 at 2:59 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Good one but required  more complex example.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36242' onclick='return addComment.moveForm( "comment-36242", "36242", "respond", "1487" )' aria-label='Reply to JIten'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-33061">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Mahadev Shinde</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2015-08-27T23:41:12+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-33061" class="comment-time-link" itemprop="url">August 27, 2015 at 11:41 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Where are your two unrelated interfaces in these examples ?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-33061' onclick='return addComment.moveForm( "comment-33061", "33061", "respond", "1487" )' aria-label='Reply to Mahadev Shinde'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment odd alt depth-2" id="comment-36946">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Zeki</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2016-11-30T14:55:57+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-36946" class="comment-time-link" itemprop="url">November 30, 2016 at 2:55 pm</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I was thinking the same.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-36946' onclick='return addComment.moveForm( "comment-36946", "36946", "respond", "1487" )' aria-label='Reply to Zeki'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment even depth-3" id="comment-39065">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">DEBARATI MAJUMDER</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-08-13T07:57:48+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-39065" class="comment-time-link" itemprop="url">August 13, 2017 at 7:57 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Same question&#8230; where are the unrelated interfaces?</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39065' onclick='return addComment.moveForm( "comment-39065", "39065", "respond", "1487" )' aria-label='Reply to DEBARATI MAJUMDER'>Reply</a></div>
+		
+	</article>
+	<ul class="children">
+
+	<li class="comment byuser comment-author-pankaj bypostauthor odd alt depth-4" id="comment-39067">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name"><a href="https://www.journaldev.com" class="comment-author-link" rel="external nofollow" itemprop="url">Pankaj</a></span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2017-08-13T08:05:24+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-39067" class="comment-time-link" itemprop="url">August 13, 2017 at 8:05 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>I have not created two &#8220;Socket&#8221; classes but you can imagine two Socket classes as &#8220;Socket120V&#8221; and &#8220;Socket3V&#8221;. Now you have two unrelated interfaces and we are applying Adapter pattern to create a single class to produce all different types of Volt outputs.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-39067' onclick='return addComment.moveForm( "comment-39067", "39067", "respond", "1487" )' aria-label='Reply to Pankaj'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-30722">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">Giorgio</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-11-13T02:34:34+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-30722" class="comment-time-link" itemprop="url">November 13, 2014 at 2:34 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hy Pankaj Kumar,</p>
+<p>thanks for your post, I have a question: reading Head first Design pattern, it seem in the Adapter design pattern get involved a bit od delegation, since all the requests made from the client using target interface, will be done delegating the job to the adaptee object. Actually I can&#8217;t see this in the Arrays.asList, because after all you&#8217;re creating a new object from using this method and not adapting array to respond to List interface using an adapter.</p>
+<p> It seems for me more reasonable and Adapter compliant in this manner:</p>
+<p>//ListAdapter.java</p>
+<p>public class ListAdapter implements List{</p>
+<p>	private String[] array;</p>
+<p>	public ListAdapter(String[] array) {<br />
+		this.array=array;<br />
+	}</p>
+<p>	@Override<br />
+	public int size() {<br />
+		return array.length;<br />
+	}</p>
+<p>       /*Other methods*/<br />
+}</p>
+<p>// Test.java</p>
+<p>public static void main(String[] args) {<br />
+		String[] array = new String[2];<br />
+		array[0]=&#8221;Giorgio&#8221;;<br />
+		array[1]=&#8221;Sara&#8221;;</p>
+<p>		/* Versione artigianale del adapter tra array e list */<br />
+		List list = new ListAdapter(array);<br />
+		System.out.println(list.size());<br />
+	}</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-30722' onclick='return addComment.moveForm( "comment-30722", "30722", "respond", "1487" )' aria-label='Reply to Giorgio'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-28888">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">MANOJ @ CITE</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-05-16T02:41:23+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-28888" class="comment-time-link" itemprop="url">May 16, 2014 at 2:41 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Nice One. Pretty clear cut explanation. keep it on.</p>
+<p>Thanks,<br />
+Manoj@ CITE</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-28888' onclick='return addComment.moveForm( "comment-28888", "28888", "respond", "1487" )' aria-label='Reply to MANOJ @ CITE'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+
+	<li class="comment even thread-even depth-1" id="comment-28570">
+	<article itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+
+		
+		<header class="comment-header">
+			<p class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+				<span itemprop="name">HIMANSU NAYAK</span> <span class="says">says</span>			</p>
+
+			<p class="comment-meta"><time class="comment-time" datetime="2014-04-14T07:45:00+00:00" itemprop="datePublished"><a href="https://www.journaldev.com/1487/adapter-design-pattern-java#comment-28570" class="comment-time-link" itemprop="url">April 14, 2014 at 7:45 am</a></time></p>		</header>
+
+		<div class="comment-content" itemprop="text">
+			
+			<p>Hi Pankaj,<br />
+Very simple and clear example. Please provide some knowledge on test framework also like junit or testng.</p>
+		</div>
+
+		<div class="comment-reply"><a rel='nofollow' class='comment-reply-link' href='#comment-28570' onclick='return addComment.moveForm( "comment-28570", "28570", "respond", "1487" )' aria-label='Reply to HIMANSU NAYAK'>Reply</a></div>
+		
+	</article>
+	</li><!-- #comment-## -->
+</ol></div>	<div class="comment-policy-box">
+		<p class="comment-policy"><small><strong>Comment Policy:</strong>Please submit comments to add value to the post. Comments like "Thank You" and "Awesome Post" will be not published. If you want to post code then wrap them inside &lt;pre&gt; tags. For example <strong>&lt;pre&gt;class Foo { }&lt;/pre&gt;</strong>.<br>If you want to post XML content, then please escape &lt; with &amp;lt; and > with &amp;gt; otherwise they will not be shown properly.</small></p>
+	</div>
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/1487/adapter-design-pattern-java#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://www.journaldev.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1487' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+<!-- Anti-spam plugin v.5.2 wordpress.org/plugins/anti-spam/ -->
+		<p class="antispam-group antispam-group-q" style="clear: both;">
+			<label>Current ye@r <span class="required">*</span></label>
+			<input type="hidden" name="antspm-a" class="antispam-control antispam-control-a" value="2018" />
+			<input type="text" name="antspm-q" class="antispam-control antispam-control-q" value="5.2" autocomplete="off" />
+		</p>
+		<p class="antispam-group antispam-group-e" style="display: none;">
+			<label>Leave this field empty</label>
+			<input type="text" name="antspm-e-email-url-website" class="antispam-control antispam-control-e" value="" autocomplete="off" />
+		</p>
+			</form>
+			</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" itemscope itemtype="https://schema.org/WPSideBar"><section id="search-3" class="widget widget_search"><div class="widget-wrap"><script>
+  (function() {
+    var cx = 'partner-pub-5143693538742787:5127011729';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget6-quick-adsense-2" class="widget widget_adswidget6-quick-adsense"><div class="widget-wrap"><!-- /8491498/journaldev_video -->
+<div id='div-gpt-ad-1539114023134-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539114023134-0'); });
+</script>
+</div></div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget9-quick-adsense-3" class="widget widget_adswidget9-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2282"></div></div></section>
+<section id="text-2" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Design Patterns Tutorial</h4>
+			<div class="textwidget"><ul>
+<h4><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></h4>
+<h4>Creational Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples" target="_blank">Singleton</a></li>
+<li><a href="https://www.journaldev.com/1392/factory-design-pattern-in-java" target="_blank">Factory</a></li>
+<li><a href="https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java" target="_blank">Abstract Factory</a></li>
+<li><a href="https://www.journaldev.com/1425/builder-design-pattern-in-java" target="_blank">Builder</a></li>
+<li><a href="https://www.journaldev.com/1440/prototype-design-pattern-in-java" target="_blank">Prototype</a></li>
+<h4>Structural Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1487/adapter-design-pattern-java" target="_blank">Adapter</a></li>
+<li><a href="https://www.journaldev.com/1535/composite-design-pattern-in-java" target="_blank">Composite</a></li>
+<li><a href="https://www.journaldev.com/1572/proxy-design-pattern" target="_blank">Proxy</a></li>
+<li><a href="https://www.journaldev.com/1562/flyweight-design-pattern-java" target="_blank">Flyweight</a></li>
+<li><a href="https://www.journaldev.com/1557/facade-design-pattern-in-java" target="_blank">Facade</a></li>
+<li><a href="https://www.journaldev.com/1491/bridge-design-pattern-java" target="_blank">Bridge</a></li>
+<li><a href="https://www.journaldev.com/1540/decorator-design-pattern-in-java-example" target="_blank">Decorator</a></li>
+<h4>Behavioral Design Patterns</h4>
+<li><a href="https://www.journaldev.com/1763/template-method-design-pattern-in-java" target="_blank">Template Method</a></li>
+<li><a href="https://www.journaldev.com/1730/mediator-design-pattern-in-java-example-tutorial" target="_blank">Mediator</a></li>
+<li><a href="https://www.journaldev.com/1617/chain-of-responsibility-design-pattern-in-java" target="_blank">Chain of Responsibility</a></li>
+<li><a href="https://www.journaldev.com/1739/observer-design-pattern-in-java" target="_blank">Observer</a></li>
+<li><a href="https://www.journaldev.com/1754/strategy-design-pattern-in-java-example-tutorial" target="_blank">Strategy</a></li>
+<li><a href="https://www.journaldev.com/1624/command-design-pattern" target="_blank">Command</a></li>
+<li><a href="https://www.journaldev.com/1751/state-design-pattern-java" target="_blank">State</a></li>
+<li><a href="https://www.journaldev.com/1769/visitor-design-pattern-java" target="_blank">Visitor</a></li>
+<li><a href="https://www.journaldev.com/1635/interpreter-design-pattern-java" target="_blank">Interpreter</a></li>
+<li><a href="https://www.journaldev.com/1716/iterator-design-pattern-java" target="_blank">Iterator</a></li>
+<li><a href="https://www.journaldev.com/1734/memento-design-pattern-java" target="_blank">Memento</a></li>
+<h4>Miscellaneous Design Patterns</h4>
+<li><a href="https://www.journaldev.com/2394/java-dependency-injection-design-pattern-example-tutorial" target="_blank">Dependency Injection</a></li>
+<li><a href="https://www.journaldev.com/171/thread-safety-in-java-singleton-classes-with-example-code" target="_blank">Thread Safety in Java Singleton</a></li>
+</ul>
+</div>
+		</div></section>
+<section id="text-11" class="widget widget_text"><div class="widget-wrap"><h4 class="widget-title widgettitle">Recommended Tutorials</h4>
+			<div class="textwidget"><h4>Java Tutorials</h4>
+<ul>
+<li><a href="https://www.journaldev.com/942/java-io-tutorial" target="_blank">Java IO</a></li>
+<li><a href="https://www.journaldev.com/634/regular-expression-in-java-regex-example" target="_blank">Java Regular Expressions</a></li>
+<li><a href="https://www.journaldev.com/1079/multithreading-in-java" target="_blank">Multithreading in Java</a></li>
+<li><a href="https://www.journaldev.com/977/java-logging-api-tutorial-examples-logger-levels-handlers-formatters-filters" target="_blank">Java Logging</a></li>
+<li><a href="https://www.journaldev.com/721/java-annotations-example-tutorial" target="_blank">Java Annotations</a></li>
+<li><a href="https://www.journaldev.com/1240/java-xml-tutorial" target="_blank">Java XML</a></li>
+<li><a href="https://www.journaldev.com/1260/collections-in-java-tutorial" target="_blank">Collections in Java</a></li>
+<li><a href="https://www.journaldev.com/1663/java-generics-example-method-class-interface" target="_blank">Java Generics</a></li>
+<li><a href="https://www.journaldev.com/1696/exception-handling-in-java" target="_blank">Exception Handling in Java</a></li>
+<li><a href="https://www.journaldev.com/1789/java-reflection-example-tutorial" target="_blank">Java Reflection</a></li>
+<li><a href="https://www.journaldev.com/1827/java-design-patterns-example-tutorial" target="_blank">Java Design Patterns</a></li>
+<li><a href="https://www.journaldev.com/2681/jdbc-tutorial-with-example-projects-datasource-jndi-and-spring-integration" target="_blank">JDBC Tutorial</a></li>
+<h4>Java EE Tutorials</h4>
+<li><a href="https://www.journaldev.com/2114/servlet-jsp-tutorial" target="_blank">Servlet JSP Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2310/struts2-tutorial-with-example-projects" target="_blank">Struts2 Tutorial</a></li>
+<li><a href="https://www.journaldev.com/2888/spring-tutorial-spring-core-tutorial" target="_blank">Spring Tutorial</a></li>
+<li><a href="https://www.journaldev.com/3793/hibernate-tutorial" target="_blank">Hibernate Tutorial</a></li>
+<li><a href="https://www.journaldev.com/5516/primefaces-tutorial-with-example-projects" target="_blank">Primefaces Tutorial</a></li>
+<li><a href="https://www.journaldev.com/255/axis2-web-services-tutorial" target="_blank">Apache Axis 2</a></li>
+<li><a href="https://www.journaldev.com/498/jax-rs-restful-web-service-using-jersey-example-tutorial" target="_blank">JAX-RS</a></li>
+<li><a href="https://www.journaldev.com/1117/memcached-tutorial" target="_blank">Memcached Tutorial</a></li>
+</ul>
+</div>
+		</div></section>
+
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<section id="adswidget10-quick-adsense-2" class="widget widget_adswidget10-quick-adsense"><div class="widget-wrap"><!-- 300x250/300x600/160x600 -->
+<div id="waldo-tag-2283"></div></div></section>
+</aside></div></div><footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter"><div class="wrap"><p>&#x000A9;&nbsp;2018 &middot; <a href="https://www.journaldev.com/privacy-policy">Privacy Policy</a> &middot; Powered by <a href="https://wordpress.org/" title="WordPress">WordPress</a></p></div></footer></div></script>
+<script type='text/javascript'>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script');
+        _dma.type = 'text/javascript';
+        _dma.async = true;
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12171637-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-12171637-4', { 'anonymize_ip': true });
+</script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script>
+		jQuery(document).ready(function() {
+		  jQuery('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+			$(".entry-content pre").show();
+		  });
+		  	
+			jQuery('.entry-content pre code').mouseenter(function(e){
+				var t = jQuery(this);
+					t.children(".re_clip-board").slideDown(100);
+				jQuery(e.target).mouseleave(function(){
+					t.children(".re_clip-board").slideUp(100);
+					
+					setTimeout(function() {
+						t.children(".re_clip-board").text("Copy");
+					}, 100);
+					
+				});
+			});
+			
+			jQuery('.entry-content pre code .re_clip-board').click(function(e){
+				re_copyToClipboard(jQuery(this));
+				$(this).text("Copied!");
+				$(this).css("width", "85px");
+			});
+		});
+		
+function re_copyToClipboard(element) {
+	var elements = element.parent();
+  	var $temp = $("<textarea>");
+  	$("body").append($temp);
+	var text = $(elements).text().replace(/Copy/g, "");
+  	$temp.val(text).select();
+  	document.execCommand("copy");
+  	$temp.remove();
+}
+
+/*Starting expand widget jquery codes */
+var rotation = 0;
+jQuery.fn.plus_rotate = function(degrees) {
+    $(this).css({"-webkit-transform" : "rotate("+ degrees +"deg)",
+                 "-moz-transform" : "rotate("+ degrees +"deg)",
+                 "-ms-transform" : "rotate("+ degrees +"deg)",
+                 "transform" : "rotate("+ degrees +"deg)"});
+    return $(this);
+};
+
+$(document).ready(function(){
+  $(".expand_widget_title").click(function(){
+    if ( !$(this).parent().children("ul").is(":visible") ) {
+      rotation += 360;
+	  $(this).children(".widget_plus_icon").removeClass("zero_six_rotate");
+      $(this).children(".widget_plus_icon").addClass("tree_six_rotate");
+     $(this).parent().children("ul").slideDown(390);
+	 
+	 var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("plus_icon");
+		t.children(".widget_plus_icon").addClass("minus_icon");
+	 }, 400);
+  } else {
+    rotation -= 360;
+     	$(this).children(".widget_plus_icon").removeClass("tree_six_rotate");
+		$(this).children(".widget_plus_icon").addClass("zero_six_rotate");
+    $(this).parent().children("ul").slideUp(390);
+	
+	var t = $(this);
+	 setTimeout(function() {
+	 	t.children(".widget_plus_icon").removeClass("minus_icon");
+		t.children(".widget_plus_icon").addClass("plus_icon");
+	 }, 400);
+  }
+  });
+ });
+
+/*Ending expand widget jquery codes */
+
+</script>
+	<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/anti-spam/js/anti-spam-5.2.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var superpwa_sw = {"url":"\/OneSignalSDKWorker.js.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/super-progressive-web-apps/public/js/register-sw.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","visibility_show":"show","visibility_hide":"hide","width":"Auto","smooth_scroll_offset":"60"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/table-of-contents-plus/front.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"sidebar":"sidebar","margin_top":10,"margin_bottom":0,"stop_id":"","screen_max_width":1024,"screen_max_height":120,"width_inherit":false,"refresh_interval":1500,"window_load_hook":false,"disable_mo_api":false,"widgets":["adswidget10-quick-adsense-2"]}];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-content/plugins/q2w3-fixed-widget/js/q2w3-fixed-widget.min.js'></script>
+<script type='text/javascript' src='https://cdn.journaldev.com/wp-includes/js/wp-embed.min.js'></script>
+<script src="https://cdn.journaldev.com/wp-content/plugins/litespeed-cache/js/lazyload.min.js"></script></body></html>
+
+<!-- Page generated by LiteSpeed Cache 2.8.1 on 2018-12-05 23:24:44 -->

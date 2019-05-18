@@ -1,0 +1,3085 @@
+
+
+
+
+
+
+<!DOCTYPE html><html lang="en"
+      class=""><head><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script><meta charset="utf-8"><meta name="xsrf_token" content="UHrKLipNoDaDPI-RvlqZYoov581TRxtiiGULN7DYMNE6MTU0NDU4NDg5MzI3MzQ2OQ" /><link rel="canonical" href="https://developer.android.com/reference/android/util/Log"><link rel="alternate" href="https://developer.android.com/reference/android/util/Log" hreflang="en"><link rel="alternate" href="https://developer.android.google.cn/reference/android/util/Log" hreflang="en-cn"><link rel="alternate" href="https://developer.android.com/reference/android/util/Log" hreflang="x-default"><link rel="shortcut icon" href="https://developer.android.com/_static/9f55fd91be/images/android/favicon.png"><link rel="apple-touch-icon" href="https://developer.android.com/_static/9f55fd91be/images/android/touchicon-180.png"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet"
+      
+      href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons"
+      ><link rel="stylesheet"
+        href="https://developer.android.com/_static/9f55fd91be/css/devsite-android-light-grey.css"><link rel="stylesheet" href="https://developer.android.com/_static/9f55fd91be/css/android/android-site.css"><link rel="search"
+        type="application/opensearchdescription+xml"
+        title="Android Developers"
+        href="https://developer.android.com/s/opensearch.xml"><script src="https://developer.android.com/_static/9f55fd91be/js/jquery-bundle.js"></script><meta property="og:site_name" content="Android Developers"><meta property="og:type" content="website"><meta property="og:url" content="https://developer.android.com/reference/android/util/Log"><meta property="og:locale" content="en"><script>
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script><title>Log &nbsp;|&nbsp; Android Developers</title><meta property="og:title" content="Log &nbsp;|&nbsp; Android Developers"><link rel="stylesheet" href="https://developer.android.com/static/css/reference-docs.css"></head><body class="
+               devsite-doc-page
+               
+               
+               
+               
+               "
+        
+        
+        
+        id="top_of_page"><div class="devsite-wrapper"><div class="devsite-top-section-wrapper
+            "><header class="devsite-top-section nocontent"><div class="devsite-top-logo-row-wrapper-wrapper"><div class="devsite-top-logo-row-wrapper"><div class="devsite-top-logo-row devsite-full-site-width"><button type="button" class="devsite-expand-section-nav devsite-header-icon-button
+                                       button-flat material-icons gc-analytics-event"
+                  data-category="Site-Wide Custom Events" data-label="Hamburger menu"></button><div class="devsite-product-name-wrapper"><a href="https://developer.android.com/"
+   class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events"
+   data-label="Site logo"
+   track-type = "globalNav"
+   track-name = "androiddevelopers"
+   track-metadata-eventDetail = "nav"
+   track-metadata-position = "nav"><img src="https://developer.android.com/_static/9f55fd91be/images/android/lockup.svg"
+       class="devsite-site-logo" alt="Android Developers"><span class="devsite-site-name devsite-product-name">Android Developers</span></a></div><div class="devsite-header-upper-tabs"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/about/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Platform"
+         >
+          Platform
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/studio/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Android Studio"
+         >
+          Android Studio
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/distribute/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Google Play"
+         >
+          Google Play
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/jetpack/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Android Jetpack"
+         >
+          Android Jetpack
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/docs/"
+           class="devsite-doc-set-nav-active devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           aria-label="Docs, selected"
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Docs"
+         >
+          Docs
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/news/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: News"
+         >
+          News
+        </a></li></ul></nav></div><form class="devsite-search-form"
+                action="https://developer.android.com/s/results/"
+                method="GET"
+                id="top-search"
+                search-placeholder='Search'><div id="searchbox" class="devsite-searchbox"><input placeholder='Search'
+         
+         type="text"
+         class="devsite-search-field devsite-search-query"
+         name="q"
+         value=""
+         autocomplete="off"
+         
+         aria-label="Search box"
+         ><div class="devsite-search-image material-icons"></div></div><input type="hidden"
+       name="p"
+       id="search_project"
+       value="/"
+       data-project-name="Android Developers"
+       data-project-path="/"
+       data-query-match=""><input type="hidden" class="suggest-project" value="Android Developers" /><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Open Source Project" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Apigee Docs" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Google Cloud" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Dialogflow" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Firebase" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Android Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Link.app" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="Nest Developers" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="OpenThread" ></div><div class="suggest-project-metadata" data-home_url="https://www.orbitera.com/" data-path="/" data-name="Orbitera" ></div><div class="suggest-project-metadata" data-home_url="/" data-path="/" data-name="TensorFlow" ></div></form><button type="button" class="devsite-search-button devsite-header-icon-button button-flat
+                                       material-icons"></button></div></div></div><div class="devsite-collapsible-section"><div class="devsite-header-background devsite-full-site-width"><div class="devsite-product-id-row devsite-full-site-width"><div class="devsite-product-description-row"><ul class="devsite-breadcrumb-list"><li class="devsite-breadcrumb-item">
+    
+    
+    
+      Documentation
+    
+    
+  </li></ul></div></div><div class="devsite-doc-set-nav-row devsite-full-site-width"><nav class="devsite-doc-set-nav devsite-nav devsite-overflow-tabs-scroll-wrapper"><ul class="devsite-doc-set-nav-tab-list devsite-overflow-tabs-scroll"><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/docs/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Overview"
+         >
+          Overview
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/guide/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Guides"
+         >
+          Guides
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/reference/"
+           class="devsite-doc-set-nav-active devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           aria-label="Reference, selected"
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Reference"
+         >
+          Reference
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/samples/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Samples"
+         >
+          Samples
+        </a></li><li class="devsite-doc-set-nav-tab-container devsite-nav-tab
+                 "><a href="https://developer.android.com/design/"
+           class=" devsite-nav-tab
+                  devsite-doc-set-nav-tab devsite-doc-set-nav-tab-link gc-analytics-event"
+           
+         
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Tab: Design &amp; Quality"
+         >
+          Design &amp; Quality
+        </a></li></ul></nav></div></div></div></header><script>
+    if (window.jQuery) {
+      $(document).ready(function() {
+        if (window.devsite && window.devsite.search) {
+          
+          window.devsite.search.init('en')
+        }
+      });
+    }
+  </script></div><div id="gc-wrapper"itemscope itemtype="http://schema.org/APIReference"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Developers&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-2&quot;}"><input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Android Developers&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-5831155-1&quot;}"><input class="google-tag-manager-id" type="hidden" value="GTM-KMSWPCJ"><script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "userCountry": "SG", "language": {"requested": "en", "served": "en"}, "projectName": "Android Developers", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+
+      
+        <div class="devsite-site-mask"></div>
+        
+  
+
+
+<nav class="devsite-nav-responsive devsite-nav nocontent" tabindex="0">
+  
+  <div class="devsite-nav-responsive-tabs-panel">
+    
+      
+        
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/about/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Platform">
+          Platform
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/studio/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Android Studio">
+          Android Studio
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/distribute/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Google Play">
+          Google Play
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/jetpack/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Android Jetpack">
+          Android Jetpack
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/docs/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  devsite-nav-active"
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Docs">
+          Docs
+        </a>
+      
+
+      
+
+      
+
+      
+        
+
+
+
+<nav class="devsite-nav-responsive-tabs devsite-nav">
+  <ul class="devsite-nav-list">
+  
+
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/docs/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Overview">
+          Overview
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/guide/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Guides">
+          Guides
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <span class="devsite-nav-responsive-forward devsite-nav-responsive-tab devsite-nav-title
+                     devsite-nav-active gc-analytics-event"
+              data-category="Site-Wide Custom Events" data-label="Responsive Tab: Reference"
+              tabindex="0">
+          Reference
+        </span>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/samples/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Samples">
+          Samples
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/design/?nav=true"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: Design &amp; Quality">
+          Design &amp; Quality
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+
+  
+  </ul>
+</nav>
+
+
+      
+    </li>
+  
+    <li class="devsite-nav-item devsite-nav-item-heading">
+      
+        <a 
+             href="https://developer.android.com/news/"
+           
+           class="devsite-nav-responsive-tab devsite-nav-title gc-analytics-event
+                  "
+           
+           data-category="Site-Wide Custom Events" data-label="Responsive Tab: News">
+          News
+        </a>
+      
+
+      
+
+      
+
+      
+    </li>
+  
+
+  
+  </ul>
+</nav>
+
+
+      
+    
+  </div>
+  
+  
+  <div class="devsite-nav-responsive-sidebar-panel">
+    
+    <div class="devsite-nav-responsive-back" tabindex="0"></div>
+    
+    <nav class="devsite-nav-responsive-sidebar">
+      
+      
+    </nav>
+  </div>
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+</nav>
+
+
+        <div class="devsite-main-content clearfix">
+
+        
+        
+
+        
+  
+  
+    
+    
+      
+  <nav class="devsite-section-nav devsite-nav nocontent">
+    <ul class="devsite-nav-list devsite-nav-list-mini"><li class="devsite-nav-item"><a href="/reference/" class="devsite-nav-title">Overview</a></li><li class="devsite-nav-item"><span class="devsite-nav-title devsite-nav-title-no-path">Android Platform</span></li><li class="devsite-nav-item"><a href="/reference/android/support/packages" class="devsite-nav-title">Android Support Library</a></li><li class="devsite-nav-item"><a href="/reference/androidx/packages" class="devsite-nav-title">AndroidX</a></li><li class="devsite-nav-item"><a href="/reference/androidx/test/packages" class="devsite-nav-title">AndroidX Test</a></li><li class="devsite-nav-item"><a href="/reference/android/arch/packages" class="devsite-nav-title">Architecture Components</a></li><li class="devsite-nav-item"><a href="/reference/android/car/packages" class="devsite-nav-title">Android Automotive Library</a></li><li class="devsite-nav-item"><a href="/reference/android/databinding/packages" class="devsite-nav-title">Databinding Library</a></li><li class="devsite-nav-item"><a href="/reference/android/support/constraint/packages" class="devsite-nav-title">Constraint Layout Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/material/packages" class="devsite-nav-title">Material Components</a></li><li class="devsite-nav-item"><a href="/reference/android/support/test/packages" class="devsite-nav-title">Test Support Library</a></li><li class="devsite-nav-item"><a href="/reference/android/support/wearable/packages" class="devsite-nav-title">Wearable Library</a></li><li class="devsite-nav-item"><a href="/reference/com/android/billingclient/packages" class="devsite-nav-title">Play Billing Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/play/core/packages" class="devsite-nav-title">Play Core Library</a></li><li class="devsite-nav-item"><a href="/reference/com/android/installreferrer/packages" class="devsite-nav-title">Play Install Referrer Library</a></li><li class="devsite-nav-item"><a href="/reference/com/google/android/things/packages" class="devsite-nav-title">Android Things</a></li><li class="devsite-nav-item"><span class="devsite-nav-title devsite-nav-title-no-path">Kotlin API Reference (Preview)</span></li><li class="devsite-nav-item"><a href="/reference/kotlin/packages" class="devsite-nav-title">Android Platform</a></li><li class="devsite-nav-item"><a href="/reference/kotlin/androidx/packages" class="devsite-nav-title">AndroidX</a></li></ul>
+  </nav>
+
+    
+
+    
+  <nav class="devsite-page-nav devsite-nav"></nav>
+
+
+      <article class="devsite-article">
+        <article class="devsite-article-inner">
+  
+          
+  
+
+
+<div class="devsite-rating-container
+            "><div class="devsite-rating-stars"><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="1" data-category="Site-Wide Custom Events" data-label="Star Rating 1"
+         track-metadata-score="1" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 1 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="2" data-category="Site-Wide Custom Events" data-label="Star Rating 2"
+         track-metadata-score="2" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 2 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="3" data-category="Site-Wide Custom Events" data-label="Star Rating 3"
+         track-metadata-score="3" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 3 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="4" data-category="Site-Wide Custom Events" data-label="Star Rating 4"
+         track-metadata-score="4" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 4 out of 5"></div><div class="devsite-rating-star devsite-rating-star-outline gc-analytics-event material-icons"
+         data-rating-val="5" data-category="Site-Wide Custom Events" data-label="Star Rating 5"
+         track-metadata-score="5" track-type="feedback" track-name="rating"
+         track-metadata-position="header"
+         role="button"
+         
+         aria-label="Site content star ratings, rating 5 out of 5"></div></div><div class="devsite-rating-description"></div><div class="devsite-rating-internal"><span class="devsite-rating-stats"></span></div></div><script>
+  $(document).ready(function() {
+    devsite.ratings.init(
+      document.querySelectorAll('#devsite-feedback-project'), false
+      
+    );
+  });
+</script>
+
+
+  
+  <nav class="devsite-breadcrumb-nav devsite-nav">
+    
+
+
+
+
+<ul class="devsite-breadcrumb-list">
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <a href="https://developer.android.com/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="1">
+    
+    
+      Android Developers
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developer.android.com/docs/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="2">
+    
+    
+      Docs
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developer.android.com/reference/" class="devsite-breadcrumb-link gc-analytics-event"
+       data-category="Site-Wide Custom Events" data-label="Breadcrumbs"
+       data-value="3">
+    
+    
+      Reference
+    
+    
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </nav>
+  
+  
+  
+  <nav class="devsite-page-nav-embedded devsite-nav"></nav>
+  
+  <div class="devsite-article-body clearfix
+            
+              devsite-no-page-title
+            "
+       itemprop="articleBody">
+    
+
+<div itemscope itemtype="http://developers.google.com/ReferenceObject">
+<!-- This DIV closes at the end of the BODY -->
+  <meta itemprop="name" content="android.util.Log" />
+  <meta itemprop="path" content="API level 1" />
+
+
+
+<div id="naMessage"></div>
+
+<div id="api-info-block">
+<div class="api-level">
+  
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+  
+  
+  
+  
+
+</div>
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+
+</div><!-- end sum-details-links -->
+</div><!-- end api-info-block -->
+
+<div id="jd-content" data-version-added="1" >
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<h1 class="api-title">Log</h1>
+<p>
+<code class="api-signature">
+  public
+  
+  final
+  
+  class
+  Log
+</code>
+<br>
+
+
+<code class="api-signature">
+  
+    extends <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a>
+  
+  
+  
+</code>
+
+<code class="api-signature">
+  
+  
+  
+</code>
+
+</p><table class="jd-inheritance-table">
+
+
+  <tr>
+    
+    <td colspan="2" class="jd-inheritance-class-cell"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+    </td>
+  </tr>
+  
+
+  <tr>
+    
+      <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+    
+    <td colspan="1" class="jd-inheritance-class-cell">android.util.Log
+    </td>
+  </tr>
+  
+
+</table>
+  
+
+    
+
+<br><hr>
+
+
+  <p>API for sending log output.
+
+ <p>Generally, you should use the <code><a href="https://developer.android.com/reference/android/util/Log.html#v(java.lang.String,%20java.lang.String)">Log.v()</a></code>, <code><a href="https://developer.android.com/reference/android/util/Log.html#d(java.lang.String,%20java.lang.String)">Log.d()</a></code>,
+ <code><a href="https://developer.android.com/reference/android/util/Log.html#i(java.lang.String,%20java.lang.String)">Log.i()</a></code>, <code><a href="https://developer.android.com/reference/android/util/Log.html#w(java.lang.String,%20java.lang.String)">Log.w()</a></code>, and <code><a href="https://developer.android.com/reference/android/util/Log.html#e(java.lang.String,%20java.lang.String)">Log.e()</a></code> methods to write logs.
+ You can then <a href="https://developer.android.com/studio/debug/am-logcat.html">view the logs in logcat</a>.
+
+ <p>The order in terms of verbosity, from least to most is
+ ERROR, WARN, INFO, DEBUG, VERBOSE.  Verbose should never be compiled
+ into an application except during development.  Debug logs are compiled
+ in but stripped at runtime.  Error, warning and info logs are always kept.
+
+ <p><b>Tip:</b> A good convention is to declare a <code>TAG</code> constant
+ in your class:
+
+ <pre>private static final String TAG = "MyActivity";</pre>
+
+ and use that in subsequent calls to the log methods.
+ </p>
+
+ <p><b>Tip:</b> Don't forget that when you make a call like
+ <pre>Log.v(TAG, "index=" + i);</pre>
+ that when you're building the string to pass into Log.d, the compiler uses a
+ StringBuilder and at least three allocations occur: the StringBuilder
+ itself, the buffer, and the String object.  Realistically, there is also
+ another buffer allocation and copy, and even more pressure on the gc.
+ That means that if your log message is filtered out, you might be doing
+ significant work and incurring significant overhead.
+</p>
+
+
+
+
+
+
+
+
+
+<h2 class="api-section">Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="responsive constants">
+<tr><th colspan="2"><h3>Constants</h3></th></tr>
+
+
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#ASSERT">ASSERT</a></code>
+          <p>Priority constant for the println method.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#DEBUG">DEBUG</a></code>
+          <p>Priority constant for the println method; use Log.d.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#ERROR">ERROR</a></code>
+          <p>Priority constant for the println method; use Log.e.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#INFO">INFO</a></code>
+          <p>Priority constant for the println method; use Log.i.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#VERBOSE">VERBOSE</a></code>
+          <p>Priority constant for the println method; use Log.v.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+    <tr data-version-added="1" >
+        <td><code>int</code></td>
+        <td width="100%">
+          <code><a href="https://developer.android.com/reference/android/util/Log.html#WARN">WARN</a></code>
+          <p>Priority constant for the println method; use Log.w.
+          
+    
+</p>
+        </td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="responsive methods">
+<tr><th colspan="2"><h3>Public methods</h3></th></tr>
+
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#d(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">d</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#DEBUG">DEBUG</a></code> log message and log the exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#d(java.lang.String,%20java.lang.String)">d</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#DEBUG">DEBUG</a></code> log message.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#e(java.lang.String,%20java.lang.String)">e</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Send an <code><a href="https://developer.android.com/reference/android/util/Log.html#ERROR">ERROR</a></code> log message.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#e(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">e</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#ERROR">ERROR</a></code> log message and log the exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#getStackTraceString(java.lang.Throwable)">getStackTraceString</a>(<a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Handy function to get a loggable stack trace from a Throwable
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#i(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">i</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#INFO">INFO</a></code> log message and log the exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#i(java.lang.String,%20java.lang.String)">i</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Send an <code><a href="https://developer.android.com/reference/android/util/Log.html#INFO">INFO</a></code> log message.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#isLoggable(java.lang.String,%20int)">isLoggable</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, int level)
+      </code>
+      
+        <p>Checks to see whether or not a log for the specified tag is loggable at the specified level.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#println(int,%20java.lang.String,%20java.lang.String)">println</a>(int priority, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Low-level logging call.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#v(java.lang.String,%20java.lang.String)">v</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#VERBOSE">VERBOSE</a></code> log message.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#v(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">v</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#VERBOSE">VERBOSE</a></code> log message and log the exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#w(java.lang.String,%20java.lang.Throwable)">w</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#w(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">w</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#WARN">WARN</a></code> log message and log the exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#w(java.lang.String,%20java.lang.String)">w</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#WARN">WARN</a></code> log message.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="8" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#wtf(java.lang.String,%20java.lang.String)">wtf</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)
+      </code>
+      
+        <p>What a Terrible Failure: Report a condition that should never happen.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="8" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#wtf(java.lang.String,%20java.lang.Throwable)">wtf</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>What a Terrible Failure: Report an exception that should never happen.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="8" >
+  
+  
+    <td><code>
+        
+        
+        static
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/android/util/Log.html#wtf(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">wtf</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)
+      </code>
+      
+        <p>What a Terrible Failure: Report an exception that should never happen.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="responsive methods inhtable">
+<tr><th><h3>Inherited methods</h3></th></tr>
+
+
+<tr  >
+<td colspan="2">
+  <div class="expandable jd-inherited-apis">
+    <span class="expand-control">From class
+      <code>
+        
+          <a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>
+        
+      </code>
+    </span>
+    <table class="responsive">
+      
+
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/Object.html">Object</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#clone()">clone</a>()
+      </code>
+      
+        <p>Creates and returns a copy of this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#equals(java.lang.Object)">equals</a>(<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a> obj)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#finalize()">finalize</a>()
+      </code>
+      
+        <p>Called by the garbage collector on an object when garbage collection
+ determines that there are no more references to the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="https://developer.android.com/reference/java/lang/Class.html">Class</a>&lt;?&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#getClass()">getClass</a>()
+      </code>
+      
+        <p>Returns the runtime class of this <code>Object</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify</a>()
+      </code>
+      
+        <p>Wakes up a single thread that is waiting on this object's
+ monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll</a>()
+      </code>
+      
+        <p>Wakes up all threads that are waiting on this object's monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="https://developer.android.com/reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long,%20int)">wait</a>(long millis, int nanos)
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
+ some other thread interrupts the current thread, or a certain
+ amount of real time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait(long)">wait</a>(long millis)
+      </code>
+      
+        <p>Causes the current thread to wait until either another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
+ specified amount of time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  <tr data-version-added="1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="https://developer.android.com/reference/java/lang/Object.html#wait()">wait</a>()
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="https://developer.android.com/reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</td></tr>
+
+
+</table>
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2 class="api-section">Constants</h2>
+
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="ASSERT">ASSERT</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int ASSERT</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          7
+          (0x00000007)
+      
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="DEBUG">DEBUG</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int DEBUG</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method; use Log.d.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          3
+          (0x00000003)
+      
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="ERROR">ERROR</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int ERROR</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method; use Log.e.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          6
+          (0x00000006)
+      
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="INFO">INFO</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int INFO</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method; use Log.i.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          4
+          (0x00000004)
+      
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="VERBOSE">VERBOSE</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int VERBOSE</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method; use Log.v.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          2
+          (0x00000002)
+      
+    
+</div>
+
+<div data-version-added="1" >
+    <h3 class="api-name" id="WARN">WARN</h3>
+    <div class="api-level">
+      
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static final int WARN</pre>
+    
+    
+
+    
+  <p>Priority constant for the println method; use Log.w.
+</p></p>
+
+    
+      <p>Constant Value:
+      
+          5
+          (0x00000005)
+      
+    
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2 class="api-section">Public methods</h2>
+
+
+<div data-version-added="1">
+    <h3 class="api-name" id="d(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">d</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int d (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#DEBUG">DEBUG</a></code> log message and log the exception.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="d(java.lang.String,%20java.lang.String)">d</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int d (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#DEBUG">DEBUG</a></code> log message.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="e(java.lang.String,%20java.lang.String)">e</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int e (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Send an <code><a href="https://developer.android.com/reference/android/util/Log.html#ERROR">ERROR</a></code> log message.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="e(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">e</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int e (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#ERROR">ERROR</a></code> log message and log the exception.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="getStackTraceString(java.lang.Throwable)">getStackTraceString</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static <a href="https://developer.android.com/reference/java/lang/String.html">String</a> getStackTraceString (<a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Handy function to get a loggable stack trace from a Throwable</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="https://developer.android.com/reference/java/lang/String.html">String</a></code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="i(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">i</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int i (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#INFO">INFO</a></code> log message and log the exception.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="i(java.lang.String,%20java.lang.String)">i</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int i (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Send an <code><a href="https://developer.android.com/reference/android/util/Log.html#INFO">INFO</a></code> log message.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="isLoggable(java.lang.String,%20int)">isLoggable</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static boolean isLoggable (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                int level)</pre>
+    
+    
+
+    
+  <p>Checks to see whether or not a log for the specified tag is loggable at the specified level.
+
+  The default level of any tag is set to INFO. This means that any level above and including
+  INFO will be logged. Before you make any calls to a logging method you should check to see
+  if your tag should be logged. You can change the default level by setting a system property:
+      'setprop log.tag.&lt;YOUR_LOG_TAG> &lt;LEVEL>'
+  Where level is either VERBOSE, DEBUG, INFO, WARN, ERROR, ASSERT, or SUPPRESS. SUPPRESS will
+  turn off all logging for your tag. You can also create a local.prop file that with the
+  following in it:
+      'log.tag.&lt;YOUR_LOG_TAG>=&lt;LEVEL>'
+  and place that in /data/local.prop.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: The tag to check.</p></td>
+      </tr>
+      <tr>
+        <td><code>level</code></td>
+        <td width="100%">
+          <code>int</code>: The level to check.</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">Whether or not that this is allowed to be logged.</p></td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="https://developer.android.com/reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></code></td>
+          <td width="100%">is thrown if the tag.length() > 23
+         for Nougat (7.0) releases (API <= 23) and prior, there is no
+         tag limit of concern after this API level.
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="println(int,%20java.lang.String,%20java.lang.String)">println</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int println (int priority, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Low-level logging call.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>priority</code></td>
+        <td width="100%">
+          <code>int</code>: The priority/type of this log message</p></td>
+      </tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">The number of bytes written.
+</p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="v(java.lang.String,%20java.lang.String)">v</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int v (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#VERBOSE">VERBOSE</a></code> log message.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="v(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">v</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int v (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#VERBOSE">VERBOSE</a></code> log message and log the exception.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="w(java.lang.String,%20java.lang.Throwable)">w</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int w (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p></p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code> <!-- no parameter comment --></p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code> <!-- no parameter comment --></p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="w(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">w</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int w (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#WARN">WARN</a></code> log message and log the exception.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="w(java.lang.String,%20java.lang.String)">w</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int w (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>Send a <code><a href="https://developer.android.com/reference/android/util/Log.html#WARN">WARN</a></code> log message.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.  It usually identifies
+        the class or activity where the log call occurs.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="8">
+    <h3 class="api-name" id="wtf(java.lang.String,%20java.lang.String)">wtf</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 8</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int wtf (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg)</pre>
+    
+    
+
+    
+  <p>What a Terrible Failure: Report a condition that should never happen.
+ The error will always be logged at level ASSERT with the call stack.
+ Depending on system configuration, a report may be added to the
+ <code><a href="https://developer.android.com/reference/android/os/DropBoxManager.html">DropBoxManager</a></code> and/or the process may be terminated
+ immediately with an error dialog.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="8">
+    <h3 class="api-name" id="wtf(java.lang.String,%20java.lang.Throwable)">wtf</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 8</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int wtf (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>What a Terrible Failure: Report an exception that should never happen.
+ Similar to <code><a href="https://developer.android.com/reference/android/util/Log.html#wtf(java.lang.String,%20java.lang.String)">wtf(String, String)</a></code>, with an exception to log.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+<div data-version-added="8">
+    <h3 class="api-name" id="wtf(java.lang.String,%20java.lang.String,%20java.lang.Throwable)">wtf</h3>
+    <div class="api-level">
+      <div>
+    added in <a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 8</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+public static int wtf (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag, 
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> msg, 
+                <a href="https://developer.android.com/reference/java/lang/Throwable.html">Throwable</a> tr)</pre>
+    
+    
+
+    
+  <p>What a Terrible Failure: Report an exception that should never happen.
+ Similar to <code><a href="https://developer.android.com/reference/android/util/Log.html#wtf(java.lang.String,%20java.lang.Throwable)">wtf(String, Throwable)</a></code>, with a message as well.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>tag</code></td>
+        <td width="100%">
+          <code>String</code>: Used to identify the source of a log message.</p></td>
+      </tr>
+      <tr>
+        <td><code>msg</code></td>
+        <td width="100%">
+          <code>String</code>: The message you would like logged.</p></td>
+      </tr>
+      <tr>
+        <td><code>tr</code></td>
+        <td width="100%">
+          <code>Throwable</code>: An exception to log.  May be null.
+</p></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%"><!-- no returns description in source --></p></td>
+      </tr>
+    </table>
+
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+
+</div><!-- end jd-content -->
+
+
+
+<div class="data-reference-resources-wrapper">
+  
+  <ul data-reference-resources>
+    
+    
+    <li><h2 class="hide-from-toc">Interfaces</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Printer.html">Printer</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Classes</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/util/ArrayMap.html">ArrayMap</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/ArraySet.html">ArraySet</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/AtomicFile.html">AtomicFile</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Base64.html">Base64</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Base64InputStream.html">Base64InputStream</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Base64OutputStream.html">Base64OutputStream</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Config.html">Config</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/DebugUtils.html">DebugUtils</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/DisplayMetrics.html">DisplayMetrics</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/EventLog.html">EventLog</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/EventLog.Event.html">EventLog.Event</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/EventLogTags.html">EventLogTags</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/EventLogTags.Description.html">EventLogTags.Description</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/FloatMath.html">FloatMath</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/FloatProperty.html">FloatProperty</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Half.html">Half</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/IntProperty.html">IntProperty</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/JsonReader.html">JsonReader</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/JsonWriter.html">JsonWriter</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/LayoutDirection.html">LayoutDirection</a></li>
+          <li class="selected"><a href="https://developer.android.com/reference/android/util/Log.html">Log</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/LogPrinter.html">LogPrinter</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/LongSparseArray.html">LongSparseArray</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/LruCache.html">LruCache</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MonthDisplayHelper.html">MonthDisplayHelper</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableBoolean.html">MutableBoolean</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableByte.html">MutableByte</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableChar.html">MutableChar</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableDouble.html">MutableDouble</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableFloat.html">MutableFloat</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableInt.html">MutableInt</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableLong.html">MutableLong</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MutableShort.html">MutableShort</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Pair.html">Pair</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Patterns.html">Patterns</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/PrintStreamPrinter.html">PrintStreamPrinter</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/PrintWriterPrinter.html">PrintWriterPrinter</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Property.html">Property</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Range.html">Range</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Rational.html">Rational</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Size.html">Size</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/SizeF.html">SizeF</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/SparseArray.html">SparseArray</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/SparseBooleanArray.html">SparseBooleanArray</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/SparseIntArray.html">SparseIntArray</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/SparseLongArray.html">SparseLongArray</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/StateSet.html">StateSet</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/StatsLog.html">StatsLog</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/StringBuilderPrinter.html">StringBuilderPrinter</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/TimeUtils.html">TimeUtils</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/TimingLogger.html">TimingLogger</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/TypedValue.html">TypedValue</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Xml.html">Xml</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Enums</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/util/JsonToken.html">JsonToken</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Xml.Encoding.html">Xml.Encoding</a></li>
+      </ul>
+    </li>
+    
+    <li><h2 class="hide-from-toc">Exceptions</h2>
+      <ul>
+          <li><a href="https://developer.android.com/reference/android/util/AndroidException.html">AndroidException</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/AndroidRuntimeException.html">AndroidRuntimeException</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/Base64DataException.html">Base64DataException</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/MalformedJsonException.html">MalformedJsonException</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/NoSuchPropertyException.html">NoSuchPropertyException</a></li>
+          <li><a href="https://developer.android.com/reference/android/util/TimeFormatException.html">TimeFormatException</a></li>
+      </ul>
+    </li>
+    
+  </ul>
+  
+</div>
+
+
+
+</div><!-- end devsite ReferenceObject -->
+
+  </div>
+  
+
+  
+        
+  
+
+
+
+
+
+
+
+        
+<div class="devsite-content-footer nocontent">
+  
+  
+    <p>Content and code samples on this page are subject to the licenses described in the <a href="/license">Content License</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+
+  
+    
+    <p class="devsite-content-footer-date" itemprop="datePublished"
+       content="2018-06-06T16:09:42.962400">
+      
+      Last updated June 6, 2018.
+    </p>
+  
+
+</div>
+
+        </article>
+      </article>
+  
+
+        </div>
+      
+
+<footer class="devsite-footer-promos nocontent"><nav class="devsite-full-site-width"><ul class="devsite-footer-promos-list"><li class="devsite-footer-promo"><a href="//twitter.com/AndroidDev"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Twitter Promo"
+           ><img class="devsite-footer-promo-icon" src="https://developer.android.com/images/footer/logo-twitter.svg">
+          
+          
+            Twitter
+          
+        </a><div class="devsite-footer-promo-description">Follow @AndroidDev on Twitter</div></li><li class="devsite-footer-promo"><a href="//plus.google.com/+AndroidDevelopers"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Google+ Promo"
+           ><img class="devsite-footer-promo-icon" src="//www.gstatic.com/images/branding/product/2x/google_plus_48dp.png">
+          
+          
+            Google+
+          
+        </a><div class="devsite-footer-promo-description">Follow Android Developers on Google+</div></li><li class="devsite-footer-promo"><a href="//www.youtube.com/user/androiddevelopers"
+           class="devsite-footer-promo-title gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer YouTube Promo"
+           ><img class="devsite-footer-promo-icon" src="//www.gstatic.com/images/icons/material/product/2x/youtube_48dp.png">
+          
+          
+            YouTube
+          
+        </a><div class="devsite-footer-promo-description">Check out Android Developers on YouTube</div></li></ul></nav></footer><footer class="devsite-footer-linkboxes nocontent
+               devsite-footer-linkboxes-all-backup
+               devsite-footer-linkboxes-with-sites"><nav class="devsite-full-site-width"><ul class="devsite-footer-linkboxes-list"><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">More Android</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link"
+               >
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/enterprise/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Enterprise Link"
+               >
+                Enterprise
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.android.com/security-center/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Security Link"
+               >
+                Security
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://source.android.com/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Open Source Link"
+               >
+                Source
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Support</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://issuetracker.google.com/issues/new?component=190923&template=841312"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Report Android Bug Link"
+               >
+                Report platform bug
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://issuetracker.google.com/issues/new?component=192697"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Report Android Doc Bug Link"
+               >
+                Report documentation bug
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://support.google.com/googleplay/android-developer"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Google Play Support Link"
+               >
+                Google Play support
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf27XIxoFmNpTjTYdk-m1uKWGqEnd7_4C_E1AD5fdCfyTBWNA/viewform?usp=pp_url&entry.1909689089&entry.208743710&entry.408796755&entry.1341430893&entry.594931249&entry.1640656812&entry.1759804042&entry.1441312344=developer.android.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer User Studies Link"
+               >
+                Join user studies
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Documentation</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/guide/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Guides Link"
+               >
+                Developer guides
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/design/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Design Guides"
+               >
+                Design guides
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/reference/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev API Ref Link"
+               >
+                API reference
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/samples/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Dev Samples Link"
+               >
+                Samples
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/studio/intro/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Studio Link"
+               >
+                Android Studio
+            </a></li></ul></li><li class="devsite-footer-linkbox devsite-footer-linkbox-sites"><a href="https://developers.google.com/"
+           class="gc-analytics-event devsite-footer-linkbox-logo-link"
+           data-category="Site-Wide Custom Events" data-label="Footer Google Developers Link"><img class="devsite-footer-linkbox-logo"
+               src="https://developer.android.com/_static/9f55fd91be/images/redesign-14/lockup-color-knockout.png"
+               alt="Google Developers"></a><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="//developer.android.com/index.html"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Android Link"
+               >
+                Android
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developer.chrome.com/home"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Chrome Link"
+               >
+                Chrome
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//firebase.google.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Firebase Link"
+               >
+                Firebase
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//cloud.google.com"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Cloud Link"
+               >
+                Google Cloud Platform
+            </a></li><li class="devsite-footer-linkbox-item"><a href="//developers.google.com/products/"
+               class="gc-analytics-event"
+               data-category="Site-Wide Custom Events"
+               data-label="Footer Products Link"
+               >
+                All Products
+            </a></li></ul></li></ul></nav></footer><footer class="devsite-utility-footer"><nav class="devsite-utility-footer-nav devsite-nav devsite-full-site-width"><div class="devsite-utility-footer-nav-left"><form class="devsite-utility-footer-language" action="https://developer.android.com/i18n/setlang/"
+            method="post"><input type="hidden" name="xsrf_token" value="UHrKLipNoDaDPI-RvlqZYoov581TRxtiiGULN7DYMNE6MTU0NDU4NDg5MzI3MzQ2OQ" /><input type="hidden" name="next" value="/reference/android/util/Log"><select class="devsite-utility-footer-language-select kd-select" name="language"
+                track-type="languageSelector" track-name="click"><option value="id"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="id"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="id">
+            Bahasa Indonesia
+          </option><option value="de"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="de"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="de">
+            Deutsch
+          </option><option value="en"
+                 selected="selected" 
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="en"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="en">
+            English
+          </option><option value="es"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="es"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es">
+            español
+          </option><option value="es-419"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="es-419"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="es-419">
+            Español (América Latina)
+          </option><option value="fr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="fr"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="fr">
+            français
+          </option><option value="pt-br"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="pt-br"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="pt-br">
+            Português Brasileiro
+          </option><option value="vi"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="vi"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="vi">
+            Tiếng Việt
+          </option><option value="tr"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="tr"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="tr">
+            Türkçe
+          </option><option value="ru"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ru"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ru">
+            Русский
+          </option><option value="th"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="th"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="th">
+            ภาษาไทย
+          </option><option value="ja"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ja"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ja">
+            日本語
+          </option><option value="zh-cn"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="zh-cn"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-cn">
+            简体中文
+          </option><option value="zh-tw"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="zh-tw"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="zh-tw">
+            繁體中文
+          </option><option value="ko"
+                
+                track-type="languageSelector" track-name="changed"
+                track-metadata-eventDetail="ko"
+                track-metadata-original-language="en"
+                track-metadata-selected-language="ko">
+            한국어
+          </option></select></form><span class="devsite-utility-footer-links"><a class="devsite-utility-footer-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer privacy link"
+           data-footer-link-id="privacy"
+           >Privacy
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developer.android.com/license"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer license link"
+           data-footer-link-id="license"
+           >License
+         </a><a class="devsite-utility-footer-link gc-analytics-event"
+           href="https://developer.android.com/distribute/marketing-tools/brand-guidelines"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer brand_guidelines link"
+           data-footer-link-id="brand_guidelines"
+           >Brand Guidelines
+         </a></span></div><div class="devsite-utility-footer-nav-right"><div class="devsite-utility-footer-newsletter-signup-text">
+        Get Android and Google Play news by email
+      </div><a class="button button-primary devsite-utility-footer-newsletter-signup-button"
+         href="/newsletter/#subscribe"
+         track-type="navigateTo" track-name="newsletter"
+         track-metadata-eventDetail="footer"
+         track-metadata-position="footer">
+        
+        Subscribe
+      </a></div></nav></footer></div><script async defer src="//www.gstatic.com/feedback/api.js"></script><script src="https://developer.android.com/_static2/9f55fd91be/jsi18n/"></script><script src="https://developer.android.com/_static/9f55fd91be/js/script_foot_closure.js"></script><script src="https://developer.android.com/_static/9f55fd91be/js/script_foot.js"></script><script>var METADATA = {};</script><script src="https://developer.android.com/irina_metadata_en.js?v=2018121203"></script><script src="https://developer.android.com/_static/9f55fd91be/js/managed/dynamic-content-widget.js"></script><script>
+        (function($) {
+          
+          devsite.devsite.Init($, {'ENABLE_BLOCKED_VIDEO_PLACEHOLDER': 0, 'SITE_NAME': 'irina', 'FULL_SITE_SEARCH_ENABLED': 1, 'ENABLE_CLOUDTRACK': 0, 'VTAGS_ENABLED': 0, 'HISTORY_ENABLED': 0, 'SIDEBAR_MINI_ENABLED': 1, 'VERSION_HASH': '9f55fd91be', 'SCRIPTSAFE_DOMAIN': 'android-dot-google-developers.appspot.com', 'ENABLE_BLOCKED_LINK_TOOLTIP': 0, 'ALLOWED_HOSTS': ['.android.com', '.appspot.com', '.gonglchuangl.net', '.google.cn', '.google.com', '.googleplex.com', '.tensorflow.org'], 'BLOCK_RSS_FEEDS': 0},
+                               '[]','en',
+                               true, '',
+                               {"f62218c009ec029abef196bba5aa34cf": true, "8de7a048f21618359bd37f5ce44be073": false, "098dafe57affddc137df300142652cfd": false, "8e03e230de0bd8a6fe173fdf172e8b3f": true, "cb025a64a50094835616312f4774a53d": true, "51470233c56fc1fde50f00b73c52b216": false, "d169d485cf24243a263783dbe42029b1": true, "039e5d84b87fd75807ffb37b7f1bbf2c": true, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true}, '/',
+                               'https://developer.android.com/');
+        })(jQuery);
+
+        
+        devsite.localInit = function() {
+          
+        };
+
+      </script><script>
+      $('.devsite-utility-footer-language-select').each(function() {
+        $(this).change(function(){$('.devsite-utility-footer-language').submit();});
+      });
+      </script></div><span id="devsite-request-elapsed" data-request-elapsed="368.671894073"></span></body></html>
